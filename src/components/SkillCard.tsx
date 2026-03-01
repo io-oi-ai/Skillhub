@@ -1,0 +1,61 @@
+import Link from "next/link";
+import type { Skill } from "@/lib/types";
+import { ROLE_LABELS, ROLE_COLORS, SCENE_LABELS, SOURCE_LABELS } from "@/lib/types";
+
+interface SkillCardProps {
+  skill: Skill;
+}
+
+export default function SkillCard({ skill }: SkillCardProps) {
+  return (
+    <Link href={`/skill/${skill.id}`}>
+      <div className="group h-full rounded-xl border border-border bg-bg-card p-5 transition-all hover:border-text-muted hover:shadow-sm">
+        <div className="mb-3 flex items-start justify-between">
+          <h3 className="font-serif text-lg font-semibold text-text-primary group-hover:text-accent">
+            {skill.name}
+          </h3>
+          {skill.featured && (
+            <span className="shrink-0 rounded-md bg-amber-50 px-2 py-0.5 text-xs text-amber-700 border border-amber-200">
+              Featured
+            </span>
+          )}
+        </div>
+
+        <p className="mb-4 line-clamp-2 text-sm leading-relaxed text-text-secondary">
+          {skill.description}
+        </p>
+
+        <div className="mb-3 flex flex-wrap gap-1.5">
+          {skill.roles.map((role) => (
+            <span
+              key={role}
+              className={`rounded-md border px-2 py-0.5 text-xs ${ROLE_COLORS[role]}`}
+            >
+              {ROLE_LABELS[role]}
+            </span>
+          ))}
+          {skill.scenes.map((scene) => (
+            <span
+              key={scene}
+              className="rounded-md border border-border bg-bg-primary px-2 py-0.5 text-xs text-text-muted"
+            >
+              {SCENE_LABELS[scene]}
+            </span>
+          ))}
+        </div>
+
+        <div className="flex items-center justify-between text-xs text-text-muted">
+          <span>{skill.author}</span>
+          <div className="flex items-center gap-2">
+            {skill.source && skill.source !== "skillhub" && (
+              <span className="rounded bg-bg-primary px-1.5 py-0.5 font-mono text-[10px]">
+                {SOURCE_LABELS[skill.source]}
+              </span>
+            )}
+            <span>v{skill.version}</span>
+          </div>
+        </div>
+      </div>
+    </Link>
+  );
+}

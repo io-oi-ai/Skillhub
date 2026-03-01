@@ -8,7 +8,6 @@ interface SkillCardProps {
   locale: Locale;
   roleLabels: Record<string, string>;
   sceneLabels: Record<string, string>;
-  sourceLabels: Record<string, string>;
   featuredLabel: string;
 }
 
@@ -17,7 +16,6 @@ export default function SkillCard({
   locale,
   roleLabels,
   sceneLabels,
-  sourceLabels,
   featuredLabel,
 }: SkillCardProps) {
   const prefix = locale === "en" ? "" : `/${locale}`;
@@ -61,14 +59,7 @@ export default function SkillCard({
 
         <div className="flex items-center justify-between text-xs text-text-muted">
           <span>{skill.author}</span>
-          <div className="flex items-center gap-2">
-            {skill.source && skill.source !== "skillhub" && (
-              <span className="rounded bg-bg-primary px-1.5 py-0.5 font-mono text-[10px]">
-                {sourceLabels[skill.source]}
-              </span>
-            )}
-            <span>v{skill.version}</span>
-          </div>
+          <span>v{skill.version}</span>
         </div>
       </div>
     </Link>

@@ -41,7 +41,6 @@ export default function SkillGrid({ skills, locale, dict }: SkillGridProps) {
 
   const roleLabels = dict.roles as Record<string, string>;
   const sceneLabels = dict.scenes as Record<string, string>;
-  const sourceLabels = dict.sources as Record<string, string>;
 
   return (
     <div className="space-y-6">
@@ -79,7 +78,6 @@ export default function SkillGrid({ skills, locale, dict }: SkillGridProps) {
               locale={locale}
               roleLabels={roleLabels}
               sceneLabels={sceneLabels}
-              sourceLabels={sourceLabels}
               featuredLabel={dict.skillCard.featured}
             />
           ))}

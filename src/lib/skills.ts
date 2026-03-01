@@ -1,60 +1,63 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
+import { supabase } from "./supabase";
 import type { Skill } from "./types";
 
-const SKILLS_DIR = path.join(process.cwd(), "content/skills");
-
-export function getAllSkills(): Skill[] {
-  const files = fs
-    .readdirSync(SKILLS_DIR)
-    .filter((f) => f.endsWith(".md"));
-
-  const skills: Skill[] = files.map((file) => {
-    const raw = fs.readFileSync(path.join(SKILLS_DIR, file), "utf-8");
-    const { data, content } = matter(raw);
-    return {
-      id: file.replace(/\.md$/, ""),
-      name: data.name,
-      description: data.description,
-      author: data.author,
-      roles: data.roles || [],
-      scenes: data.scenes || [],
-      version: data.version || "1.0.0",
-      updatedAt: data.updatedAt || "",
-      tags: data.tags || [],
-      featured: data.featured || false,
-      source: data.source,
-      content,
-    };
-  });
-
-  return skills.sort((a, b) => {
-    if (a.featured && !b.featured) return -1;
-    if (!a.featured && b.featured) return 1;
-    return new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime();
-  });
+interface SkillRow {
+  id: string;
+  name: string;
+  description: string;
+  author: string;
+  roles: string[];
+  scenes: string[];
+  version: string;
+  updated_at: string;
+  tags: string[];
+  featured: boolean;
+  source: string | null;
+  content: string;
+  likes_count: number;
 }
 
-export function getSkillById(id: string): Skill | null {
-  const filePath = path.join(SKILLS_DIR, `${id}.md`);
-  if (!fs.existsSync(filePath)) return null;
-
-  const raw = fs.readFileSync(filePath, "utf-8");
-  const { data, content } = matter(raw);
-
+function rowToSkill(row: SkillRow): Skill {
   return {
-    id,
-    name: data.name,
-    description: data.description,
-    author: data.author,
-    roles: data.roles || [],
-    scenes: data.scenes || [],
-    version: data.version || "1.0.0",
-    updatedAt: data.updatedAt || "",
-    tags: data.tags || [],
-    featured: data.featured || false,
-    source: data.source,
-    content,
+    id: row.id,
+    name: row.name,
+    description: row.description,
+    author: row.author,
+    roles: row.roles as Skill["roles"],
+    scenes: row.scenes as Skill["scenes"],
+    version: row.version,
+    updatedAt: row.updated_at,
+    tags: row.tags,
+    featured: row.featured,
+    source: row.source as Skill["source"],
+    content: row.content,
+    likesCount: row.likes_count,
   };
+}
+
+export async function getAllSkills(): Promise<Skill[]> {
+  const { data, error } = await supabase
+    .from("skills")
+    .select("*")
+    .order("featured", { ascending: false })
+    .order("updated_at", { ascending: false });
+
+  if (error) {
+    console.error("Failed to fetch skills:", error);
+    return [];
+  }
+
+  return (data as SkillRow[]).map(rowToSkill);
+}
+
+export async function getSkillById(id: string): Promise<Skill | null> {
+  const { data, error } = await supabase
+    .from("skills")
+    .select("*")
+    .eq("id", id)
+    .single();
+
+  if (error || !data) return null;
+
+  return rowToSkill(data as SkillRow);
 }

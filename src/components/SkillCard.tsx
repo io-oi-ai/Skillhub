@@ -2,6 +2,8 @@ import Link from "next/link";
 import type { Skill } from "@/lib/types";
 import { ROLE_COLORS } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
+import LikeButton from "./LikeButton";
+import DownloadButton from "./DownloadButton";
 
 interface SkillCardProps {
   skill: Skill;
@@ -9,6 +11,7 @@ interface SkillCardProps {
   roleLabels: Record<string, string>;
   sceneLabels: Record<string, string>;
   featuredLabel: string;
+  downloadLabel: string;
 }
 
 export default function SkillCard({
@@ -17,6 +20,7 @@ export default function SkillCard({
   roleLabels,
   sceneLabels,
   featuredLabel,
+  downloadLabel,
 }: SkillCardProps) {
   const prefix = locale === "en" ? "" : `/${locale}`;
 
@@ -59,7 +63,11 @@ export default function SkillCard({
 
         <div className="flex items-center justify-between text-xs text-text-muted">
           <span>{skill.author}</span>
-          <span>v{skill.version}</span>
+          <div className="flex items-center gap-2">
+            <DownloadButton skill={skill} label={downloadLabel} size="sm" />
+            <LikeButton skillId={skill.id} initialCount={skill.likesCount} size="sm" />
+            <span>v{skill.version}</span>
+          </div>
         </div>
       </div>
     </Link>

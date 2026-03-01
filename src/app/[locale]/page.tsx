@@ -7,6 +7,8 @@ import { isValidLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { notFound } from "next/navigation";
 
+export const dynamic = "force-dynamic";
+
 interface Props {
   params: Promise<{ locale: string }>;
 }
@@ -15,7 +17,7 @@ export default async function Home({ params }: Props) {
   const { locale } = await params;
   if (!isValidLocale(locale)) notFound();
   const dict = await getDictionary(locale);
-  const skills = getAllSkills();
+  const skills = await getAllSkills();
 
   return (
     <>

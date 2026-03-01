@@ -2,29 +2,26 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { getAllSkills, getSkillById } from "@/lib/skills";
+import { getSkillById } from "@/lib/skills";
 import { ROLE_COLORS } from "@/lib/types";
-import type { Role, Scene, Source } from "@/lib/types";
-import { i18n, isValidLocale } from "@/i18n/config";
+import type { Role, Scene } from "@/lib/types";
+import { isValidLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import SkillContent from "./SkillContent";
+import LikeButton from "@/components/LikeButton";
+import DownloadButton from "@/components/DownloadButton";
+
+export const dynamic = "force-dynamic";
 
 interface Props {
   params: Promise<{ locale: string; id: string }>;
-}
-
-export async function generateStaticParams() {
-  const skills = getAllSkills();
-  return i18n.locales.flatMap((locale) =>
-    skills.map((skill) => ({ locale, id: skill.id }))
-  );
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, id } = await params;
   if (!isValidLocale(locale)) return {};
   const dict = await getDictionary(locale);
-  const skill = getSkillById(id);
+  const skill = await getSkillById(id);
   if (!skill) return { title: dict.metadata.skillNotFound };
 
   const baseUrl = "https://skillhub.dev";
@@ -52,7 +49,7 @@ export default async function SkillPage({ params }: Props) {
   const { locale, id } = await params;
   if (!isValidLocale(locale)) notFound();
   const dict = await getDictionary(locale);
-  const skill = getSkillById(id);
+  const skill = await getSkillById(id);
   if (!skill) notFound();
 
   const roleLabels = dict.roles as Record<string, string>;
@@ -104,6 +101,8 @@ export default async function SkillPage({ params }: Props) {
                   {dict.skillDetail.source} {sourceLabels[skill.source]}
                 </span>
               )}
+              <LikeButton skillId={skill.id} initialCount={skill.likesCount} size="md" />
+              <DownloadButton skill={skill} label={dict.skillCard.download} size="md" />
             </div>
 
             {skill.tags.length > 0 && (

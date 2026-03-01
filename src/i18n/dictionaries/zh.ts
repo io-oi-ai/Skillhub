@@ -63,6 +63,16 @@ const zh: Dictionary = {
   },
   skillCard: {
     featured: "推荐",
+    download: "下载 .md",
+  },
+  like: {
+    button: "点赞",
+  },
+  metaSkill: {
+    badge: "元技能",
+    subtitle: "一个技能调用所有技能 — 自动匹配并执行最适合当前任务的 Skill",
+    skillCount: "个技能可用",
+    cta: "查看详情",
   },
   skillDetail: {
     featured: "推荐",

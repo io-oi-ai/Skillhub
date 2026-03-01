@@ -5,8 +5,11 @@ import type { Skill, Role, Scene } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries/en";
 import SkillCard from "./SkillCard";
+import MetaSkillCard from "./MetaSkillCard";
 import SearchBar from "./SearchBar";
 import FilterBar from "./FilterBar";
+
+const META_SKILL_ID = "skillhub-agent";
 
 interface SkillGridProps {
   skills: Skill[];
@@ -19,24 +22,29 @@ export default function SkillGrid({ skills, locale, dict }: SkillGridProps) {
   const [selectedRole, setSelectedRole] = useState<Role | null>(null);
   const [selectedScene, setSelectedScene] = useState<Scene | null>(null);
 
+  const metaSkill = skills.find((s) => s.id === META_SKILL_ID);
+  const regularSkillCount = skills.filter((s) => s.id !== META_SKILL_ID).length;
+
   const filtered = useMemo(() => {
-    return skills.filter((skill) => {
-      if (selectedRole && !skill.roles.includes(selectedRole)) {
-        return false;
-      }
-      if (selectedScene && !skill.scenes.includes(selectedScene)) {
-        return false;
-      }
-      if (search) {
-        const q = search.toLowerCase();
-        return (
-          skill.name.toLowerCase().includes(q) ||
-          skill.description.toLowerCase().includes(q) ||
-          skill.tags.some((tag) => tag.toLowerCase().includes(q))
-        );
-      }
-      return true;
-    });
+    return skills
+      .filter((skill) => skill.id !== META_SKILL_ID)
+      .filter((skill) => {
+        if (selectedRole && !skill.roles.includes(selectedRole)) {
+          return false;
+        }
+        if (selectedScene && !skill.scenes.includes(selectedScene)) {
+          return false;
+        }
+        if (search) {
+          const q = search.toLowerCase();
+          return (
+            skill.name.toLowerCase().includes(q) ||
+            skill.description.toLowerCase().includes(q) ||
+            skill.tags.some((tag) => tag.toLowerCase().includes(q))
+          );
+        }
+        return true;
+      });
   }, [skills, search, selectedRole, selectedScene]);
 
   const roleLabels = dict.roles as Record<string, string>;
@@ -62,6 +70,16 @@ export default function SkillGrid({ skills, locale, dict }: SkillGridProps) {
         filterLabels={dict.filter}
       />
 
+      {/* Meta Skill — always visible at top when no search/filter active */}
+      {metaSkill && !search && !selectedRole && !selectedScene && (
+        <MetaSkillCard
+          skill={metaSkill}
+          locale={locale}
+          dict={dict}
+          skillCount={regularSkillCount}
+        />
+      )}
+
       {filtered.length === 0 ? (
         <div className="py-16 text-center">
           <p className="text-lg text-text-muted">{dict.skillGrid.noResults}</p>
@@ -79,6 +97,7 @@ export default function SkillGrid({ skills, locale, dict }: SkillGridProps) {
               roleLabels={roleLabels}
               sceneLabels={sceneLabels}
               featuredLabel={dict.skillCard.featured}
+              downloadLabel={dict.skillCard.download}
             />
           ))}
         </div>

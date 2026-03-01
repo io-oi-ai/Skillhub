@@ -8,7 +8,7 @@ export async function GET(request: NextRequest) {
   const scene = searchParams.get("scene") as Scene | null;
   const q = searchParams.get("q");
 
-  let skills = getAllSkills();
+  let skills = await getAllSkills();
 
   if (role) {
     skills = skills.filter((s) => s.roles.includes(role));

@@ -61,6 +61,16 @@ const en = {
   },
   skillCard: {
     featured: "Featured",
+    download: "Download .md",
+  },
+  like: {
+    button: "Like",
+  },
+  metaSkill: {
+    badge: "Meta Skill",
+    subtitle: "One skill to rule them all — auto-matches and invokes the best skill for any task",
+    skillCount: "skills available",
+    cta: "Explore",
   },
   skillDetail: {
     featured: "Featured",

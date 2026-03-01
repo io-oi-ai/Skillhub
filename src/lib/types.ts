@@ -38,6 +38,7 @@ export interface Skill {
   featured?: boolean;
   source?: Source;
   content: string;
+  likesCount: number;
 }
 
 export const ROLE_COLORS: Record<Role, string> = {

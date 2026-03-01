@@ -1,8 +1,8 @@
 import type { MetadataRoute } from "next";
 import { getAllSkills } from "@/lib/skills";
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const skills = getAllSkills();
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const skills = await getAllSkills();
   const baseUrl = "https://skillhub.dev";
 
   const skillPages = skills.flatMap((skill) => [

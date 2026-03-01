@@ -3,9 +3,10 @@
 interface SearchBarProps {
   value: string;
   onChange: (value: string) => void;
+  placeholder: string;
 }
 
-export default function SearchBar({ value, onChange }: SearchBarProps) {
+export default function SearchBar({ value, onChange, placeholder }: SearchBarProps) {
   return (
     <div className="relative w-full max-w-2xl">
       <svg
@@ -23,7 +24,7 @@ export default function SearchBar({ value, onChange }: SearchBarProps) {
       </svg>
       <input
         type="text"
-        placeholder="Search skills by name, description, or tags..."
+        placeholder={placeholder}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         className="w-full rounded-xl border border-border bg-bg-card py-3 pl-12 pr-4 text-text-primary placeholder-text-muted transition-colors focus:border-text-muted focus:outline-none"

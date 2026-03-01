@@ -2,15 +2,19 @@
 
 import { useState, useMemo } from "react";
 import type { Skill, Role, Scene } from "@/lib/types";
+import type { Locale } from "@/i18n/config";
+import type { Dictionary } from "@/i18n/dictionaries/en";
 import SkillCard from "./SkillCard";
 import SearchBar from "./SearchBar";
 import FilterBar from "./FilterBar";
 
 interface SkillGridProps {
   skills: Skill[];
+  locale: Locale;
+  dict: Dictionary;
 }
 
-export default function SkillGrid({ skills }: SkillGridProps) {
+export default function SkillGrid({ skills, locale, dict }: SkillGridProps) {
   const [search, setSearch] = useState("");
   const [selectedRole, setSelectedRole] = useState<Role | null>(null);
   const [selectedScene, setSelectedScene] = useState<Scene | null>(null);
@@ -35,10 +39,18 @@ export default function SkillGrid({ skills }: SkillGridProps) {
     });
   }, [skills, search, selectedRole, selectedScene]);
 
+  const roleLabels = dict.roles as Record<string, string>;
+  const sceneLabels = dict.scenes as Record<string, string>;
+  const sourceLabels = dict.sources as Record<string, string>;
+
   return (
     <div className="space-y-6">
       <div className="flex justify-center">
-        <SearchBar value={search} onChange={setSearch} />
+        <SearchBar
+          value={search}
+          onChange={setSearch}
+          placeholder={dict.search.placeholder}
+        />
       </div>
 
       <FilterBar
@@ -46,19 +58,30 @@ export default function SkillGrid({ skills }: SkillGridProps) {
         selectedScene={selectedScene}
         onRoleChange={setSelectedRole}
         onSceneChange={setSelectedScene}
+        roleLabels={roleLabels}
+        sceneLabels={sceneLabels}
+        filterLabels={dict.filter}
       />
 
       {filtered.length === 0 ? (
         <div className="py-16 text-center">
-          <p className="text-lg text-text-muted">没有找到匹配的 Skill</p>
+          <p className="text-lg text-text-muted">{dict.skillGrid.noResults}</p>
           <p className="mt-2 text-sm text-text-muted">
-            尝试调整搜索关键词或筛选条件
+            {dict.skillGrid.noResultsHint}
           </p>
         </div>
       ) : (
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {filtered.map((skill) => (
-            <SkillCard key={skill.id} skill={skill} />
+            <SkillCard
+              key={skill.id}
+              skill={skill}
+              locale={locale}
+              roleLabels={roleLabels}
+              sceneLabels={sceneLabels}
+              sourceLabels={sourceLabels}
+              featuredLabel={dict.skillCard.featured}
+            />
           ))}
         </div>
       )}

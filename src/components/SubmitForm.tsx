@@ -2,9 +2,13 @@
 
 import { useState } from "react";
 import type { Role, Scene } from "@/lib/types";
-import { ROLE_LABELS, SCENE_LABELS } from "@/lib/types";
+import type { Dictionary } from "@/i18n/dictionaries/en";
 
-export default function SubmitForm() {
+interface SubmitFormProps {
+  dict: Dictionary;
+}
+
+export default function SubmitForm({ dict }: SubmitFormProps) {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [roles, setRoles] = useState<Role[]>([]);
@@ -13,6 +17,10 @@ export default function SubmitForm() {
   const [tags, setTags] = useState("");
   const [content, setContent] = useState("");
   const [generated, setGenerated] = useState("");
+
+  const t = dict.submitForm;
+  const roleLabels = dict.roles as Record<string, string>;
+  const sceneLabels = dict.scenes as Record<string, string>;
 
   const toggleRole = (r: Role) => {
     setRoles((prev) =>
@@ -68,21 +76,21 @@ ${content || `# ${name}\n\n${description}`}
     URL.revokeObjectURL(url);
   };
 
-  const roleEntries = Object.entries(ROLE_LABELS) as [Role, string][];
-  const sceneEntries = Object.entries(SCENE_LABELS) as [Scene, string][];
+  const roleEntries = Object.entries(roleLabels) as [Role, string][];
+  const sceneEntries = Object.entries(sceneLabels) as [Scene, string][];
 
   return (
     <div className="space-y-6">
       {/* Name */}
       <div>
         <label className="mb-2 block text-sm font-medium text-text-primary">
-          Skill 名称 <span className="text-red-400">*</span>
+          {t.nameLabel} <span className="text-red-400">{t.required}</span>
         </label>
         <input
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          placeholder="例如：周报自动生成"
+          placeholder={t.namePlaceholder}
           className="w-full rounded-lg border border-border bg-bg-card px-4 py-2.5 text-text-primary placeholder-text-muted focus:border-accent focus:outline-none"
         />
       </div>
@@ -90,13 +98,13 @@ ${content || `# ${name}\n\n${description}`}
       {/* Description */}
       <div>
         <label className="mb-2 block text-sm font-medium text-text-primary">
-          简短描述 <span className="text-red-400">*</span>
+          {t.descLabel} <span className="text-red-400">{t.required}</span>
         </label>
         <input
           type="text"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          placeholder="用一句话描述这个 Skill 的功能"
+          placeholder={t.descPlaceholder}
           className="w-full rounded-lg border border-border bg-bg-card px-4 py-2.5 text-text-primary placeholder-text-muted focus:border-accent focus:outline-none"
         />
       </div>
@@ -104,7 +112,7 @@ ${content || `# ${name}\n\n${description}`}
       {/* Roles */}
       <div>
         <label className="mb-2 block text-sm font-medium text-text-primary">
-          适用职业 / 角色 <span className="text-red-400">*</span>
+          {t.rolesLabel} <span className="text-red-400">{t.required}</span>
         </label>
         <div className="flex flex-wrap gap-2">
           {roleEntries.map(([value, label]) => (
@@ -127,7 +135,7 @@ ${content || `# ${name}\n\n${description}`}
       {/* Scenes */}
       <div>
         <label className="mb-2 block text-sm font-medium text-text-primary">
-          技能场景 <span className="text-red-400">*</span>
+          {t.scenesLabel} <span className="text-red-400">{t.required}</span>
         </label>
         <div className="flex flex-wrap gap-2">
           {sceneEntries.map(([value, label]) => (
@@ -150,13 +158,13 @@ ${content || `# ${name}\n\n${description}`}
       {/* Author */}
       <div>
         <label className="mb-2 block text-sm font-medium text-text-primary">
-          作者 <span className="text-red-400">*</span>
+          {t.authorLabel} <span className="text-red-400">{t.required}</span>
         </label>
         <input
           type="text"
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
-          placeholder="你的名字"
+          placeholder={t.authorPlaceholder}
           className="w-full rounded-lg border border-border bg-bg-card px-4 py-2.5 text-text-primary placeholder-text-muted focus:border-accent focus:outline-none"
         />
       </div>
@@ -164,13 +172,13 @@ ${content || `# ${name}\n\n${description}`}
       {/* Tags */}
       <div>
         <label className="mb-2 block text-sm font-medium text-text-primary">
-          标签（用逗号分隔）
+          {t.tagsLabel}
         </label>
         <input
           type="text"
           value={tags}
           onChange={(e) => setTags(e.target.value)}
-          placeholder="例如：周报、自动化、效率"
+          placeholder={t.tagsPlaceholder}
           className="w-full rounded-lg border border-border bg-bg-card px-4 py-2.5 text-text-primary placeholder-text-muted focus:border-accent focus:outline-none"
         />
       </div>
@@ -178,13 +186,13 @@ ${content || `# ${name}\n\n${description}`}
       {/* Content */}
       <div>
         <label className="mb-2 block text-sm font-medium text-text-primary">
-          详细内容（Markdown 格式）
+          {t.contentLabel}
         </label>
         <textarea
           value={content}
           onChange={(e) => setContent(e.target.value)}
           rows={10}
-          placeholder={"# Skill 名称\n\n## 使用场景\n\n描述这个 Skill 适用的场景...\n\n## 使用方法\n\n1. 第一步\n2. 第二步"}
+          placeholder={t.contentPlaceholder}
           className="w-full rounded-lg border border-border bg-bg-card px-4 py-2.5 font-mono text-sm text-text-primary placeholder-text-muted focus:border-accent focus:outline-none"
         />
       </div>
@@ -200,7 +208,7 @@ ${content || `# ${name}\n\n${description}`}
               : "cursor-not-allowed bg-border text-text-muted"
           }`}
         >
-          生成 Markdown 文件
+          {t.generate}
         </button>
       </div>
 
@@ -209,20 +217,20 @@ ${content || `# ${name}\n\n${description}`}
         <div className="space-y-3">
           <div className="flex items-center justify-between">
             <h3 className="text-sm font-medium text-text-primary">
-              生成结果
+              {t.result}
             </h3>
             <div className="flex gap-2">
               <button
                 onClick={copyToClipboard}
                 className="rounded-lg border border-border px-3 py-1.5 text-sm text-text-secondary transition-colors hover:border-accent/50 hover:text-text-primary"
               >
-                复制
+                {t.copy}
               </button>
               <button
                 onClick={downloadFile}
                 className="rounded-lg border border-border px-3 py-1.5 text-sm text-text-secondary transition-colors hover:border-accent/50 hover:text-text-primary"
               >
-                下载 .md 文件
+                {t.download}
               </button>
             </div>
           </div>

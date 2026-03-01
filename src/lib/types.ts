@@ -40,40 +40,6 @@ export interface Skill {
   content: string;
 }
 
-export const SOURCE_LABELS: Record<Source, string> = {
-  "openclawskill.ai": "OpenClaw",
-  "clawhub.ai": "ClawHub",
-  "larrybrain.com": "LarryBrain",
-  skillhub: "SkillHub",
-};
-
-export const ROLE_LABELS: Record<Role, string> = {
-  developer: "开发工程师",
-  "product-manager": "产品经理",
-  designer: "设计师",
-  marketer: "运营/营销",
-  "data-analyst": "数据分析师",
-  operations: "行政/运营",
-  hr: "人力资源",
-  finance: "财务",
-  legal: "法务",
-  educator: "教育/培训",
-  everyone: "通用",
-};
-
-export const SCENE_LABELS: Record<Scene, string> = {
-  writing: "写作",
-  coding: "编程",
-  "data-analysis": "数据分析",
-  "project-management": "项目管理",
-  "creative-design": "创意设计",
-  communication: "沟通协作",
-  workflow: "流程优化",
-  research: "调研分析",
-  "decision-making": "决策支持",
-  learning: "学习提升",
-};
-
 export const ROLE_COLORS: Record<Role, string> = {
   developer: "bg-blue-50 text-blue-700 border-blue-200",
   "product-manager": "bg-violet-50 text-violet-700 border-violet-200",

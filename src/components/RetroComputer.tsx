@@ -1,36 +1,40 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./RetroComputer.module.css";
 
-export default function RetroComputer() {
+interface RetroComputerProps {
+  snippets: string[];
+}
+
+export default function RetroComputer({ snippets }: RetroComputerProps) {
   const typewriterRef = useRef<HTMLSpanElement>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    const text =
-      "Good morning. Your skills are loaded, your workflows are sorted, and your agents are set. Ready when you are.";
-    const speed = 100;
+    const text = snippets[currentIndex] || "";
+    const speed = 45;
     let i = 0;
     let timer: ReturnType<typeof setTimeout>;
 
     function typeWriter() {
       if (!typewriterRef.current) return;
       if (i < text.length) {
-        typewriterRef.current.textContent += text.charAt(i);
+        typewriterRef.current.textContent = text.slice(0, i + 1);
         i++;
-        timer = setTimeout(typeWriter, speed + Math.random() * 50);
+        timer = setTimeout(typeWriter, speed + Math.random() * 30);
       } else {
+        // Pause, then move to next snippet
         timer = setTimeout(() => {
           if (typewriterRef.current) typewriterRef.current.textContent = "";
-          i = 0;
-          typeWriter();
-        }, 3000);
+          setCurrentIndex((prev) => (prev + 1) % snippets.length);
+        }, 2500);
       }
     }
 
     typeWriter();
     return () => clearTimeout(timer);
-  }, []);
+  }, [currentIndex, snippets]);
 
   return (
     <div className={styles.sceneWrapper}>
@@ -46,23 +50,23 @@ export default function RetroComputer() {
                       <div className={styles.iconList}>
                         <div>
                           <span className={`${styles.iconCircle} ${styles.blue}`} />
-                          System
+                          Skills
                         </div>
                         <div>
                           <span className={`${styles.iconCircle} ${styles.orange}`} />
-                          Disk A
+                          Agents
                         </div>
                         <div>
                           <span className={styles.iconCircle} />
-                          Trash
+                          Roles
                         </div>
                         <div>
                           <span className={styles.iconCircle} />
-                          Write
+                          Scenes
                         </div>
                         <div>
                           <span className={styles.iconCircle} />
-                          Think
+                          Search
                         </div>
                       </div>
                     </div>
@@ -70,13 +74,16 @@ export default function RetroComputer() {
                       <div className={styles.osLabel}>SkillOS 1.0</div>
                       <div className={styles.window}>
                         <div className={styles.windowHeader}>
-                          <span>Untitled.txt</span>
+                          <span>skill.md</span>
                           <span>[x]</span>
                         </div>
                         <div className={styles.typingContainer}>
                           <span ref={typewriterRef} />
                           <span className={styles.cursor} />
                         </div>
+                      </div>
+                      <div className={styles.snippetCounter}>
+                        {currentIndex + 1} / {snippets.length}
                       </div>
                     </div>
                   </div>

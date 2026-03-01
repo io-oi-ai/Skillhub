@@ -3,22 +3,33 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { getAllSkills, getSkillById } from "@/lib/skills";
-import { ROLE_LABELS, ROLE_COLORS, SCENE_LABELS, SOURCE_LABELS } from "@/lib/types";
+import { ROLE_COLORS } from "@/lib/types";
+import type { Role, Scene, Source } from "@/lib/types";
+import { i18n, isValidLocale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/get-dictionary";
 import SkillContent from "./SkillContent";
 
 interface Props {
-  params: Promise<{ id: string }>;
+  params: Promise<{ locale: string; id: string }>;
 }
 
 export async function generateStaticParams() {
   const skills = getAllSkills();
-  return skills.map((skill) => ({ id: skill.id }));
+  return i18n.locales.flatMap((locale) =>
+    skills.map((skill) => ({ locale, id: skill.id }))
+  );
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { id } = await params;
+  const { locale, id } = await params;
+  if (!isValidLocale(locale)) return {};
+  const dict = await getDictionary(locale);
   const skill = getSkillById(id);
-  if (!skill) return { title: "Skill 未找到" };
+  if (!skill) return { title: dict.metadata.skillNotFound };
+
+  const baseUrl = "https://skillhub.dev";
+  const enPath = `/skill/${id}`;
+  const zhPath = `/zh/skill/${id}`;
 
   return {
     title: skill.name,
@@ -27,17 +38,30 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: `${skill.name} | SkillHub`,
       description: skill.description,
     },
+    alternates: {
+      canonical: `${baseUrl}${enPath}`,
+      languages: {
+        en: `${baseUrl}${enPath}`,
+        "zh-CN": `${baseUrl}${zhPath}`,
+      },
+    },
   };
 }
 
 export default async function SkillPage({ params }: Props) {
-  const { id } = await params;
+  const { locale, id } = await params;
+  if (!isValidLocale(locale)) notFound();
+  const dict = await getDictionary(locale);
   const skill = getSkillById(id);
   if (!skill) notFound();
 
+  const roleLabels = dict.roles as Record<string, string>;
+  const sceneLabels = dict.scenes as Record<string, string>;
+  const sourceLabels = dict.sources as Record<string, string>;
+
   return (
     <>
-      <Header />
+      <Header locale={locale} dict={dict} />
       <main className="flex-1 px-4 py-8 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl">
           {/* Header */}
@@ -45,23 +69,23 @@ export default async function SkillPage({ params }: Props) {
             <div className="mb-4 flex flex-wrap items-center gap-2">
               {skill.featured && (
                 <span className="rounded-md bg-amber-500/20 px-2 py-0.5 text-xs text-amber-300">
-                  推荐
+                  {dict.skillDetail.featured}
                 </span>
               )}
-              {skill.roles.map((role) => (
+              {skill.roles.map((role: Role) => (
                 <span
                   key={role}
                   className={`rounded-md border px-2 py-0.5 text-xs ${ROLE_COLORS[role]}`}
                 >
-                  {ROLE_LABELS[role]}
+                  {roleLabels[role]}
                 </span>
               ))}
-              {skill.scenes.map((scene) => (
+              {skill.scenes.map((scene: Scene) => (
                 <span
                   key={scene}
                   className="rounded-md border border-border bg-bg-primary/50 px-2 py-0.5 text-xs text-text-muted"
                 >
-                  {SCENE_LABELS[scene]}
+                  {sceneLabels[scene]}
                 </span>
               ))}
             </div>
@@ -72,19 +96,19 @@ export default async function SkillPage({ params }: Props) {
             <p className="text-lg text-text-secondary">{skill.description}</p>
 
             <div className="mt-4 flex flex-wrap items-center gap-4 text-sm text-text-muted">
-              <span>作者: {skill.author}</span>
+              <span>{dict.skillDetail.author} {skill.author}</span>
               <span>v{skill.version}</span>
-              <span>更新于 {skill.updatedAt}</span>
+              <span>{dict.skillDetail.updatedAt} {skill.updatedAt}</span>
               {skill.source && (
                 <span className="rounded bg-bg-card px-2 py-0.5 font-mono text-xs">
-                  来源: {SOURCE_LABELS[skill.source]}
+                  {dict.skillDetail.source} {sourceLabels[skill.source]}
                 </span>
               )}
             </div>
 
             {skill.tags.length > 0 && (
               <div className="mt-3 flex flex-wrap gap-1.5">
-                {skill.tags.map((tag) => (
+                {skill.tags.map((tag: string) => (
                   <span
                     key={tag}
                     className="rounded-md bg-bg-card px-2 py-0.5 text-xs text-text-muted"
@@ -103,12 +127,12 @@ export default async function SkillPage({ params }: Props) {
             </div>
           ) : (
             <div className="rounded-xl border border-border bg-bg-card p-6 text-center text-text-muted">
-              暂无详细说明
+              {dict.skillDetail.noContent}
             </div>
           )}
         </div>
       </main>
-      <Footer />
+      <Footer locale={locale} dict={dict} />
     </>
   );
 }

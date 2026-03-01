@@ -3,13 +3,23 @@ import Footer from "@/components/Footer";
 import SkillGrid from "@/components/SkillGrid";
 import RetroComputer from "@/components/RetroComputer";
 import { getAllSkills } from "@/lib/skills";
+import { isValidLocale, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/get-dictionary";
+import { notFound } from "next/navigation";
 
-export default function Home() {
+interface Props {
+  params: Promise<{ locale: string }>;
+}
+
+export default async function Home({ params }: Props) {
+  const { locale } = await params;
+  if (!isValidLocale(locale)) notFound();
+  const dict = await getDictionary(locale);
   const skills = getAllSkills();
 
   return (
     <>
-      <Header />
+      <Header locale={locale} dict={dict} />
       <main className="flex-1">
         {/* Hero */}
         <section className="px-4 pb-20 pt-16 sm:px-6 sm:pt-24 lg:px-8 lg:pb-28 lg:pt-32">
@@ -17,16 +27,13 @@ export default function Home() {
             {/* Left: Text */}
             <div className="pt-4">
               <h1 className="font-serif text-[3.5rem] font-normal leading-[1.1] tracking-[-0.02em] text-text-primary sm:text-[4.5rem] lg:text-[5.5rem]">
-                Introducing
+                {dict.hero.heading1}
                 <br />
-                <em>AI Skills.</em>
+                <em>{dict.hero.heading2}</em>
               </h1>
 
               <p className="mt-8 max-w-[460px] text-[1.125rem] leading-[1.7] text-text-secondary">
-                Not just prompts. SkillHub thinks, drafts your
-                workflows, organizes your tools, and learns how you
-                work. The future of AI productivity is here. And it
-                fits in your browser.
+                {dict.hero.description}
               </p>
 
               <div className="mt-10 flex items-center gap-6">
@@ -34,10 +41,10 @@ export default function Home() {
                   href="#skills"
                   className="inline-flex items-center rounded-lg bg-accent px-7 py-4 text-[0.9375rem] font-medium text-white transition-colors hover:bg-accent-hover"
                 >
-                  Browse Skills
+                  {dict.hero.cta}
                 </a>
                 <span className="font-mono text-[0.9375rem] tracking-wide text-text-muted">
-                  Free & Open Source
+                  {dict.hero.badge}
                 </span>
               </div>
 
@@ -45,34 +52,34 @@ export default function Home() {
               <div className="mt-16 grid grid-cols-2 gap-x-20 gap-y-8 border-t border-border pt-10">
                 <div>
                   <p className="font-mono text-[0.6875rem] font-medium uppercase tracking-[0.15em] text-text-muted">
-                    Platforms
+                    {dict.features.platforms}
                   </p>
                   <p className="mt-1.5 font-mono text-[0.875rem] text-text-primary">
-                    Claude · Cursor · ChatGPT · OpenClaw
+                    {dict.features.platformsValue}
                   </p>
                 </div>
                 <div>
                   <p className="font-mono text-[0.6875rem] font-medium uppercase tracking-[0.15em] text-text-muted">
-                    Community
+                    {dict.features.community}
                   </p>
                   <p className="mt-1.5 font-mono text-[0.875rem] text-text-primary">
-                    Open Source
+                    {dict.features.communityValue}
                   </p>
                 </div>
                 <div>
                   <p className="font-mono text-[0.6875rem] font-medium uppercase tracking-[0.15em] text-text-muted">
-                    Install
+                    {dict.features.install}
                   </p>
                   <p className="mt-1.5 font-mono text-[0.875rem] text-text-primary">
-                    One-click Setup
+                    {dict.features.installValue}
                   </p>
                 </div>
                 <div>
                   <p className="font-mono text-[0.6875rem] font-medium uppercase tracking-[0.15em] text-text-muted">
-                    Coverage
+                    {dict.features.coverage}
                   </p>
                   <p className="mt-1.5 font-mono text-[0.875rem] text-text-primary">
-                    11 Roles · 10 Scenes
+                    {dict.features.coverageValue}
                   </p>
                 </div>
               </div>
@@ -80,7 +87,7 @@ export default function Home() {
 
             {/* Right: Retro Computer Illustration */}
             <div className="hidden lg:flex lg:items-center lg:justify-center" style={{ minHeight: 600 }}>
-              <RetroComputer />
+              <RetroComputer snippets={dict.retroComputer.snippets} />
             </div>
           </div>
         </section>
@@ -88,11 +95,11 @@ export default function Home() {
         {/* Skills */}
         <section id="skills" className="border-t border-border px-4 py-12 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-7xl">
-            <SkillGrid skills={skills} />
+            <SkillGrid skills={skills} locale={locale} dict={dict} />
           </div>
         </section>
       </main>
-      <Footer />
+      <Footer locale={locale} dict={dict} />
     </>
   );
 }

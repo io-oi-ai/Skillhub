@@ -1,14 +1,29 @@
 import Link from "next/link";
 import type { Skill } from "@/lib/types";
-import { ROLE_LABELS, ROLE_COLORS, SCENE_LABELS, SOURCE_LABELS } from "@/lib/types";
+import { ROLE_COLORS } from "@/lib/types";
+import type { Locale } from "@/i18n/config";
 
 interface SkillCardProps {
   skill: Skill;
+  locale: Locale;
+  roleLabels: Record<string, string>;
+  sceneLabels: Record<string, string>;
+  sourceLabels: Record<string, string>;
+  featuredLabel: string;
 }
 
-export default function SkillCard({ skill }: SkillCardProps) {
+export default function SkillCard({
+  skill,
+  locale,
+  roleLabels,
+  sceneLabels,
+  sourceLabels,
+  featuredLabel,
+}: SkillCardProps) {
+  const prefix = locale === "en" ? "" : `/${locale}`;
+
   return (
-    <Link href={`/skill/${skill.id}`}>
+    <Link href={`${prefix}/skill/${skill.id}`}>
       <div className="group h-full rounded-xl border border-border bg-bg-card p-5 transition-all hover:border-text-muted hover:shadow-sm">
         <div className="mb-3 flex items-start justify-between">
           <h3 className="font-serif text-lg font-semibold text-text-primary group-hover:text-accent">
@@ -16,7 +31,7 @@ export default function SkillCard({ skill }: SkillCardProps) {
           </h3>
           {skill.featured && (
             <span className="shrink-0 rounded-md bg-amber-50 px-2 py-0.5 text-xs text-amber-700 border border-amber-200">
-              Featured
+              {featuredLabel}
             </span>
           )}
         </div>
@@ -31,7 +46,7 @@ export default function SkillCard({ skill }: SkillCardProps) {
               key={role}
               className={`rounded-md border px-2 py-0.5 text-xs ${ROLE_COLORS[role]}`}
             >
-              {ROLE_LABELS[role]}
+              {roleLabels[role]}
             </span>
           ))}
           {skill.scenes.map((scene) => (
@@ -39,7 +54,7 @@ export default function SkillCard({ skill }: SkillCardProps) {
               key={scene}
               className="rounded-md border border-border bg-bg-primary px-2 py-0.5 text-xs text-text-muted"
             >
-              {SCENE_LABELS[scene]}
+              {sceneLabels[scene]}
             </span>
           ))}
         </div>
@@ -49,7 +64,7 @@ export default function SkillCard({ skill }: SkillCardProps) {
           <div className="flex items-center gap-2">
             {skill.source && skill.source !== "skillhub" && (
               <span className="rounded bg-bg-primary px-1.5 py-0.5 font-mono text-[10px]">
-                {SOURCE_LABELS[skill.source]}
+                {sourceLabels[skill.source]}
               </span>
             )}
             <span>v{skill.version}</span>

@@ -1,13 +1,15 @@
 "use client";
 
 import type { Role, Scene } from "@/lib/types";
-import { ROLE_LABELS, SCENE_LABELS } from "@/lib/types";
 
 interface FilterBarProps {
   selectedRole: Role | null;
   selectedScene: Scene | null;
   onRoleChange: (role: Role | null) => void;
   onSceneChange: (scene: Scene | null) => void;
+  roleLabels: Record<string, string>;
+  sceneLabels: Record<string, string>;
+  filterLabels: { roleLabel: string; sceneLabel: string; all: string };
 }
 
 export default function FilterBar({
@@ -15,15 +17,18 @@ export default function FilterBar({
   selectedScene,
   onRoleChange,
   onSceneChange,
+  roleLabels,
+  sceneLabels,
+  filterLabels,
 }: FilterBarProps) {
-  const roles = Object.entries(ROLE_LABELS) as [Role, string][];
-  const scenes = Object.entries(SCENE_LABELS) as [Scene, string][];
+  const roles = Object.entries(roleLabels) as [Role, string][];
+  const scenes = Object.entries(sceneLabels) as [Scene, string][];
 
   return (
     <div className="space-y-4">
       <div>
         <h3 className="mb-2 font-mono text-xs font-medium uppercase tracking-widest text-text-muted">
-          Role
+          {filterLabels.roleLabel}
         </h3>
         <div className="flex flex-wrap gap-2">
           <button
@@ -34,7 +39,7 @@ export default function FilterBar({
                 : "border-border text-text-secondary hover:border-text-muted hover:text-text-primary"
             }`}
           >
-            All
+            {filterLabels.all}
           </button>
           {roles.map(([value, label]) => (
             <button
@@ -56,7 +61,7 @@ export default function FilterBar({
 
       <div>
         <h3 className="mb-2 font-mono text-xs font-medium uppercase tracking-widest text-text-muted">
-          Scene
+          {filterLabels.sceneLabel}
         </h3>
         <div className="flex flex-wrap gap-2">
           <button
@@ -67,7 +72,7 @@ export default function FilterBar({
                 : "border-border text-text-secondary hover:border-text-muted hover:text-text-primary"
             }`}
           >
-            All
+            {filterLabels.all}
           </button>
           {scenes.map(([value, label]) => (
             <button

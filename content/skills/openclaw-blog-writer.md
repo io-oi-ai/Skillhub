@@ -1,56 +1,56 @@
 ---
-name: "Blog Writer 博客写手"
-description: "AI 辅助博客和文章写作，从选题到发布的完整工作流"
+name: "Blog Writer"
+description: "AI-assisted blog and article writing with complete workflow from topic selection to publication"
 author: "OpenClaw Community"
 roles: ["marketer", "everyone"]
 scenes: ["writing", "creative-design"]
 version: "1.0.0"
 updatedAt: "2025-02-12"
-tags: ["OpenClaw", "博客", "写作", "内容创作"]
+tags: ["OpenClaw", "Blog", "Writing", "Content Creation"]
 featured: false
 source: "clawhub.ai"
 ---
 
-## 概述
+## Overview
 
-Blog Writer 技能为 AI Agent 提供了从选题策划到内容发布的完整博客写作工作流。它不仅能帮你生成高质量的文章草稿，还能在选题灵感、大纲规划、SEO 优化和内容排版等各环节提供专业支持。
+The Blog Writer skill provides AI Agents with a complete blog writing workflow from topic planning to content publishing. It not only helps you generate high-quality article drafts but also provides professional support at each stage including topic selection, outline planning, SEO optimization, and content formatting.
 
-## 核心功能
+## Core Features
 
-### 选题策划与灵感生成
+### Topic Planning and Idea Generation
 
-基于你指定的领域、目标受众和内容策略，Agent 会分析当前热门话题和搜索趋势，生成一系列有潜力的选题建议。每个建议都附带预估的受众兴趣度和竞争分析。
+Based on the field, target audience, and content strategy you specify, the Agent analyzes current trending topics and search trends to generate a series of promising topic suggestions. Each suggestion comes with estimated audience interest and competitive analysis.
 
-### 大纲与结构设计
+### Outline and Structure Design
 
-确定选题后，Agent 会生成文章的结构大纲，包括标题、各段落的核心论点、论据安排和结尾策略。你可以在大纲阶段进行调整，确保文章方向符合预期后再进入正式写作。
+After selecting a topic, the Agent generates an article structure outline including headings, core arguments for each section, evidence arrangement, and conclusion strategy. You can make adjustments at the outline stage to ensure the article direction meets expectations before moving to formal writing.
 
-### 文章撰写与润色
+### Article Writing and Polish
 
-Agent 根据确认的大纲生成完整的文章草稿。写作风格可以根据目标平台和受众灵活调整——技术博客偏严谨专业，营销内容偏生动有感染力，个人博客偏轻松随性。生成后还会进行一轮自动润色，优化用词和句式。
+The Agent generates complete article drafts based on the confirmed outline. Writing style can be flexibly adjusted based on target platform and audience—technical blogs emphasize rigor and professionalism, marketing content is engaging and persuasive, personal blogs are casual and relaxed. After generation, it undergoes automatic polish to optimize word choice and sentence structure.
 
-### SEO 优化建议
+### SEO Optimization Suggestions
 
-文章完成后，Agent 会从搜索引擎优化的角度提供改进建议，包括关键词密度调整、标题优化、Meta Description 撰写、内链建议等，帮助文章获得更好的搜索排名。
+After completing the article, the Agent provides improvement suggestions from a search engine optimization perspective, including keyword density adjustment, title optimization, Meta Description writing, internal linking suggestions, and more to help your article achieve better search rankings.
 
-### 多平台格式适配
+### Multi-platform Format Adaptation
 
-不同发布平台对内容格式有不同要求。Blog Writer 支持输出适配 WordPress、Medium、微信公众号、知乎等平台的格式，减少发布前的手动排版工作。
+Different publishing platforms have different content format requirements. Blog Writer supports outputting formats compatible with WordPress, Medium, WeChat Official Accounts, Zhihu, and other platforms, reducing manual formatting work before publication.
 
-## 典型使用场景
+## Typical Use Cases
 
-- **企业内容营销**：定期产出高质量的行业洞察和产品相关博客文章，建立品牌的专业形象和思想领导力。
-- **技术博客维护**：开发团队记录技术实践、架构决策和踩坑经验，Agent 帮助将零散的技术笔记整理为完整的博客文章。
-- **个人品牌建设**：自由职业者和独立开发者通过持续输出优质内容建立个人影响力，Agent 降低了持续写作的时间成本。
-- **产品更新公告**：将产品更新日志转化为用户友好的博客文章，清晰传达新功能的价值和使用方法。
+- **Enterprise Content Marketing**: Regularly produce high-quality industry insights and product-related blog articles to establish brand professional image and thought leadership.
+- **Technical Blog Maintenance**: Development teams document technical practices, architecture decisions, and lessons learned. The Agent helps organize scattered technical notes into complete blog articles.
+- **Personal Brand Building**: Freelancers and independent developers build personal influence through continuous high-quality content output. The Agent reduces the time cost of sustained writing.
+- **Product Update Announcements**: Transform product update logs into user-friendly blog articles that clearly communicate the value and usage of new features.
 
-## 使用方式
+## Usage Instructions
 
-1. 引入 Blog Writer 技能到你的 Agent 项目。
-2. 告诉 Agent 你的写作主题、目标受众和风格偏好。
-3. Agent 会依次完成选题确认、大纲设计、正文撰写和优化润色。
-4. 每个阶段你都可以介入修改，最终输出满意的文章成品。
+1. Integrate the Blog Writer skill into your Agent project.
+2. Tell the Agent your writing topic, target audience, and style preferences.
+3. The Agent will sequentially complete topic confirmation, outline design, body writing, and optimization polish.
+4. At each stage, you can intervene and make modifications to produce a final article that meets your satisfaction.
 
-## 写作质量保障
+## Writing Quality Assurance
 
-Blog Writer 内置了多重质量检查机制，包括事实一致性校验、逻辑连贯性检查和可读性评分。Agent 会在提交最终稿件前自动标注需要人工确认的事实性陈述，避免发布不准确的内容。
+Blog Writer includes multiple quality check mechanisms including factual consistency validation, logical coherence checking, and readability scoring. The Agent automatically flags factual statements requiring human confirmation before submitting the final manuscript to avoid publishing inaccurate content.

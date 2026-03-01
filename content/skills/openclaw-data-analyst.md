@@ -1,53 +1,53 @@
 ---
-name: "Data Analyst 数据分析师"
-description: "AI 驱动的数据可视化、报告生成、SQL 查询和电子表格处理"
+name: "Data Analyst"
+description: "AI-powered data visualization, report generation, SQL queries, and spreadsheet processing"
 author: "OpenClaw Community"
 roles: ["data-analyst", "product-manager"]
 scenes: ["data-analysis", "decision-making"]
 version: "1.0.0"
 updatedAt: "2025-02-18"
-tags: ["OpenClaw", "数据分析", "可视化", "SQL", "报告"]
+tags: ["OpenClaw", "Data Analysis", "Visualization", "SQL", "Reports"]
 featured: false
 source: "clawhub.ai"
 ---
 
-## 概述
+## Overview
 
-Data Analyst 技能让 AI Agent 具备专业的数据分析能力，涵盖 SQL 查询编写与执行、数据可视化图表生成、电子表格处理以及自动化报告生成。无论你是数据分析师还是需要数据支撑决策的产品经理，这个技能都能显著提升你的数据工作效率。
+The Data Analyst skill empowers AI Agents with professional data analysis capabilities, encompassing SQL query writing and execution, data visualization chart generation, spreadsheet processing, and automated report generation. Whether you're a data analyst or a product manager needing data to support decisions, this skill significantly enhances your data work efficiency.
 
-## 核心功能
+## Core Features
 
-### SQL 查询与数据库交互
+### SQL Queries and Database Interaction
 
-通过自然语言描述你的数据需求，Agent 会自动生成对应的 SQL 查询语句，连接目标数据库执行查询，并将结果整理为易于理解的格式。支持 MySQL、PostgreSQL、SQLite 等主流数据库。你不需要精通 SQL 语法，只需说明想要查询什么数据。
+By describing your data needs in natural language, the Agent automatically generates corresponding SQL query statements, connects to the target database to execute queries, and organizes results into easily understood formats. Supports mainstream databases including MySQL, PostgreSQL, and SQLite. You don't need to master SQL syntax—just describe what data you want to query.
 
-### 数据可视化
+### Data Visualization
 
-Agent 能根据数据特征自动选择最合适的图表类型——柱状图、折线图、饼图、散点图、热力图等——并生成高质量的可视化图表。你也可以指定图表类型和样式偏好，Agent 会据此调整输出。
+The Agent automatically selects the most suitable chart type based on data characteristics—bar charts, line charts, pie charts, scatter plots, heat maps, etc.—and generates high-quality visualization charts. You can also specify chart types and style preferences, and the Agent will adjust output accordingly.
 
-### 电子表格处理
+### Spreadsheet Processing
 
-支持读取和处理 CSV、Excel 等格式的电子表格文件。Agent 可以完成数据清洗、格式转换、公式计算、数据透视表生成等操作，将繁琐的表格处理工作自动化。
+Support reading and processing spreadsheet files in CSV and Excel formats. The Agent can complete data cleaning, format conversion, formula calculation, pivot table generation, and other operations, automating tedious spreadsheet processing work.
 
-### 自动化报告生成
+### Automated Report Generation
 
-将数据分析结果自动整合为结构化的报告文档。报告包含关键指标摘要、趋势分析、数据图表和改进建议。支持定期自动生成，适合周报、月报等场景。
+Automatically consolidate data analysis results into structured report documents. Reports include key metric summaries, trend analysis, data charts, and improvement suggestions. Support periodic automatic generation, suitable for weekly reports, monthly reports, and similar scenarios.
 
-## 典型使用场景
+## Typical Use Cases
 
-- **产品数据分析**：快速查询用户行为数据，生成留存率、转化率、活跃度等核心指标的可视化报告，辅助产品迭代决策。
-- **业务指标监控**：设定关键业务指标的监控规则，当数据出现异常波动时自动生成告警报告并通知相关人员。
-- **临时数据查询**：业务会议中突然需要一组数据支撑讨论，直接用自然语言描述需求，Agent 实时查询并呈现结果。
-- **跨数据源整合**：从多个数据库或文件中提取数据，进行关联分析和交叉比对，发现单一数据源难以察觉的洞察。
-- **数据质量检查**：自动扫描数据集中的缺失值、异常值和重复记录，生成数据质量报告并提供清洗建议。
+- **Product Data Analysis**: Quickly query user behavior data and generate visualization reports for core metrics like retention rate, conversion rate, and activity level to support product iteration decisions.
+- **Business Metrics Monitoring**: Set monitoring rules for key business metrics. When data shows abnormal fluctuations, automatically generate alert reports and notify relevant personnel.
+- **Ad-hoc Data Queries**: During business meetings when data is suddenly needed to support discussions, directly describe requirements in natural language and the Agent will query and present results in real-time.
+- **Multi-source Data Integration**: Extract data from multiple databases or files, conduct correlation analysis and cross-comparison to discover insights that single data sources cannot reveal.
+- **Data Quality Checks**: Automatically scan datasets for missing values, anomalies, and duplicate records, generating data quality reports with cleaning suggestions.
 
-## 使用方式
+## Usage Instructions
 
-1. 引入 Data Analyst 技能到你的 Agent 项目。
-2. 配置数据库连接信息或指定数据文件路径。
-3. 用自然语言向 Agent 描述你的分析需求。
-4. Agent 会执行查询、处理数据并返回分析结果和可视化图表。
+1. Integrate the Data Analyst skill into your Agent project.
+2. Configure database connection information or specify data file paths.
+3. Describe your analysis needs in natural language to the Agent.
+4. The Agent will execute queries, process data, and return analysis results with visualization charts.
 
-## 适用人群
+## Suitable Users
 
-这个技能特别适合不具备深厚技术背景但需要频繁使用数据的岗位，如产品经理、运营人员和业务分析师。它降低了数据分析的技术门槛，让更多人能够直接从数据中获取洞察。
+This skill is particularly suitable for positions that lack deep technical backgrounds but frequently use data, such as product managers, operations personnel, and business analysts. It lowers the technical barriers to data analysis, enabling more people to directly extract insights from data.

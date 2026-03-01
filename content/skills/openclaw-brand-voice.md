@@ -1,53 +1,53 @@
 ---
-name: "Brand Voice 品牌语调"
-description: "定义和存储品牌语调配置，确保所有 AI 生成内容风格一致"
+name: "Brand Voice"
+description: "Define and store brand voice configuration to ensure consistent style across all AI-generated content"
 author: "OpenClaw Community"
 roles: ["marketer", "operations"]
 scenes: ["writing", "communication"]
 version: "1.0.0"
 updatedAt: "2025-02-10"
-tags: ["OpenClaw", "品牌", "语调", "内容一致性"]
+tags: ["OpenClaw", "Brand", "Voice", "Content Consistency"]
 featured: false
 source: "clawhub.ai"
 ---
 
-## 概述
+## Overview
 
-Brand Voice 技能解决了一个常见痛点：当团队中多个人使用 AI 生成内容时，输出的语气、风格和用词往往各不相同，无法保持品牌一致性。这个技能允许你定义、存储和复用品牌语调配置文件，确保所有 AI 生成的内容都符合统一的品牌调性。
+Brand Voice solves a common pain point: when multiple team members use AI to generate content, the output often has inconsistent tone, style, and vocabulary, failing to maintain brand consistency. This skill allows you to define, store, and reuse brand voice configurations to ensure all AI-generated content adheres to unified brand personality.
 
-## 核心功能
+## Core Features
 
-### 品牌语调定义
+### Brand Voice Definition
 
-通过结构化的模板，你可以从多个维度定义品牌的语调特征：正式程度、幽默感、专业深度、情感温度、句式偏好、禁用词汇等。系统提供引导式的问答流程，帮助你把模糊的品牌感觉转化为精确的语调参数。
+Through a structured template, you can define brand voice characteristics from multiple dimensions: formality level, humor, professional depth, emotional tone, sentence structure preferences, and prohibited vocabulary. The system provides a guided Q&A process to help you transform vague brand feelings into precise voice parameters.
 
-### 语调配置存储与版本管理
+### Voice Configuration Storage and Version Management
 
-定义好的语调配置以文件形式存储，支持版本管理。当品牌调性需要调整时，你可以创建新版本而保留历史配置，方便回溯和对比。不同产品线或子品牌可以拥有各自独立的语调配置。
+Defined voice configurations are stored as files with version management support. When brand personality needs adjusting, you can create new versions while preserving historical configurations for easy review and comparison. Different product lines or sub-brands can have their own independent voice configurations.
 
-### 内容风格校验
+### Content Style Validation
 
-Agent 在生成任何内容之前，会自动加载当前激活的品牌语调配置。生成后，系统会对照语调标准进行一致性校验，标记不符合品牌调性的段落并提供修改建议。
+Before generating any content, the Agent automatically loads the currently activated brand voice configuration. After generation, the system validates consistency against the voice standards, flagging sections that don't align with brand personality and providing modification suggestions.
 
-### 语调迁移与适配
+### Voice Migration and Adaptation
 
-当你需要将同一内容适配到不同渠道时，Brand Voice 能自动调整语调。比如将官方公告改写为社交媒体风格，或将技术文档转化为面向普通用户的说明文字，同时保持核心品牌特征不变。
+When you need to adapt the same content to different channels, Brand Voice automatically adjusts the tone. For example, transform official announcements into social media style, or convert technical documentation into language suitable for general users, while maintaining core brand characteristics.
 
-## 典型使用场景
+## Typical Use Cases
 
-- **多人协作内容生产**：市场团队中多位成员同时使用 AI 工具创作内容，通过共享品牌语调配置确保输出风格一致。
-- **新员工快速对齐**：新加入的内容创作者无需花大量时间学习品牌指南，AI 会自动按照品牌语调生成内容，加速上手过程。
-- **跨渠道内容适配**：同一篇核心内容需要在官网、公众号、短视频脚本等多个渠道发布，Brand Voice 帮助自动调整为各渠道适合的风格。
-- **品牌升级过渡**：品牌调性需要从"年轻活泼"转向"成熟专业"时，通过调整语调配置实现平滑过渡，避免风格断裂。
-- **多语言品牌一致性**：确保品牌内容在翻译或多语言生成时，不同语言版本都传达相同的品牌性格。
+- **Multi-person Content Collaboration**: Multiple team members in marketing simultaneously use AI tools to create content. Sharing a brand voice configuration ensures consistent output style.
+- **New Employee Fast Onboarding**: New content creators don't need to spend extensive time learning brand guidelines. AI automatically generates content following brand voice, accelerating the onboarding process.
+- **Cross-channel Content Adaptation**: The same core content needs publishing across multiple channels like company websites, WeChat Official Accounts, short video scripts, etc. Brand Voice helps automatically adjust to styles suitable for each channel.
+- **Brand Upgrade Transition**: When brand personality needs to shift from "young and lively" to "mature and professional", smooth transitions are achieved by adjusting voice configurations, avoiding style discontinuity.
+- **Multi-language Brand Consistency**: Ensure brand content remains consistent across translations or multi-language generation, with different language versions conveying the same brand personality.
 
-## 使用方式
+## Usage Instructions
 
-1. 引入 Brand Voice 技能并运行语调定义向导。
-2. 回答一系列关于品牌调性的问题，或直接上传现有的品牌指南文档。
-3. 系统会生成语调配置文件，你可以预览示例内容并微调参数。
-4. 将语调配置应用到团队的 Agent 工作流中，后续所有内容生成都会遵循该配置。
+1. Integrate the Brand Voice skill and run the voice definition wizard.
+2. Answer a series of questions about brand personality, or directly upload existing brand guidelines documents.
+3. The system generates a voice configuration file that you can preview with sample content and fine-tune parameters.
+4. Apply the voice configuration to your team's Agent workflows. All subsequent content generation will follow this configuration.
 
-## 与其他技能的协同
+## Synergy with Other Skills
 
-Brand Voice 可以与 Blog Writer、AgenticMail 等内容生成类技能无缝配合。当这些技能生成内容时，会自动读取 Brand Voice 的语调配置，从源头保证输出风格的一致性，无需事后人工校正。
+Brand Voice seamlessly integrates with content generation skills like Blog Writer and AgenticMail. When these skills generate content, they automatically read the Brand Voice configuration, guaranteeing output style consistency at the source without requiring post-production manual corrections.

@@ -1,70 +1,70 @@
 ---
-name: "ElevenLabs 语音合成"
-description: "AI 语音平台集成，支持文本转语音、语音转文本和语音克隆"
+name: "ElevenLabs Voice Synthesis"
+description: "AI voice platform integration supporting text-to-speech, speech-to-text, and voice cloning"
 author: "OpenClaw Community"
 roles: ["everyone", "marketer"]
 scenes: ["creative-design", "communication"]
 version: "1.0.0"
 updatedAt: "2025-02-12"
-tags: ["OpenClaw", "语音", "TTS", "语音合成"]
+tags: ["OpenClaw", "Voice", "TTS", "Voice Synthesis"]
 featured: false
 source: "clawhub.ai"
 ---
 
-# ElevenLabs 语音合成
+# ElevenLabs Voice Synthesis
 
-## 概述
+## Overview
 
-ElevenLabs 语音合成技能集成了 ElevenLabs 的 AI 语音平台能力，提供高质量的文本转语音（TTS）、语音转文本（STT）以及语音克隆功能。生成的语音自然流畅，几乎接近真人效果，适用于内容创作、无障碍辅助、营销配音等多种场景。
+The ElevenLabs Voice Synthesis skill integrates the capabilities of the ElevenLabs AI voice platform, providing high-quality text-to-speech (TTS), speech-to-text (STT), and voice cloning functionality. Generated voices are natural and fluent, nearly indistinguishable from human speech, suitable for content creation, accessibility support, marketing voiceovers, and more.
 
-## 核心功能
+## Core Features
 
-### 文本转语音（TTS）
-- 将任意文本转换为自然流畅的语音音频
-- 支持多种语言和口音，包括中文普通话和英语等主流语言
-- 提供丰富的预置声音库，涵盖不同年龄、性别和风格
-- 支持调节语速、语调、情感表达等参数，精确控制输出效果
-- 支持 SSML 标记语言，实现精细化的语音控制
+### Text-to-Speech (TTS)
+- Convert any text into natural, fluent speech audio
+- Support multiple languages and accents including Mandarin Chinese and English
+- Provide rich preset voice library covering different ages, genders, and styles
+- Support adjusting speech rate, tone, and emotional expression parameters for precise output control
+- Support SSML markup language for fine-grained voice control
 
-### 语音克隆
-- 上传少量音频样本即可克隆特定声音
-- 克隆后的声音可用于后续的文本转语音，保持一致的音色特征
-- 适合创建品牌专属配音或个人数字分身的语音
+### Voice Cloning
+- Upload small amounts of audio samples to clone specific voices
+- Cloned voices can be used for subsequent text-to-speech while maintaining consistent voice characteristics
+- Ideal for creating brand-exclusive voiceovers or personal digital voice avatars
 
-### 语音转文本（STT）
-- 将音频文件转换为精确的文字记录
-- 支持多种音频格式输入（MP3、WAV、M4A 等）
-- 自动添加标点符号和段落分隔，提升可读性
+### Speech-to-Text (STT)
+- Convert audio files into accurate text transcriptions
+- Support multiple audio format inputs (MP3, WAV, M4A, etc.)
+- Automatically add punctuation and paragraph breaks to enhance readability
 
-### 音频管理
-- 管理已生成的音频文件，支持下载和分享
-- 查看历史生成记录和用量统计
-- 批量生成音频，适合大规模内容生产
+### Audio Management
+- Manage generated audio files with support for downloading and sharing
+- View generation history and usage statistics
+- Batch audio generation for large-scale content production
 
-## 典型使用场景
+## Typical Use Cases
 
-1. **有声内容制作**：将博客文章、新闻稿转换为播客或有声读物
-2. **视频配音**：为短视频、产品演示、教程视频生成专业旁白
-3. **营销物料**：制作广告配音、IVR 语音导航、产品介绍语音
-4. **无障碍支持**：将文字内容转为语音，服务视觉障碍用户
-5. **多语言内容**：将同一份文案生成不同语言版本的语音
+1. **Audio Content Production**: Convert blog articles and press releases into podcasts or audiobooks
+2. **Video Voiceovers**: Generate professional narration for short videos, product demos, and tutorial videos
+3. **Marketing Materials**: Create advertisement voiceovers, IVR voice navigation, and product introduction voice
+4. **Accessibility Support**: Convert text content into voice for visually impaired users
+5. **Multilingual Content**: Generate voice for the same copy in different languages
 
-## 使用示例
+## Usage Examples
 
-- "把这段产品介绍文案转换为语音，用沉稳的男声"
-- "用我上次上传的声音样本，朗读这篇新闻稿"
-- "把这段英文文案分别生成美式英语和英式英语的配音"
-- "将这个播客录音转写为文字，包含时间戳标记"
+- "Convert this product introduction copy to voice with a calm male voice"
+- "Use my previously uploaded voice sample to narrate this press release"
+- "Generate voiceovers for this English copy in both American and British English"
+- "Transcribe this podcast recording into text with timestamps"
 
-## 支持的输出格式
+## Supported Output Formats
 
-- MP3（适合网络分发，文件较小）
-- WAV（无损格式，适合后期制作）
-- PCM（原始音频数据，适合流式播放）
+- MP3 (suitable for web distribution with smaller file sizes)
+- WAV (lossless format suitable for post-production)
+- PCM (raw audio data suitable for streaming playback)
 
-## 注意事项
+## Important Notes
 
-- 使用前需要配置 ElevenLabs API 密钥
-- 语音克隆功能请确保拥有声音所有者的授权许可
-- API 调用按字符数计费，建议先预览短文本确认效果后再批量生成
-- 生成的语音内容请遵守当地法律法规，不得用于欺诈或冒充他人
+- Requires configuring ElevenLabs API keys before use
+- For voice cloning functionality, ensure you have authorization from the voice owner
+- API calls are charged per character. Recommend previewing short text to confirm effect before batch generation
+- Ensure generated voice content complies with local laws and regulations. Do not use for fraud or impersonation

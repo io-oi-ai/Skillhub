@@ -1,53 +1,53 @@
 ---
-name: "AgenticMail 邮件管理"
-description: "AI Agent 全功能邮件、短信和多 Agent 协调系统，提供 63 个工具"
+name: "AgenticMail Email Management"
+description: "Comprehensive email, SMS, and multi-Agent coordination system with 63 tools"
 author: "OpenClaw Community"
 roles: ["everyone", "operations"]
 scenes: ["communication", "workflow"]
 version: "1.0.0"
 updatedAt: "2025-02-20"
-tags: ["OpenClaw", "邮件", "短信", "自动化", "多Agent"]
+tags: ["OpenClaw", "Email", "SMS", "Automation", "Multi-Agent"]
 featured: false
 source: "clawhub.ai"
 ---
 
-## 概述
+## Overview
 
-AgenticMail 是一个面向 AI Agent 的全功能通信管理技能，整合了邮件收发、短信处理和多 Agent 协调能力。它提供了多达 63 个专用工具，覆盖了从简单的邮件发送到复杂的多渠道通信编排的全部需求。
+AgenticMail is a comprehensive communication management skill for AI Agents, integrating email sending/receiving, SMS processing, and multi-Agent coordination capabilities. It provides over 63 specialized tools, covering everything from simple email sending to complex multi-channel communication orchestration.
 
-## 核心功能
+## Core Features
 
-### 邮件全生命周期管理
+### Complete Email Lifecycle Management
 
-AgenticMail 支持邮件的完整操作链路：收取新邮件、解析内容和附件、智能分类归档、撰写回复草稿、批量发送和跟踪送达状态。Agent 可以像一位经验丰富的行政助理一样，自主处理大量日常邮件事务。
+AgenticMail supports the complete email workflow: receiving new emails, parsing content and attachments, intelligent classification and archiving, drafting replies, batch sending, and tracking delivery status. Agents can operate like experienced administrative assistants, autonomously handling large volumes of routine email tasks.
 
-### 短信集成
+### SMS Integration
 
-除了邮件，系统还集成了短信发送能力，适用于需要即时通知的场景，例如会议提醒、紧急事项通知或验证码发送。邮件和短信可以在同一个工作流中协调使用。
+Beyond email, the system integrates SMS sending capabilities, suitable for scenarios requiring immediate notifications such as meeting reminders, urgent notifications, or verification code delivery. Email and SMS can be coordinated within the same workflow.
 
-### 多 Agent 协调
+### Multi-Agent Coordination
 
-AgenticMail 的一大亮点是多 Agent 协调能力。当一项通信任务涉及多个环节时，可以由不同的 Agent 分别负责：一个 Agent 负责邮件分类，另一个负责撰写回复，第三个负责审核内容。这些 Agent 通过 AgenticMail 的协调机制高效协作。
+A key highlight of AgenticMail is multi-Agent coordination. When a communication task involves multiple steps, different Agents can take responsibility: one Agent handles email classification, another drafts replies, and a third reviews content. These Agents collaborate efficiently through AgenticMail's coordination mechanism.
 
-### 智能邮件处理规则
+### Intelligent Email Processing Rules
 
-你可以用自然语言定义邮件处理规则，例如"来自客户的投诉邮件立即转发给客服主管并标记为高优先级"或"每周五下午汇总本周所有未回复的邮件"。系统会将这些规则转化为自动化工作流。
+You can define email processing rules in natural language, such as "immediately forward customer complaint emails to the customer service manager and mark as high priority" or "summarize all unanswered emails each Friday afternoon". The system will transform these rules into automated workflows.
 
-## 典型使用场景
+## Typical Use Cases
 
-- **企业邮件自动化**：自动处理大量重复性邮件，如订单确认、发货通知、客户询价回复等，释放团队的时间和精力。
-- **客户沟通管理**：跟踪客户邮件的回复状态，在超过设定时间未回复时自动发送提醒，确保不遗漏任何重要沟通。
-- **跨部门协调**：当收到需要多部门协同处理的邮件时，自动拆分任务并分发给相关部门的 Agent，最后汇总各方反馈并统一回复。
-- **会议管理**：自动发送会议邀请、收集参会确认、发送会前资料和会后纪要，形成完整的会议通信闭环。
-- **定期报告分发**：按计划生成周报、月报等定期报告，自动发送给指定的收件人列表。
+- **Enterprise Email Automation**: Automatically handle large volumes of repetitive emails such as order confirmations, shipping notifications, and customer inquiry responses, freeing up team time and energy.
+- **Customer Communication Management**: Track customer email response status and automatically send reminders if responses exceed the set timeframe, ensuring no important communications are missed.
+- **Cross-department Coordination**: When receiving emails requiring multi-department collaboration, automatically distribute tasks to relevant department Agents and consolidate feedback for unified responses.
+- **Meeting Management**: Automatically send meeting invitations, collect attendance confirmations, distribute pre-meeting materials, and send post-meeting summaries to create a complete meeting communication loop.
+- **Periodic Report Distribution**: Generate and automatically send weekly reports, monthly reports, and other periodic reports to specified recipient lists according to schedule.
 
-## 使用方式
+## Usage Instructions
 
-1. 在 Agent 项目中引入 AgenticMail 技能。
-2. 配置邮件账户连接信息（支持 IMAP/SMTP 和主流邮件服务 API）。
-3. 定义邮件处理规则和工作流。
-4. 启动 Agent，系统会按照配置自动监控和处理通信事务。
+1. Integrate the AgenticMail skill into your Agent project.
+2. Configure email account connection information (supports IMAP/SMTP and mainstream email service APIs).
+3. Define email processing rules and workflows.
+4. Start the Agent, which will automatically monitor and process communication tasks according to configuration.
 
-## 安全说明
+## Security Notes
 
-AgenticMail 支持 OAuth 2.0 认证，邮件内容在传输和存储过程中均有加密保护。你可以精细控制 Agent 的邮件操作权限，例如仅允许读取而禁止发送，确保自动化操作在安全边界内运行。
+AgenticMail supports OAuth 2.0 authentication with encryption protection for email content during transmission and storage. You can fine-grained control Agent email operation permissions, such as allowing only reading while prohibiting sending, ensuring automated operations operate within security boundaries.

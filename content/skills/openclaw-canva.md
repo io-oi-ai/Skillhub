@@ -1,56 +1,56 @@
 ---
-name: "Canva 设计集成"
-description: "通过 Canva Connect API 创建、导出和管理设计，AI 驱动的设计自动化"
+name: "Canva Design Integration"
+description: "Create, export, and manage designs via Canva Connect API with AI-powered design automation"
 author: "OpenClaw Community"
 roles: ["designer", "marketer"]
 scenes: ["creative-design", "workflow"]
 version: "1.0.0"
 updatedAt: "2025-02-22"
-tags: ["OpenClaw", "Canva", "设计", "自动化"]
+tags: ["OpenClaw", "Canva", "Design", "Automation"]
 featured: false
 source: "clawhub.ai"
 ---
 
-# Canva 设计集成
+# Canva Design Integration
 
-## 概述
+## Overview
 
-Canva 设计集成技能通过 Canva Connect API 将 AI 能力与 Canva 平台深度结合，让设计师和营销人员能够以自然语言驱动设计流程。无论是创建社交媒体海报、营销物料还是品牌视觉内容，都可以通过对话式交互快速完成。
+The Canva Design Integration skill combines AI capabilities with the Canva platform through the Canva Connect API, enabling designers and marketers to drive design processes through natural language. Whether creating social media posters, marketing materials, or brand visual content, everything can be completed quickly through conversational interaction.
 
-## 核心功能
+## Core Features
 
-### 设计创建与编辑
-- 根据文字描述自动生成设计稿，支持指定尺寸、风格和配色方案
-- 批量创建多尺寸适配版本，一次设计覆盖多个平台规格
-- 智能替换模板中的文字、图片和品牌元素
+### Design Creation and Editing
+- Automatically generate design compositions from text descriptions with support for specified dimensions, styles, and color schemes
+- Batch create multi-size adapted versions, covering multiple platform specifications with single design
+- Intelligently replace text, images, and brand elements in templates
 
-### 素材管理
-- 浏览和搜索 Canva 素材库，快速找到合适的模板和元素
-- 上传本地素材到 Canva 资源库，统一管理品牌资产
-- 按项目或品牌分类组织设计文件
+### Asset Management
+- Browse and search Canva's asset library to quickly find suitable templates and elements
+- Upload local assets to Canva resource library for unified brand asset management
+- Organize design files by project or brand
 
-### 导出与分发
-- 支持导出为 PNG、JPG、PDF 等多种格式
-- 根据不同平台要求自动调整输出参数
-- 批量导出功能，一次性生成所有需要的版本
+### Export and Distribution
+- Support exporting to multiple formats including PNG, JPG, PDF, etc.
+- Automatically adjust output parameters according to different platform requirements
+- Batch export functionality to generate all needed versions at once
 
-## 典型使用场景
+## Typical Use Cases
 
-1. **社交媒体运营**：快速生成微信公众号封面、小红书图文、微博配图等多平台素材
-2. **电商营销**：批量制作商品主图、促销海报、详情页banner
-3. **品牌物料**：统一生成名片、宣传册、展架等线下物料
-4. **内容营销**：为博客文章、Newsletter 创建配套的视觉内容
+1. **Social Media Operations**: Quickly generate WeChat Official Account covers, Little Red Book graphics, Weibo images, and other multi-platform content
+2. **E-commerce Marketing**: Batch create product main images, promotional posters, and detail page banners
+3. **Brand Materials**: Uniformly generate business cards, brochures, and display stands for offline materials
+4. **Content Marketing**: Create accompanying visual content for blog articles and newsletters
 
-## 使用示例
+## Usage Examples
 
-你可以这样与 AI 对话来使用这个技能：
+You can interact with AI this way to use this skill:
 
-- "帮我创建一张 1080x1080 的产品促销海报，主色调用品牌蓝"
-- "把这个设计导出为适合微信朋友圈的尺寸"
-- "基于这个模板，批量生成 10 张不同文案的社交媒体图片"
+- "Create a 1080x1080 product promotion poster for me with brand blue as the main color"
+- "Export this design to dimensions suitable for WeChat Moments"
+- "Based on this template, batch generate 10 social media images with different copy"
 
-## 注意事项
+## Important Notes
 
-- 使用前需要配置 Canva Connect API 密钥
-- 部分高级模板和素材可能需要 Canva Pro 订阅
-- 建议预先设置好品牌套件（Brand Kit），以确保设计输出的一致性
+- Requires configuring Canva Connect API keys before use
+- Some advanced templates and assets may require Canva Pro subscription
+- Recommend setting up Brand Kit in advance to ensure design output consistency

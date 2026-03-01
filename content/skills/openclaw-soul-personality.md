@@ -1,48 +1,48 @@
 ---
-name: "Soul Personality 人格系统"
-description: "为 AI Agent 定义核心人格与价值观，通过自然语言指令配置 Agent 的行为风格"
+name: "Soul Personality"
+description: "Define core personality and values for AI Agents, configure Agent behavior styles through natural language instructions"
 author: "OpenClaw"
 roles: ["developer", "everyone"]
 scenes: ["workflow", "communication"]
 version: "2.4.1"
 updatedAt: "2025-02-28"
-tags: ["OpenClaw", "人格", "Agent 配置", "系统提示词"]
+tags: ["OpenClaw", "personality", "Agent configuration", "system prompt"]
 featured: true
 source: "openclawskill.ai"
 ---
 
-## 概述
+## Overview
 
-Soul Personality 是 OpenClaw 生态中的核心技能之一，专门用于为 AI Agent 定义人格特征和行为风格。它允许用户通过自然语言指令，而非复杂的代码配置，来塑造 Agent 的沟通方式、决策倾向和价值观取向。
+Soul Personality is a core skill in the OpenClaw ecosystem, specifically designed to define personality traits and behavior styles for AI Agents. It allows users to shape how an Agent communicates, makes decisions, and adopts values through natural language instructions rather than complex code configuration.
 
-## 核心功能
+## Core Features
 
-### 自然语言人格定义
+### Natural Language Personality Definition
 
-你只需用日常语言描述你希望 Agent 具备的性格特点，例如"耐心、严谨、喜欢用类比解释复杂概念"，Soul Personality 就会将这些描述转化为结构化的行为指令，嵌入到 Agent 的系统提示词中。
+Simply describe in everyday language the personality traits you want the Agent to have, such as "patient, rigorous, likes explaining complex concepts through analogies," and Soul Personality transforms these descriptions into structured behavioral instructions embedded in the Agent's system prompt.
 
-### 价值观框架配置
+### Values Framework Configuration
 
-除了表面的语言风格，该技能还支持配置更深层的价值观框架。你可以设定 Agent 在面对模糊场景时的优先级排序，比如"安全优先于效率"或"用户隐私高于便利性"，让 Agent 的决策行为符合团队或组织的核心理念。
+Beyond surface-level communication style, this skill supports configuring deeper values frameworks. You can set Agent priorities when facing ambiguous situations, such as "safety over efficiency" or "user privacy over convenience," ensuring Agent decision-making aligns with team or organizational core values.
 
-### 多场景人格切换
+### Multi-Scenario Personality Switching
 
-同一个 Agent 可以配置多套人格配置文件。例如，面对技术用户时采用专业简洁的风格，面对普通用户时切换为通俗友好的解释方式。系统会根据上下文自动匹配或手动切换。
+A single Agent can be configured with multiple personality profiles. For example, adopt a professional concise style with technical users, then switch to a more accessible explanation style with general users. The system automatically matches based on context or allows manual switching.
 
-## 典型使用场景
+## Typical Use Cases
 
-- **客服 Agent 定制**：为企业客服机器人定义品牌一致的沟通风格，确保回复语气温和、专业且富有同理心。
-- **团队助手个性化**：让开发团队的 AI 助手具备技术幽默感，在提供代码建议的同时保持轻松的交流氛围。
-- **教育场景适配**：为教学类 Agent 配置耐心引导的性格，遇到学生错误时不直接给出答案，而是通过提问引导思考。
-- **多语言人格一致性**：在跨语言场景中保持人格一致，无论 Agent 使用中文还是英文回复，都维持相同的性格特征。
+- **Customer Service Agent Customization**: Define brand-consistent communication styles for enterprise customer service bots, ensuring replies are warm, professional, and empathetic.
+- **Team Assistant Personalization**: Give your development team's AI assistant technical humor while providing code suggestions and maintaining a relaxed communication atmosphere.
+- **Educational Scenario Adaptation**: Configure patient guidance personality for teaching Agents that, when encountering student errors, guides thinking through questions rather than providing direct answers.
+- **Multi-Language Personality Consistency**: Maintain consistent personality across languages, keeping the same character traits whether the Agent responds in Chinese or English.
 
-## 使用方式
+## How to Use
 
-1. 在你的 Agent 项目中引入 Soul Personality 技能。
-2. 创建一个人格配置文件，用自然语言描述期望的行为特征。
-3. 通过 OpenClaw 的技能加载机制将人格配置注入 Agent 运行时。
-4. 在对话中观察 Agent 的行为表现，迭代调整人格描述直到满意。
+1. Import Soul Personality skill into your Agent project.
+2. Create a personality configuration file describing desired behavior traits in natural language.
+3. Inject the personality configuration into Agent runtime through OpenClaw's skill loading mechanism.
+4. Observe the Agent's behavior in conversations and iteratively refine the personality description until satisfied.
 
-## 为什么选择 Soul Personality
+## Why Choose Soul Personality
 
-相比手写冗长的系统提示词，Soul Personality 提供了一套结构化的人格定义框架，让你的描述更有条理、更易维护。当你需要在多个 Agent 之间共享人格模板，或者在团队中协作调整 Agent 行为时，这种结构化方案的优势尤为明显。
+Compared to hand-writing lengthy system prompts, Soul Personality provides a structured personality definition framework that makes your descriptions more organized and easier to maintain. When you need to share personality templates across multiple Agents or collaborate with your team to adjust Agent behavior, this structured approach shines.

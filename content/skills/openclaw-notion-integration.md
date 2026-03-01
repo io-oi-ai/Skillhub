@@ -1,65 +1,65 @@
 ---
-name: "Notion 集成"
-description: "完整的 Notion 页面和数据库 CRUD 操作，AI 驱动的知识管理"
+name: "Notion Integration"
+description: "Complete CRUD operations for Notion pages and databases with AI-driven knowledge management"
 author: "OpenClaw Community"
 roles: ["everyone", "product-manager"]
 scenes: ["workflow", "project-management"]
 version: "1.0.0"
 updatedAt: "2025-02-15"
-tags: ["OpenClaw", "Notion", "知识管理", "项目管理"]
+tags: ["OpenClaw", "Notion", "knowledge management", "project management"]
 featured: false
 source: "clawhub.ai"
 ---
 
-# Notion 集成
+# Notion Integration
 
-## 概述
+## Overview
 
-Notion 集成技能通过 Notion API 实现对 Notion 工作空间的完整操作能力，让你可以用自然语言创建页面、管理数据库、整理知识库。AI 理解你的意图后直接操作 Notion，省去在界面上反复点击的时间，特别适合需要批量操作或定期更新内容的场景。
+Notion Integration skill enables complete operational capabilities on your Notion workspace through the Notion API, allowing you to create pages, manage databases, and organize knowledge bases using natural language. After understanding your intent, AI directly manipulates Notion, saving time spent clicking through the interface. It's especially suitable for scenarios requiring bulk operations or regular content updates.
 
-## 核心功能
+## Core Features
 
-### 页面管理
-- 通过对话创建格式丰富的 Notion 页面，支持标题、列表、代码块、引用等块类型
-- 搜索和定位已有页面，快速查找需要的信息
-- 批量更新页面内容，例如统一修改格式或添加标签
-- 在指定页面下创建子页面，维护清晰的层级结构
+### Page Management
+- Create richly formatted Notion pages through conversation, supporting block types like headings, lists, code blocks, and quotes
+- Search and locate existing pages to quickly find needed information
+- Bulk update page content, such as unified format changes or tag additions
+- Create child pages under specified pages to maintain clear hierarchical structures
 
-### 数据库操作
-- 创建数据库并定义属性字段（文本、数字、日期、选择、多选、关联等）
-- 向数据库批量添加条目，告别逐条手动录入
-- 按条件查询和筛选数据库内容，快速获取所需信息
-- 更新已有条目的属性值，支持批量修改
+### Database Operations
+- Create databases and define property fields (text, number, date, single select, multi-select, relations, etc.)
+- Add entries to databases in bulk, eliminating tedious manual entry
+- Query and filter database content by conditions to quickly retrieve needed information
+- Update properties of existing entries, supporting bulk modifications
 
-### 知识管理
-- 将会议纪要、文档摘要等内容自动归档到对应的 Notion 页面
-- 根据聊天内容自动创建待办事项并添加到任务数据库
-- 整理和重组现有的知识库结构，优化信息检索效率
-- 从外部内容（网页、文档）提取信息写入 Notion
+### Knowledge Management
+- Automatically archive meeting notes, document summaries, and other content to corresponding Notion pages
+- Automatically create to-do items from chat content and add them to task databases
+- Reorganize and restructure existing knowledge base structures to improve information retrieval efficiency
+- Extract information from external content (web pages, documents) and write to Notion
 
-### 项目管理辅助
-- 在项目看板中创建和更新任务卡片
-- 批量调整任务状态、负责人、截止日期等属性
-- 生成项目进度汇总，自动统计各状态下的任务数量
-- 根据模板快速创建新项目的完整页面结构
+### Project Management Support
+- Create and update task cards in project dashboards
+- Bulk adjust task properties like status, assignees, and due dates
+- Generate project progress summaries, automatically counting tasks in different statuses
+- Quickly create complete page structures for new projects using templates
 
-## 典型使用场景
+## Typical Use Cases
 
-1. **团队知识库维护**：将散落在各处的文档统一整理到 Notion 知识库
-2. **会议管理**：自动将会议纪要写入 Notion，创建对应的待办任务
-3. **产品需求管理**：批量录入需求到数据库，设置优先级和状态跟踪
-4. **个人笔记整理**：将学习笔记、读书摘要分类归档到 Notion
+1. **Team Knowledge Base Maintenance**: Consolidate scattered documents throughout your workspace into a unified Notion knowledge base
+2. **Meeting Management**: Automatically write meeting notes to Notion and create corresponding action items
+3. **Product Requirements Management**: Bulk upload requirements to databases and track priority and status
+4. **Personal Note Organization**: Categorize and archive learning notes and reading excerpts to Notion
 
-## 使用示例
+## Usage Examples
 
-- "在产品需求库中添加 5 条新需求，优先级都设为 P1"
-- "搜索知识库中所有关于用户调研的页面，整理一份摘要"
-- "创建一个新的项目看板，包含待办、进行中、已完成三个状态"
-- "把这份会议纪要写入 Notion，放在团队空间的会议记录下面"
+- "Add 5 new requirements to the product requirements database, all with P1 priority"
+- "Search for all pages in the knowledge base about user research and prepare a summary"
+- "Create a new project dashboard with To-Do, In Progress, and Completed statuses"
+- "Write these meeting notes to Notion under the team space's meeting records"
 
-## 注意事项
+## Important Notes
 
-- 使用前需要创建 Notion Integration 并配置 API Token
-- 需要将 Integration 添加到目标页面或数据库的连接中才能访问
-- Notion API 有频率限制，批量操作时会自动控制请求速度
-- 建议先在测试页面验证操作效果，避免误操作影响正式内容
+- Before using, you need to create a Notion Integration and configure the API Token
+- You must add the Integration to the target page or database connections to gain access
+- Notion API has rate limits; bulk operations automatically throttle request speed
+- It's recommended to verify operations on test pages first to avoid accidental changes to production content

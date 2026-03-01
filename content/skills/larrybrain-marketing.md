@@ -1,80 +1,80 @@
 ---
-name: "Larry Marketing TikTok 营销"
-description: "自动化 TikTok 营销系统：AI 生成幻灯片、钩子测试、跨平台发布和数据分析"
+name: "Larry Marketing - TikTok Marketing System"
+description: "Automated TikTok marketing system: AI-generated carousels, hook testing, cross-platform publishing, and data analytics"
 author: "LarryBrain"
 roles: ["marketer"]
 scenes: ["creative-design", "workflow", "data-analysis"]
 version: "1.0.0"
 updatedAt: "2025-02-25"
-tags: ["LarryBrain", "TikTok", "营销", "自动化", "短视频"]
+tags: ["LarryBrain", "TikTok", "marketing", "automation", "short video"]
 featured: true
 source: "larrybrain.com"
 ---
 
-# Larry Marketing TikTok 营销系统
+# Larry Marketing - TikTok Marketing System
 
-## 概述
+## Overview
 
-Larry Marketing 是经过实战验证的 TikTok 自动化营销系统。这套系统曾帮助多个账号累计获得超过 100 万次 TikTok 播放量，现在通过 LarryBrain 平台向所有 OpenClaw 用户开放。
+Larry Marketing is a battle-tested TikTok automated marketing system. This system has helped multiple accounts accumulate over 1 million TikTok views and is now available to all OpenClaw users through the LarryBrain platform.
 
-整个流程从内容生成到发布分析全部由 Agent 自动完成，你只需要设定主题方向，剩下的交给系统处理。
+The entire workflow from content generation to publishing and analysis is fully automated by Agent. You only need to set the topic direction, and the system handles the rest.
 
-## 核心功能
+## Core Features
 
-### AI 幻灯片生成
+### AI Carousel Generation
 
-- 根据指定话题自动生成 TikTok 幻灯片（Carousel）内容
-- 自动设计排版，包括标题、正文、配图和品牌元素
-- 支持多种视觉风格模板：极简、商务、潮流、教育等
-- 每张幻灯片的文案都经过 AI 优化，确保信息密度和吸引力
-- 批量生成能力，一次可创建数十组幻灯片素材
+- Automatically generate TikTok carousel content based on specified topics
+- Auto-design layout including titles, body text, images, and brand elements
+- Support multiple visual style templates: minimalist, professional, trendy, educational, and more
+- Each carousel card's copy is optimized by AI to ensure information density and appeal
+- Batch generation capability to create dozens of carousel assets at once
 
-### 钩子（Hook）测试系统
+### Hook Testing System
 
-- 自动生成同一主题的多个不同开头版本
-- 采用 A/B 测试策略，同时发布不同钩子的内容
-- 实时追踪每个版本的完播率、互动率和转化数据
-- 基于测试结果自动总结高效钩子的写作模式
-- 逐步建立你所在领域的钩子效果数据库
+- Automatically generate multiple opening variations of the same topic
+- Use A/B testing strategy to simultaneously publish content with different hooks
+- Real-time tracking of completion rate, engagement rate, and conversion metrics for each version
+- Automatically summarize high-performing hook writing patterns based on test results
+- Gradually build a database of hook effectiveness for your niche
 
-### 跨平台发布
+### Cross-Platform Publishing
 
-- 一键将 TikTok 内容适配并发布到 Instagram Reels、YouTube Shorts
-- 自动调整视频尺寸、字幕样式和标签策略以匹配各平台规范
-- 统一管理所有平台的发布排期
-- 针对不同平台的算法特点，自动微调内容呈现方式
+- One-click adaptation and publishing of TikTok content to Instagram Reels and YouTube Shorts
+- Automatically adjust video dimensions, subtitle styles, and hashtag strategies to match platform specs
+- Unified scheduling across all platforms
+- Auto-adjust content presentation based on each platform's algorithm characteristics
 
-### 数据分析引擎
+### Data Analytics Engine
 
-- 全面追踪每条内容的播放量、点赞、评论、分享和关注转化
-- 可视化展示内容表现趋势和受众增长曲线
-- 自动识别爆款内容的共同特征：主题、时长、风格、发布时间
-- 生成周报和月报，包含可执行的优化建议
-- 竞品账号监控，分析同领域热门内容的成功要素
+- Comprehensive tracking of views, likes, comments, shares, and follow-ups for every post
+- Visual representation of content performance trends and audience growth curves
+- Automatically identify viral content characteristics: topic, length, style, posting time
+- Generate weekly and monthly reports with actionable optimization suggestions
+- Competitive account monitoring to analyze success factors of trending content in your niche
 
-## 自动化工作流
+## Automated Marketing Workflow
 
-整个营销流程完全自动化运行：
+The entire marketing process runs completely automatically:
 
-1. **内容规划**：Agent 根据你设定的主题和目标受众，制定每周内容计划
-2. **素材生成**：自动创建幻灯片、撰写文案、生成标签
-3. **钩子优化**：为每组内容生成多个开头版本进行测试
-4. **定时发布**：在最佳时段自动发布到 TikTok 及其他平台
-5. **数据回收**：持续采集各项数据指标
-6. **策略迭代**：基于数据反馈自动调整后续内容方向
+1. **Content Planning**: Agent creates a weekly content plan based on your specified topics and target audience
+2. **Asset Generation**: Automatically create carousels, write copy, and generate hashtags
+3. **Hook Optimization**: Generate multiple opening versions for each piece of content for testing
+4. **Scheduled Publishing**: Automatically publish to TikTok and other platforms at optimal times
+5. **Data Collection**: Continuously collect performance metrics
+6. **Strategy Iteration**: Automatically adjust subsequent content direction based on data feedback
 
-## 实战成果
+## Proven Results
 
-这套系统的核心逻辑来自真实运营经验，已被验证可以：
+The core logic of this system comes from real operational experience and has been verified to:
 
-- 在冷启动阶段快速获取初始流量
-- 通过钩子测试将完播率提升 40% 以上
-- 利用跨平台发布将内容覆盖面扩大 3 倍
-- 将日常运营工作量从数小时缩减到几分钟
+- Quickly acquire initial traffic during the cold start phase
+- Increase completion rates by 40% or more through hook testing
+- Expand content reach by 3x through cross-platform publishing
+- Reduce daily operational workload from hours to minutes
 
-## 适用场景
+## Use Cases
 
-- 电商卖家通过 TikTok 推广产品
-- 知识博主批量生产教育类短视频
-- 品牌方建立 TikTok 矩阵账号
-- 个人创业者用短视频获取精准客户
+- Ecommerce sellers promoting products through TikTok
+- Knowledge creators producing educational short videos in bulk
+- Brands establishing TikTok account matrices
+- Individual entrepreneurs acquiring targeted customers via short video content

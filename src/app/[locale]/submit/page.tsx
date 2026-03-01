@@ -52,7 +52,7 @@ export default async function SubmitPage({ params }: Props) {
               {dict.submitPage.description}
             </p>
           </div>
-          <SubmitForm dict={dict} />
+          <SubmitForm dict={dict} locale={locale} />
         </div>
       </main>
       <Footer locale={locale} dict={dict} />

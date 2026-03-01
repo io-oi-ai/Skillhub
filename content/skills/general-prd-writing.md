@@ -1,61 +1,61 @@
 ---
-name: "PRD 需求文档撰写"
-description: "辅助产品经理撰写结构化的产品需求文档，包含用户故事和验收标准"
+name: "PRD Requirements Document Writing"
+description: "Assist product managers in writing structured product requirements documents, including user stories and acceptance criteria"
 author: "SkillHub"
 roles: ["product-manager"]
 scenes: ["writing", "project-management"]
 version: "1.0.0"
 updatedAt: "2025-02-22"
-tags: ["PRD", "需求文档", "产品设计", "用户故事"]
+tags: ["PRD", "requirements document", "product design", "user stories"]
 featured: true
 source: "skillhub"
 ---
 
-# PRD 需求文档撰写
+# PRD Requirements Document Writing
 
-## 技能说明
+## Skill Overview
 
-产品需求文档（PRD）是产品经理与研发、设计、测试团队之间最重要的沟通工具。一份好的 PRD 能大幅减少需求理解偏差，降低返工成本。本技能帮助产品经理快速生成结构完整、逻辑清晰的 PRD 文档。
+The Product Requirements Document (PRD) is the most important communication tool between product managers and development, design, and testing teams. A well-written PRD can significantly reduce requirement understanding misalignment and lower rework costs. This skill helps product managers quickly generate PRD documents with complete structure and clear logic.
 
-## 输入要求
+## Input Requirements
 
-请提供以下核心信息：
+Please provide the following core information:
 
-- **需求背景**：为什么要做这个功能，业务目标是什么
-- **目标用户**：这个功能面向哪些用户群体
-- **核心场景**：用户在什么情况下会使用这个功能
-- **功能描述**：期望实现的功能要点，可以是粗略的想法
-- **参考竞品**：如果有参考的产品或功能，请提供链接或截图说明
-- **优先级和排期**：期望的上线时间和功能优先级
+- **Requirements Background**: Why build this feature, what are the business objectives
+- **Target Users**: Which user groups this feature targets
+- **Core Scenarios**: When and how users would use this feature
+- **Feature Description**: Key feature points you want to implement (can be rough ideas)
+- **Reference Products**: If referencing competitor products or features, provide links or screenshots
+- **Priority and Timeline**: Expected launch time and feature priority
 
-## 输出内容
+## Output Content
 
-生成的 PRD 文档将包含以下章节：
+The generated PRD document will include the following chapters:
 
-### 文档结构
+### Document Structure
 
-1. **版本记录**：文档修改历史和审核状态
-2. **需求概述**：项目背景、目标、成功指标（KPI/OKR）
-3. **用户故事**：以「作为 [角色]，我希望 [行为]，以便 [目的]」的格式描述需求
-4. **功能详述**：每个功能点的详细描述、交互流程、边界条件
-5. **信息架构**：页面层级和导航结构
-6. **业务规则**：数据校验、权限控制、状态流转等规则
-7. **非功能需求**：性能、安全、兼容性等要求
-8. **验收标准**：每个功能点对应的可验证的测试条件
-9. **排期建议**：功能拆分和阶段划分建议
+1. **Version History**: Document revision history and review status
+2. **Requirements Overview**: Project background, objectives, success metrics (KPI/OKR)
+3. **User Stories**: Requirements described in the format "As a [role], I want [action], so that [purpose]"
+4. **Feature Details**: Detailed description of each feature point, interaction flow, edge cases
+5. **Information Architecture**: Page hierarchy and navigation structure
+6. **Business Rules**: Data validation, permission control, state transitions, and other rules
+7. **Non-Functional Requirements**: Performance, security, compatibility requirements
+8. **Acceptance Criteria**: Verifiable test conditions for each feature point
+9. **Timeline Suggestions**: Feature breakdown and phasing recommendations
 
-## 使用技巧
+## Usage Tips
 
-- **先写用户故事再写功能**：从用户视角出发能避免"为了做功能而做功能"的陷阱
-- **验收标准要可测试**：每条验收标准都应该是可以明确判断"通过/不通过"的
-- **区分 MVP 和完整版**：标注哪些是第一期必须做的，哪些可以后续迭代
-- **配合原型使用**：PRD 搭配低保真原型效果更佳，文字描述容易产生歧义
-- **保持更新**：需求变更时及时更新 PRD，避免文档与实际脱节
-- **关注异常流程**：除了正常流程，要充分考虑异常情况和边界条件
+- **Write user stories before features**: Starting from the user perspective avoids the trap of "building features just for the sake of it"
+- **Acceptance criteria must be testable**: Each acceptance criterion should clearly determine whether it "passes/fails"
+- **Distinguish MVP from full version**: Mark which features are must-haves for phase one and which can be iterated later
+- **Combine with prototypes**: PRD paired with low-fidelity prototypes is most effective; written descriptions easily cause misunderstandings
+- **Keep updates current**: Update PRD immediately when requirements change to avoid documentation-reality gap
+- **Focus on exceptional flows**: Beyond normal flows, thoroughly consider exceptional cases and edge conditions
 
-## 适用场景
+## Applicable Scenarios
 
-- 新功能的需求文档编写
-- 现有功能的改版需求整理
-- 技术方案评审前的需求对齐
-- 跨团队协作时的需求同步
+- Writing requirements documents for new features
+- Organizing modification requirements for existing features
+- Requirements alignment before technical solution reviews
+- Requirements synchronization during cross-team collaboration

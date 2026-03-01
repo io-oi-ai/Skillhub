@@ -1,56 +1,56 @@
 ---
-name: "合同条款审查"
-description: "辅助法务人员审查合同关键条款，标记潜在风险和不利条款"
+name: "Contract Clause Review"
+description: "Assist legal professionals in reviewing critical contract terms, flagging potential risks and unfavorable clauses"
 author: "SkillHub"
 roles: ["legal"]
 scenes: ["research", "decision-making"]
 version: "1.0.0"
 updatedAt: "2025-02-15"
-tags: ["合同", "法务", "风险审查", "条款分析"]
+tags: ["contract", "legal", "risk review", "clause analysis"]
 featured: false
 source: "skillhub"
 ---
 
-# 合同条款审查
+# Contract Clause Review
 
-## 技能说明
+## Skill Overview
 
-合同审查是法务工作中最耗时但又至关重要的环节。本技能帮助法务人员快速识别合同中的关键条款，标记潜在风险点和不利条款，并提供修改建议。它不能替代专业法律判断，但可以大幅提升初审效率。
+Contract review is the most time-consuming yet critical task in legal work. This skill helps legal professionals quickly identify key contract clauses, flag potential risk points and unfavorable terms, and provide revision suggestions. While it cannot replace professional legal judgment, it can significantly improve initial review efficiency.
 
-## 输入要求
+## Input Requirements
 
-请提供以下内容：
+Please provide the following content:
 
-- **合同文本**：完整的合同内容，支持直接粘贴文本
-- **合同类型**：如采购合同、服务合同、租赁合同、劳动合同等
-- **我方角色**：我方是甲方还是乙方，便于从我方利益角度审查
-- **重点关注事项**：如有特别需要关注的条款或风险点，请提前说明
+- **Contract Text**: Complete contract content, supports direct text paste
+- **Contract Type**: Such as purchase agreement, service contract, lease, employment contract, etc.
+- **Our Role**: Whether we are Party A (buyer) or Party B (seller) to review from our interest perspective
+- **Areas of Focus**: Any specific clauses or risk points requiring special attention
 
-## 审查维度
+## Review Dimensions
 
-本技能将从以下维度进行合同审查：
+This skill will conduct contract review from the following dimensions:
 
-1. **主体与资质**：合同主体信息是否完整，签约资格是否合规
-2. **权利与义务**：双方权利义务是否对等，有无显失公平的条款
-3. **付款条款**：付款方式、账期、发票要求是否合理
-4. **违约责任**：违约条款是否对等，违约金比例是否合理
-5. **知识产权**：IP 归属是否明确，有无潜在侵权风险
-6. **保密条款**：保密范围、期限、违反后果是否恰当
-7. **争议解决**：管辖法院或仲裁机构的选择是否对我方有利
-8. **终止与解除**：合同终止条件是否明确，退出机制是否合理
-9. **不可抗力**：不可抗力条款的定义和范围是否足够
+1. **Parties and Qualifications**: Whether contract party information is complete, whether signing authority is compliant
+2. **Rights and Obligations**: Whether mutual rights and obligations are balanced, any unconscionable terms
+3. **Payment Terms**: Whether payment method, payment terms, invoice requirements are reasonable
+4. **Breach Liability**: Whether breach clauses are balanced, whether penalty rates are reasonable
+5. **Intellectual Property**: Whether IP ownership is clear, any potential infringement risks
+6. **Confidentiality**: Whether confidentiality scope, duration, consequences are appropriate
+7. **Dispute Resolution**: Whether choice of jurisdiction or arbitration is favorable to us
+8. **Termination and Dissolution**: Whether contract termination conditions are clear, whether exit mechanisms are reasonable
+9. **Force Majeure**: Whether force majeure definition and scope are adequate
 
-## 输出内容
+## Output Content
 
-审查报告将包含：
+The review report will include:
 
-- **风险等级标注**：高风险（红色）、中风险（黄色）、低风险（绿色）
-- **问题条款摘录**：原文引用及问题说明
-- **修改建议**：针对每个问题条款的具体修改方案
-- **补充建议**：建议增加但合同中缺失的保护性条款
+- **Risk Level Tags**: High risk (red), Medium risk (yellow), Low risk (green)
+- **Problem Clause Excerpts**: Original text with problem descriptions
+- **Revision Suggestions**: Specific revision proposals for each problematic clause
+- **Supplementary Suggestions**: Protective clauses recommended to be added but missing from the contract
 
-## 注意事项
+## Precautions
 
-- 本技能提供的审查结果仅供参考，最终判断仍需由专业法务人员做出
-- 涉及重大合同或复杂法律问题时，建议结合外部律师意见
-- 不同行业和地域的法律要求有差异，请结合实际情况调整
+- Review results provided by this skill are for reference only; final judgment must be made by professional legal professionals
+- For major contracts or complex legal matters, recommend combining with external legal counsel opinions
+- Legal requirements vary by industry and jurisdiction; adjust accordingly based on actual circumstances

@@ -101,6 +101,10 @@ const zh: Dictionary = {
     contentPlaceholder:
       "# Skill 名称\n\n## 使用场景\n\n描述这个 Skill 适用的场景...\n\n## 使用方法\n\n1. 第一步\n2. 第二步",
     generate: "生成 Markdown 文件",
+    publish: "发布到平台",
+    publishing: "发布中...",
+    publishSuccess: "发布成功！正在跳转到 Skill 页面...",
+    publishError: "发布失败，请重试",
     result: "生成结果",
     copy: "复制",
     download: "下载 .md 文件",

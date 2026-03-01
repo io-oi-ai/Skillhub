@@ -1,82 +1,82 @@
 ---
-name: "Larry Support 客服系统"
-description: "AI 驱动的客户支持系统，替代 Zendesk 和 Freshdesk，自动监控、分类和回复"
+name: "Larry Support - AI Customer Support System"
+description: "AI-powered customer support system replacing Zendesk and Freshdesk with automatic monitoring, categorization, and response"
 author: "LarryBrain"
 roles: ["operations", "product-manager"]
 scenes: ["communication", "workflow"]
 version: "1.0.0"
 updatedAt: "2025-02-20"
-tags: ["LarryBrain", "客服", "工单", "自动化"]
+tags: ["LarryBrain", "customer support", "ticketing", "automation"]
 featured: false
 source: "larrybrain.com"
 ---
 
-# Larry Support 客服系统
+# Larry Support - AI Customer Support System
 
-## 概述
+## Overview
 
-Larry Support 是一套 AI 驱动的客户支持解决方案，旨在替代 Zendesk 和 Freshdesk 等昂贵的客服 SaaS 产品。系统自动监控 X (Twitter) 上的品牌提及，智能分类问题严重程度，并生成专业回复建议，同时提供本地部署的工单管理看板。
+Larry Support is an AI-powered customer support solution designed to replace expensive customer service SaaS products like Zendesk and Freshdesk. The system automatically monitors brand mentions on X (Twitter), intelligently categorizes issue severity, generates professional response suggestions, and provides a locally-deployed ticket management dashboard.
 
-无需支付 Zendesk 每月数百美元的订阅费，通过 LarryBrain 即可免费获得同等能力。
+No need to pay Zendesk's hundreds of dollars monthly subscription. Get equivalent functionality free through LarryBrain.
 
-## 核心功能
+## Core Features
 
-### X 平台提及监控
+### X Platform Mention Monitoring
 
-- 24/7 实时监控 X 上与你的品牌、产品相关的所有提及
-- 捕捉直接 @提及、间接提及、关键词提及和竞品对比讨论
-- 自动过滤垃圾信息和无关内容，只保留需要关注的有效反馈
-- 支持设置多组监控关键词，覆盖产品名、常见拼写变体和缩写
+- 24/7 real-time monitoring of all brand and product mentions on X
+- Capture direct @mentions, indirect mentions, keyword mentions, and competitor comparison discussions
+- Automatically filter spam and irrelevant content to keep only actionable feedback
+- Support setting multiple monitoring keywords covering product names, common spelling variations, and abbreviations
 
-### 智能问题分类
+### Intelligent Issue Categorization
 
-- 自动将用户反馈分为：紧急故障、功能问题、使用咨询、功能建议、正面评价
-- 根据问题严重程度自动分配优先级（P0 到 P4）
-- 识别情绪倾向：愤怒、焦虑、中性、满意
-- 检测重复问题并自动关联，帮助发现系统性故障
-- 当出现 P0 级紧急问题时，立即触发告警通知
+- Automatically categorize user feedback: critical failures, feature issues, usage questions, feature requests, positive reviews
+- Automatically assign priority levels (P0 to P4) based on issue severity
+- Identify sentiment: angry, anxious, neutral, satisfied
+- Detect duplicate issues and automatically correlate them to help discover systemic failures
+- Trigger immediate alerts when P0 critical issues appear
 
-### 自动回复建议
+### Automated Response Suggestions
 
-- 基于问题类型和历史处理记录，自动生成专业回复草稿
-- 回复风格可配置：正式、友好、简洁、详细
-- 对于常见问题（FAQ），直接提供标准答案和相关文档链接
-- 支持多语言回复生成，覆盖英语、中文、日语等主流语种
-- 所有自动回复均标记为"建议"，最终由人工确认后发送
+- Automatically generate professional response drafts based on issue type and historical handling records
+- Configurable response style: formal, friendly, concise, detailed
+- For common questions (FAQ), directly provide standard answers and relevant documentation links
+- Support multilingual response generation covering English, Chinese, Japanese, and other major languages
+- All automated responses marked as "suggestions" and sent only after human confirmation
 
-### 本地工单看板
+### Local Ticket Dashboard
 
-- 类似 Zendesk 的可视化工单管理界面，以本地 Web 应用形式运行
-- 看板视图支持按状态（待处理、处理中、已解决、已关闭）拖拽管理
-- 每张工单完整记录用户信息、问题描述、沟通历史和处理时间线
-- 内置数据统计：平均响应时间、解决率、客户满意度趋势
-- 支持工单标签和自定义字段，适应不同团队的工作流程
+- Visualized ticket management interface similar to Zendesk, running as a local web application
+- Board view supports drag-and-drop management by status (pending, in-progress, resolved, closed)
+- Each ticket maintains complete records of user info, issue description, communication history, and processing timeline
+- Built-in data statistics: average response time, resolution rate, customer satisfaction trends
+- Support ticket tags and custom fields to adapt to different team workflows
 
-## 替代方案对比
+## Feature Comparison
 
-| 功能 | Zendesk ($55+/人/月) | Freshdesk ($15+/人/月) | Larry Support |
-|------|---------------------|----------------------|---------------|
-| 多渠道监控 | 有 | 有 | X 平台 |
-| 智能分类 | 付费附加 | 基础 | 有 |
-| AI 回复建议 | 付费附加 | 付费附加 | 有 |
-| 工单看板 | 有 | 有 | 有 |
-| 数据分析 | 有 | 有 | 有 |
-| 本地部署 | 无 | 无 | 有 |
-| 费用 | $55+/人/月 | $15+/人/月 | 免费 |
+| Feature | Zendesk ($55+/person/month) | Freshdesk ($15+/person/month) | Larry Support |
+|---------|--------------------------|-------------------------------|---------------|
+| Multi-channel Monitoring | Yes | Yes | X Platform |
+| Intelligent Categorization | Paid Add-on | Basic | Yes |
+| AI Response Suggestions | Paid Add-on | Paid Add-on | Yes |
+| Ticket Dashboard | Yes | Yes | Yes |
+| Data Analytics | Yes | Yes | Yes |
+| Local Deployment | No | No | Yes |
+| Cost | $55+/person/month | $15+/person/month | Free |
 
-## 数据隐私优势
+## Data Privacy Advantages
 
-与云端客服系统不同，Larry Support 完全在本地运行：
+Unlike cloud-based customer support systems, Larry Support runs entirely locally:
 
-- 所有客户数据存储在你自己的设备上
-- 不会将用户信息上传到第三方服务器
-- 符合数据隐私法规要求
-- 完全掌控数据的存储和清理策略
+- All customer data stored on your own device
+- Never upload user information to third-party servers
+- Complies with data privacy regulations
+- Complete control over data storage and deletion policies
 
-## 适用场景
+## Use Cases
 
-- 初创公司需要低成本搭建客户支持体系
-- 独立开发者处理用户反馈和问题报告
-- 小型团队替代昂贵的 Zendesk 订阅
-- 产品经理系统性收集和分析用户反馈
-- 运营团队监控品牌口碑和社交舆情
+- Startups need low-cost customer support system setup
+- Independent developers handling user feedback and bug reports
+- Small teams replacing expensive Zendesk subscriptions
+- Product managers systematically collecting and analyzing user feedback
+- Operations teams monitoring brand reputation and social sentiment

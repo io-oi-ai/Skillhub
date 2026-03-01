@@ -1,68 +1,68 @@
 ---
-name: "4To1 Planner 目标规划"
-description: "AI 规划教练，将 4 年愿景拆解为年、月、周、日可执行行动"
+name: "4To1 Planner Goal Planning"
+description: "AI planning coach that breaks down 4-year visions into executable actions at yearly, monthly, weekly, and daily levels"
 author: "OpenClaw Community"
 roles: ["everyone"]
 scenes: ["project-management", "decision-making"]
 version: "1.0.0"
 updatedAt: "2025-02-20"
-tags: ["OpenClaw", "目标", "规划", "时间管理"]
+tags: ["OpenClaw", "Goals", "Planning", "Time Management"]
 featured: true
 source: "clawhub.ai"
 ---
 
-# 4To1 Planner 目标规划
+# 4To1 Planner Goal Planning
 
-## 概述
+## Overview
 
-4To1 Planner 是一个 AI 规划教练，核心理念是"从 4 年愿景到 1 天行动"。它帮助你把宏大的人生目标逐级拆解为可执行的具体任务，解决"知道方向但不知道今天该做什么"的普遍困境。无论是职业发展、创业计划还是个人成长，这个技能都能帮你建立清晰的行动路线图。
+4To1 Planner is an AI planning coach with a core philosophy: "From 4-year vision to 1-day action". It helps you break down ambitious life goals into executable tasks level by level, solving the common dilemma of "knowing the direction but not knowing what to do today". Whether it's career development, startup planning, or personal growth, this skill helps you build a clear action roadmap.
 
-## 核心功能
+## Core Features
 
-### 愿景梳理与目标设定
-- 通过引导式对话帮你厘清长期愿景和核心价值观
-- 运用 SMART 原则将模糊的愿望转化为可衡量的具体目标
-- 识别目标之间的关联性和优先级，避免多线程导致的精力分散
-- 评估目标的可行性，提供现实性检查和调整建议
+### Vision Clarification and Goal Setting
+- Use guided conversations to clarify long-term vision and core values
+- Apply SMART principles to transform vague wishes into measurable concrete goals
+- Identify connections between goals and priorities to avoid scattered energy from multitasking
+- Assess goal feasibility and provide reality checks and adjustment suggestions
 
-### 多层级拆解
-- **4 年规划**：定义里程碑式的关键成果，描绘清晰的成长路径
-- **年度计划**：将 4 年目标拆解为每年的核心任务和关键指标
-- **月度目标**：细化到每月的重点工作和交付物
-- **周计划**：明确每周的具体行动项和时间安排
-- **日任务**：生成每天的待办清单，确保每一天都在推进目标
+### Multi-level Decomposition
+- **4-year planning**: Define milestone-based key results and clear growth paths
+- **Annual planning**: Break down 4-year goals into yearly core tasks and key metrics
+- **Monthly goals**: Refine to monthly focus areas and deliverables
+- **Weekly planning**: Specify concrete action items and time allocation for each week
+- **Daily tasks**: Generate daily to-do lists to ensure each day moves toward your goals
 
-### 进度追踪与调整
-- 定期回顾目标完成情况，识别偏差和风险
-- 根据实际进展动态调整计划，保持灵活性
-- 提供正向激励和阶段性总结，维持执行动力
-- 当遇到阻碍时给出绕行方案和替代策略
+### Progress Tracking and Adjustment
+- Regularly review goal completion, identify deviations and risks
+- Dynamically adjust plans based on actual progress while maintaining flexibility
+- Provide positive reinforcement and periodic summaries to maintain execution momentum
+- Offer alternative strategies and workarounds when obstacles arise
 
-## 典型使用场景
+## Typical Use Cases
 
-1. **职业发展规划**：从"成为技术总监"拆解到每天应该学习什么、做什么项目
-2. **创业路线图**：从产品构想到融资上线，每个阶段该做什么一目了然
-3. **学习计划**：将"掌握一门新技能"拆解为系统的学习路径和每日练习
-4. **健康管理**：从年度健康目标到每周运动计划和每日饮食安排
-5. **财务规划**：将储蓄或投资目标分解为每月的具体行动
+1. **Career Development Planning**: Break down "become a technical director" into what to learn and projects to work on each day
+2. **Startup Roadmap**: From product concept to launch, clarify what needs to be done at each stage
+3. **Learning Plans**: Break down "master a new skill" into systematic learning paths and daily practice
+4. **Health Management**: From annual health goals to weekly exercise plans and daily dietary arrangements
+5. **Financial Planning**: Decompose savings or investment goals into specific monthly actions
 
-## 使用示例
+## Usage Examples
 
-- "我想在 4 年内从初级工程师成长为技术负责人，帮我制定计划"
-- "帮我把今年的年度目标拆解成这个月该做的事情"
-- "回顾一下我上周的计划完成情况，调整这周的安排"
-- "我的创业项目计划明年上线，帮我倒推每个季度的关键节点"
+- "I want to grow from a junior engineer to a technical leader within 4 years. Help me create a plan"
+- "Help me break down my annual goals into what I should do this month"
+- "Let me review last week's plan completion and adjust this week's schedule"
+- "My startup project is scheduled to launch next year. Help me work backward through quarterly milestones"
 
-## 方法论基础
+## Methodology Foundation
 
-这个技能融合了多种经典的目标管理方法论：
-- **OKR**（目标与关键成果）：确保每个层级都有可衡量的关键结果
-- **GTD**（Getting Things Done）：将规划转化为可执行的下一步行动
-- **番茄工作法**：在日任务层面提供时间块建议
-- **复盘思维**：通过定期回顾持续优化执行路径
+This skill combines several classic goal management methodologies:
+- **OKR** (Objectives and Key Results): Ensure each level has measurable key results
+- **GTD** (Getting Things Done): Transform planning into executable next steps
+- **Pomodoro Technique**: Provide time block suggestions at the daily task level
+- **Retrospective Thinking**: Continuously optimize execution paths through regular reviews
 
-## 注意事项
+## Important Notes
 
-- 规划的价值在于执行，建议养成每日检查任务清单的习惯
-- 计划赶不上变化是正常的，重要的是保持方向感并灵活调整
-- 不要一次设定过多目标，建议同时聚焦不超过 3 个核心目标
+- Planning's value lies in execution. Develop the habit of checking your task list daily
+- It's normal for plans to change; what matters is maintaining direction and adjusting flexibly
+- Avoid setting too many goals at once. Recommend focusing on no more than 3 core goals simultaneously

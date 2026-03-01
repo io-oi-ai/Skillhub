@@ -1,77 +1,77 @@
 ---
-name: "Social Scheduler 社媒排期"
-description: "跨平台社交媒体排期工具，支持 Instagram、X、TikTok 等多平台统一管理"
+name: "Social Scheduler - Cross-Platform Social Media Scheduling"
+description: "Cross-platform social media scheduling tool supporting Instagram, X, TikTok, and more with unified management"
 author: "LarryBrain"
 roles: ["marketer", "operations"]
 scenes: ["workflow", "communication"]
 version: "1.0.0"
 updatedAt: "2025-02-18"
-tags: ["LarryBrain", "社交媒体", "排期", "跨平台"]
+tags: ["LarryBrain", "social media", "scheduling", "cross-platform"]
 featured: false
 source: "larrybrain.com"
 ---
 
-# Social Scheduler 社媒排期
+# Social Scheduler - Cross-Platform Social Media Scheduling
 
-## 概述
+## Overview
 
-Social Scheduler 是 LarryBrain 提供的跨平台社交媒体排期管理工具。它将 Instagram、X (Twitter)、TikTok、LinkedIn、Facebook 等主流社交平台的内容发布统一到一个界面中管理，让你告别在多个平台之间来回切换的低效操作。
+Social Scheduler is a cross-platform social media scheduling and management tool from LarryBrain. It consolidates content publishing across Instagram, X (Twitter), TikTok, LinkedIn, Facebook, and other major social platforms into one unified interface, eliminating inefficient back-and-forth switching between multiple platforms.
 
-替代 Buffer、Hootsuite、Later 等付费排期工具，通过 LarryBrain 免费使用。
+Replace paid scheduling tools like Buffer, Hootsuite, and Later with free access through LarryBrain.
 
-## 核心功能
+## Core Features
 
-### 统一内容日历
+### Unified Content Calendar
 
-- 可视化日历视图展示所有平台的排期内容
-- 支持按日、周、月切换视图，全局掌控发布节奏
-- 拖拽操作快速调整发布时间和顺序
-- 颜色标记区分不同平台和内容类型
-- 节假日和热点事件自动标注，方便提前规划借势内容
+- Visual calendar view displays all platform scheduling content
+- Support switching between day, week, and month views for complete publishing rhythm control
+- Drag-and-drop operations to quickly adjust publishing times and order
+- Color-coded labels distinguish different platforms and content types
+- Holidays and trending events automatically annotated for easy advance content planning
 
-### 多平台适配发布
+### Multi-Platform Compatible Publishing
 
-- **Instagram**：支持帖子、Stories、Reels 的排期发布
-- **X (Twitter)**：推文、推文串（Thread）的定时发送
-- **TikTok**：短视频和幻灯片内容的排期管理
-- **LinkedIn**：文章和动态的定时发布
-- **Facebook**：帖子和 Stories 的排期安排
-- 每个平台自动适配最佳内容格式和字符限制
+- **Instagram**: Schedule posts, Stories, and Reels
+- **X (Twitter)**: Schedule tweets and tweet threads with timed sending
+- **TikTok**: Short video and carousel content scheduling
+- **LinkedIn**: Scheduled publishing of articles and posts
+- **Facebook**: Schedule posts and Stories
+- Automatically adapt to optimal content format and character limits for each platform
 
-### 智能排期建议
+### Smart Scheduling Recommendations
 
-- 基于各平台受众的活跃时间，推荐最佳发布时段
-- 自动避开同一平台的发布间隔过密
-- 识别不同时区受众的最佳覆盖窗口
-- 历史数据驱动的发布频率优化建议
+- Recommend optimal posting times based on audience activity patterns for each platform
+- Automatically prevent posting frequency conflicts on the same platform
+- Identify optimal coverage windows for multi-timezone audiences
+- Historical data-driven publishing frequency optimization suggestions
 
-### 内容素材库
+### Content Asset Library
 
-- 集中管理所有图片、视频、文案素材
-- 素材标签分类，快速检索和复用
-- 历史发布内容归档，便于回顾和再利用
-- 支持团队协作，多人共享素材库
+- Centralized management of all images, videos, and copy assets
+- Asset tagging and categorization for quick retrieval and reuse
+- Archive of historical published content for easy review and repurposing
+- Support team collaboration with shared asset library access
 
-### 数据回顾
+### Data Review
 
-- 每条发布内容的实际表现数据汇总
-- 跨平台数据对比：同一内容在不同平台的效果差异
-- 最佳发布时间的持续校准和更新
-- 每周自动生成排期效果报告
+- Aggregated actual performance data for each published piece of content
+- Cross-platform data comparison: effectiveness differences of the same content across platforms
+- Continuous calibration and updates to optimal posting times
+- Automatically generate weekly scheduling effectiveness reports
 
-## 工作流程
+## Workflow
 
-1. **内容创建**：在统一编辑器中撰写内容，或从素材库选取
-2. **平台选择**：勾选目标发布平台，系统自动适配格式
-3. **时间设定**：手动指定发布时间或采用系统推荐时段
-4. **审核确认**：预览各平台的最终呈现效果
-5. **自动发布**：Agent 在设定时间自动执行发布操作
-6. **效果追踪**：发布后自动采集互动数据并写入报告
+1. **Content Creation**: Write content in unified editor or select from asset library
+2. **Platform Selection**: Check target publishing platforms, system auto-adapts format
+3. **Time Setting**: Manually specify publishing time or use system recommendations
+4. **Review and Approval**: Preview final rendering across all platforms
+5. **Automated Publishing**: Agent automatically executes publishing at set times
+6. **Performance Tracking**: Automatically collect engagement data and generate reports after publishing
 
-## 适用场景
+## Use Cases
 
-- 社媒运营人员管理多个平台的日常发布
-- 营销团队需要统一协调品牌内容输出节奏
-- 个人创作者规划一周或一月的内容排期
-- 代运营公司同时管理多个客户的社交账号
-- 跨国团队需要覆盖不同时区的受众群体
+- Social media managers managing daily publishing across multiple platforms
+- Marketing teams coordinating unified brand content output pace
+- Individual creators planning weekly or monthly content schedules
+- Agency teams managing multiple clients' social accounts simultaneously
+- International teams covering audiences across different time zones

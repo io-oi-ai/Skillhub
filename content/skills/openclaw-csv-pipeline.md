@@ -1,57 +1,57 @@
 ---
-name: "CSV Pipeline 数据处理"
-description: "处理、转换、分析 CSV 和 JSON 数据，生成可视化报告"
+name: "CSV Pipeline Data Processing"
+description: "Process, transform, and analyze CSV and JSON data with visualization report generation"
 author: "OpenClaw Community"
 roles: ["data-analyst", "operations"]
 scenes: ["data-analysis", "workflow"]
 version: "1.0.0"
 updatedAt: "2025-02-18"
-tags: ["OpenClaw", "CSV", "数据处理", "ETL"]
+tags: ["OpenClaw", "CSV", "Data Processing", "ETL"]
 featured: false
 source: "clawhub.ai"
 ---
 
-# CSV Pipeline 数据处理
+# CSV Pipeline Data Processing
 
-## 概述
+## Overview
 
-CSV Pipeline 是一个强大的数据处理技能，专为需要频繁处理结构化数据的分析师和运营人员设计。它能够读取、清洗、转换和分析 CSV 与 JSON 格式的数据文件，并自动生成可视化报告，大幅减少重复性的数据处理工作。
+CSV Pipeline is a powerful data processing skill designed for analysts and operations personnel who frequently work with structured data. It can read, clean, transform, and analyze CSV and JSON format data files, and automatically generate visualization reports, significantly reducing repetitive data processing work.
 
-## 核心功能
+## Core Features
 
-### 数据导入与清洗
-- 自动识别 CSV 文件编码格式（UTF-8、GBK、GB2312 等），避免中文乱码
-- 智能检测并处理缺失值、重复行和异常数据
-- 自动推断列数据类型，支持日期、数值、文本等格式标准化
-- 处理多种分隔符格式，包括逗号、制表符、分号等
+### Data Import and Cleaning
+- Automatically identify CSV file encoding formats (UTF-8, GBK, GB2312, etc.) to avoid Chinese character corruption
+- Intelligently detect and handle missing values, duplicate rows, and anomalous data
+- Automatically infer column data types with support for standardizing dates, numbers, text, and other formats
+- Handle multiple delimiter formats including commas, tabs, semicolons, and more
 
-### 数据转换与计算
-- 支持列的增删改查、重命名和类型转换
-- 内置常用聚合函数：求和、平均值、计数、分组统计
-- 支持多表关联合并（join），类似 SQL 的数据操作
-- 数据透视表生成，快速实现多维度交叉分析
+### Data Transformation and Calculation
+- Support column addition, deletion, modification, renaming, and type conversion
+- Built-in common aggregation functions: sum, average, count, group statistics
+- Support multi-table association merging (join) similar to SQL data operations
+- Generate pivot tables for quick multi-dimensional cross-analysis
 
-### 可视化报告
-- 根据数据特征自动推荐合适的图表类型
-- 生成柱状图、折线图、饼图、散点图等常见图表
-- 输出格式化的统计摘要和分析报告
+### Visualization Reports
+- Automatically recommend suitable chart types based on data characteristics
+- Generate common charts including bar charts, line charts, pie charts, scatter plots, and more
+- Output formatted statistical summaries and analysis reports
 
-## 典型使用场景
+## Typical Use Cases
 
-1. **销售数据分析**：导入电商平台导出的订单 CSV，按时间、地区、品类维度汇总分析
-2. **运营报表整合**：将多个渠道的数据文件合并清洗，生成统一的周报月报
-3. **财务对账**：比对不同系统导出的数据，快速定位差异项
-4. **用户行为分析**：处理埋点数据，分析用户路径和转化漏斗
+1. **Sales Data Analysis**: Import CSV files exported from e-commerce platforms, analyze order totals by time period, region, and category dimensions
+2. **Operations Report Consolidation**: Merge and clean data files from multiple channels to generate unified weekly or monthly reports
+3. **Financial Reconciliation**: Compare data exported from different systems to quickly identify discrepancies
+4. **User Behavior Analysis**: Process event tracking data, analyze user paths and conversion funnels
 
-## 使用示例
+## Usage Examples
 
-- "读取这个 CSV 文件，统计每个月的销售总额并生成折线图"
-- "把这两个表按订单号合并，找出金额不一致的记录"
-- "清洗这份数据，去除重复项，把日期列统一为 YYYY-MM-DD 格式"
-- "对这份用户数据按城市分组，计算每个城市的平均消费金额"
+- "Read this CSV file, calculate total sales for each month, and generate a line chart"
+- "Merge these two tables by order number and find records with inconsistent amounts"
+- "Clean this data, remove duplicates, and standardize the date column to YYYY-MM-DD format"
+- "Group this user data by city and calculate average spending for each city"
 
-## 注意事项
+## Important Notes
 
-- 建议单次处理的文件大小不超过 100MB，超大文件请分批处理
-- 处理包含中文的 CSV 文件时，优先使用 UTF-8 编码保存
-- 敏感数据处理时请注意脱敏，避免在对话中暴露个人信息
+- Recommend keeping single file processing under 100MB. Please process oversized files in batches
+- When processing CSV files containing Chinese characters, prioritize using UTF-8 encoding
+- When handling sensitive data, be mindful of anonymization to avoid exposing personal information during conversations

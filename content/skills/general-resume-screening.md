@@ -1,60 +1,60 @@
 ---
-name: "简历筛选助手"
-description: "根据岗位要求自动筛选和评估简历，生成候选人对比分析"
+name: "Resume Screening Assistant"
+description: "Automatically screen and evaluate resumes according to job requirements, generating candidate comparison analysis"
 author: "SkillHub"
 roles: ["hr"]
 scenes: ["workflow", "decision-making"]
 version: "1.0.0"
 updatedAt: "2025-02-12"
-tags: ["招聘", "简历", "筛选", "人才评估"]
+tags: ["recruitment", "resume", "screening", "talent assessment"]
 featured: false
 source: "skillhub"
 ---
 
-# 简历筛选助手
+# Resume Screening Assistant
 
-## 技能说明
+## Skill Overview
 
-在招聘旺季，HR 每天可能需要浏览数十甚至上百份简历。本技能帮助 HR 根据岗位 JD 的核心要求，快速筛选和评估候选人简历，生成结构化的评估结果和候选人对比分析，让你把精力集中在真正合适的候选人身上。
+During busy hiring seasons, HR professionals may need to review dozens or even hundreds of resumes daily. This skill helps HR screen and evaluate candidate resumes according to core requirements in the job description, generating structured assessment results and candidate comparison analysis, allowing you to focus your energy on truly qualified candidates.
 
-## 输入要求
+## Input Requirements
 
-请提供以下内容：
+Please provide the following content:
 
-- **岗位描述（JD）**：完整的岗位职责和任职要求
-- **候选人简历**：一份或多份待筛选的简历内容
-- **硬性条件**：如学历要求、工作年限、必备技能等不可协商的条件
-- **加分项**：优先考虑但非必须的条件，如行业经验、项目经历等
-- **薪资范围**：如有明确的薪资预算，便于评估候选人期望是否匹配
+- **Job Description (JD)**: Complete job responsibilities and job requirements
+- **Candidate Resumes**: One or more resumes to be screened
+- **Hard Requirements**: Such as education, years of experience, must-have skills that are non-negotiable
+- **Plus Factors**: Preferred but non-essential conditions, such as relevant industry experience, project history
+- **Salary Range**: If clear budget exists, helps assess if candidate expectations match
 
-## 评估维度
+## Evaluation Dimensions
 
-简历将从以下维度进行评估和打分：
+Resumes will be evaluated and scored across the following dimensions:
 
-1. **基本条件匹配**：学历、年限、地点等硬性条件是否满足
-2. **技能匹配度**：候选人技能与岗位要求的吻合程度
-3. **行业经验**：相关行业的从业经验和项目积累
-4. **职业发展轨迹**：跳槽频率、职级变化、成长趋势
-5. **项目成果**：有无可量化的工作成果和业绩亮点
-6. **稳定性评估**：结合跳槽频率和职业路径判断稳定性
+1. **Basic Requirement Match**: Whether education, years of experience, location and other hard requirements are met
+2. **Skills Match**: Alignment between candidate skills and job requirements
+3. **Industry Experience**: Relevant industry experience and project accumulation
+4. **Career Development Path**: Job switching frequency, role changes, growth trends
+5. **Project Results**: Quantifiable work results and performance highlights
+6. **Stability Assessment**: Assess stability based on job switching frequency and career path
 
-## 输出内容
+## Output Content
 
-- **候选人评级**：A（强烈推荐）、B（推荐面试）、C（待定）、D（不匹配）
-- **核心优势**：每位候选人最突出的 2-3 个优势
-- **潜在风险**：需要在面试中进一步确认的问题点
-- **对比分析表**：多位候选人的横向对比矩阵
-- **面试建议**：针对每位候选人建议重点考察的方向
+- **Candidate Rating**: A (highly recommended), B (recommend for interview), C (pending), D (not a match)
+- **Core Strengths**: Top 2-3 strengths for each candidate
+- **Potential Risks**: Issues requiring further confirmation in interviews
+- **Comparison Analysis Table**: Side-by-side comparison matrix of multiple candidates
+- **Interview Suggestions**: Recommended focus areas for interviews with each candidate
 
-## 使用技巧
+## Usage Tips
 
-- **JD 越清晰筛选越精准**：模糊的岗位描述会导致筛选标准不明确
-- **分批次处理**：建议每次提供 5-10 份简历进行对比，效果最佳
-- **结合实际调整权重**：根据岗位紧急程度灵活调整硬性和软性条件的权重
-- **关注简历之外的信息**：技能评估只是第一步，软素质需要在面试中进一步考察
+- **Clearer JD means better screening**: Vague job descriptions lead to unclear screening criteria
+- **Process in batches**: Best results screening 5-10 resumes per session for comparison
+- **Adjust weights based on reality**: Flexibly adjust importance weights of hard vs. soft requirements based on urgency
+- **Look beyond the resume**: Skills assessment is just the first step; soft skills require further evaluation during interviews
 
-## 注意事项
+## Precautions
 
-- 筛选结果仅作为参考，请避免完全依赖自动化判断做出录用决策
-- 注意公平性，避免因年龄、性别等非岗位相关因素产生偏见
-- 简历信息可能存在修饰成分，重要信息需在面试中核实
+- Screening results are for reference only; avoid making hiring decisions based entirely on automated judgments
+- Pay attention to fairness, avoid bias based on age, gender, or other non-job-related factors
+- Resume information may be embellished; important information needs verification during interviews

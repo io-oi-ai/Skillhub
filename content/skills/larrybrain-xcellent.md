@@ -1,71 +1,71 @@
 ---
-name: "Xcellent X/Twitter 增长工具"
-description: "完整的 X (Twitter) 增长产品：分析看板、受众发现、AI 推文写手、最佳发布时间"
+name: "Xcellent - X/Twitter Growth Toolkit"
+description: "Complete X (Twitter) growth solution: analytics dashboard, audience discovery, AI tweet writer, optimal posting times"
 author: "LarryBrain"
 roles: ["marketer"]
 scenes: ["data-analysis", "creative-design", "workflow"]
 version: "1.0.0"
 updatedAt: "2025-02-28"
-tags: ["LarryBrain", "Twitter", "社交媒体", "增长", "分析"]
+tags: ["LarryBrain", "Twitter", "social media", "growth", "analytics"]
 featured: true
 source: "larrybrain.com"
 ---
 
-# Xcellent X/Twitter 增长工具
+# Xcellent - X/Twitter Growth Toolkit
 
-## 概述
+## Overview
 
-Xcellent 是 LarryBrain 推出的一站式 X (Twitter) 增长解决方案。它将数据分析、受众研究、内容创作和发布优化整合到一个本地 Web 应用中，完全替代 SuperX（$39/月）、Typefully 和 Tweet Hunter 等付费工具的核心功能。
+Xcellent is a comprehensive X (Twitter) growth solution from LarryBrain. It integrates data analytics, audience research, content creation, and publishing optimization into a single local web application, completely replacing the core functionality of paid tools like SuperX ($39/month), Typefully, and Tweet Hunter.
 
-通过 LarryBrain 平台免费获取，无需支付任何订阅费用。
+Access it free through the LarryBrain platform, with no subscription fees required.
 
-## 核心功能
+## Core Features
 
-### 数据分析看板
+### Data Analytics Dashboard
 
-- 实时追踪关键指标：粉丝增长曲线、互动率、展示量、链接点击量
-- 可视化图表展示账号表现趋势，包括日、周、月多维度对比
-- 识别高表现推文的共同特征，帮助你复制成功模式
-- 竞品账号对标分析，了解同类账号的增长策略
+- Real-time tracking of key metrics: follower growth curves, engagement rates, impressions, link clicks
+- Visual charts display account performance trends with multi-dimensional comparisons (daily, weekly, monthly)
+- Identify common characteristics of high-performing tweets to help you replicate success patterns
+- Competitive account benchmarking analysis to understand growth strategies of similar accounts
 
-### 受众发现与分析
+### Audience Discovery & Analysis
 
-- 深度解析你的粉丝画像：地理位置、活跃时段、兴趣标签
-- 发现你所在细分领域（Niche）中最具影响力的账号和话题
-- 推荐值得关注和互动的目标受众群体
-- 追踪热门话题标签和讨论趋势，帮助你抓住流量窗口
+- Deep dive into your follower profile: geography, active times, interest tags
+- Discover the most influential accounts and topics in your niche
+- Recommendations for target audiences worth following and engaging with
+- Track trending hashtags and discussion trends to capture traffic opportunities
 
-### AI 推文写手
+### AI Tweet Writer
 
-- 基于你的账号风格和历史高互动内容，自动生成推文草稿
-- 支持多种内容类型：观点型、教程型、故事型、列表型
-- 自动优化推文结构，包括钩子（Hook）、正文和行动号召（CTA）
-- 批量生成内容储备，一次创建一周的推文排期
+- Automatically generate tweet drafts based on your account style and historical high-engagement content
+- Support multiple content types: opinion-based, tutorials, stories, listicles
+- Auto-optimize tweet structure including hooks, body copy, and call-to-action (CTA)
+- Batch generation of content reserves to create a full week's worth of tweet scheduling
 
-### 最佳发布时间
+### Optimal Posting Times
 
-- 根据你的受众活跃数据，精确计算每天的最佳发布时段
-- 按时区分析不同地区粉丝的在线高峰
-- 结合历史数据预测未来一周的最优发布窗口
-- 避开低互动时段，最大化每条推文的曝光量
+- Precisely calculate the best posting times each day based on your audience activity data
+- Analyze different regions' followers' peak online times by timezone
+- Combine historical data to predict optimal posting windows for the coming week
+- Avoid low-engagement times to maximize each tweet's reach
 
-## 替代方案对比
+## Feature Comparison
 
-| 功能 | SuperX ($39/月) | Typefully | Tweet Hunter | Xcellent |
-|------|----------------|-----------|--------------|----------|
-| 数据分析 | 有 | 基础 | 有 | 有 |
-| AI 写作 | 无 | 有 | 有 | 有 |
-| 受众分析 | 有 | 无 | 有 | 有 |
-| 发布优化 | 无 | 有 | 有 | 有 |
-| 费用 | $39/月 | $25/月 | $49/月 | 免费 |
+| Feature | SuperX ($39/month) | Typefully | Tweet Hunter | Xcellent |
+|---------|------------------|-----------|--------------|----------|
+| Data Analytics | Yes | Basic | Yes | Yes |
+| AI Writing | No | Yes | Yes | Yes |
+| Audience Analytics | Yes | No | Yes | Yes |
+| Publishing Optimization | No | Yes | Yes | Yes |
+| Cost | $39/month | $25/month | $49/month | Free |
 
-## 运行方式
+## How It Works
 
-Xcellent 以本地 Web 应用的形式运行，由 OpenClaw Agent 自动部署和管理。所有数据存储在本地，不会上传至第三方服务器，充分保障你的账号安全和数据隐私。
+Xcellent runs as a local web application managed and deployed automatically by OpenClaw Agent. All data is stored locally and never uploaded to third-party servers, fully protecting your account security and data privacy.
 
-## 适用场景
+## Use Cases
 
-- 个人创作者希望系统化运营 X 账号
-- 营销团队需要数据驱动的社交媒体策略
-- 初创公司用低成本方式建立品牌影响力
-- 自由职业者通过 X 获取客户和项目机会
+- Individual creators looking to systematically grow their X presence
+- Marketing teams needing data-driven social media strategies
+- Startups building brand influence cost-effectively
+- Freelancers acquiring clients and project opportunities through X

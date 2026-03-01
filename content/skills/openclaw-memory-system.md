@@ -1,56 +1,56 @@
 ---
-name: "Memory System 记忆系统"
-description: "基于文件的 Agent 记忆架构，通过 Markdown 日记实现上下文持久化，无需向量数据库"
+name: "Memory System"
+description: "File-based Agent memory architecture that achieves context persistence through Markdown journals without requiring a vector database"
 author: "OpenClaw"
 roles: ["developer", "everyone"]
 scenes: ["workflow", "coding"]
 version: "1.8.3"
 updatedAt: "2025-02-25"
-tags: ["OpenClaw", "记忆", "上下文", "持久化"]
+tags: ["OpenClaw", "memory", "context", "persistence"]
 featured: true
 source: "openclawskill.ai"
 ---
 
-## 概述
+## Overview
 
-Memory System 是一套轻量级的 Agent 记忆解决方案。与依赖向量数据库的传统方案不同，它采用基于 Markdown 文件的存储架构，让 Agent 能够在多次对话之间保持上下文连贯性，同时保持基础设施的极简。
+Memory System is a lightweight Agent memory solution. Unlike traditional approaches that rely on vector databases, it uses a file-based Markdown storage architecture, enabling Agents to maintain context continuity across multiple conversations while keeping infrastructure minimal and simple.
 
-## 核心理念
+## Core Philosophy
 
-大多数 Agent 记忆方案需要部署向量数据库、配置嵌入模型，增加了系统复杂度和运维成本。Memory System 的思路是：用人类可读的 Markdown 日记文件作为记忆载体，通过结构化的文件组织和智能检索，实现实用的长期记忆功能。
+Most Agent memory solutions require deploying vector databases and configuring embedding models, which adds system complexity and operational costs. Memory System's approach is to use human-readable Markdown journal files as the memory carrier, implementing practical long-term memory capabilities through structured file organization and intelligent retrieval.
 
-## 核心功能
+## Core Features
 
-### Markdown 日记存储
+### Markdown Journal Storage
 
-Agent 的每次重要交互都会被记录为结构化的 Markdown 文件，包含时间戳、对话摘要、关键决策和待办事项。这些文件既是 Agent 的记忆，也是人类可以直接阅读和编辑的文档。
+Each significant Agent interaction is recorded as a structured Markdown file, containing timestamps, conversation summaries, key decisions, and action items. These files serve as the Agent's memory while remaining documents humans can directly read and edit.
 
-### 智能上下文召回
+### Intelligent Context Recall
 
-当新对话开始时，Memory System 会根据当前话题自动检索相关的历史记忆片段，将最相关的上下文注入到 Agent 的工作区中。这样 Agent 就能"记住"之前讨论过的内容，避免重复沟通。
+When a new conversation begins, Memory System automatically retrieves relevant historical memory fragments based on the current topic, injecting the most relevant context into the Agent's workspace. This allows the Agent to "remember" previous discussions and avoid redundant communication.
 
-### 记忆分层管理
+### Hierarchical Memory Management
 
-系统将记忆分为三个层次：短期记忆（当前会话）、工作记忆（近期活跃项目）和长期记忆（归档的重要决策）。不同层次的记忆有不同的保留策略和召回优先级。
+The system organizes memory into three levels: short-term memory (current session), working memory (recent active projects), and long-term memory (archived important decisions). Different levels have different retention policies and recall priorities.
 
-### 记忆合并与压缩
+### Memory Merging and Compression
 
-随着时间推移，记忆文件会不断累积。Memory System 提供自动合并和压缩功能，将多条相关记忆整合为更精练的摘要，防止记忆库无限膨胀。
+As time passes, memory files accumulate. Memory System provides automatic merging and compression capabilities, consolidating related memories into more concise summaries to prevent unlimited memory growth.
 
-## 典型使用场景
+## Typical Use Cases
 
-- **项目开发助手**：在长期项目中记住架构决策、技术选型原因和已知问题，新会话不需要重新解释项目背景。
-- **个人知识管理**：Agent 充当你的第二大脑，记录你的偏好、常用工作流程和历史研究成果。
-- **团队协作记忆**：多人共享同一个记忆库，Agent 能了解整个团队的工作进展和约定。
-- **客户关系维护**：记住每位客户的沟通历史和偏好，下次互动时无缝衔接。
+- **Project Development Assistant**: Remember architecture decisions, reasons for technology choices, and known issues in long-term projects. New sessions don't need to rehash project background.
+- **Personal Knowledge Management**: The Agent serves as your second brain, recording your preferences, common workflows, and historical research findings.
+- **Team Collaboration Memory**: Multiple people share the same memory repository, allowing the Agent to understand team progress and commitments.
+- **Customer Relationship Maintenance**: Remember each customer's communication history and preferences for seamless interaction next time.
 
-## 使用方式
+## How to Use
 
-1. 安装 Memory System 技能到你的 OpenClaw Agent 项目中。
-2. 指定一个目录作为记忆存储位置（默认为项目根目录下的 `.memory/` 文件夹）。
-3. Agent 运行时会自动创建和维护记忆文件。
-4. 你可以随时打开 Markdown 文件查看、编辑或删除特定记忆条目。
+1. Install Memory System skill into your OpenClaw Agent project.
+2. Specify a directory as the memory storage location (defaults to `.memory/` folder in the project root).
+3. The Agent automatically creates and maintains memory files during operation.
+4. You can anytime open Markdown files to view, edit, or delete specific memory entries.
 
-## 技术优势
+## Technical Advantages
 
-无需额外的数据库服务，记忆文件可以直接纳入版本控制（Git），方便团队协作和历史追溯。对于中小规模的 Agent 应用来说，这是一个务实且高效的记忆方案。
+No additional database services required — memory files can be directly included in version control (Git) for easy team collaboration and historical tracking. For small to medium-scale Agent applications, this is a practical and efficient memory solution.

@@ -1,58 +1,58 @@
 ---
-name: "Content Recycler 内容二创"
-description: "将已有内容转换为多平台适配的新格式，一份素材多次分发"
+name: "Content Recycler"
+description: "Convert existing content into multi-platform adapted formats for maximum distribution value"
 author: "OpenClaw Community"
 roles: ["marketer", "everyone"]
 scenes: ["writing", "creative-design"]
 version: "1.0.0"
 updatedAt: "2025-02-16"
-tags: ["OpenClaw", "内容分发", "二创", "多平台"]
+tags: ["OpenClaw", "Content Distribution", "Repurposing", "Multi-platform"]
 featured: false
 source: "clawhub.ai"
 ---
 
-# Content Recycler 内容二创
+# Content Recycler
 
-## 概述
+## Overview
 
-Content Recycler 帮助内容创作者和营销团队最大化每一份内容的价值。一篇长文可以拆解为多条社交媒体动态，一段播客可以转化为图文笔记，一份报告可以改写为通俗易懂的科普文章。通过智能二创，让优质内容在不同平台获得更多曝光。
+Content Recycler helps content creators and marketing teams maximize the value of every piece of content. A long article can be broken down into multiple social media posts, a podcast can be transformed into illustrated notes, and a report can be rewritten as accessible educational content. Through intelligent repurposing, high-quality content reaches more audiences across different platforms.
 
-## 核心功能
+## Core Features
 
-### 内容拆解与重组
-- 将长篇文章自动拆解为多个独立的短内容片段
-- 提取核心观点和金句，生成社交媒体可用的文案
-- 从视频/音频转录稿中提炼关键信息，生成文字摘要
+### Content Decomposition and Reorganization
+- Automatically break down long articles into multiple independent short content pieces
+- Extract core insights and memorable quotes to generate copy suitable for social media
+- Extract key information from video/audio transcripts to create text summaries
 
-### 多平台适配
-- 根据目标平台的特点自动调整内容格式和长度
-- 微信公众号：生成结构清晰的长文，适配公众号排版风格
-- 小红书：改写为种草风格的图文笔记，自动添加合适的话题标签
-- 微博：压缩为 140 字以内的精华内容，突出话题性
-- 抖音/快手：生成口播脚本和视频文案大纲
-- Twitter/LinkedIn：适配英文平台的表达习惯和格式要求
+### Multi-platform Adaptation
+- Automatically adjust content format and length based on target platform characteristics
+- WeChat Official Accounts: Generate well-structured long-form content adapted to official account formatting
+- Little Red Book: Rewrite as lifestyle content-style illustrated notes with appropriate hashtags
+- Weibo: Compress into 140-character essential content highlighting trending topics
+- Douyin/Kuaishou: Generate voiceover scripts and video outline copy
+- Twitter/LinkedIn: Adapt to English platform expression habits and format requirements
 
-### 内容风格转换
-- 在专业、通俗、幽默、正式等不同语气之间切换
-- 将技术文档改写为面向普通用户的教程
-- 把数据报告转化为有故事性的案例分析
+### Content Style Conversion
+- Switch between professional, colloquial, humorous, and formal tones
+- Rewrite technical documentation as tutorials for general users
+- Transform data reports into narrative-driven case studies
 
-## 典型使用场景
+## Typical Use Cases
 
-1. **自媒体矩阵运营**：一篇深度文章发布后，自动生成适配 5-8 个平台的内容版本
-2. **知识付费**：将课程讲义转化为免费引流内容，在公域平台分发获取用户
-3. **企业内容营销**：把白皮书和技术博客转化为易于传播的社交内容
-4. **个人品牌建设**：将演讲稿、采访记录等素材持续转化为多形式的个人内容输出
+1. **Social Media Matrix Operations**: After publishing a deep article, automatically generate content versions adapted for 5-8 platforms
+2. **Knowledge Product**: Transform course lectures into free lead-generation content for distribution on public platforms
+3. **Enterprise Content Marketing**: Convert whitepapers and technical blogs into shareable social media content
+4. **Personal Brand Building**: Continuously transform speech transcripts, interview recordings, and other materials into multi-format personal content output
 
-## 使用示例
+## Usage Examples
 
-- "把这篇 3000 字的技术博客改写成 5 条小红书笔记"
-- "从这份会议记录中提取 3 个核心观点，各写一条 LinkedIn 动态"
-- "将这个产品发布稿转换为微信公众号文章和微博话题文案"
-- "把这段播客转录稿改写为一篇通俗易懂的科普长文"
+- "Rewrite this 3000-word technical blog as 5 Little Red Book notes"
+- "Extract 3 core insights from this meeting notes and write a LinkedIn post for each"
+- "Convert this product announcement into a WeChat Official Account article and Weibo copy"
+- "Rewrite this podcast transcript as an accessible educational long-form article"
 
-## 注意事项
+## Important Notes
 
-- 二创内容应保留原始内容的核心信息，避免过度改写导致信息失真
-- 不同平台有不同的内容规范，发布前请人工审核确认
-- 建议建立内容素材库，系统性管理原始素材和二创版本的对应关系
+- Repurposed content should retain the core information from original content, avoiding excessive rewriting that distorts information
+- Different platforms have different content standards. Please manually review before publishing to ensure compliance
+- Recommend establishing a content asset library to systematically manage relationships between original and repurposed versions

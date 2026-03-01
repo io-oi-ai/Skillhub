@@ -1,53 +1,53 @@
 ---
-name: "会议纪要整理"
-description: "将会议录音或笔记整理为结构化的会议纪要，包含决议和待办事项"
+name: "Meeting Minutes Organization"
+description: "Organize meeting recordings or notes into structured meeting minutes, including resolutions and action items"
 author: "SkillHub"
 roles: ["everyone"]
 scenes: ["communication", "workflow"]
 version: "1.0.0"
 updatedAt: "2025-02-20"
-tags: ["会议纪要", "沟通", "协作", "待办"]
+tags: ["meeting minutes", "communication", "collaboration", "action items"]
 featured: false
 source: "skillhub"
 ---
 
-# 会议纪要整理
+# Meeting Minutes Organization
 
-## 技能说明
+## Skill Overview
 
-会议是团队协作的重要环节，但如果没有清晰的会议纪要，讨论的成果很容易流失。本技能帮助你将零散的会议笔记、录音转写文本整理为结构化的会议纪要，确保每个决议都有责任人，每个待办都有截止时间。
+Meetings are critical for team collaboration, but discussion outcomes easily get lost without clear meeting minutes. This skill helps you organize scattered meeting notes and transcribed recordings into structured meeting minutes, ensuring every decision has an owner and every action item has a deadline.
 
-## 输入要求
+## Input Requirements
 
-请提供以下任意一种或多种素材：
+Please provide any of the following materials:
 
-- **会议录音转写文本**：语音转文字的原始内容
-- **手写会议笔记**：会议过程中记录的要点
-- **会议基本信息**：会议主题、时间、参会人员
-- **会议议程**：如果有提前准备的议程，一并提供
+- **Meeting Recording Transcription**: Original content from speech-to-text conversion
+- **Handwritten Meeting Notes**: Key points recorded during the meeting
+- **Meeting Basic Information**: Meeting topic, time, attendees
+- **Meeting Agenda**: Pre-prepared agenda if available
 
-## 输出格式
+## Output Format
 
-整理后的会议纪要包含以下内容：
+The organized meeting minutes will include the following content:
 
-1. **会议基本信息**：主题、日期、时间、地点、主持人、参会人员
-2. **议题摘要**：每个讨论议题的核心内容和背景
-3. **讨论要点**：各方观点和关键论据的整理
-4. **决议事项**：会议达成的共识和决定，附带决策依据
-5. **待办事项（Action Items）**：具体任务、责任人、截止日期
-6. **遗留问题**：未解决的问题和后续讨论安排
+1. **Meeting Basic Information**: Topic, date, time, location, moderator, attendees
+2. **Topic Summaries**: Core content and background for each discussion topic
+3. **Discussion Points**: Organization of various viewpoints and key arguments
+4. **Resolutions**: Consensuses and decisions reached with decision rationale
+5. **Action Items**: Specific tasks, responsible parties, deadlines
+6. **Outstanding Issues**: Unresolved problems and follow-up discussion arrangements
 
-## 使用技巧
+## Usage Tips
 
-- **越早整理越好**：会议结束后尽快整理纪要，信息最为准确和完整
-- **聚焦决议和行动**：纪要的核心价值在于记录"决定了什么"和"谁要做什么"
-- **区分事实和观点**：客观记录讨论内容，避免加入个人判断
-- **待办必须有三要素**：每条待办都要有明确的负责人、具体内容和截止日期
-- **及时分发和确认**：纪要整理完成后尽快发给参会人确认，有异议及时修正
+- **Organize promptly**: Complete minutes immediately after the meeting while information is most accurate and complete
+- **Focus on resolutions and actions**: The core value of minutes lies in recording "what was decided" and "who needs to do what"
+- **Distinguish facts from opinions**: Objectively record discussion content, avoid adding personal judgments
+- **Action items must have three elements**: Each action item must have a clear responsible party, specific content, and deadline
+- **Distribute and confirm promptly**: Complete minutes and send to attendees for confirmation; correct any discrepancies immediately
 
-## 适用场景
+## Applicable Scenarios
 
-- 项目启动会、评审会的纪要整理
-- 跨部门协调会议的共识记录
-- 周例会、日站会的快速总结
-- 客户沟通会议的要点归档
+- Organization of project kickoff and review meeting minutes
+- Consensus recording for cross-functional coordination meetings
+- Quick summaries for weekly standups and daily standups
+- Key points archiving for customer communication meetings

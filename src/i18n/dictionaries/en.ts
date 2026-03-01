@@ -99,6 +99,10 @@ const en = {
     contentPlaceholder:
       "# Skill Name\n\n## Use Cases\n\nDescribe the scenarios this Skill applies to...\n\n## How to Use\n\n1. Step one\n2. Step two",
     generate: "Generate Markdown File",
+    publish: "Publish to Platform",
+    publishing: "Publishing...",
+    publishSuccess: "Published successfully! Redirecting to skill page...",
+    publishError: "Publish failed, please try again",
     result: "Generated Result",
     copy: "Copy",
     download: "Download .md File",

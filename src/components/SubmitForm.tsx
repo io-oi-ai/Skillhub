@@ -1,14 +1,17 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import type { Role, Scene } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries/en";
 
 interface SubmitFormProps {
   dict: Dictionary;
+  locale: string;
 }
 
-export default function SubmitForm({ dict }: SubmitFormProps) {
+export default function SubmitForm({ dict, locale }: SubmitFormProps) {
+  const router = useRouter();
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [roles, setRoles] = useState<Role[]>([]);
@@ -17,6 +20,8 @@ export default function SubmitForm({ dict }: SubmitFormProps) {
   const [tags, setTags] = useState("");
   const [content, setContent] = useState("");
   const [generated, setGenerated] = useState("");
+  const [publishing, setPublishing] = useState(false);
+  const [publishMsg, setPublishMsg] = useState("");
 
   const t = dict.submitForm;
   const roleLabels = dict.roles as Record<string, string>;
@@ -74,6 +79,47 @@ ${content || `# ${name}\n\n${description}`}
     a.download = `${slug || "skill"}.md`;
     a.click();
     URL.revokeObjectURL(url);
+  };
+
+  const publishToDatabase = async () => {
+    setPublishing(true);
+    setPublishMsg("");
+
+    const tagList = tags
+      .split(/[,，、]/)
+      .map((t) => t.trim())
+      .filter(Boolean);
+
+    try {
+      const res = await fetch("/api/skills", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          description,
+          author,
+          roles,
+          scenes,
+          tags: tagList,
+          content: content || `# ${name}\n\n${description}`,
+        }),
+      });
+
+      if (!res.ok) {
+        const err = await res.json();
+        throw new Error(err.error || "Unknown error");
+      }
+
+      const { id } = await res.json();
+      setPublishMsg(t.publishSuccess);
+      setTimeout(() => {
+        router.push(`/${locale}/skill/${id}`);
+      }, 1500);
+    } catch {
+      setPublishMsg(t.publishError);
+    } finally {
+      setPublishing(false);
+    }
   };
 
   const roleEntries = Object.entries(roleLabels) as [Role, string][];
@@ -197,7 +243,7 @@ ${content || `# ${name}\n\n${description}`}
         />
       </div>
 
-      {/* Generate */}
+      {/* Actions */}
       <div className="flex gap-3">
         <button
           onClick={generateMarkdown}
@@ -210,7 +256,23 @@ ${content || `# ${name}\n\n${description}`}
         >
           {t.generate}
         </button>
+        <button
+          onClick={publishToDatabase}
+          disabled={!isValid || publishing}
+          className={`rounded-lg px-6 py-2.5 text-sm font-medium transition-colors ${
+            isValid && !publishing
+              ? "border border-accent text-accent hover:bg-accent/10"
+              : "cursor-not-allowed border border-border text-text-muted"
+          }`}
+        >
+          {publishing ? t.publishing : t.publish}
+        </button>
       </div>
+      {publishMsg && (
+        <p className={`text-sm ${publishMsg === t.publishSuccess ? "text-green-500" : "text-red-400"}`}>
+          {publishMsg}
+        </p>
+      )}
 
       {/* Result */}
       {generated && (

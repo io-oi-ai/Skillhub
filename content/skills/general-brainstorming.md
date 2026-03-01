@@ -1,78 +1,78 @@
 ---
-name: "结构化头脑风暴"
-description: "引导 AI 进行发散-收敛式思考，从模糊想法到可执行方案"
+name: "Structured Brainstorming"
+description: "Guide AI in divergent-convergent thinking, from vague ideas to executable solutions"
 author: "SkillHub"
 roles: ["everyone"]
 scenes: ["creative-design", "decision-making"]
 version: "1.0.0"
 updatedAt: "2025-02-24"
-tags: ["头脑风暴", "创意", "方案设计", "思维"]
+tags: ["brainstorming", "creativity", "solution design", "thinking"]
 featured: true
 source: "skillhub"
 ---
 
-# 结构化头脑风暴
+# Structured Brainstorming
 
-## 技能说明
+## Skill Overview
 
-传统的头脑风暴容易陷入"想到哪说到哪"的混乱状态。本技能采用"发散-收敛"的结构化思维方法，引导你从一个模糊的想法出发，经过系统化的拓展和筛选，最终形成可执行的方案。适用于产品创新、活动策划、问题解决等需要创意的场景。
+Traditional brainstorming often falls into chaotic "random ideas" mode. This skill employs a structured "divergent-convergent" thinking methodology that guides you from a vague idea, through systematic expansion and filtering, to finally produce executable solutions. It applies to product innovation, event planning, problem-solving, and other creative scenarios.
 
-## 输入要求
+## Input Requirements
 
-请提供以下信息：
+Please provide the following information:
 
-- **核心问题或主题**：你想解决什么问题，或者围绕什么主题展开思考
-- **背景信息**：当前的限制条件、已有资源、行业背景等
-- **期望产出**：希望得到具体方案、创意列表、还是决策建议
-- **参与者角色**：从哪些角色的视角来思考（如用户、运营、技术等）
+- **Core Problem or Topic**: What problem you want to solve, or what topic to explore
+- **Background Information**: Current constraints, available resources, industry background, etc.
+- **Expected Output**: Concrete solutions, list of ideas, or decision recommendations
+- **Participant Roles**: From which role perspectives to think about it (e.g., user, operations, technology, etc.)
 
-## 头脑风暴流程
+## Brainstorming Process
 
-本技能采用四阶段结构化流程：
+This skill employs a four-stage structured process:
 
-### 第一阶段：发散思考
+### Stage One: Divergent Thinking
 
-- 围绕核心问题从多个角度大量产生想法
-- 运用 SCAMPER 方法（替代、组合、调整、修改、另用、消除、重排）拓展思路
-- 借鉴跨行业的类比和灵感，突破思维定式
-- 这个阶段不做任何评判，追求数量而非质量
+- Generate many ideas from multiple angles around the core problem
+- Use the SCAMPER method (Substitute, Combine, Adjust, Modify, Put to other uses, Eliminate, Reverse) to expand thinking
+- Draw inspiration from cross-industry analogies and break conventional thinking patterns
+- At this stage, avoid any judgment, prioritize quantity over quality
 
-### 第二阶段：分类整理
+### Stage Two: Categorization and Organization
 
-- 将所有想法按主题进行聚类分组
-- 识别想法之间的关联和组合可能性
-- 标注特别新颖或有突破性的想法
+- Cluster all ideas into groups by theme
+- Identify connections and combination possibilities between ideas
+- Mark particularly novel or breakthrough ideas
 
-### 第三阶段：评估筛选
+### Stage Three: Evaluation and Screening
 
-- 从可行性、影响力、创新性、资源投入四个维度评估每个想法
-- 使用优先级矩阵进行排序
-- 筛选出最有潜力的 3-5 个方向
+- Assess each idea across four dimensions: feasibility, impact, innovation, and resource investment
+- Use a priority matrix for ranking
+- Filter down to the most promising 3-5 directions
 
-### 第四阶段：方案深化
+### Stage Four: Solution Development
 
-- 对筛选出的方向进行详细展开
-- 明确实施步骤、所需资源和时间安排
-- 预判可能的风险和应对措施
+- Develop selected directions in detail
+- Clarify implementation steps, required resources, and timeline
+- Anticipate potential risks and mitigation measures
 
-## 输出内容
+## Output Content
 
-- **创意清单**：所有产生的想法汇总
-- **分类地图**：想法的聚类分组和关系图
-- **评估矩阵**：按多维度打分的筛选结果
-- **方案概要**：Top 3 方案的详细描述和实施建议
-- **下一步行动**：推进方案落地的具体待办事项
+- **Idea Checklist**: Summary of all generated ideas
+- **Categorization Map**: Clustered groups and relationship diagram of ideas
+- **Evaluation Matrix**: Filtering results scored across multiple dimensions
+- **Solution Overview**: Detailed descriptions and implementation suggestions for top 3 solutions
+- **Next Steps**: Specific action items to move solutions forward
 
-## 使用技巧
+## Usage Tips
 
-- **问题定义要精准**：问题越清晰，产出越聚焦。"如何提升用户留存"比"如何让产品更好"有效得多
-- **不要过早评判**：发散阶段不要否定任何想法，看似荒谬的想法可能藏着创新的种子
-- **尝试不同视角**：从用户、竞对、合作方、甚至反对者的角度思考，往往有意外收获
-- **组合比单一更有力**：几个普通想法的组合可能产生出色的方案
+- **Define the problem precisely**: The clearer the problem, the more focused the output. "How to improve user retention" is far more effective than "How to make the product better"
+- **Don't judge too early**: During the divergent phase, don't reject any ideas; seemingly absurd ideas may contain seeds of innovation
+- **Try different perspectives**: Thinking from the user, competitor, partner, or even opponent viewpoint often yields unexpected insights
+- **Combinations are more powerful than single ideas**: Combining several ordinary ideas may produce an excellent solution
 
-## 适用场景
+## Applicable Scenarios
 
-- 新产品或新功能的创意探索
-- 营销活动方案的策划
-- 团队遇到瓶颈时的突破性思考
-- 年度规划和战略方向的头脑风暴
+- Creative exploration for new products or features
+- Marketing campaign planning
+- Breakthrough thinking when teams hit a plateau
+- Annual planning and strategic direction brainstorming

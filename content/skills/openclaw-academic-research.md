@@ -1,53 +1,53 @@
 ---
-name: "Academic Research 学术研究"
-description: "通过 OpenAlex API 搜索学术论文并进行文献综述，支持引用分析"
+name: "Academic Research"
+description: "Search academic papers via OpenAlex API and conduct literature reviews with citation analysis support"
 author: "OpenClaw Community"
 roles: ["educator", "everyone"]
 scenes: ["research", "learning"]
 version: "1.0.0"
 updatedAt: "2025-02-15"
-tags: ["OpenClaw", "学术", "论文", "文献综述", "研究"]
+tags: ["OpenClaw", "Academic", "Papers", "Literature Review", "Research"]
 featured: false
 source: "clawhub.ai"
 ---
 
-## 概述
+## Overview
 
-Academic Research 技能为 AI Agent 接入了 OpenAlex 学术数据库的检索能力，使 Agent 能够搜索海量学术论文、分析引用关系、生成文献综述摘要。对于科研人员、教育工作者以及任何需要严谨学术资料支撑的人来说，这个技能是高效的研究助手。
+The Academic Research skill enables AI Agents to access the OpenAlex academic database for searching vast amounts of academic papers, analyzing citation relationships, and generating literature review summaries. For researchers, educators, and anyone needing rigorous academic support, this skill is an efficient research assistant.
 
-## 核心功能
+## Core Features
 
-### 学术论文检索
+### Academic Paper Search
 
-通过 OpenAlex API 检索学术论文，支持按关键词、作者、期刊、发表时间、研究领域等多维度筛选。搜索结果包含论文标题、摘要、作者信息、发表期刊、引用次数等关键元数据。
+Search academic papers through the OpenAlex API with support for multi-dimensional filtering by keywords, authors, journals, publication dates, and research fields. Search results include paper titles, abstracts, author information, publication journals, citation counts, and other key metadata.
 
-### 引用网络分析
+### Citation Network Analysis
 
-给定一篇论文，Agent 可以追溯其引用的参考文献和被其他论文引用的情况，构建引用网络图谱。这有助于理解一个研究方向的发展脉络，找到领域内的关键论文和核心研究团队。
+Given a paper, the Agent can trace its cited references and citations from other papers, building a citation network map. This helps you understand the development trajectory of a research direction, identify key papers in the field, and locate core research teams.
 
-### 自动文献综述
+### Automated Literature Review
 
-Agent 能够围绕指定研究主题自动检索相关论文，阅读摘要，归纳研究现状和主要发现，识别研究空白和争议焦点，最终生成结构化的文献综述报告。虽然不能替代深入的人工综述，但可以大幅缩短前期调研时间。
+The Agent can automatically search for relevant papers around a specified research topic, read abstracts, summarize the current research state and major findings, identify research gaps and points of controversy, and ultimately generate a structured literature review report. While it cannot replace in-depth manual reviews, it significantly shortens preliminary research time.
 
-### 研究趋势分析
+### Research Trend Analysis
 
-通过统计特定领域在不同时间段的论文发表量、引用增长趋势和热门关键词变化，Agent 可以帮你识别新兴研究方向和衰退中的研究领域。
+By analyzing the number of papers published in a specific field over time, citation growth trends, and changes in popular keywords, the Agent can help you identify emerging research directions and declining research areas.
 
-## 典型使用场景
+## Typical Use Cases
 
-- **开题调研**：在确定研究方向之前，快速了解某个领域的研究现状、主要学者和关键论文，为选题提供依据。
-- **文献回顾撰写**：为论文或报告撰写文献综述部分时，Agent 帮你系统检索、筛选和归纳相关文献。
-- **竞争分析**：了解某个技术领域的学术研究热度，发现尚未被充分探索的研究空白。
-- **教学备课**：教师在准备课程内容时，快速获取某个知识点的最新研究进展和权威论文。
-- **跨学科探索**：当你需要了解一个不熟悉的领域时，Agent 帮你快速建立该领域的知识框架。
+- **Research Topic Exploration**: Before finalizing your research direction, quickly understand the research status, key scholars, and important papers in a field to inform your topic selection.
+- **Literature Review Writing**: When writing the literature review section of papers or reports, the Agent helps you systematically search, filter, and synthesize relevant literature.
+- **Competitive Analysis**: Understand the academic research activity in a technology field and discover research gaps that haven't been fully explored.
+- **Teaching Preparation**: Teachers preparing course content can quickly access the latest research progress and authoritative papers on specific knowledge points.
+- **Interdisciplinary Exploration**: When you need to understand an unfamiliar field, the Agent helps you quickly build a knowledge framework for that discipline.
 
-## 使用方式
+## Usage Instructions
 
-1. 在 Agent 项目中引入 Academic Research 技能。
-2. 无需额外配置 API 密钥，OpenAlex 提供免费开放的学术数据接口。
-3. 用自然语言向 Agent 描述你的研究需求，例如"帮我找近三年关于大语言模型幻觉问题的重要论文"。
-4. Agent 会检索相关论文，按相关性和影响力排序，并提供摘要和分析。
+1. Integrate the Academic Research skill into your Agent project.
+2. No additional API key configuration needed. OpenAlex provides a free open academic data interface.
+3. Describe your research needs in natural language to the Agent, such as "Find important papers on large language model hallucination issues from the past three years".
+4. The Agent will search relevant papers, sort by relevance and impact, and provide summaries and analysis.
 
-## 数据来源说明
+## Data Source Description
 
-OpenAlex 是一个开放的学术元数据库，收录了超过两亿篇学术作品的索引信息。它整合了来自 Crossref、PubMed、ORCID 等多个权威来源的数据，覆盖自然科学、社会科学和人文学科的广泛领域。
+OpenAlex is an open academic metadata database containing index information for over 200 million academic works. It integrates data from multiple authoritative sources including Crossref, PubMed, ORCID, and covers a wide range of disciplines across natural sciences, social sciences, and humanities.

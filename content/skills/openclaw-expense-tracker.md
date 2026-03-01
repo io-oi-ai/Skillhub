@@ -1,57 +1,57 @@
 ---
-name: "Expense Tracker 支出追踪"
-description: "通过自然语言记录开支，自动分类并生成消费洞察报告"
+name: "Expense Tracker"
+description: "Record expenses with natural language, automatically categorize them, and generate spending insights"
 author: "OpenClaw Community"
 roles: ["finance", "everyone"]
 scenes: ["data-analysis", "workflow"]
 version: "1.0.0"
 updatedAt: "2025-02-08"
-tags: ["OpenClaw", "记账", "支出", "财务管理"]
+tags: ["OpenClaw", "accounting", "expense", "financial management"]
 featured: false
 source: "clawhub.ai"
 ---
 
-## 概述
+## Overview
 
-Expense Tracker 是一个面向个人和小团队的智能记账技能。它最大的特点是支持自然语言输入——你只需说"今天午饭花了 35 块"或"上周五打车去机场 120 元"，Agent 就会自动提取金额、时间和类别，完成记账操作。告别繁琐的手动录入，让记账变得像聊天一样轻松。
+Expense Tracker is an intelligent accounting skill for individuals and small teams. Its standout feature is support for natural language input — simply say "Spent 35 bucks on lunch today" or "Took a cab to the airport last Friday for 120 yuan," and the Agent automatically extracts the amount, time, and category to complete the entry. Say goodbye to tedious manual data entry and make accounting as easy as having a chat.
 
-## 核心功能
+## Core Features
 
-### 自然语言记账
+### Natural Language Expense Entry
 
-不需要打开表格、选择分类、填写金额。直接用日常语言告诉 Agent 你花了什么钱，系统会自动解析出消费金额、日期、类别和备注信息。支持批量录入，例如"帮我记一下：周一咖啡 28，周二午饭 45，周三地铁卡充值 200"。
+No need to open spreadsheets, select categories, or fill in amounts. Just tell the Agent in everyday language what you spent money on, and the system automatically parses the expense amount, date, category, and notes. Supports batch entry, such as "Log these for me: Monday coffee 28, Tuesday lunch 45, Wednesday transit card top-up 200."
 
-### 智能分类体系
+### Intelligent Categorization System
 
-系统预置了常用的消费分类（餐饮、交通、购物、娱乐、居住、医疗等），同时会根据你的消费习惯自动学习和优化分类。你也可以自定义分类，满足个性化的记账需求。
+The system comes with preset common expense categories (dining, transportation, shopping, entertainment, housing, medical, etc.) and automatically learns and optimizes categories based on your spending habits. You can also create custom categories to meet your personalized accounting needs.
 
-### 消费洞察报告
+### Spending Insights Report
 
-每周或每月自动生成消费分析报告，包含支出分布饼图、趋势变化折线图、同比环比分析、超支预警等内容。报告用清晰的数据和图表告诉你钱都花在了哪里，哪些方面有节省空间。
+Automatically generates spending analysis reports weekly or monthly, including expense distribution pie charts, trend line graphs, year-over-year and month-over-month analysis, and overspending alerts. Reports show you clearly where your money goes and where you can save.
 
-### 预算管理
+### Budget Management
 
-你可以为不同消费类别设定月度预算上限。当某类支出接近或超过预算时，Agent 会主动提醒你注意控制开支。月底生成预算执行情况汇总。
+Set monthly budget limits for different expense categories. When spending approaches or exceeds the budget, the Agent proactively reminds you to control expenses. Generate a budget execution summary at month end.
 
-### 多币种支持
+### Multi-Currency Support
 
-出差或旅行时涉及外币消费，系统支持自动识别币种并按实时汇率折算为本币记录，方便统一管理。
+When traveling or on business trips involving foreign currency expenses, the system automatically recognizes currencies and converts them to your local currency at real-time rates for unified management.
 
-## 典型使用场景
+## Typical Use Cases
 
-- **个人日常记账**：用最低的摩擦成本记录每日开支，养成良好的财务管理习惯。
-- **差旅报销准备**：出差期间随手记录各项花费，行程结束后一键生成符合报销格式的消费明细。
-- **团队项目预算追踪**：小团队追踪项目相关支出，确保花费在预算范围内，定期向管理层报告预算消耗情况。
-- **自由职业者财务管理**：分别追踪业务支出和个人支出，为税务申报和财务规划提供清晰的数据支撑。
-- **家庭财务管理**：家庭成员共享一个账本，了解家庭整体消费结构，协商优化开支方案。
+- **Personal Daily Accounting**: Record daily expenses with minimal friction and develop good financial management habits.
+- **Travel Reimbursement Preparation**: Log expenses during business trips and generate compliant expense reports in one click when your trip ends.
+- **Team Project Budget Tracking**: Track project-related expenses for small teams, ensure spending stays within budget, and regularly report budget consumption to management.
+- **Freelancer Financial Management**: Track business expenses and personal expenses separately, providing clear data support for tax filing and financial planning.
+- **Household Finance Management**: Family members share one account book, understand overall household spending patterns, and collaborate on optimizing expenses.
 
-## 使用方式
+## How to Use
 
-1. 引入 Expense Tracker 技能到你的 Agent 项目。
-2. 设定你的基础币种和初始消费分类。
-3. 随时用自然语言告诉 Agent 你的消费记录。
-4. 使用"生成本月报告"等指令获取消费分析。
+1. Integrate Expense Tracker skill into your Agent project.
+2. Set your base currency and initial expense categories.
+3. Tell the Agent about your expenses anytime using natural language.
+4. Use commands like "Generate this month's report" to get spending analysis.
 
-## 数据安全
+## Data Security
 
-所有财务数据存储在本地文件中，不会上传到第三方服务器。你可以随时导出为 CSV 或 Excel 格式，也可以将数据文件纳入自己的备份方案中，完全掌控个人财务数据。
+All financial data is stored in local files and never uploaded to third-party servers. You can export data as CSV or Excel format anytime, or include data files in your own backup plan for complete control over your personal financial data.

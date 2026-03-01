@@ -1,56 +1,56 @@
 ---
-name: "周报自动生成"
-description: "根据本周工作记录和会议纪要，自动生成结构化的周报"
+name: "Weekly Report Auto-Generation"
+description: "Automatically generate structured weekly reports based on work records and meeting minutes from the week"
 author: "SkillHub"
 roles: ["everyone"]
 scenes: ["writing", "workflow"]
 version: "1.0.0"
 updatedAt: "2025-02-25"
-tags: ["周报", "自动化", "工作总结"]
+tags: ["weekly report", "automation", "work summary"]
 featured: true
 source: "skillhub"
 ---
 
-# 周报自动生成
+# Weekly Report Auto-Generation
 
-## 技能说明
+## Skill Overview
 
-周报是职场中最常见的工作汇报形式，但很多人在写周报时花费大量时间却写不出重点。本技能帮助你根据本周的工作记录、会议纪要、项目进展等素材，快速生成一份结构清晰、重点突出的周报。
+Weekly reports are the most common form of work reporting in the workplace, yet many people spend considerable time writing them without capturing the key points. This skill helps you quickly generate a well-structured, focused weekly report based on your week's work records, meeting minutes, project progress, and other materials.
 
-## 输入要求
+## Input Requirements
 
-使用本技能时，请准备以下信息：
+When using this skill, please prepare the following information:
 
-- **本周完成的工作**：列出你本周处理的主要任务，包括项目名称、具体事项和完成状态
-- **会议纪要或沟通记录**：本周参加的重要会议内容和达成的决议
-- **遇到的问题和阻碍**：工作中遇到的困难、风险点以及当前的解决状态
-- **下周工作计划**：已明确的下周待办事项和优先级
-- **需要协调的资源**：跨部门协作需求或需要上级支持的事项
+- **Work Completed This Week**: List the main tasks you handled this week, including project names, specific items, and completion status
+- **Meeting Minutes or Communication Records**: Important meeting content from the week and decisions reached
+- **Problems and Obstacles Encountered**: Difficulties and risk points in work, and current resolution status
+- **Next Week's Work Plan**: Already-confirmed action items for next week and priority levels
+- **Resources Needing Coordination**: Cross-department collaboration needs or support required from management
 
-提供的信息越详细，生成的周报质量越高。建议平时养成每日简单记录的习惯，周五汇总时会轻松很多。
+The more detailed the information provided, the higher the quality of the generated report. It's recommended to develop a habit of simple daily recording so that weekly summary is much easier.
 
-## 输出格式
+## Output Format
 
-生成的周报将包含以下标准结构：
+The generated weekly report will include the following standard structure:
 
-1. **本周工作概述**：用 2-3 句话总结本周核心产出
-2. **重点工作进展**：按项目或模块分类，列出完成情况和关键成果
-3. **问题与风险**：标注当前遇到的阻碍及影响范围
-4. **数据与成果**：量化的工作成果，如完成率、bug 修复数等
-5. **下周计划**：按优先级排列的下周待办事项
-6. **需要支持**：明确列出需要协调或决策的事项
+1. **Weekly Work Overview**: Summarize core deliverables of the week in 2-3 sentences
+2. **Key Work Progress**: Organized by project or module, listing completion status and key results
+3. **Problems and Risks**: Issues encountered and their impact scope
+4. **Data and Results**: Quantified work results, such as completion rate, bugs fixed, etc.
+5. **Next Week's Plan**: Next week's action items arranged by priority
+6. **Support Needed**: Clearly list items requiring coordination or decisions
 
-## 使用技巧
+## Usage Tips
 
-- **突出成果而非过程**：周报应聚焦于"做成了什么"而不是"做了什么"，用结果导向的方式描述工作
-- **善用数据量化**：尽量用具体数字说明工作产出，例如"完成了 5 个需求的开发"比"推进了项目开发"更有说服力
-- **控制篇幅**：周报不是流水账，建议控制在一页以内，让领导能在 2 分钟内读完
-- **保持一致性**：每周使用相同的格式和结构，便于横向对比和回顾
-- **提前准备素材**：建议每天花 1 分钟记录当天关键工作，周五汇总效率更高
+- **Highlight results rather than process**: Reports should focus on "what was accomplished" rather than "what was done," describing work in result-oriented language
+- **Make good use of data quantification**: Whenever possible, use specific numbers to illustrate work output. "Completed development for 5 requirements" is more convincing than "promoted project development"
+- **Control length**: Weekly reports are not logs of daily activities; keep to one page so leaders can read it in 2 minutes
+- **Maintain consistency**: Use the same format and structure each week for easy comparison and review
+- **Prepare materials in advance**: Recommend spending 1 minute daily recording key work so weekly summaries are much more efficient
 
-## 适用场景
+## Applicable Scenarios
 
-- 每周五下午快速生成本周工作总结
-- 项目阶段性汇报的素材整理
-- 试用期员工的工作记录归档
-- 远程办公团队的异步沟通汇报
+- Quickly generate this week's work summary Friday afternoon
+- Material organization for project phase-based reporting
+- Work record archiving for probationary employees
+- Asynchronous communication reporting for remote work teams

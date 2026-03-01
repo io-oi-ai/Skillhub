@@ -1,60 +1,60 @@
 ---
-name: "课程教案设计"
-description: "根据教学目标和学生水平，设计互动式课程教案和评估方案"
+name: "Course Lesson Plan Design"
+description: "Design interactive course lesson plans and assessment schemes based on learning objectives and student level"
 author: "SkillHub"
 roles: ["educator"]
 scenes: ["creative-design", "learning"]
 version: "1.0.0"
 updatedAt: "2025-02-14"
-tags: ["教案", "课程设计", "教学", "评估"]
+tags: ["lesson plan", "course design", "teaching", "assessment"]
 featured: false
 source: "skillhub"
 ---
 
-# 课程教案设计
+# Course Lesson Plan Design
 
-## 技能说明
+## Skill Overview
 
-好的教案是一堂好课的基础。本技能帮助教育工作者根据教学目标、学生水平和课程时长，设计结构完整、互动丰富的课程教案。无论是学校课堂、企业培训还是在线课程，都能生成适用的教学方案。
+A well-designed lesson plan is the foundation of a successful class. This skill helps educators design structurally complete and interactive lesson plans based on learning objectives, student level, and course duration. Whether for school classrooms, corporate training, or online courses, it can generate applicable teaching solutions.
 
-## 输入要求
+## Input Requirements
 
-请提供以下信息：
+Please provide the following information:
 
-- **课程主题**：本节课要教授的核心内容
-- **教学目标**：学生学完后应该掌握的知识或技能
-- **学生水平**：学生的年龄段、已有知识基础、班级人数
-- **课程时长**：一节课的时间长度
-- **教学环境**：线下教室、线上直播、还是录播课程
-- **可用资源**：多媒体设备、实验器材、教材版本等
+- **Course Topic**: Core content to be taught in this lesson
+- **Learning Objectives**: Knowledge or skills students should master after the lesson
+- **Student Level**: Student age group, existing knowledge foundation, class size
+- **Course Duration**: Time length of one lesson
+- **Teaching Environment**: Offline classroom, live online, or recorded course
+- **Available Resources**: Multimedia equipment, lab materials, textbook versions, etc.
 
-## 输出内容
+## Output Content
 
-生成的教案将包含以下部分：
+The generated lesson plan will include the following components:
 
-1. **课程概要**：主题、目标、时长、适用对象
-2. **教学目标分层**：知识目标、能力目标、情感目标（参照布鲁姆分类法）
-3. **教学流程设计**：按时间轴划分的详细教学环节
-   - 导入环节：激发兴趣，引出主题
-   - 新知讲授：核心概念的讲解策略
-   - 互动练习：课堂活动和小组讨论设计
-   - 巩固环节：练习题或实践任务
-   - 总结回顾：知识点梳理和要点强调
-4. **互动活动设计**：具体的课堂互动方案和操作说明
-5. **评估方案**：课堂检测、作业设计、评分标准
-6. **差异化教学建议**：针对不同水平学生的调整方案
-7. **教学资源清单**：推荐的辅助材料和参考资源
+1. **Course Overview**: Topic, objectives, duration, target audience
+2. **Tiered Learning Objectives**: Knowledge objectives, ability objectives, affective objectives (following Bloom's taxonomy)
+3. **Teaching Process Design**: Detailed teaching stages organized by timeline
+   - Introduction: Spark interest and introduce the topic
+   - New Content Presentation: Strategies for explaining core concepts
+   - Interactive Practice: Classroom activities and group discussion design
+   - Reinforcement: Practice exercises or practical tasks
+   - Summary and Review: Knowledge point organization and key emphasis
+4. **Interactive Activity Design**: Specific classroom interaction plans and operational instructions
+5. **Assessment Plan**: Classroom assessment, homework design, grading standards
+6. **Differentiated Teaching Suggestions**: Adjustment schemes for students at different levels
+7. **Teaching Resource Checklist**: Recommended supplementary materials and reference resources
 
-## 使用技巧
+## Usage Tips
 
-- **目标要具体可测量**：用"能够列举""能够分析""能够应用"等行为动词描述目标
-- **注意节奏把控**：避免长时间单向讲授，每 10-15 分钟安排一次互动
-- **预设常见问题**：提前准备学生可能提出的问题和解答思路
-- **留有弹性空间**：教案是指南而非剧本，实际授课时根据学生反应灵活调整
+- **Make objectives specific and measurable**: Use action verbs like "able to list," "able to analyze," "able to apply" to describe objectives
+- **Pay attention to pacing**: Avoid lengthy one-way lecturing; schedule interactions every 10-15 minutes
+- **Pre-plan common questions**: Prepare answers to questions students might ask
+- **Leave flexible space**: Lesson plans are guides not scripts; adjust based on student responses during actual teaching
 
-## 适用场景
+## Applicable Scenarios
 
-- 中小学各学科日常教案编写
-- 企业内训课程的教学设计
-- 在线课程的内容规划和脚本设计
-- 培训师的工作坊方案设计
+- Daily lesson plan writing for various school subjects
+- Instructional design for corporate training courses
+- Content planning and script design for online courses
+- Workshop design for trainers

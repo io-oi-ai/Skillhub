@@ -152,6 +152,56 @@ const en = {
     "larrybrain.com": "LarryBrain",
     skillhub: "SkillHub",
   },
+  auth: {
+    signIn: "Sign In",
+    signOut: "Sign Out",
+    email: "Email",
+    or: "or",
+    continueWithGithub: "Continue with GitHub",
+    continueWithGoogle: "Continue with Google",
+    loginTitle: "Welcome to SkillHub",
+    signInDescription:
+      "Enter your email to receive a magic link — no password needed",
+    sendMagicLink: "Send Magic Link",
+    magicLinkSent: "Check your email",
+    checkEmailDescription:
+      "We've sent a magic link to your email. Click the link to sign in.",
+    tryAnotherEmail: "Try a different email",
+  },
+  versions: {
+    title: "Version History",
+    current: "Current",
+    rollback: "Rollback to this version",
+    rollbackConfirm: "Are you sure you want to rollback?",
+    message: "What changed?",
+    noHistory: "No version history yet",
+  },
+  edit: {
+    title: "Edit Skill",
+    save: "Save Changes",
+    saving: "Saving...",
+  },
+  pulls: {
+    title: "Pull Requests",
+    suggest: "Suggest Edit",
+    create: "Submit Pull Request",
+    prTitle: "Title",
+    prDescription: "Describe your changes",
+    open: "Open",
+    merged: "Merged",
+    rejected: "Rejected",
+    merge: "Merge",
+    reject: "Reject",
+    reviewComment: "Review comment (optional)",
+    noPulls: "No pull requests yet",
+    by: "by",
+  },
+  skillActions: {
+    edit: "Edit",
+    viewHistory: "History",
+    pendingPRs: "PRs",
+    signInToEdit: "Sign in to suggest edits",
+  },
 };
 
 export type Dictionary = typeof en;

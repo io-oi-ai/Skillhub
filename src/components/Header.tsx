@@ -44,13 +44,7 @@ export default function Header({ locale, dict }: HeaderProps) {
           </span>
         </Link>
 
-        <nav className="flex items-center gap-4">
-          <Link
-            href={`${prefix}/`}
-            className="text-sm text-text-secondary transition-colors hover:text-text-primary"
-          >
-            {dict.nav.skills}
-          </Link>
+        <nav className="flex items-center gap-2">
           <Link
             href={`${prefix}/submit`}
             className="rounded-full bg-accent px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-accent-hover"

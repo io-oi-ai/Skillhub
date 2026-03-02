@@ -36,7 +36,7 @@ export default function LanguageSwitcher({ locale }: LanguageSwitcherProps) {
     <div ref={ref} className="relative">
       <button
         onClick={() => setOpen((v) => !v)}
-        className="flex items-center gap-1 rounded-md border border-border px-2.5 py-1 text-xs font-medium text-text-secondary transition-colors hover:border-text-muted hover:text-text-primary"
+        className="flex items-center gap-1 rounded-full border border-border px-3 py-1.5 text-sm font-medium text-text-secondary transition-colors hover:border-text-muted hover:text-text-primary"
       >
         <svg
           className="h-3.5 w-3.5"

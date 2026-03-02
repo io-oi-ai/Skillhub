@@ -10,6 +10,7 @@ import { getDictionary } from "@/i18n/get-dictionary";
 import SkillContent from "./SkillContent";
 import LikeButton from "@/components/LikeButton";
 import DownloadButton from "@/components/DownloadButton";
+import SkillActions from "@/components/SkillActions";
 
 export const dynamic = "force-dynamic";
 
@@ -65,7 +66,7 @@ export default async function SkillPage({ params }: Props) {
           <div className="mb-8">
             <div className="mb-4 flex flex-wrap items-center gap-2">
               {skill.featured && (
-                <span className="rounded-md bg-amber-500/20 px-2 py-0.5 text-xs text-amber-300">
+                <span className="rounded-md border border-amber-200 bg-amber-50 px-2 py-0.5 text-xs text-amber-700">
                   {dict.skillDetail.featured}
                 </span>
               )}
@@ -117,6 +118,16 @@ export default async function SkillPage({ params }: Props) {
                 ))}
               </div>
             )}
+
+            {/* Actions: Edit / Suggest / History / PRs */}
+            <div className="mt-4">
+              <SkillActions
+                skillId={skill.id}
+                skillUserId={skill.userId}
+                locale={locale}
+                dict={dict}
+              />
+            </div>
           </div>
 
           {/* Content */}

@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getSkillById } from "@/lib/skills";
 import { createSupabaseServer } from "@/lib/supabase-server";
 import { requireAuth } from "@/lib/auth";
 
@@ -9,21 +8,7 @@ function incrementVersion(version: string): string {
   return parts.join(".");
 }
 
-export async function GET(
-  _request: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
-) {
-  const { id } = await params;
-  const skill = await getSkillById(id);
-
-  if (!skill) {
-    return NextResponse.json({ error: "Skill not found" }, { status: 404 });
-  }
-
-  return NextResponse.json(skill);
-}
-
-export async function PUT(
+export async function POST(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
@@ -58,9 +43,31 @@ export async function PUT(
     }
 
     const body = await request.json();
-    const { name, description, content, roles, scenes, tags, message } = body;
+    const { versionId } = body;
 
-    // Snapshot current version to skill_versions
+    if (!versionId) {
+      return NextResponse.json(
+        { error: "versionId is required" },
+        { status: 400 }
+      );
+    }
+
+    // Fetch the target version
+    const { data: targetVersion, error: versionError } = await authSupabase
+      .from("skill_versions")
+      .select("*")
+      .eq("id", versionId)
+      .eq("skill_id", id)
+      .single();
+
+    if (versionError || !targetVersion) {
+      return NextResponse.json(
+        { error: "Target version not found" },
+        { status: 404 }
+      );
+    }
+
+    // Snapshot current state before rollback
     const { error: snapshotError } = await authSupabase
       .from("skill_versions")
       .insert({
@@ -73,7 +80,7 @@ export async function PUT(
         scenes: skill.scenes,
         tags: skill.tags,
         user_id: user!.id,
-        message: message || `Updated to version ${incrementVersion(skill.version)}`,
+        message: `Rolled back to version ${targetVersion.version}`,
       });
 
     if (snapshotError) {
@@ -84,19 +91,19 @@ export async function PUT(
       );
     }
 
-    // Increment version
+    // Increment version number
     const newVersion = incrementVersion(skill.version);
 
-    // Update the skill
+    // Update skills table with target version's data
     const { data: updated, error: updateError } = await authSupabase
       .from("skills")
       .update({
-        name: name ?? skill.name,
-        description: description ?? skill.description,
-        content: content ?? skill.content,
-        roles: roles ?? skill.roles,
-        scenes: scenes ?? skill.scenes,
-        tags: tags ?? skill.tags,
+        name: targetVersion.name,
+        description: targetVersion.description,
+        content: targetVersion.content,
+        roles: targetVersion.roles,
+        scenes: targetVersion.scenes,
+        tags: targetVersion.tags,
         version: newVersion,
         updated_at: new Date().toISOString().split("T")[0],
       })
@@ -105,14 +112,17 @@ export async function PUT(
       .single();
 
     if (updateError) {
-      console.error("Failed to update skill:", updateError);
+      console.error("Failed to rollback skill:", updateError);
       return NextResponse.json(
-        { error: "Failed to update skill" },
+        { error: "Failed to rollback skill" },
         { status: 500 }
       );
     }
 
-    return NextResponse.json(updated);
+    return NextResponse.json({
+      message: `Rolled back to version ${targetVersion.version}`,
+      skill: updated,
+    });
   } catch {
     return NextResponse.json(
       { error: "Invalid request body" },

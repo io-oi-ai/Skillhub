@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getAllSkills } from "@/lib/skills";
 import { supabase } from "@/lib/supabase";
+import { createSupabaseServer } from "@/lib/supabase-server";
+import { requireAuth } from "@/lib/auth";
 import type { Role, Scene } from "@/lib/types";
 
 export async function GET(request: NextRequest) {
@@ -38,13 +40,42 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   try {
+    const { user, error: authError } = await requireAuth();
+    if (authError) return authError;
+
+    const authSupabase = await createSupabaseServer();
+
     const body = await request.json();
 
-    const { name, description, author, roles, scenes, tags, content } = body;
+    const { name, description, roles, scenes, tags, content } = body;
 
-    if (!name || !description || !author || !roles?.length || !scenes?.length) {
+    if (!name || !description || !roles?.length || !scenes?.length) {
       return NextResponse.json(
-        { error: "Missing required fields: name, description, author, roles, scenes" },
+        {
+          error:
+            "Missing required fields: name, description, roles, scenes",
+        },
+        { status: 400 }
+      );
+    }
+
+    // Get author name from profiles table, fallback to body.author
+    let author = body.author;
+    if (user) {
+      const { data: profile } = await authSupabase
+        .from("profiles")
+        .select("display_name, username")
+        .eq("id", user.id)
+        .single();
+
+      if (profile) {
+        author = profile.display_name || profile.username || author;
+      }
+    }
+
+    if (!author) {
+      return NextResponse.json(
+        { error: "Author name is required" },
         { status: 400 }
       );
     }
@@ -76,9 +107,10 @@ export async function POST(request: NextRequest) {
       source: null,
       content: content || `# ${name}\n\n${description}`,
       likes_count: 0,
+      user_id: user!.id,
     };
 
-    const { data, error } = await supabase
+    const { data, error } = await authSupabase
       .from("skills")
       .upsert(row, { onConflict: "id" })
       .select("id")

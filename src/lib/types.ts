@@ -39,6 +39,54 @@ export interface Skill {
   source?: Source;
   content: string;
   likesCount: number;
+  userId?: string | null;
+}
+
+export interface SkillVersion {
+  id: number;
+  skillId: string;
+  version: string;
+  name: string;
+  description: string;
+  content?: string;
+  roles: string[];
+  scenes: string[];
+  tags: string[];
+  userId?: string | null;
+  message?: string | null;
+  createdAt: string;
+  author?: {
+    username: string;
+    displayName: string;
+    avatarUrl: string | null;
+  };
+}
+
+export type PullRequestStatus = "open" | "merged" | "rejected";
+
+export interface PullRequest {
+  id: number;
+  skillId: string;
+  authorId: string;
+  status: PullRequestStatus;
+  title: string;
+  message?: string | null;
+  name: string;
+  description: string;
+  content: string;
+  roles: string[];
+  scenes: string[];
+  tags: string[];
+  reviewedBy?: string | null;
+  reviewedAt?: string | null;
+  reviewComment?: string | null;
+  createdAt: string;
+  updatedAt: string;
+  author?: {
+    username: string;
+    displayName: string;
+    avatarUrl: string | null;
+  };
 }
 
 export const ROLE_COLORS: Record<Role, string> = {

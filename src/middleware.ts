@@ -1,17 +1,42 @@
 import { NextRequest, NextResponse } from "next/server";
+import { createServerClient } from "@supabase/ssr";
 import { i18n } from "./i18n/config";
 
-export function middleware(request: NextRequest) {
+async function updateSupabaseSession(request: NextRequest, response: NextResponse) {
+  const supabase = createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      cookies: {
+        getAll: () => request.cookies.getAll(),
+        setAll: (cookiesToSet) => {
+          cookiesToSet.forEach(({ name, value, options }) => {
+            response.cookies.set(name, value, options);
+          });
+        },
+      },
+    }
+  );
+  await supabase.auth.getUser();
+  return response;
+}
+
+export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Skip API routes, static files, and Next.js internals
+  // Skip static files and Next.js internals
   if (
-    pathname.startsWith("/api/") ||
     pathname.startsWith("/_next/") ||
     pathname.startsWith("/favicon") ||
     pathname.includes(".")
   ) {
     return NextResponse.next();
+  }
+
+  // For API and auth routes, only refresh Supabase session
+  if (pathname.startsWith("/api/") || pathname.startsWith("/auth/")) {
+    const response = NextResponse.next();
+    return updateSupabaseSession(request, response);
   }
 
   // Check if the pathname already has a locale prefix
@@ -30,8 +55,9 @@ export function middleware(request: NextRequest) {
       url.pathname = cleanPath;
       return NextResponse.redirect(url);
     }
-    // Non-default locale (e.g., /zh/...) — let it through
-    return NextResponse.next();
+    // Non-default locale (e.g., /zh/...) — refresh session and let it through
+    const nonDefaultResponse = NextResponse.next();
+    return updateSupabaseSession(request, nonDefaultResponse);
   }
 
   // No locale prefix — detect preferred locale for first visit or rewrite to default
@@ -55,15 +81,18 @@ export function middleware(request: NextRequest) {
     // Redirect to the locale-prefixed URL
     const url = request.nextUrl.clone();
     url.pathname = `/${locale}${pathname}`;
-    return NextResponse.redirect(url);
+    const redirectResponse = NextResponse.redirect(url);
+    return updateSupabaseSession(request, redirectResponse);
   }
 
   // Default locale — rewrite internally to /en/... without changing the URL
   const url = request.nextUrl.clone();
   url.pathname = `/${i18n.defaultLocale}${pathname}`;
-  return NextResponse.rewrite(url);
+  const rewriteResponse = NextResponse.rewrite(url);
+  return updateSupabaseSession(request, rewriteResponse);
 }
 
 export const config = {
-  matcher: ["/((?!api|_next/static|_next/image|favicon.ico|.*\\..*).*)"],
+  matcher: [
+    "/((?!_next/static|_next/image|favicon.ico|.*\\..*).*)"],
 };

@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { useAuth } from "@/hooks/useAuth";
 import type { Role, Scene } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries/en";
 
@@ -12,6 +14,7 @@ interface SubmitFormProps {
 
 export default function SubmitForm({ dict, locale }: SubmitFormProps) {
   const router = useRouter();
+  const { user, loading: authLoading } = useAuth();
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [roles, setRoles] = useState<Role[]>([]);
@@ -23,6 +26,7 @@ export default function SubmitForm({ dict, locale }: SubmitFormProps) {
   const [publishing, setPublishing] = useState(false);
   const [publishMsg, setPublishMsg] = useState("");
 
+  const prefix = locale === "en" ? "" : `/${locale}`;
   const t = dict.submitForm;
   const roleLabels = dict.roles as Record<string, string>;
   const sceneLabels = dict.scenes as Record<string, string>;
@@ -256,17 +260,26 @@ ${content || `# ${name}\n\n${description}`}
         >
           {t.generate}
         </button>
-        <button
-          onClick={publishToDatabase}
-          disabled={!isValid || publishing}
-          className={`rounded-lg px-6 py-2.5 text-sm font-medium transition-colors ${
-            isValid && !publishing
-              ? "border border-accent text-accent hover:bg-accent/10"
-              : "cursor-not-allowed border border-border text-text-muted"
-          }`}
-        >
-          {publishing ? t.publishing : t.publish}
-        </button>
+        {!authLoading && !user ? (
+          <Link
+            href={`${prefix}/login`}
+            className="rounded-lg border border-accent px-6 py-2.5 text-sm font-medium text-accent transition-colors hover:bg-accent/10"
+          >
+            {dict.auth.signIn} → {t.publish}
+          </Link>
+        ) : (
+          <button
+            onClick={publishToDatabase}
+            disabled={!isValid || publishing}
+            className={`rounded-lg px-6 py-2.5 text-sm font-medium transition-colors ${
+              isValid && !publishing
+                ? "border border-accent text-accent hover:bg-accent/10"
+                : "cursor-not-allowed border border-border text-text-muted"
+            }`}
+          >
+            {publishing ? t.publishing : t.publish}
+          </button>
+        )}
       </div>
       {publishMsg && (
         <p className={`text-sm ${publishMsg === t.publishSuccess ? "text-green-500" : "text-red-400"}`}>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { i18n, isValidLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
+import { AuthProvider } from "@/components/AuthProvider";
 
 interface Props {
   children: React.ReactNode;
@@ -25,11 +26,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     description: dict.metadata.home.description,
     keywords: dict.metadata.home.keywords as unknown as string[],
+    icons: {
+      icon: "/icon.svg",
+      apple: "/apple-icon.png",
+    },
     openGraph: {
       title: dict.metadata.home.ogTitle,
       description: dict.metadata.home.ogDescription,
       type: "website",
       locale: locale === "zh" ? "zh_CN" : "en_US",
+      siteName: "SkillHub",
+      images: [
+        {
+          url: `${baseUrl}/og-image.png`,
+          width: 1200,
+          height: 630,
+          alt: "SkillHub — Discover the Best AI Agent Skills",
+        },
+      ],
     },
     alternates: {
       canonical: baseUrl,
@@ -48,7 +62,9 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <html lang={locale === "zh" ? "zh-CN" : "en"}>
       <body className="min-h-screen antialiased">
-        <div className="flex min-h-screen flex-col">{children}</div>
+        <AuthProvider>
+          <div className="flex min-h-screen flex-col">{children}</div>
+        </AuthProvider>
       </body>
     </html>
   );

@@ -15,6 +15,7 @@ interface SkillRow {
   source: string | null;
   content: string;
   likes_count: number;
+  user_id: string | null;
 }
 
 function rowToSkill(row: SkillRow): Skill {
@@ -32,6 +33,7 @@ function rowToSkill(row: SkillRow): Skill {
     source: row.source as Skill["source"],
     content: row.content,
     likesCount: row.likes_count,
+    userId: row.user_id,
   };
 }
 

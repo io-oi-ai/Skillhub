@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { supabase } from "@/lib/supabase";
-import { getLevel } from "@/lib/points";
+import { getLevel, LEVELS } from "@/lib/points";
 import { isValidLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 
@@ -43,6 +43,29 @@ export default async function LeaderboardPage({ params }: Props) {
             {dict.points.leaderboard}
           </h1>
 
+          {/* Level requirements */}
+          <div className="mb-8 overflow-hidden rounded-xl border border-border bg-bg-card">
+            <div className="grid grid-cols-5 divide-x divide-border">
+              {LEVELS.map((lvl) => {
+                const key = lvl.name.en.toLowerCase() as keyof typeof levelNames;
+                return (
+                  <div key={lvl.level} className="px-4 py-4 text-center">
+                    <p className="text-sm font-semibold text-text-primary">
+                      {levelNames[key]}
+                    </p>
+                    <p className="mt-1 text-xs text-text-muted">
+                      {lvl.minPoints === 0
+                        ? "0"
+                        : `${lvl.minPoints}+`}{" "}
+                      {dict.points.toast.pts}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Leaderboard */}
           <div className="overflow-hidden rounded-xl border border-border bg-bg-card">
             {users && users.length > 0 ? (
               <ul className="divide-y divide-border">
@@ -67,6 +90,7 @@ export default async function LeaderboardPage({ params }: Props) {
                             src={u.avatar_url}
                             alt={name}
                             className="h-full w-full object-cover"
+                            referrerPolicy="no-referrer"
                           />
                         ) : (
                           <span className="text-xs font-medium text-text-primary">
@@ -96,6 +120,30 @@ export default async function LeaderboardPage({ params }: Props) {
                 No data yet
               </p>
             )}
+          </div>
+
+          {/* How to earn points */}
+          <h2 className="mb-4 mt-10 text-xl font-bold text-text-primary">
+            {dict.points.howToEarn}
+          </h2>
+          <div className="overflow-hidden rounded-xl border border-border bg-bg-card">
+            <ul className="divide-y divide-border">
+              {([
+                [dict.points.earnRules.signup, "+10"],
+                [dict.points.earnRules.create, "+10"],
+                [dict.points.earnRules.firstCreate, "+20"],
+                [dict.points.earnRules.update, "+5"],
+                [`${dict.points.earnRules.download}`, "5 + likes"],
+                [dict.points.earnRules.like, "+2"],
+                [dict.points.earnRules.prSubmit, "+3"],
+                [dict.points.earnRules.prMerged, "+3"],
+              ] as const).map(([label, pts]) => (
+                <li key={label} className="flex items-center justify-between px-4 py-3">
+                  <span className="text-sm text-text-secondary">{label}</span>
+                  <span className="text-sm font-semibold text-accent">{pts}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </main>

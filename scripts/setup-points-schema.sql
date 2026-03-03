@@ -13,7 +13,9 @@ CREATE INDEX IF NOT EXISTS idx_profiles_points ON public.profiles(points DESC);
 
 DO $$ BEGIN
   CREATE TYPE point_action AS ENUM (
+    'signup_bonus',
     'skill_create', 'skill_create_first', 'skill_update',
+    'skill_downloaded',
     'pr_submit', 'pr_merged_author', 'pr_merged_reviewer',
     'skill_liked', 'skill_unliked'
   );

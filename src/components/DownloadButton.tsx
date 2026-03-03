@@ -42,6 +42,9 @@ export default function DownloadButton({ skill, label, size = "sm" }: DownloadBu
     a.download = `${skill.id}.md`;
     a.click();
     URL.revokeObjectURL(url);
+
+    // Award points to skill creator (fire-and-forget)
+    fetch(`/api/skills/${skill.id}/download`, { method: "POST" }).catch(() => {});
   }
 
   if (size === "sm") {

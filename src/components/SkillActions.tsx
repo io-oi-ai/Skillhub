@@ -66,13 +66,15 @@ export default function SkillActions({
         {t.viewHistory}
       </Link>
 
-      {/* PRs (always visible) */}
-      <Link
-        href={`${prefix}/skill/${skillId}/pulls`}
-        className="rounded-lg border border-border px-4 py-1.5 text-sm text-text-secondary transition-colors hover:border-accent/50 hover:text-text-primary"
-      >
-        {t.pendingPRs}
-      </Link>
+      {/* PRs (only visible to skill creator) */}
+      {isAuthor && (
+        <Link
+          href={`${prefix}/skill/${skillId}/pulls`}
+          className="rounded-lg border border-border px-4 py-1.5 text-sm text-text-secondary transition-colors hover:border-accent/50 hover:text-text-primary"
+        >
+          {t.pendingPRs}
+        </Link>
+      )}
     </div>
   );
 }

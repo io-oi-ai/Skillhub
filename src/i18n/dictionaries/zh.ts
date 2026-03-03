@@ -35,15 +35,10 @@ const zh: Dictionary = {
   },
   cli: {
     title: "面向 Agent 的 SkillHub CLI",
-    description: "在命令行中搜索、创建与更新技能。",
-    installTitle: "安装",
-    installCommand: "npm install && npm run build:cli",
-    installGhTitle: "使用 gh 安装",
-    installGhCommand: "gh repo clone io-oi-ai/Skillhub && cd Skillhub && npm install && npm run build:cli",
-    runTitle: "运行",
-    runCommand: "node dist/cli/index.js skills list",
-    releasesTitle: "GitHub Releases",
-    releasesLink: "前往 Releases 下载",
+    description:
+      "直接在终端搜索、创建和更新 Skill。为 AI Agent 和命令行用户打造。",
+    viewOnGithub: "在 GitHub 上查看",
+    terminalTitle: "终端",
   },
   features: {
     platforms: "平台支持",
@@ -237,6 +232,20 @@ const zh: Dictionary = {
     toast: {
       earned: "获得",
       pts: "积分",
+    },
+    levelRequirement: "需要",
+    levelRequirementPts: "积分",
+    howToEarn: "如何获得积分",
+    earnRules: {
+      signup: "注册账号",
+      create: "创建 Skill",
+      firstCreate: "首次创建 Skill 额外奖励",
+      update: "更新 Skill",
+      download: "Skill 被下载",
+      downloadDesc: "基础 5 分 + 点赞数",
+      like: "Skill 被点赞",
+      prSubmit: "提交 PR",
+      prMerged: "PR 被合并（双方各得）",
     },
   },
 };

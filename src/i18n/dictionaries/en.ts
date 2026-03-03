@@ -33,15 +33,10 @@ const en = {
   },
   cli: {
     title: "SkillHub CLI for Agents",
-    description: "Search, create, and update skills from your terminal.",
-    installTitle: "Install",
-    installCommand: "npm install && npm run build:cli",
-    installGhTitle: "Install (gh)",
-    installGhCommand: "gh repo clone io-oi-ai/Skillhub && cd Skillhub && npm install && npm run build:cli",
-    runTitle: "Run",
-    runCommand: "node dist/cli/index.js skills list",
-    releasesTitle: "GitHub Releases",
-    releasesLink: "Download from Releases",
+    description:
+      "Search, create, and update skills directly from your terminal. Designed for AI agents and power users who prefer the command line.",
+    viewOnGithub: "View on GitHub",
+    terminalTitle: "Terminal",
   },
   features: {
     platforms: "Platforms",
@@ -237,6 +232,20 @@ const en = {
     toast: {
       earned: "earned",
       pts: "pts",
+    },
+    levelRequirement: "Requires",
+    levelRequirementPts: "pts",
+    howToEarn: "How to Earn Points",
+    earnRules: {
+      signup: "Sign up",
+      create: "Create a Skill",
+      firstCreate: "First Skill bonus",
+      update: "Update a Skill",
+      download: "Skill downloaded",
+      downloadDesc: "Base 5 pts + likes count",
+      like: "Skill receives a like",
+      prSubmit: "Submit a PR",
+      prMerged: "PR merged (both parties)",
     },
   },
 };

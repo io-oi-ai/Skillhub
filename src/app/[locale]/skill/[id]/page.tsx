@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { getSkillById } from "@/lib/skills";
+import { supabase } from "@/lib/supabase";
+import { getLevel } from "@/lib/points";
 import { ROLE_COLORS } from "@/lib/types";
 import type { Role, Scene } from "@/lib/types";
 import { isValidLocale } from "@/i18n/config";
@@ -57,6 +59,22 @@ export default async function SkillPage({ params }: Props) {
   const sceneLabels = dict.scenes as Record<string, string>;
   const sourceLabels = dict.sources as Record<string, string>;
 
+  // Fetch author level
+  let authorLevelLabel = "";
+  if (skill.userId) {
+    const { data: authorProfile } = await supabase
+      .from("profiles")
+      .select("points")
+      .eq("id", skill.userId)
+      .single();
+    if (authorProfile) {
+      const level = getLevel(authorProfile.points);
+      const lang = locale === "zh" ? "zh" : "en";
+      const levelKey = level.name.en.toLowerCase() as keyof typeof dict.points.levels;
+      authorLevelLabel = dict.points.levels[levelKey];
+    }
+  }
+
   return (
     <>
       <Header locale={locale} dict={dict} />
@@ -94,7 +112,14 @@ export default async function SkillPage({ params }: Props) {
             <p className="text-lg text-text-secondary">{skill.description}</p>
 
             <div className="mt-4 flex flex-wrap items-center gap-4 text-sm text-text-muted">
-              <span>{dict.skillDetail.author} {skill.author}</span>
+              <span>
+                {dict.skillDetail.author} {skill.author}
+                {authorLevelLabel && (
+                  <span className="ml-1.5 rounded bg-accent/10 px-1.5 py-0.5 text-xs font-medium text-accent">
+                    {authorLevelLabel}
+                  </span>
+                )}
+              </span>
               <span>v{skill.version}</span>
               <span>{dict.skillDetail.updatedAt} {skill.updatedAt}</span>
               {skill.source && (

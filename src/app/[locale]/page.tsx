@@ -45,6 +45,12 @@ export default async function Home({ params }: Props) {
                 >
                   {dict.hero.cta}
                 </a>
+                <a
+                  href="https://github.com/io-oi-ai/Skillhub"
+                  className="inline-flex items-center rounded-lg border border-border px-6 py-3.5 text-[0.9375rem] font-medium text-text-primary transition-colors hover:border-text-muted"
+                >
+                  {dict.hero.ctaCli}
+                </a>
                 <span className="font-mono text-[0.9375rem] tracking-wide text-text-muted">
                   {dict.hero.badge}
                 </span>
@@ -90,6 +96,59 @@ export default async function Home({ params }: Props) {
             {/* Right: Retro Computer Illustration */}
             <div className="hidden lg:flex lg:items-center lg:justify-center" style={{ minHeight: 600 }}>
               <RetroComputer snippets={dict.retroComputer.snippets} />
+            </div>
+          </div>
+        </section>
+
+        {/* CLI */}
+        <section id="cli" className="border-t border-border px-4 py-12 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl">
+              <div className="grid gap-8 lg:grid-cols-[1.2fr_1fr]">
+                <div>
+                  <h2 className="text-2xl font-semibold text-text-primary">
+                    {dict.cli.title}
+                  </h2>
+                <p className="mt-3 max-w-[520px] text-[1rem] leading-[1.7] text-text-secondary">
+                  {dict.cli.description}
+                </p>
+              </div>
+              <div className="space-y-4">
+                <div className="rounded-xl border border-border bg-bg-card p-4">
+                  <p className="mb-2 text-xs font-medium uppercase tracking-[0.18em] text-text-muted">
+                    {dict.cli.installTitle}
+                  </p>
+                  <p className="font-mono text-sm text-text-primary">
+                    {dict.cli.installCommand}
+                  </p>
+                </div>
+                <div className="rounded-xl border border-border bg-bg-card p-4">
+                  <p className="mb-2 text-xs font-medium uppercase tracking-[0.18em] text-text-muted">
+                    {dict.cli.installGhTitle}
+                  </p>
+                  <p className="font-mono text-sm text-text-primary">
+                    {dict.cli.installGhCommand}
+                  </p>
+                </div>
+                <div className="rounded-xl border border-border bg-bg-card p-4">
+                  <p className="mb-2 text-xs font-medium uppercase tracking-[0.18em] text-text-muted">
+                    {dict.cli.runTitle}
+                  </p>
+                  <p className="font-mono text-sm text-text-primary">
+                    {dict.cli.runCommand}
+                  </p>
+                </div>
+                <div className="rounded-xl border border-border bg-bg-card p-4">
+                  <p className="mb-2 text-xs font-medium uppercase tracking-[0.18em] text-text-muted">
+                    {dict.cli.releasesTitle}
+                  </p>
+                  <a
+                    href="https://github.com/io-oi-ai/Skillhub/releases"
+                    className="text-sm font-medium text-text-primary underline-offset-4 hover:underline"
+                  >
+                    {dict.cli.releasesLink}
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </section>

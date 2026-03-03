@@ -71,9 +71,36 @@ export async function POST(
   // Return updated count
   const { data: skill } = await supabase
     .from("skills")
-    .select("likes_count")
+    .select("likes_count, user_id")
     .eq("id", skillId)
     .single();
+
+  // Award/deduct points to skill author (non-blocking)
+  if (skill?.user_id) {
+    try {
+      if (existing) {
+        // Unlike: deduct points from author
+        await supabase.rpc("award_points_to_user", {
+          target_user_id: skill.user_id,
+          p_action: "skill_unliked",
+          p_points: -2,
+          p_ref_id: skillId,
+          p_ref_type: "like",
+        });
+      } else {
+        // Like: award points to author
+        await supabase.rpc("award_points_to_user", {
+          target_user_id: skill.user_id,
+          p_action: "skill_liked",
+          p_points: 2,
+          p_ref_id: skillId,
+          p_ref_type: "like",
+        });
+      }
+    } catch (e) {
+      console.error("Points award error:", e);
+    }
+  }
 
   return NextResponse.json({
     count: skill?.likes_count ?? 0,

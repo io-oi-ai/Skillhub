@@ -12,8 +12,9 @@ const connectionString =
 const sql = postgres(connectionString, { ssl: "require" });
 
 async function run() {
+  const fileName = process.argv[2] || "setup-auth-schema.sql";
   const sqlFile = readFileSync(
-    join(__dirname, "setup-auth-schema.sql"),
+    join(__dirname, fileName),
     "utf-8"
   );
 

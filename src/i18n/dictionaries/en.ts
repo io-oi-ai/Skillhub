@@ -28,7 +28,20 @@ const en = {
     description:
       "Not just prompts. SkillHub thinks, drafts your workflows, organizes your tools, and learns how you work. The future of AI productivity is here. And it fits in your browser.",
     cta: "Browse Skills",
+    ctaCli: "Download CLI",
     badge: "Free & Open Source",
+  },
+  cli: {
+    title: "SkillHub CLI for Agents",
+    description: "Search, create, and update skills from your terminal.",
+    installTitle: "Install",
+    installCommand: "npm install && npm run build:cli",
+    installGhTitle: "Install (gh)",
+    installGhCommand: "gh repo clone io-oi-ai/Skillhub && cd Skillhub && npm install && npm run build:cli",
+    runTitle: "Run",
+    runCommand: "node dist/cli/index.js skills list",
+    releasesTitle: "GitHub Releases",
+    releasesLink: "Download from Releases",
   },
   features: {
     platforms: "Platforms",
@@ -201,6 +214,30 @@ const en = {
     viewHistory: "History",
     pendingPRs: "PRs",
     signInToEdit: "Sign in to suggest edits",
+  },
+  points: {
+    label: "Points",
+    level: "Level",
+    leaderboard: "Leaderboard",
+    levels: {
+      newcomer: "Newcomer",
+      contributor: "Contributor",
+      builder: "Builder",
+      expert: "Expert",
+      master: "Master",
+    },
+    actions: {
+      skill_create: "Created a skill",
+      skill_update: "Updated a skill",
+      pr_submit: "Submitted a PR",
+      pr_merged_author: "PR was merged",
+      pr_merged_reviewer: "Merged a PR",
+      skill_liked: "Skill received a like",
+    },
+    toast: {
+      earned: "earned",
+      pts: "pts",
+    },
   },
 };
 

@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createSupabaseServer } from "@/lib/supabase-server";
 import { requireAuth } from "@/lib/auth";
+import { awardPoints } from "@/lib/points";
 
 function incrementVersion(version: string): string {
   const parts = version.split(".").map(Number);
@@ -139,9 +140,21 @@ export async function POST(
       );
     }
 
+    // Award points (non-blocking)
+    let pointsAwarded = 0;
+    try {
+      // PR author gets points for having their PR merged
+      pointsAwarded += await awardPoints(authSupabase, pr.author_id, "pr_merged_author", prId, "pull_request");
+      // Skill owner (reviewer) gets points for merging
+      pointsAwarded += await awardPoints(authSupabase, user!.id, "pr_merged_reviewer", prId, "pull_request");
+    } catch (e) {
+      console.error("Points award error:", e);
+    }
+
     return NextResponse.json({
       message: `Pull request #${prId} merged successfully`,
       skill: updatedSkill,
+      pointsAwarded,
     });
   } catch {
     return NextResponse.json(

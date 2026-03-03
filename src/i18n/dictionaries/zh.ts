@@ -30,7 +30,20 @@ const zh: Dictionary = {
     description:
       "不只是提示词。SkillHub 为你思考、起草工作流、整理工具，并学习你的工作方式。AI 生产力的未来已经到来，就在你的浏览器中。",
     cta: "浏览 Skills",
+    ctaCli: "下载 CLI",
     badge: "免费 & 开源",
+  },
+  cli: {
+    title: "面向 Agent 的 SkillHub CLI",
+    description: "在命令行中搜索、创建与更新技能。",
+    installTitle: "安装",
+    installCommand: "npm install && npm run build:cli",
+    installGhTitle: "使用 gh 安装",
+    installGhCommand: "gh repo clone io-oi-ai/Skillhub && cd Skillhub && npm install && npm run build:cli",
+    runTitle: "运行",
+    runCommand: "node dist/cli/index.js skills list",
+    releasesTitle: "GitHub Releases",
+    releasesLink: "前往 Releases 下载",
   },
   features: {
     platforms: "平台支持",
@@ -201,6 +214,30 @@ const zh: Dictionary = {
     viewHistory: "历史",
     pendingPRs: "合并请求",
     signInToEdit: "登录以建议修改",
+  },
+  points: {
+    label: "积分",
+    level: "等级",
+    leaderboard: "排行榜",
+    levels: {
+      newcomer: "新手",
+      contributor: "贡献者",
+      builder: "建设者",
+      expert: "专家",
+      master: "大师",
+    },
+    actions: {
+      skill_create: "创建了 Skill",
+      skill_update: "更新了 Skill",
+      pr_submit: "提交了 PR",
+      pr_merged_author: "PR 被合并",
+      pr_merged_reviewer: "合并了 PR",
+      skill_liked: "Skill 获得点赞",
+    },
+    toast: {
+      earned: "获得",
+      pts: "积分",
+    },
   },
 };
 

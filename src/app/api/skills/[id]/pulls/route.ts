@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
 import { createSupabaseServer } from "@/lib/supabase-server";
 import { requireAuth } from "@/lib/auth";
+import { awardPoints } from "@/lib/points";
 
 export async function GET(
   request: NextRequest,
@@ -135,7 +136,15 @@ export async function POST(
       );
     }
 
-    return NextResponse.json(pr, { status: 201 });
+    // Award points (non-blocking)
+    let pointsAwarded = 0;
+    try {
+      pointsAwarded = await awardPoints(authSupabase, user!.id, "pr_submit", String(pr.id), "pull_request");
+    } catch (e) {
+      console.error("Points award error:", e);
+    }
+
+    return NextResponse.json({ ...pr, pointsAwarded }, { status: 201 });
   } catch {
     return NextResponse.json(
       { error: "Invalid request body" },

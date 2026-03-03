@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { useAuth } from "@/hooks/useAuth";
+import { getLevel } from "@/lib/points";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries/en";
 
@@ -66,6 +67,7 @@ export default function AuthButton({ locale, dict }: AuthButtonProps) {
             src={avatarUrl}
             alt={displayName}
             className="h-full w-full object-cover"
+            referrerPolicy="no-referrer"
           />
         ) : (
           <span className="text-sm font-medium text-text-primary">
@@ -82,6 +84,11 @@ export default function AuthButton({ locale, dict }: AuthButtonProps) {
             </p>
             {user.email && (
               <p className="truncate text-xs text-text-muted">{user.email}</p>
+            )}
+            {profile && (
+              <p className="mt-1 text-xs text-accent">
+                ⚡ {profile.points} {dict.points.toast.pts} · {dict.points.levels[getLevel(profile.points).name.en.toLowerCase() as keyof typeof dict.points.levels]}
+              </p>
             )}
           </div>
           <button

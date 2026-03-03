@@ -3,6 +3,7 @@ import { getAllSkills } from "@/lib/skills";
 import { supabase } from "@/lib/supabase";
 import { createSupabaseServer } from "@/lib/supabase-server";
 import { requireAuth } from "@/lib/auth";
+import { awardPoints } from "@/lib/points";
 import type { Role, Scene } from "@/lib/types";
 
 export async function GET(request: NextRequest) {
@@ -124,7 +125,24 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    return NextResponse.json({ id: data.id }, { status: 201 });
+    // Award points (non-blocking)
+    let pointsAwarded = 0;
+    try {
+      pointsAwarded += await awardPoints(authSupabase, user!.id, "skill_create", data.id, "skill");
+
+      // Check if this is the user's first skill
+      const { count } = await authSupabase
+        .from("skills")
+        .select("id", { count: "exact", head: true })
+        .eq("user_id", user!.id);
+      if (count === 1) {
+        pointsAwarded += await awardPoints(authSupabase, user!.id, "skill_create_first", data.id, "skill");
+      }
+    } catch (e) {
+      console.error("Points award error:", e);
+    }
+
+    return NextResponse.json({ id: data.id, pointsAwarded }, { status: 201 });
   } catch {
     return NextResponse.json(
       { error: "Invalid request body" },

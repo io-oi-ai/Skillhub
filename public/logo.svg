@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 40" fill="none">
+  <!-- Bookmark icon with lightning bolt -->
+  <g>
+    <!-- Bookmark shape with folded corner -->
+    <path d="M4 2h20c1.1 0 2 .9 2 2v32l-12-8-12 8V4c0-1.1.9-2 2-2z" fill="#1a1a1a"/>
+    <!-- Folded corner -->
+    <path d="M20 2h6l-6 6V2z" fill="#f5f5f0" opacity="0.3"/>
+    <!-- Lightning bolt -->
+    <path d="M15 8l-5 10h4l-1 10 7-12h-4.5L15 8z" fill="#f5f5f0"/>
+  </g>
+  <!-- SkillHub text -->
+  <text x="36" y="28" font-family="Georgia, 'Noto Serif SC', serif" font-size="24" font-weight="700" fill="#1a1a1a">SkillHub</text>
+</svg>

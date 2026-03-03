@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getSkillById } from "@/lib/skills";
 import { createSupabaseServer } from "@/lib/supabase-server";
 import { requireAuth } from "@/lib/auth";
+import { awardPoints } from "@/lib/points";
 
 function incrementVersion(version: string): string {
   const parts = version.split(".").map(Number);
@@ -112,7 +113,15 @@ export async function PUT(
       );
     }
 
-    return NextResponse.json(updated);
+    // Award points (non-blocking)
+    let pointsAwarded = 0;
+    try {
+      pointsAwarded = await awardPoints(authSupabase, user!.id, "skill_update", id, "skill");
+    } catch (e) {
+      console.error("Points award error:", e);
+    }
+
+    return NextResponse.json({ ...updated, pointsAwarded });
   } catch {
     return NextResponse.json(
       { error: "Invalid request body" },

@@ -1,6 +1,7 @@
 "use client";
 
 import type { Skill } from "@/lib/types";
+import { buildSkillMarkdown } from "@/lib/skill-markdown";
 
 interface DownloadButtonProps {
   skill: Skill;
@@ -8,33 +9,12 @@ interface DownloadButtonProps {
   size?: "sm" | "md";
 }
 
-function buildMarkdown(skill: Skill): string {
-  const frontmatter = [
-    "---",
-    `name: "${skill.name}"`,
-    `description: "${skill.description}"`,
-    `author: "${skill.author}"`,
-    `roles: [${skill.roles.map((r) => `"${r}"`).join(", ")}]`,
-    `scenes: [${skill.scenes.map((s) => `"${s}"`).join(", ")}]`,
-    `version: "${skill.version}"`,
-    `updatedAt: "${skill.updatedAt}"`,
-    `tags: [${skill.tags.map((t) => `"${t}"`).join(", ")}]`,
-    skill.featured ? `featured: true` : null,
-    skill.source ? `source: "${skill.source}"` : null,
-    "---",
-  ]
-    .filter(Boolean)
-    .join("\n");
-
-  return `${frontmatter}\n\n${skill.content || `# ${skill.name}\n\n${skill.description}`}\n`;
-}
-
 export default function DownloadButton({ skill, label, size = "sm" }: DownloadButtonProps) {
   function handleDownload(e: React.MouseEvent) {
     e.preventDefault();
     e.stopPropagation();
 
-    const md = buildMarkdown(skill);
+    const md = buildSkillMarkdown(skill);
     const blob = new Blob([md], { type: "text/markdown" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");

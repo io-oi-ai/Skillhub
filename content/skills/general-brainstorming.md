@@ -11,68 +11,65 @@ featured: true
 source: "skillhub"
 ---
 
-# Structured Brainstorming
+When the user asks you to brainstorm, explore ideas, or solve a creative problem, follow this structured divergent-convergent thinking process.
 
-## Skill Overview
+## Step 1: Clarify the Problem
 
-Traditional brainstorming often falls into chaotic "random ideas" mode. This skill employs a structured "divergent-convergent" thinking methodology that guides you from a vague idea, through systematic expansion and filtering, to finally produce executable solutions. It applies to product innovation, event planning, problem-solving, and other creative scenarios.
+Ask the user for:
+1. **Core problem or topic** — what they want to solve or explore
+2. **Constraints** — budget, timeline, technical limitations, team size
+3. **Desired output** — a list of ideas, a ranked shortlist, or a detailed action plan
 
-## Input Requirements
+If the user's problem statement is vague (e.g., "make the product better"), ask them to narrow it down before proceeding.
 
-Please provide the following information:
+## Step 2: Divergent Thinking — Generate Ideas
 
-- **Core Problem or Topic**: What problem you want to solve, or what topic to explore
-- **Background Information**: Current constraints, available resources, industry background, etc.
-- **Expected Output**: Concrete solutions, list of ideas, or decision recommendations
-- **Participant Roles**: From which role perspectives to think about it (e.g., user, operations, technology, etc.)
+Generate **at least 15 ideas** using these techniques:
+- **SCAMPER method**: Substitute, Combine, Adjust, Modify, Put to other uses, Eliminate, Reverse
+- **Cross-industry analogies**: How do other industries solve similar problems?
+- **Role perspectives**: Think from user, competitor, partner, and contrarian viewpoints
 
-## Brainstorming Process
+Rules for this stage:
+- Do NOT evaluate or filter ideas yet
+- Quantity over quality — include wild and unconventional ideas
+- Present ideas as a numbered list with one-line descriptions
 
-This skill employs a four-stage structured process:
+## Step 3: Categorize and Connect
 
-### Stage One: Divergent Thinking
+1. Group the ideas into 3-6 thematic clusters
+2. Identify combinations — note where two or more ideas could merge into something stronger
+3. Flag the most novel or breakthrough ideas with a star marker
 
-- Generate many ideas from multiple angles around the core problem
-- Use the SCAMPER method (Substitute, Combine, Adjust, Modify, Put to other uses, Eliminate, Reverse) to expand thinking
-- Draw inspiration from cross-industry analogies and break conventional thinking patterns
-- At this stage, avoid any judgment, prioritize quantity over quality
+## Step 4: Evaluate and Rank
 
-### Stage Two: Categorization and Organization
+Score the top ideas across four dimensions (1-5 scale):
 
-- Cluster all ideas into groups by theme
-- Identify connections and combination possibilities between ideas
-- Mark particularly novel or breakthrough ideas
+| Idea | Feasibility | Impact | Innovation | Resource Cost | Total |
+|------|-------------|--------|------------|---------------|-------|
 
-### Stage Three: Evaluation and Screening
+Select the **top 3-5 ideas** based on total score.
 
-- Assess each idea across four dimensions: feasibility, impact, innovation, and resource investment
-- Use a priority matrix for ranking
-- Filter down to the most promising 3-5 directions
+## Step 5: Develop Solutions
 
-### Stage Four: Solution Development
+For each top idea, provide:
+1. **What**: One-paragraph description
+2. **How**: 3-5 concrete implementation steps
+3. **Resources needed**: People, tools, budget
+4. **Risks**: Top 1-2 risks and mitigations
+5. **Timeline**: Rough estimate
 
-- Develop selected directions in detail
-- Clarify implementation steps, required resources, and timeline
-- Anticipate potential risks and mitigation measures
+## Output Format
 
-## Output Content
+Structure your response with these sections:
+1. **All Ideas** — Numbered list from Step 2
+2. **Clusters** — Grouped themes from Step 3
+3. **Evaluation Matrix** — Scoring table from Step 4
+4. **Top Solutions** — Detailed write-ups from Step 5
+5. **Recommended Next Steps** — 3-5 specific action items
 
-- **Idea Checklist**: Summary of all generated ideas
-- **Categorization Map**: Clustered groups and relationship diagram of ideas
-- **Evaluation Matrix**: Filtering results scored across multiple dimensions
-- **Solution Overview**: Detailed descriptions and implementation suggestions for top 3 solutions
-- **Next Steps**: Specific action items to move solutions forward
+## Constraints
 
-## Usage Tips
-
-- **Define the problem precisely**: The clearer the problem, the more focused the output. "How to improve user retention" is far more effective than "How to make the product better"
-- **Don't judge too early**: During the divergent phase, don't reject any ideas; seemingly absurd ideas may contain seeds of innovation
-- **Try different perspectives**: Thinking from the user, competitor, partner, or even opponent viewpoint often yields unexpected insights
-- **Combinations are more powerful than single ideas**: Combining several ordinary ideas may produce an excellent solution
-
-## Applicable Scenarios
-
-- Creative exploration for new products or features
-- Marketing campaign planning
-- Breakthrough thinking when teams hit a plateau
-- Annual planning and strategic direction brainstorming
+- Never skip the divergent phase or jump straight to solutions
+- Always generate ideas before evaluating them
+- If the user provides fewer than 2 sentences of context, ask clarifying questions before proceeding
+- Present the evaluation matrix as a markdown table

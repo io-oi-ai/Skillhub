@@ -11,88 +11,79 @@ featured: true
 source: "skillhub"
 ---
 
-# Generate Promo — Remotion Promotional Video Generator
+When the user asks you to generate a promotional video, create a release video, or make a changelog video, follow this workflow to produce Remotion-based GIF/MP4 output.
 
-A universal project skill for generating promotional GIF/MP4 videos using Remotion. Works with any product that has a Remotion video project.
+## Step 0: Discover Project Structure
 
-## Trigger Conditions
+Before writing any code, locate and read the Remotion project:
 
-Trigger when users say similar things:
-- "generate promo", "create release video", "make changelog video"
-- "Generate promotional materials", "Create a release video", "Make a promotional video"
-- `/generate-promo`
+1. Search for `remotion.config.ts` or directories containing Remotion compositions
+2. Read `Root.tsx` to understand the composition registration pattern
+3. Read `package.json` to find existing render scripts and naming conventions
+4. Read 1-2 existing compositions to learn the project's style patterns (colors, fonts, animations)
+5. Find shared constants — look for where COLORS, FONTS, DIMENSIONS are defined
 
-## Workflow
+**Do NOT assume directory layouts.** Adapt to whatever structure you discover.
 
-### Step 0: Discover Project Structure
+## Step 1: Gather Content
 
-Before starting, automatically locate the Remotion project:
-1. **Find Video Directory** — Search for `remotion.config.ts` or directories containing Remotion compositions
-2. **Read `Root.tsx`** — Understand the existing composition registration pattern
-3. **Read `package.json`** — Look for existing render scripts and naming conventions
-4. **Read 1-2 Existing Compositions** — Learn the project's specific style patterns (colors, fonts, animation conventions)
-5. **Identify Shared Constants** — Find where COLORS, FONTS, DIMENSIONS are defined
-
-> **Important:** Each project is different; don't assume specific directory layouts; adapt to what you discover.
-
-### Step 1: Gather Content
-
-Ask users what the video should showcase. Common sources:
+Ask the user what the video should showcase. Look for content in these sources:
 
 | Source | How to Find |
 |--------|-------------|
-| Changelog File | Search for `changelog`, `CHANGELOG.md` |
+| Changelog | Search for `CHANGELOG.md` |
 | Release Notes | Check git tags, GitHub releases |
-| User Description | Users directly specify features to highlight |
-| PR/Commit History | `git log --oneline` to see recent changes |
+| User Description | Ask the user directly |
+| PR/Commit History | Run `git log --oneline` |
 
-Extract: Product name and version, features/changes to showcase, whether any related videos exist.
+Extract: **product name**, **version**, **features/changes to showcase**, and whether related videos already exist.
 
-### Step 2: Choose Video Style
+## Step 2: Choose Video Style
 
-Select appropriate style based on content:
+Select the style based on content type:
 
 | Content Type | Style | Duration |
 |--------------|-------|----------|
-| 1 Major New Feature | **Workflow Demo** — 6-8 scenes showing usage steps | 20-40 seconds |
-| 2-4 Features | **Feature Showcase** — Each feature 2-4 seconds | 15-30 seconds |
-| Before/After Improvements | **Split-Screen Comparison** — Show new vs. old version side-by-side | 10-20 seconds |
-| Bug Fixes/Minor Updates | **Quick Highlights** — Fast text card transitions | 8-15 seconds |
-| Product Introduction | **Complete Demo** — Problem → Solution → Features → CTA | 30-60 seconds |
+| 1 Major Feature | Workflow Demo — 6-8 scenes showing usage steps | 20-40s |
+| 2-4 Features | Feature Showcase — each feature 2-4 seconds | 15-30s |
+| Before/After | Split-Screen Comparison — old vs new side-by-side | 10-20s |
+| Bug Fixes/Minor | Quick Highlights — fast text card transitions | 8-15s |
+| Product Intro | Complete Demo — Problem → Solution → Features → CTA | 30-60s |
 
-### Step 3: Generate Remotion Code
+Present the recommended style to the user and confirm before proceeding.
 
-Create a new directory under the video source folder and generate two files:
+## Step 3: Generate Remotion Code
 
-- **`styles.ts`** — Colors, fonts, timeline configuration, and subtitle labels
-- **`Composition.tsx`** — Scene components, animation logic, and closing screen
+Create a new directory under the video source folder with two files:
 
-### Step 4: Register Composition
+1. **`styles.ts`** — Colors, fonts, timeline config, subtitle labels. Reuse the project's existing design tokens.
+2. **`Composition.tsx`** — Scene components, animation logic, and closing screen.
 
-Update `Root.tsx` and `package.json`:
-- GIF: `800×450`, `30fps`
-- MP4: `1280×720`, `30fps`
+Animation techniques to use:
+- `interpolate()` for fade in/out and slide transitions
+- `spring()` for bounce effects
+- Delayed spring for staggered animations
+- Sine-based breathing glow for emphasis
 
-### Step 5: Preview and Render
+## Step 4: Register and Configure
 
-1. Preview first: `pnpm preview`
-2. Render GIF or MP4
-3. Post-render tasks: Copy to public directory, update changelog, etc.
+1. Add the new composition to `Root.tsx` following existing patterns
+2. Add render scripts to `package.json`:
+   - GIF: `800×450`, `30fps`
+   - MP4: `1280×720`, `30fps`
 
-## Animation Reference
+## Step 5: Preview and Render
 
-Supported animation effects include:
-- **Fade In/Out** — Control opacity with `interpolate()`
-- **Spring Animation** — Implement bounce effects with `spring()`
-- **Delayed Spring** — Spring animation with delayed start
-- **Breathing Glow** — Control glow intensity with sine function
-- **Slide In** — Animation sliding in from the side
+1. Run `pnpm preview` and confirm the output looks correct
+2. Render to the target format (GIF or MP4)
+3. Copy output to the public directory and update any references (changelog, README, etc.)
 
-## Core Rules
+## Constraints
 
-- Never hardcode pixel offsets — Use `interpolate()` and `spring()`
-- Match the project's existing visual style — Reuse COLORS/FONTS from shared modules
-- GIF doesn't support audio — Don't import Audio in GIF compositions
-- Closing screen is mandatory — Every video must end with product branding + CTA
-- Frame calculation must be correct — `totalFrames = fps × duration_seconds`
+- **Never hardcode pixel offsets** — always use `interpolate()` and `spring()`
+- **Match existing visual style** — reuse COLORS/FONTS from the project's shared modules
+- **GIF compositions must not import Audio** — GIF format does not support audio
+- **Every video must end with a closing screen** — product branding + CTA
+- **Frame math must be exact** — `totalFrames = fps × duration_seconds`
+- **Do not modify existing compositions** — only create new ones
 

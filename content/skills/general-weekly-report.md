@@ -6,7 +6,7 @@ roles: ["everyone"]
 scenes: ["writing", "workflow"]
 version: "1.0.0"
 updatedAt: "2025-02-25"
-tags: ["weekly report", "automation", "work summary"]
+tags: ["weekly report", "automation", "work summary", "collection:getting-started"]
 featured: true
 source: "skillhub"
 ---

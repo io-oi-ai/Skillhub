@@ -6,7 +6,7 @@ roles: ["developer", "designer"]
 scenes: ["creative-design", "workflow"]
 version: "1.2.0"
 updatedAt: "2026-03-06"
-tags: ["Frontend Design", "UI", "UX", "CSS", "Accessibility", "Design System", "Anti-Patterns", "Remotion"]
+tags: ["Frontend Design", "UI", "UX", "CSS", "Accessibility", "Design System", "Anti-Patterns", "Remotion", "collection:developer-tools"]
 featured: true
 source: "github"
 ---

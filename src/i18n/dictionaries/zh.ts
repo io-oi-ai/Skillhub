@@ -28,7 +28,7 @@ const zh: Dictionary = {
     heading1: "Introducing",
     heading2: "AI Skills.",
     description:
-      "不只是提示词。SkillHub 为你思考、起草工作流、整理工具，并学习你的工作方式。AI 生产力的未来已经到来，就在你的浏览器中。",
+      "不只是提示词。经研究验证，精选 AI Skills 可将任务完成率提升 16.2 个百分点（SkillsBench）。SkillHub 为你起草工作流、整理工具，学习你的工作方式。",
     cta: "浏览 Skills",
     ctaCli: "下载 CLI",
     badge: "免费 & 开源",
@@ -53,6 +53,7 @@ const zh: Dictionary = {
   nav: {
     skills: "Skills",
     submit: "提交",
+    guide: "指南",
   },
   footer: {
     tagline: "为 AI 时代而生。",
@@ -209,6 +210,71 @@ const zh: Dictionary = {
     viewHistory: "历史",
     pendingPRs: "合并请求",
     signInToEdit: "登录以建议修改",
+  },
+  userProfile: {
+    skills: "Skills",
+    pullRequests: "合并请求",
+    joinedOn: "加入于",
+    website: "网站",
+    noSkills: "暂无创建的 Skill",
+    noBio: "暂无个人简介",
+  },
+  sort: {
+    label: "排序",
+    latest: "最新",
+    popular: "最热",
+    mostDownloaded: "下载最多",
+  },
+  collections: {
+    label: "精选集",
+    all: "全部",
+    "getting-started": "快速上手",
+    "indie-hacker": "独立开发者",
+    "marketing": "营销增长",
+    "data-finance": "数据与财务",
+    "developer-tools": "开发者工具",
+  },
+  guide: {
+    title: "编写高效 AI Skills",
+    subtitle: "基于 SkillsBench 研究的高质量 AI Agent Skill 编写原则。",
+    researchBadge: "基于 SkillsBench 研究（arXiv:2602.12670）",
+    findings: {
+      structure: {
+        title: "最优结构",
+        stat: "+18.6pp",
+        body: "包含 2–3 个聚焦模块的 Skill 效果最佳。增加到 4 个模块时，提升幅度从 +18.6pp 降至 +5.9pp。保持精简。",
+      },
+      style: {
+        title: "详细且紧凑",
+        stat: "+18.8pp",
+        body: "详细而简洁的写作风格效果最好（+18.8pp），冗长全面的文档反而有害（-2.9pp）。每一句话都应有其价值。",
+      },
+      curation: {
+        title: "人工策划至关重要",
+        stat: "+16.2pp",
+        body: "人工策划的 Skill 将任务完成率提升 +16.2pp，而 AI 自生成的 Skill 几乎无效（-1.3pp）。",
+      },
+      domain: {
+        title: "领域特化",
+        stat: "关键",
+        body: "针对特定领域和角色量身定制的 Skill 效果最好，而非试图做通用工具。",
+      },
+      balance: {
+        title: "均衡效应",
+        stat: "一致",
+        body: "高质量 Skill 对所有任务都有提升，而不仅仅是简单任务。质量提升惠及全局。",
+      },
+    },
+    tips: {
+      title: "实用写作建议",
+      items: [
+        "明确目标：用一句话说清楚这个 Skill 做什么。",
+        "控制模块数量：最多 2–3 个，如「背景」「步骤」「输出格式」。",
+        "具体明确：包含精确的格式、约束和示例。",
+        "删除废话：去掉引言、免责声明和重复解释。",
+        "用真实任务测试：发布前用实际场景验证你的 Skill。",
+      ],
+    },
   },
   points: {
     label: "积分",

@@ -6,7 +6,7 @@ roles: ["finance"]
 scenes: ["decision-making", "research"]
 version: "1.0.0"
 updatedAt: "2025-02-10"
-tags: ["OpenClaw", "tax", "deduction", "financial planning"]
+tags: ["OpenClaw", "tax", "deduction", "financial planning", "collection:data-finance"]
 featured: false
 source: "clawhub.ai"
 ---

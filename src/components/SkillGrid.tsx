@@ -7,7 +7,7 @@ import type { Dictionary } from "@/i18n/dictionaries/en";
 import SkillCard from "./SkillCard";
 import MetaSkillCard from "./MetaSkillCard";
 import SearchBar from "./SearchBar";
-import FilterBar from "./FilterBar";
+import FilterBar, { type SortOption } from "./FilterBar";
 
 const META_SKILL_ID = "skillhub-agent";
 
@@ -15,20 +15,26 @@ interface SkillGridProps {
   skills: Skill[];
   locale: Locale;
   dict: Dictionary;
+  authorMap?: Record<string, string>;
 }
 
-export default function SkillGrid({ skills, locale, dict }: SkillGridProps) {
+export default function SkillGrid({ skills, locale, dict, authorMap = {} }: SkillGridProps) {
   const [search, setSearch] = useState("");
   const [selectedRole, setSelectedRole] = useState<Role | null>(null);
   const [selectedScene, setSelectedScene] = useState<Scene | null>(null);
+  const [sortOption, setSortOption] = useState<SortOption>("latest");
+  const [selectedCollection, setSelectedCollection] = useState<string | null>(null);
 
   const metaSkill = skills.find((s) => s.id === META_SKILL_ID);
   const regularSkillCount = skills.filter((s) => s.id !== META_SKILL_ID).length;
 
   const filtered = useMemo(() => {
-    return skills
+    const result = skills
       .filter((skill) => skill.id !== META_SKILL_ID)
       .filter((skill) => {
+        if (selectedCollection && !skill.tags.includes(`collection:${selectedCollection}`)) {
+          return false;
+        }
         if (selectedRole && !skill.roles.includes(selectedRole)) {
           return false;
         }
@@ -45,7 +51,17 @@ export default function SkillGrid({ skills, locale, dict }: SkillGridProps) {
         }
         return true;
       });
-  }, [skills, search, selectedRole, selectedScene]);
+
+    // Client-side sort (complements server-side default sort)
+    if (sortOption === "popular") {
+      result.sort((a, b) => b.likesCount - a.likesCount);
+    } else if (sortOption === "most_downloaded") {
+      result.sort((a, b) => (b.downloadCount ?? 0) - (a.downloadCount ?? 0));
+    }
+    // "latest" is the default server sort order, no need to re-sort
+
+    return result;
+  }, [skills, search, selectedRole, selectedScene, selectedCollection, sortOption]);
 
   const roleLabels = dict.roles as Record<string, string>;
   const sceneLabels = dict.scenes as Record<string, string>;
@@ -68,10 +84,16 @@ export default function SkillGrid({ skills, locale, dict }: SkillGridProps) {
         roleLabels={roleLabels}
         sceneLabels={sceneLabels}
         filterLabels={dict.filter}
+        sortOption={sortOption}
+        onSortChange={setSortOption}
+        sortLabels={dict.sort}
+        selectedCollection={selectedCollection}
+        onCollectionChange={setSelectedCollection}
+        collectionLabels={dict.collections}
       />
 
       {/* Meta Skill — always visible at top when no search/filter active */}
-      {metaSkill && !search && !selectedRole && !selectedScene && (
+      {metaSkill && !search && !selectedRole && !selectedScene && !selectedCollection && (
         <MetaSkillCard
           skill={metaSkill}
           locale={locale}
@@ -98,6 +120,7 @@ export default function SkillGrid({ skills, locale, dict }: SkillGridProps) {
               sceneLabels={sceneLabels}
               featuredLabel={dict.skillCard.featured}
               downloadLabel={dict.skillCard.download}
+              authorUsername={skill.userId ? authorMap[skill.userId] : null}
             />
           ))}
         </div>

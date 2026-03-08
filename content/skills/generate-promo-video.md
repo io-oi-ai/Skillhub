@@ -6,7 +6,7 @@ roles: ["marketer", "developer", "designer"]
 scenes: ["creative-design", "workflow"]
 version: "1.0.0"
 updatedAt: "2025-02-28"
-tags: ["Video Generation", "Remotion", "Promotional Materials", "GIF", "Release", "Animation"]
+tags: ["Video Generation", "Remotion", "Promotional Materials", "GIF", "Release", "Animation", "collection:indie-hacker"]
 featured: true
 source: "skillhub"
 ---

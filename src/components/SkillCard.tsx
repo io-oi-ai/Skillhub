@@ -12,6 +12,7 @@ interface SkillCardProps {
   sceneLabels: Record<string, string>;
   featuredLabel: string;
   downloadLabel: string;
+  authorUsername?: string | null;
 }
 
 export default function SkillCard({
@@ -21,6 +22,7 @@ export default function SkillCard({
   sceneLabels,
   featuredLabel,
   downloadLabel,
+  authorUsername,
 }: SkillCardProps) {
   const prefix = locale === "en" ? "" : `/${locale}`;
 
@@ -62,11 +64,25 @@ export default function SkillCard({
         </div>
 
         <div className="flex items-center justify-between text-xs text-text-muted">
-          <span>{skill.author}</span>
+          {authorUsername ? (
+            <span
+              onClick={(e) => e.stopPropagation()}
+              className="inline"
+            >
+              <Link
+                href={`${prefix}/user/${authorUsername}`}
+                className="hover:text-accent hover:underline"
+              >
+                {skill.author}
+              </Link>
+            </span>
+          ) : (
+            <span>SkillHub</span>
+          )}
           <div className="flex items-center gap-2">
             <DownloadButton skill={skill} label={downloadLabel} size="sm" />
             <LikeButton skillId={skill.id} initialCount={skill.likesCount} size="sm" />
-            <span>v{skill.version}</span>
+            <span className="font-medium">SkillHub</span>
           </div>
         </div>
       </div>

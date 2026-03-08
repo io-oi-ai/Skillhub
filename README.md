@@ -1,36 +1,183 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SkillHub
+
+Open-source platform for discovering, sharing, and managing AI Agent Skills — structured Markdown workflows that teach AI agents (Claude, ChatGPT, Cursor, etc.) how to perform specific tasks.
+
+Think of it as **npm for AI workflows**: a curated registry of reusable, versioned, community-driven skill documents.
+
+**Live:** [skillhub.dev](https://skillhub.dev)
+
+## Features
+
+- **Skills Registry** — Browse, search, and filter 37+ AI skills by role and scene
+- **Git-like Collaboration** — Version history, pull requests, merge/reject, rollback
+- **CLI Tool** — Full-featured command-line interface for agents and power users
+- **Points & Levels** — Gamification system rewarding creation, collaboration, and downloads
+- **Research-Backed** — Curated skills improve task completion by +16.2pp (SkillsBench)
+- **Bilingual** — Full English / Chinese (i18n) support
+- **OAuth & Magic Link** — Supabase Auth with Google, GitHub, email login
+
+## Writing Guide
+
+SkillHub includes a research-backed [Writing Guide](https://skillhub.dev/guide) based on the SkillsBench study (arXiv:2602.12670). Key findings:
+
+- **2–3 modules** is the sweet spot (+18.6pp); 4+ modules see diminishing returns
+- **Detailed & compact** style works best (+18.8pp); verbose docs hurt (-2.9pp)
+- **Human curation** beats AI self-generation (+16.2pp vs -1.3pp)
+- **Domain-specific** skills outperform general-purpose ones
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|------------|
+| Framework | Next.js 16 (App Router, React 19) |
+| Database & Auth | Supabase (PostgreSQL + RLS) |
+| Styling | Tailwind CSS v4 |
+| CLI | Commander.js |
+| Language | TypeScript |
+| Deployment | Vercel |
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+
+- A [Supabase](https://supabase.com) project
+
+### Setup
 
 ```bash
+# Install dependencies
+npm install
+
+# Configure environment
+cp .env.local.example .env.local
+# Fill in your Supabase credentials:
+#   NEXT_PUBLIC_SUPABASE_URL=
+#   NEXT_PUBLIC_SUPABASE_ANON_KEY=
+#   SUPABASE_SERVICE_ROLE_KEY=
+
+# Run database migrations
+# Execute scripts/setup-auth-schema.sql and scripts/setup-points-schema.sql
+# in your Supabase SQL editor
+
+# Start dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Seed Data
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+# Import skill markdown files into Supabase
+npx tsx scripts/migrate-to-supabase.ts
+```
 
-## Learn More
+## CLI
 
-To learn more about Next.js, take a look at the following resources:
+SkillHub includes a standalone CLI for managing skills from the terminal.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+# Build the CLI
+npm run build:cli
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Or run directly with tsx
+npx tsx src/cli/index.ts
+```
 
-## Deploy on Vercel
+### Auth
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+skillhub auth login                   # Browser OAuth (opens browser automatically)
+skillhub auth login --magic <email>   # Magic link
+skillhub auth login --otp <email>     # Email OTP
+skillhub auth whoami
+skillhub auth logout
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Skills
+
+```bash
+skillhub skills list [--role developer] [--scene coding] [--q keyword]
+skillhub skills search <keyword>
+skillhub skills show <id>
+skillhub skills create --name "My Skill" --description "..." --roles developer --scenes coding --file skill.md
+skillhub skills update <id> --file skill.md --message "what changed"
+skillhub skills delete <id> --yes
+skillhub skills rollback <id> --version <versionId>
+```
+
+### Pull Requests
+
+```bash
+skillhub skills pr list <skillId>
+skillhub skills pr create <skillId> --title "Fix typo" --file updated.md
+skillhub skills pr merge <skillId> <prId>
+skillhub skills pr reject <skillId> <prId> --comment "reason"
+```
+
+### Points
+
+```bash
+skillhub points me        # Current points and level
+skillhub points history   # Transaction log
+```
+
+All commands support `--json` for machine-readable output.
+
+## Project Structure
+
+```
+src/
+├── app/                  # Next.js App Router
+│   ├── [locale]/         # Locale-scoped pages (en/zh)
+│   │   ├── page.tsx      # Homepage
+│   │   ├── login/        # Auth page
+│   │   ├── submit/       # Skill submission
+│   │   ├── leaderboard/  # Points leaderboard
+│   │   └── skill/[id]/   # Skill detail, edit, versions, PRs
+│   └── api/              # REST API routes
+├── cli/                  # CLI tool (compiled separately)
+│   ├── commands/         # auth, skills, points
+│   └── lib/              # Supabase client, config, output
+├── components/           # React components
+├── i18n/                 # Dictionaries (en, zh)
+├── lib/                  # Shared logic (types, auth, points, Supabase clients)
+└── middleware.ts         # i18n routing + session refresh
+```
+
+## API
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/skills` | List skills (`?role`, `?scene`, `?q`) |
+| POST | `/api/skills` | Create skill |
+| GET | `/api/skills/[id]` | Get skill |
+| PUT | `/api/skills/[id]` | Update skill |
+| DELETE | `/api/skills/[id]` | Delete skill |
+| POST | `/api/skills/[id]/download` | Record download |
+| GET | `/api/skills/[id]/versions` | Version history |
+| POST | `/api/skills/[id]/rollback` | Rollback to version |
+| GET/POST | `/api/skills/[id]/pulls` | List/create PRs |
+| POST | `/api/skills/[id]/pulls/[prId]/merge` | Merge PR |
+| POST | `/api/skills/[id]/pulls/[prId]/reject` | Reject PR |
+| POST | `/api/likes/[skillId]` | Toggle like |
+
+## Points System
+
+| Action | Points |
+|--------|--------|
+| Sign up | +10 |
+| Create skill | +10 |
+| First skill bonus | +20 |
+| Update skill | +5 |
+| Skill downloaded | +5 + likes |
+| Submit PR | +3 |
+| PR merged | +3 |
+| Skill liked | +2 |
+
+Levels: Newcomer (0) → Contributor (50) → Builder (200) → Expert (500) → Master (1000+)
+
+## License
+
+MIT

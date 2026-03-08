@@ -6,7 +6,7 @@ roles: ["marketer"]
 scenes: ["research", "workflow"]
 version: "1.0.0"
 updatedAt: "2025-02-14"
-tags: ["OpenClaw", "Leads", "B2B", "Marketing Automation"]
+tags: ["OpenClaw", "Leads", "B2B", "Marketing Automation", "collection:marketing"]
 featured: false
 source: "clawhub.ai"
 ---

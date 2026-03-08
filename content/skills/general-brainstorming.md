@@ -6,7 +6,7 @@ roles: ["everyone"]
 scenes: ["creative-design", "decision-making"]
 version: "1.0.0"
 updatedAt: "2025-02-24"
-tags: ["brainstorming", "creativity", "solution design", "thinking"]
+tags: ["brainstorming", "creativity", "solution design", "thinking", "collection:getting-started"]
 featured: true
 source: "skillhub"
 ---

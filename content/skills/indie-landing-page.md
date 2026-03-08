@@ -6,7 +6,7 @@ roles: ["developer", "product-manager", "marketer"]
 scenes: ["writing", "creative-design"]
 version: "1.0.0"
 updatedAt: "2026-03-01"
-tags: ["Landing Page", "Indie Hacking", "Copy", "Conversion Rate", "SEO"]
+tags: ["Landing Page", "Indie Hacking", "Copy", "Conversion Rate", "SEO", "collection:indie-hacker"]
 featured: false
 source: "skillhub"
 ---

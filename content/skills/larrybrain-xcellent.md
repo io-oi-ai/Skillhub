@@ -6,7 +6,7 @@ roles: ["marketer"]
 scenes: ["data-analysis", "creative-design", "workflow"]
 version: "1.0.0"
 updatedAt: "2025-02-28"
-tags: ["LarryBrain", "Twitter", "social media", "growth", "analytics"]
+tags: ["LarryBrain", "Twitter", "social media", "growth", "analytics", "collection:marketing"]
 featured: true
 source: "larrybrain.com"
 ---

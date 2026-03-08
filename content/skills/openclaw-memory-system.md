@@ -6,7 +6,7 @@ roles: ["developer", "everyone"]
 scenes: ["workflow", "coding"]
 version: "1.8.3"
 updatedAt: "2025-02-25"
-tags: ["OpenClaw", "memory", "context", "persistence"]
+tags: ["OpenClaw", "memory", "context", "persistence", "collection:getting-started", "collection:developer-tools"]
 featured: true
 source: "openclawskill.ai"
 ---

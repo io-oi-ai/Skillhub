@@ -6,7 +6,7 @@ roles: ["developer", "product-manager", "marketer"]
 scenes: ["writing", "communication"]
 version: "1.0.0"
 updatedAt: "2026-03-01"
-tags: ["Product Hunt", "Indie Hacking", "Launch", "Release"]
+tags: ["Product Hunt", "Indie Hacking", "Launch", "Release", "collection:indie-hacker"]
 featured: false
 source: "skillhub"
 ---

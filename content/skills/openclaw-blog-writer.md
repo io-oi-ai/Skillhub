@@ -6,7 +6,7 @@ roles: ["marketer", "everyone"]
 scenes: ["writing", "creative-design"]
 version: "1.0.0"
 updatedAt: "2025-02-12"
-tags: ["OpenClaw", "Blog", "Writing", "Content Creation"]
+tags: ["OpenClaw", "Blog", "Writing", "Content Creation", "collection:getting-started"]
 featured: false
 source: "clawhub.ai"
 ---

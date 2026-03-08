@@ -6,7 +6,7 @@ roles: ["everyone"]
 scenes: ["communication", "workflow"]
 version: "1.0.0"
 updatedAt: "2025-02-20"
-tags: ["meeting minutes", "communication", "collaboration", "action items"]
+tags: ["meeting minutes", "communication", "collaboration", "action items", "collection:getting-started"]
 featured: false
 source: "skillhub"
 ---

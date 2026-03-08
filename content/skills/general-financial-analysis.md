@@ -6,7 +6,7 @@ roles: ["finance"]
 scenes: ["data-analysis", "decision-making"]
 version: "1.0.0"
 updatedAt: "2025-02-10"
-tags: ["finance", "financial statements", "analysis", "operational metrics"]
+tags: ["finance", "financial statements", "analysis", "operational metrics", "collection:data-finance"]
 featured: false
 source: "skillhub"
 ---

@@ -6,7 +6,7 @@ roles: ["data-analyst", "product-manager"]
 scenes: ["data-analysis", "decision-making"]
 version: "1.0.0"
 updatedAt: "2025-02-18"
-tags: ["OpenClaw", "Data Analysis", "Visualization", "SQL", "Reports"]
+tags: ["OpenClaw", "Data Analysis", "Visualization", "SQL", "Reports", "collection:data-finance"]
 featured: false
 source: "clawhub.ai"
 ---

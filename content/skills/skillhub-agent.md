@@ -6,7 +6,7 @@ roles: ["everyone"]
 scenes: ["workflow", "decision-making"]
 version: "1.0.0"
 updatedAt: "2026-03-01"
-tags: ["Agent", "Skill Routing", "Automation", "Meta-Skill", "SkillHub"]
+tags: ["Agent", "Skill Routing", "Automation", "Meta-Skill", "SkillHub", "collection:developer-tools"]
 featured: true
 source: "skillhub"
 ---

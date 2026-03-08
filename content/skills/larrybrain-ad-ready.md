@@ -6,7 +6,7 @@ roles: ["marketer", "designer"]
 scenes: ["creative-design", "workflow"]
 version: "1.0.0"
 updatedAt: "2025-02-15"
-tags: ["LarryBrain", "advertising", "image generation", "ecommerce"]
+tags: ["LarryBrain", "advertising", "image generation", "ecommerce", "collection:marketing"]
 featured: false
 source: "larrybrain.com"
 ---

@@ -6,7 +6,7 @@ roles: ["everyone", "product-manager"]
 scenes: ["workflow", "project-management"]
 version: "1.0.0"
 updatedAt: "2025-02-15"
-tags: ["OpenClaw", "Notion", "knowledge management", "project management"]
+tags: ["OpenClaw", "Notion", "knowledge management", "project management", "collection:developer-tools"]
 featured: false
 source: "clawhub.ai"
 ---

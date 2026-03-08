@@ -6,7 +6,7 @@ roles: ["developer", "product-manager"]
 scenes: ["writing", "workflow"]
 version: "1.0.0"
 updatedAt: "2026-03-01"
-tags: ["Chrome Extension", "Indie Hacking", "Publishing", "Chrome Web Store"]
+tags: ["Chrome Extension", "Indie Hacking", "Publishing", "Chrome Web Store", "collection:indie-hacker"]
 featured: false
 source: "skillhub"
 ---

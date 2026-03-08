@@ -6,7 +6,7 @@ roles: ["marketer", "everyone"]
 scenes: ["writing", "creative-design"]
 version: "1.0.0"
 updatedAt: "2025-02-16"
-tags: ["OpenClaw", "Content Distribution", "Repurposing", "Multi-platform"]
+tags: ["OpenClaw", "Content Distribution", "Repurposing", "Multi-platform", "collection:marketing"]
 featured: false
 source: "clawhub.ai"
 ---

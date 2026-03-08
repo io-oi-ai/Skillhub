@@ -9,6 +9,7 @@ import { ROLE_COLORS } from "@/lib/types";
 import type { Role, Scene } from "@/lib/types";
 import { isValidLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
+import Link from "next/link";
 import SkillContent from "./SkillContent";
 import LikeButton from "@/components/LikeButton";
 import DownloadButton from "@/components/DownloadButton";
@@ -59,17 +60,18 @@ export default async function SkillPage({ params }: Props) {
   const sceneLabels = dict.scenes as Record<string, string>;
   const sourceLabels = dict.sources as Record<string, string>;
 
-  // Fetch author level
+  // Fetch author profile
   let authorLevelLabel = "";
+  let authorUsername: string | null = null;
   if (skill.userId) {
     const { data: authorProfile } = await supabase
       .from("profiles")
-      .select("points")
+      .select("points, username")
       .eq("id", skill.userId)
       .single();
     if (authorProfile) {
+      authorUsername = authorProfile.username;
       const level = getLevel(authorProfile.points);
-      const lang = locale === "zh" ? "zh" : "en";
       const levelKey = level.name.en.toLowerCase() as keyof typeof dict.points.levels;
       authorLevelLabel = dict.points.levels[levelKey];
     }
@@ -113,7 +115,17 @@ export default async function SkillPage({ params }: Props) {
 
             <div className="mt-4 flex flex-wrap items-center gap-4 text-sm text-text-muted">
               <span>
-                {dict.skillDetail.author} {skill.author}
+                {dict.skillDetail.author}{" "}
+                {authorUsername ? (
+                  <Link
+                    href={`${locale === "en" ? "" : `/${locale}`}/user/${authorUsername}`}
+                    className="hover:text-accent hover:underline"
+                  >
+                    {skill.author}
+                  </Link>
+                ) : (
+                  skill.author
+                )}
                 {authorLevelLabel && (
                   <span className="ml-1.5 rounded bg-accent/10 px-1.5 py-0.5 text-xs font-medium text-accent">
                     {authorLevelLabel}
@@ -131,9 +143,9 @@ export default async function SkillPage({ params }: Props) {
               <DownloadButton skill={skill} label={dict.skillCard.download} size="md" />
             </div>
 
-            {skill.tags.length > 0 && (
+            {skill.tags.filter((t: string) => !t.startsWith("collection:")).length > 0 && (
               <div className="mt-3 flex flex-wrap gap-1.5">
-                {skill.tags.map((tag: string) => (
+                {skill.tags.filter((t: string) => !t.startsWith("collection:")).map((tag: string) => (
                   <span
                     key={tag}
                     className="rounded-md bg-bg-card px-2 py-0.5 text-xs text-text-muted"

@@ -6,7 +6,7 @@ roles: ["marketer", "operations"]
 scenes: ["workflow", "communication"]
 version: "1.0.0"
 updatedAt: "2025-02-18"
-tags: ["LarryBrain", "social media", "scheduling", "cross-platform"]
+tags: ["LarryBrain", "social media", "scheduling", "cross-platform", "collection:marketing"]
 featured: false
 source: "larrybrain.com"
 ---

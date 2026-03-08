@@ -6,7 +6,7 @@ roles: ["marketer", "operations"]
 scenes: ["writing", "communication"]
 version: "1.0.0"
 updatedAt: "2025-02-10"
-tags: ["OpenClaw", "Brand", "Voice", "Content Consistency"]
+tags: ["OpenClaw", "Brand", "Voice", "Content Consistency", "collection:marketing"]
 featured: false
 source: "clawhub.ai"
 ---

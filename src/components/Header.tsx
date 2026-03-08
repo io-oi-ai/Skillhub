@@ -46,6 +46,12 @@ export default function Header({ locale, dict }: HeaderProps) {
 
         <nav className="flex items-center gap-2">
           <Link
+            href={`${prefix}/guide`}
+            className="rounded-full border border-border px-4 py-2 text-sm font-medium text-text-secondary transition-colors hover:bg-bg-card hover:text-text-primary"
+          >
+            {dict.nav.guide}
+          </Link>
+          <Link
             href={`${prefix}/leaderboard`}
             className="rounded-full border border-border px-4 py-2 text-sm font-medium text-text-secondary transition-colors hover:bg-bg-card hover:text-text-primary"
           >

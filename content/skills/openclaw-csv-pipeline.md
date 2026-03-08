@@ -6,7 +6,7 @@ roles: ["data-analyst", "operations"]
 scenes: ["data-analysis", "workflow"]
 version: "1.0.0"
 updatedAt: "2025-02-18"
-tags: ["OpenClaw", "CSV", "Data Processing", "ETL"]
+tags: ["OpenClaw", "CSV", "Data Processing", "ETL", "collection:data-finance"]
 featured: false
 source: "clawhub.ai"
 ---

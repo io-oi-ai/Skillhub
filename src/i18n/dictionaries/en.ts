@@ -26,7 +26,7 @@ const en = {
     heading1: "Introducing",
     heading2: "AI Skills.",
     description:
-      "Not just prompts. SkillHub thinks, drafts your workflows, organizes your tools, and learns how you work. The future of AI productivity is here. And it fits in your browser.",
+      "Not just prompts. Curated AI Skills improve task completion by +16.2pp (SkillsBench). SkillHub drafts your workflows, organizes your tools, and learns how you work.",
     cta: "Browse Skills",
     ctaCli: "Download CLI",
     badge: "Free & Open Source",
@@ -51,6 +51,7 @@ const en = {
   nav: {
     skills: "Skills",
     submit: "Submit",
+    guide: "Guide",
   },
   footer: {
     tagline: "Built for the AI era.",
@@ -209,6 +210,71 @@ const en = {
     viewHistory: "History",
     pendingPRs: "PRs",
     signInToEdit: "Sign in to suggest edits",
+  },
+  userProfile: {
+    skills: "Skills",
+    pullRequests: "Pull Requests",
+    joinedOn: "Joined",
+    website: "Website",
+    noSkills: "No skills created yet",
+    noBio: "No bio yet",
+  },
+  sort: {
+    label: "Sort",
+    latest: "Latest",
+    popular: "Most Popular",
+    mostDownloaded: "Most Downloaded",
+  },
+  collections: {
+    label: "Collection",
+    all: "All",
+    "getting-started": "Getting Started",
+    "indie-hacker": "Indie Hacker",
+    "marketing": "Marketing & Growth",
+    "data-finance": "Data & Finance",
+    "developer-tools": "Developer Tools",
+  },
+  guide: {
+    title: "Writing Effective AI Skills",
+    subtitle: "Research-backed principles from SkillsBench for creating high-quality AI agent skills.",
+    researchBadge: "Based on SkillsBench (arXiv:2602.12670)",
+    findings: {
+      structure: {
+        title: "Optimal Structure",
+        stat: "+18.6pp",
+        body: "Skills with 2–3 focused modules perform best. Adding a 4th module drops gains to +5.9pp. Keep it lean.",
+      },
+      style: {
+        title: "Detailed & Compact",
+        stat: "+18.8pp",
+        body: "Detailed yet concise writing outperforms verbose documentation (-2.9pp). Every sentence should earn its place.",
+      },
+      curation: {
+        title: "Human Curation Matters",
+        stat: "+16.2pp",
+        body: "Human-curated skills boost task completion by +16.2pp. AI self-generated skills show nearly zero effect (-1.3pp).",
+      },
+      domain: {
+        title: "Domain Specificity",
+        stat: "Key",
+        body: "Skills work best when tailored to a specific domain and role, rather than trying to be general-purpose.",
+      },
+      balance: {
+        title: "Balanced Effect",
+        stat: "Consistent",
+        body: "Well-written skills improve performance across tasks — not just the easy ones. Quality lifts all boats.",
+      },
+    },
+    tips: {
+      title: "Practical Writing Tips",
+      items: [
+        "Start with a clear goal: state what the skill does in one sentence.",
+        "Use 2–3 modules max: e.g., Context, Steps, Output Format.",
+        "Be specific: include exact formats, constraints, and examples.",
+        "Cut filler: remove introductions, disclaimers, and redundant explanations.",
+        "Test with real tasks: run your skill against actual use cases before publishing.",
+      ],
+    },
   },
   points: {
     label: "Points",

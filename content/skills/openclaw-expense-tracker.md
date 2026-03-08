@@ -6,7 +6,7 @@ roles: ["finance", "everyone"]
 scenes: ["data-analysis", "workflow"]
 version: "1.0.0"
 updatedAt: "2025-02-08"
-tags: ["OpenClaw", "accounting", "expense", "financial management"]
+tags: ["OpenClaw", "accounting", "expense", "financial management", "collection:data-finance"]
 featured: false
 source: "clawhub.ai"
 ---

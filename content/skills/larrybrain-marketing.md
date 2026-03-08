@@ -6,7 +6,7 @@ roles: ["marketer"]
 scenes: ["creative-design", "workflow", "data-analysis"]
 version: "1.0.0"
 updatedAt: "2025-02-25"
-tags: ["LarryBrain", "TikTok", "marketing", "automation", "short video"]
+tags: ["LarryBrain", "TikTok", "marketing", "automation", "short video", "collection:marketing"]
 featured: true
 source: "larrybrain.com"
 ---

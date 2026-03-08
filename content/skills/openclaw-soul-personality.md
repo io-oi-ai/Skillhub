@@ -6,7 +6,7 @@ roles: ["developer", "everyone"]
 scenes: ["workflow", "communication"]
 version: "2.4.1"
 updatedAt: "2025-02-28"
-tags: ["OpenClaw", "personality", "Agent configuration", "system prompt"]
+tags: ["OpenClaw", "personality", "Agent configuration", "system prompt", "collection:developer-tools"]
 featured: true
 source: "openclawskill.ai"
 ---

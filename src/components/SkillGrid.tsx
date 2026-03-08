@@ -120,7 +120,6 @@ export default function SkillGrid({ skills, locale, dict, authorMap = {} }: Skil
               sceneLabels={sceneLabels}
               featuredLabel={dict.skillCard.featured}
               downloadLabel={dict.skillCard.download}
-              authorUsername={skill.userId ? authorMap[skill.userId] : null}
             />
           ))}
         </div>

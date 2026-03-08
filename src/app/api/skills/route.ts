@@ -1,9 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getAllSkills } from "@/lib/skills";
+import { getAllSkills, type SkillSort } from "@/lib/skills";
 import { supabase } from "@/lib/supabase";
 import { createSupabaseServer } from "@/lib/supabase-server";
 import { requireAuth } from "@/lib/auth";
 import { awardPoints } from "@/lib/points";
+import { validateSkillInput } from "@/lib/validation";
 import type { Role, Scene } from "@/lib/types";
 
 export async function GET(request: NextRequest) {
@@ -11,30 +12,19 @@ export async function GET(request: NextRequest) {
   const role = searchParams.get("role") as Role | null;
   const scene = searchParams.get("scene") as Scene | null;
   const q = searchParams.get("q");
+  const sort = (searchParams.get("sort") || "latest") as SkillSort;
+  const page = Math.max(1, Number(searchParams.get("page") || 1));
+  const pageSize = Math.min(100, Math.max(1, Number(searchParams.get("pageSize") || 200)));
 
-  let skills = await getAllSkills();
-
-  if (role) {
-    skills = skills.filter((s) => s.roles.includes(role));
-  }
-  if (scene) {
-    skills = skills.filter((s) => s.scenes.includes(scene));
-  }
-  if (q) {
-    const query = q.toLowerCase();
-    skills = skills.filter(
-      (s) =>
-        s.name.toLowerCase().includes(query) ||
-        s.description.toLowerCase().includes(query) ||
-        s.tags.some((t) => t.toLowerCase().includes(query))
-    );
-  }
+  const { skills, total } = await getAllSkills({ sort, page, pageSize, role, scene, q });
 
   // Return concise list without full content
   const result = skills.map(({ content, ...rest }) => rest);
 
   return NextResponse.json({
-    count: result.length,
+    count: total,
+    page,
+    pageSize,
     skills: result,
   });
 }
@@ -48,20 +38,15 @@ export async function POST(request: NextRequest) {
 
     const body = await request.json();
 
-    const { name, description, roles, scenes, tags, content } = body;
-
-    if (!name || !description || !roles?.length || !scenes?.length) {
-      return NextResponse.json(
-        {
-          error:
-            "Missing required fields: name, description, roles, scenes",
-        },
-        { status: 400 }
-      );
+    const validation = validateSkillInput(body);
+    if (!validation.valid) {
+      return NextResponse.json({ error: validation.error }, { status: 400 });
     }
 
+    const { name, description, roles, scenes, tags, content } = validation.sanitized!;
+
     // Get author name from profiles table, fallback to body.author
-    let author = body.author;
+    let author = validation.sanitized!.author || "";
     if (user) {
       const { data: profile } = await authSupabase
         .from("profiles")

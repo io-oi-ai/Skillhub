@@ -4,6 +4,7 @@ import SkillGrid from "@/components/SkillGrid";
 import RetroComputer from "@/components/RetroComputer";
 import CrtTerminal from "@/components/CrtTerminal";
 import { getAllSkills } from "@/lib/skills";
+import { supabase } from "@/lib/supabase";
 import { isValidLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { notFound } from "next/navigation";
@@ -18,7 +19,20 @@ export default async function Home({ params }: Props) {
   const { locale } = await params;
   if (!isValidLocale(locale)) notFound();
   const dict = await getDictionary(locale);
-  const skills = await getAllSkills();
+  const { skills } = await getAllSkills();
+
+  // Batch-fetch author usernames for skills with user_id
+  const userIds = [...new Set(skills.map((s) => s.userId).filter(Boolean))] as string[];
+  let authorMap: Record<string, string> = {};
+  if (userIds.length > 0) {
+    const { data: profiles } = await supabase
+      .from("profiles")
+      .select("id, username")
+      .in("id", userIds);
+    if (profiles) {
+      authorMap = Object.fromEntries(profiles.map((p) => [p.id, p.username]));
+    }
+  }
 
   return (
     <>
@@ -176,7 +190,7 @@ export default async function Home({ params }: Props) {
         {/* Skills */}
         <section id="skills" className="border-t border-border px-4 py-12 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-7xl">
-            <SkillGrid skills={skills} locale={locale} dict={dict} />
+            <SkillGrid skills={skills} locale={locale} dict={dict} authorMap={authorMap} />
           </div>
         </section>
       </main>

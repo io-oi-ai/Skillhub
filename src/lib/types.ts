@@ -39,6 +39,7 @@ export interface Skill {
   source?: Source;
   content: string;
   likesCount: number;
+  downloadCount: number;
   userId?: string | null;
 }
 
@@ -87,6 +88,17 @@ export interface PullRequest {
     displayName: string;
     avatarUrl: string | null;
   };
+}
+
+export interface Profile {
+  id: string;
+  username: string;
+  displayName: string;
+  avatarUrl: string | null;
+  points: number;
+  bio: string | null;
+  website: string | null;
+  createdAt: string;
 }
 
 export const ROLE_COLORS: Record<Role, string> = {

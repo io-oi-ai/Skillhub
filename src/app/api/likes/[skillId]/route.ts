@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
+import { isValidVisitorId } from "@/lib/validation";
 
 export async function GET(
   request: NextRequest,
@@ -42,8 +43,8 @@ export async function POST(
   const body = await request.json();
   const visitorId = body.visitor_id;
 
-  if (!visitorId) {
-    return NextResponse.json({ error: "visitor_id required" }, { status: 400 });
+  if (!visitorId || !isValidVisitorId(visitorId)) {
+    return NextResponse.json({ error: "Valid visitor_id required" }, { status: 400 });
   }
 
   // Check existing like

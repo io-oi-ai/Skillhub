@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -100,9 +101,12 @@ export default async function LeaderboardPage({ params }: Props) {
                       </div>
 
                       <div className="min-w-0 flex-1">
-                        <p className="truncate text-sm font-medium text-text-primary">
+                        <Link
+                          href={`${locale === "en" ? "" : `/${locale}`}/user/${u.username}`}
+                          className="truncate text-sm font-medium text-text-primary hover:text-accent hover:underline"
+                        >
                           {name}
-                        </p>
+                        </Link>
                         <p className="text-xs text-text-muted">
                           {levelNames[levelKey]}
                         </p>

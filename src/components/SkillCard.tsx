@@ -1,4 +1,6 @@
-import Link from "next/link";
+"use client";
+
+import { useRouter } from "next/navigation";
 import type { Skill } from "@/lib/types";
 import { ROLE_COLORS } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
@@ -25,10 +27,13 @@ export default function SkillCard({
   authorUsername,
 }: SkillCardProps) {
   const prefix = locale === "en" ? "" : `/${locale}`;
+  const router = useRouter();
 
   return (
-    <Link href={`${prefix}/skill/${skill.id}`}>
-      <div className="group h-full rounded-xl border border-border bg-bg-card p-5 transition-all hover:border-text-muted hover:shadow-sm">
+    <div
+      onClick={() => router.push(`${prefix}/skill/${skill.id}`)}
+      className="group h-full cursor-pointer rounded-xl border border-border bg-bg-card p-5 transition-all hover:border-text-muted hover:shadow-sm"
+    >
         <div className="mb-3 flex items-start justify-between">
           <h3 className="font-serif text-lg font-semibold text-text-primary group-hover:text-accent">
             {skill.name}
@@ -66,15 +71,13 @@ export default function SkillCard({
         <div className="flex items-center justify-between text-xs text-text-muted">
           {authorUsername ? (
             <span
-              onClick={(e) => e.stopPropagation()}
-              className="inline"
+              onClick={(e) => {
+                e.stopPropagation();
+                router.push(`${prefix}/user/${authorUsername}`);
+              }}
+              className="cursor-pointer hover:text-accent hover:underline"
             >
-              <Link
-                href={`${prefix}/user/${authorUsername}`}
-                className="hover:text-accent hover:underline"
-              >
-                {skill.author}
-              </Link>
+              {skill.author}
             </span>
           ) : (
             <span>SkillHub</span>
@@ -85,7 +88,6 @@ export default function SkillCard({
             <span className="font-medium">SkillHub</span>
           </div>
         </div>
-      </div>
-    </Link>
+    </div>
   );
 }

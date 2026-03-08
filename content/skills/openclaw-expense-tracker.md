@@ -55,3 +55,28 @@ When traveling or on business trips involving foreign currency expenses, the sys
 ## Data Security
 
 All financial data is stored in local files and never uploaded to third-party servers. You can export data as CSV or Excel format anytime, or include data files in your own backup plan for complete control over your personal financial data.
+
+# 中文版
+
+# 记账助手（Expense Tracker）
+
+## 技能概览
+
+Expense Tracker 支持自然语言记账与自动分类，帮助个人或小团队快速掌握支出结构并发现优化空间。
+
+## 核心能力
+
+- 自然语言输入自动识别金额/类别/时间
+- 支出分类统计与趋势分析
+- 周/月消费报告自动生成
+- 异常消费提醒与预算建议
+
+## 典型场景
+
+- 个人日常开销管理
+- 项目费用归集
+- 小团队成本控制
+
+## 使用建议
+
+保持每日记录节奏，并每周复盘前 3 大支出项。

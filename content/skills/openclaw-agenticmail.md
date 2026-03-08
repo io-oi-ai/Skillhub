@@ -51,3 +51,28 @@ You can define email processing rules in natural language, such as "immediately 
 ## Security Notes
 
 AgenticMail supports OAuth 2.0 authentication with encryption protection for email content during transmission and storage. You can fine-grained control Agent email operation permissions, such as allowing only reading while prohibiting sending, ensuring automated operations operate within security boundaries.
+
+# 中文版
+
+# AgenticMail 邮件管理
+
+## 技能概览
+
+AgenticMail 提供 AI 驱动的邮件处理与协作能力，帮助你完成邮件分类、草拟回复、任务提取与跟进管理。
+
+## 核心能力
+
+- 自动识别邮件意图与优先级
+- 根据语境生成回复草稿
+- 从邮件中提取待办与截止时间
+- 支持跨渠道协同（邮件/短信/Agent 分工）
+
+## 典型场景
+
+- 高负荷收件箱管理
+- 团队销售与客户沟通跟进
+- 事务性邮件自动化处理
+
+## 使用建议
+
+将高优先级规则前置配置，并对自动草稿设置人工审核阈值。

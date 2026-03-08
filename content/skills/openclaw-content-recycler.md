@@ -56,3 +56,28 @@ Content Recycler helps content creators and marketing teams maximize the value o
 - Repurposed content should retain the core information from original content, avoiding excessive rewriting that distorts information
 - Different platforms have different content standards. Please manually review before publishing to ensure compliance
 - Recommend establishing a content asset library to systematically manage relationships between original and repurposed versions
+
+# 中文版
+
+# 内容再利用（Content Recycler）
+
+## 技能概览
+
+Content Recycler 将一份原始内容改写为多个平台版本（如长文、短帖、脚本、摘要），提升内容复用效率。
+
+## 核心能力
+
+- 一次输入，多格式输出
+- 按平台特点做长度与语气适配
+- 提炼关键观点并重组表达
+- 支持系列化内容再生产
+
+## 典型场景
+
+- 长文拆分为社媒短内容
+- 视频脚本转图文分发
+- 多平台内容矩阵运营
+
+## 使用建议
+
+先明确每个平台的目标动作（阅读/收藏/点击/私信），再定制改写策略。

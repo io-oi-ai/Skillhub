@@ -69,3 +69,29 @@ Xcellent runs as a local web application managed and deployed automatically by O
 - Marketing teams needing data-driven social media strategies
 - Startups building brand influence cost-effectively
 - Freelancers acquiring clients and project opportunities through X
+
+# 中文版
+
+# Xcellent - X/Twitter 增长工具箱
+
+## 技能概览
+
+Xcellent 聚合账号分析、受众研究、AI 写作与发布时间优化，帮助你系统化提升 X 账号增长效率。
+
+## 核心能力
+
+- 追踪粉丝增长、互动率、曝光和点击等核心指标
+- 分析受众画像、活跃时段与兴趣话题
+- 基于历史高表现内容生成推文草稿
+- 计算最佳发布时间窗口并规避低效时段
+- 支持竞品账号对比分析
+
+## 典型场景
+
+- 个人创作者做账号增长
+- 市场团队制定数据驱动内容策略
+- 创业团队低成本做品牌传播
+
+## 使用建议
+
+把“内容主题、发布时间、互动表现”联动记录，形成可复用的增长模板。

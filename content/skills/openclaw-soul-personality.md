@@ -46,3 +46,28 @@ A single Agent can be configured with multiple personality profiles. For example
 ## Why Choose Soul Personality
 
 Compared to hand-writing lengthy system prompts, Soul Personality provides a structured personality definition framework that makes your descriptions more organized and easier to maintain. When you need to share personality templates across multiple Agents or collaborate with your team to adjust Agent behavior, this structured approach shines.
+
+# 中文版
+
+# Soul Personality
+
+## 技能概览
+
+Soul Personality 用自然语言定义 Agent 的人格、价值观和行为风格，让 Agent 在不同场景下保持稳定、可控的沟通与决策方式。
+
+## 核心能力
+
+- 自然语言描述人格并转为结构化行为指令
+- 配置价值观优先级（如安全优先、隐私优先）
+- 支持多人格配置与场景切换
+- 便于团队共享与迭代人格模板
+
+## 典型场景
+
+- 客服机器人品牌语气统一
+- 团队助手风格个性化
+- 教学场景中的引导式人格配置
+
+## 使用建议
+
+先定义“必须遵守”的价值规则，再补充语气和表达偏好。

@@ -78,3 +78,29 @@ The core logic of this system comes from real operational experience and has bee
 - Knowledge creators producing educational short videos in bulk
 - Brands establishing TikTok account matrices
 - Individual entrepreneurs acquiring targeted customers via short video content
+
+# 中文版
+
+# Larry Marketing - TikTok 营销系统
+
+## 技能概览
+
+Larry Marketing 是面向短视频增长的自动化系统，覆盖“选题 -> 内容生成 -> 发布 -> 数据复盘”全流程。你给主题，系统完成素材生成、发布时间安排和效果分析。
+
+## 核心能力
+
+- AI 自动生成 TikTok 轮播/短视频内容
+- Hook 多版本生成与 A/B 测试
+- 一键分发到 Instagram Reels / YouTube Shorts
+- 自动追踪播放、互动、转化并形成周/月报
+- 基于数据反馈自动调整后续内容策略
+
+## 典型场景
+
+- 电商账号短视频获客
+- 知识类账号批量内容生产
+- 品牌矩阵号运营与提效
+
+## 使用建议
+
+先建立固定发布节奏，再通过 Hook 测试持续优化完播率与互动率。

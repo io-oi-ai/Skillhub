@@ -63,3 +63,28 @@ Tax Professional is an AI tax advisor skill that helps finance professionals and
 - Tax policies update frequently; verify that recommendations are based on current valid policies
 - Different regions may have different local tax incentives; integrate local policies for comprehensive consideration
 - This skill does not replace formal tax filing; complete actual filing through official channels
+
+# 中文版
+
+# Tax Professional 税务顾问
+
+## 技能概览
+
+Tax Professional 用于税务咨询、扣除策略优化与税务规划建议，帮助你在合规前提下做更优税务决策。
+
+## 核心能力
+
+- 税法与政策变化解读
+- 个税/企税/增值税等常见问题分析
+- 扣除项梳理与方案对比测算
+- 年度税务规划与申报辅助
+
+## 典型场景
+
+- 个税汇算前方案评估
+- 初创公司税务结构选择
+- 股权激励、年终奖等特殊收入税负对比
+
+## 使用建议
+
+把 AI 结果作为初步方案，重大决策需结合持证税务专业人士复核。

@@ -21,6 +21,24 @@ interface Props {
   params: Promise<{ locale: string; id: string }>;
 }
 
+function getChineseSection(content: string): string {
+  const lines = content.split("\n");
+  const markerIndex = lines.findIndex((line) =>
+    /^#{1,2}\s*中文版\s*$/.test(line.trim()),
+  );
+  if (markerIndex === -1) return "";
+  return lines.slice(markerIndex + 1).join("\n").trim();
+}
+
+function getFirstMarkdownHeading(content: string): string {
+  const lines = content.split("\n");
+  for (const line of lines) {
+    const match = line.trim().match(/^#{1,2}\s+(.+)$/);
+    if (match) return match[1].trim();
+  }
+  return "";
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, id } = await params;
   if (!isValidLocale(locale)) return {};
@@ -28,15 +46,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const skill = await getSkillById(id);
   if (!skill) return { title: dict.metadata.skillNotFound };
 
+  const chineseSection = skill.content ? getChineseSection(skill.content) : "";
+  const chineseTitle = chineseSection ? getFirstMarkdownHeading(chineseSection) : "";
+  const localizedTitle = locale.startsWith("zh") && chineseTitle ? chineseTitle : skill.name;
+
   const baseUrl = "https://skillhub.dev";
   const enPath = `/skill/${id}`;
   const zhPath = `/zh/skill/${id}`;
 
   return {
-    title: skill.name,
+    title: localizedTitle,
     description: skill.description,
     openGraph: {
-      title: `${skill.name} | SkillHub`,
+      title: `${localizedTitle} | SkillHub`,
       description: skill.description,
     },
     alternates: {
@@ -55,6 +77,15 @@ export default async function SkillPage({ params }: Props) {
   const dict = await getDictionary(locale);
   const skill = await getSkillById(id);
   if (!skill) notFound();
+
+  const chineseSection = skill.content ? getChineseSection(skill.content) : "";
+  const chineseTitle = chineseSection ? getFirstMarkdownHeading(chineseSection) : "";
+  const primaryTitle = locale.startsWith("zh") && chineseTitle ? chineseTitle : skill.name;
+  const secondaryTitle = locale.startsWith("zh")
+    ? skill.name
+    : chineseTitle && chineseTitle !== skill.name
+      ? chineseTitle
+      : "";
 
   const roleLabels = dict.roles as Record<string, string>;
   const sceneLabels = dict.scenes as Record<string, string>;
@@ -108,9 +139,10 @@ export default async function SkillPage({ params }: Props) {
               ))}
             </div>
 
-            <h1 className="mb-2 text-3xl font-bold text-text-primary">
-              {skill.name}
-            </h1>
+            <h1 className="mb-2 text-3xl font-bold text-text-primary">{primaryTitle}</h1>
+            {secondaryTitle && (
+              <p className="mb-1 text-sm text-text-muted">{secondaryTitle}</p>
+            )}
             <p className="text-lg text-text-secondary">{skill.description}</p>
 
             <div className="mt-4 flex flex-wrap items-center gap-4 text-sm text-text-muted">
@@ -170,7 +202,7 @@ export default async function SkillPage({ params }: Props) {
           {/* Content */}
           {skill.content ? (
             <div className="rounded-xl border border-border bg-bg-card p-6 sm:p-8">
-              <SkillContent content={skill.content} />
+              <SkillContent content={skill.content} locale={locale} />
             </div>
           ) : (
             <div className="rounded-xl border border-border bg-bg-card p-6 text-center text-text-muted">

@@ -54,3 +54,28 @@ You can interact with AI this way to use this skill:
 - Requires configuring Canva Connect API keys before use
 - Some advanced templates and assets may require Canva Pro subscription
 - Recommend setting up Brand Kit in advance to ensure design output consistency
+
+# 中文版
+
+# Canva 设计集成
+
+## 技能概览
+
+Canva Integration 将 AI 流程与 Canva 设计能力打通，支持模板化出图、批量内容更新与素材协同。
+
+## 核心能力
+
+- 调用 Canva 模板快速生成设计稿
+- 批量替换标题、文案、图片等变量
+- 团队共享模板与素材，提高复用率
+- 支持社媒和营销视觉的快速生产
+
+## 典型场景
+
+- 活动海报批量制作
+- 多平台社媒视觉统一发布
+- 运营团队模板化提效
+
+## 使用建议
+
+先建立标准模板库，再用变量驱动批量生成，效率最高。

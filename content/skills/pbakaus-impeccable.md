@@ -130,3 +130,29 @@ The full impeccable plugin includes 17 user-invocable commands:
 | `/teach-impeccable` | Learn the impeccable design philosophy |
 
 Install the full plugin: `npx skills add pbakaus/impeccable`
+
+# 中文版
+
+# Impeccable 前端设计
+
+## 技能概览
+
+Impeccable 强调“有明确审美立场、可上线、可维护”的前端设计实现，目标是避免同质化的 AI 风格，做出有辨识度的界面。
+
+## 设计原则
+
+- 先确定强风格方向，再执行到位（极简/极繁都可）
+- 重视排版、颜色、间距、动效的一致性
+- 通过 CSS 现代能力（如 `clamp()`、`oklch`、容器查询）提升质量
+- 优先可用性、性能和可访问性
+
+## 反模式（避免）
+
+- 千篇一律卡片墙与模板化 hero
+- 过度依赖默认字体与默认配色
+- 无意义动效和装饰性噪声
+- 移动端通过“隐藏功能”凑适配
+
+## 使用建议
+
+每次设计迭代至少完成一次系统化审视：视觉层级、交互反馈、性能、无障碍。

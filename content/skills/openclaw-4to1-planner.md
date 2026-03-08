@@ -66,3 +66,29 @@ This skill combines several classic goal management methodologies:
 - Planning's value lies in execution. Develop the habit of checking your task list daily
 - It's normal for plans to change; what matters is maintaining direction and adjusting flexibly
 - Avoid setting too many goals at once. Recommend focusing on no more than 3 core goals simultaneously
+
+# 中文版
+
+# 4To1 目标规划
+
+## 技能概览
+
+4To1 Planner 的核心方法是“从 4 年愿景到 1 天行动”。它将长期目标逐层拆解为年、月、周、日可执行任务，帮助你把方向变成日常执行。
+
+## 核心能力
+
+- 愿景澄清与 SMART 目标设定
+- 4 年 -> 年度 -> 月度 -> 周计划 -> 日任务分解
+- 定期复盘进度并动态调整路径
+- 遇到阻碍时提供替代策略与优先级建议
+
+## 典型场景
+
+- 职业发展路径规划
+- 创业项目阶段性里程碑拆解
+- 学习成长与习惯养成计划
+- 健康与财务长期目标管理
+
+## 使用建议
+
+同时聚焦不超过 3 个核心目标，并保持每周复盘。

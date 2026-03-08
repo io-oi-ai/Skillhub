@@ -67,3 +67,28 @@ https://github.com/prompt-security/clawsec
 ## Why This Matters
 
 Third-party skills can execute code, access files, and make network requests within your agent environment. A malicious or poorly written skill could leak API keys, modify system files, or exfiltrate sensitive data. These three tools form a defense-in-depth approach to keep your agent safe.
+
+# 中文版
+
+# 安全审计工具箱
+
+## 技能概览
+
+在安装第三方 skill 前，先做安全审计。该工具箱提供“预检 + 自动扫描 + 安全规范”三层防护，降低恶意代码和数据泄漏风险。
+
+## 核心能力
+
+- Skill-Vetter：安装前静态风险扫描
+- OpenClaw Security Practice Guide：权限与密钥管理最佳实践
+- ClawSec：自动化漏洞和风险模式检查
+
+## 推荐流程
+
+1. 先安装这 3 个安全技能
+2. 配置 ClawSec 为安装前自动扫描
+3. 关键技能再用 Skill-Vetter 二次人工复核
+4. 按安全实践指南检查权限边界
+
+## 使用建议
+
+把“先审计后安装”固化为默认流程，避免高权限环境被供应链风险影响。

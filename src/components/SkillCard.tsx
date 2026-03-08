@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import type { Skill } from "@/lib/types";
 import { ROLE_COLORS } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
+import { getLocalizedSkillCopy } from "@/lib/skill-localization";
 import LikeButton from "./LikeButton";
 import DownloadButton from "./DownloadButton";
 
@@ -26,6 +27,7 @@ export default function SkillCard({
 }: SkillCardProps) {
   const prefix = locale === "en" ? "" : `/${locale}`;
   const router = useRouter();
+  const localized = getLocalizedSkillCopy(skill, locale);
 
   return (
     <div
@@ -34,7 +36,7 @@ export default function SkillCard({
     >
         <div className="mb-3 flex items-start justify-between">
           <h3 className="font-serif text-lg font-semibold text-text-primary group-hover:text-accent">
-            {skill.name}
+            {localized.name}
           </h3>
           {skill.featured && (
             <span className="shrink-0 rounded-md bg-amber-50 px-2 py-0.5 text-xs text-amber-700 border border-amber-200">
@@ -44,7 +46,7 @@ export default function SkillCard({
         </div>
 
         <p className="mb-4 line-clamp-2 text-sm leading-relaxed text-text-secondary">
-          {skill.description}
+          {localized.description}
         </p>
 
         <div className="mb-3 flex flex-wrap gap-1.5">

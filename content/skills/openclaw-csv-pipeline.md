@@ -55,3 +55,28 @@ CSV Pipeline is a powerful data processing skill designed for analysts and opera
 - Recommend keeping single file processing under 100MB. Please process oversized files in batches
 - When processing CSV files containing Chinese characters, prioritize using UTF-8 encoding
 - When handling sensitive data, be mindful of anonymization to avoid exposing personal information during conversations
+
+# 中文版
+
+# CSV 数据流水线
+
+## 技能概览
+
+CSV Pipeline 用于 CSV/JSON 数据清洗、转换、分析与可视化，适合运营与分析场景的快速报表生成。
+
+## 核心能力
+
+- 导入并清洗 CSV/JSON 数据
+- 字段映射、合并、聚合与转换
+- 生成图表与结构化分析结论
+- 输出可复用的数据处理流程
+
+## 典型场景
+
+- 周报/月报数据整理
+- 多来源数据合并分析
+- 轻量级业务看板制作
+
+## 使用建议
+
+先统一字段命名和时间格式，再做聚合分析，可显著减少错误。

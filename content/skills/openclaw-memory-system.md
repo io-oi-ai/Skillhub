@@ -54,3 +54,28 @@ As time passes, memory files accumulate. Memory System provides automatic mergin
 ## Technical Advantages
 
 No additional database services required — memory files can be directly included in version control (Git) for easy team collaboration and historical tracking. For small to medium-scale Agent applications, this is a practical and efficient memory solution.
+
+# 中文版
+
+# 记忆系统（Memory System）
+
+## 技能概览
+
+Memory System 为 Agent 提供可持久化的上下文记忆，支持跨会话保存偏好、项目进展和关键决策信息。
+
+## 核心能力
+
+- 结构化保存长期记忆
+- 跨会话召回历史上下文
+- 项目状态与偏好持续跟踪
+- 可审计、可维护的记忆文件组织
+
+## 典型场景
+
+- 长周期项目协作
+- 个性化助手持续学习
+- 团队知识沉淀与复用
+
+## 使用建议
+
+定义清晰的记忆写入规则，避免噪声信息污染长期上下文。

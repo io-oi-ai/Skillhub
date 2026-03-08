@@ -68,3 +68,28 @@ The ElevenLabs Voice Synthesis skill integrates the capabilities of the ElevenLa
 - For voice cloning functionality, ensure you have authorization from the voice owner
 - API calls are charged per character. Recommend previewing short text to confirm effect before batch generation
 - Ensure generated voice content complies with local laws and regulations. Do not use for fraud or impersonation
+
+# 中文版
+
+# ElevenLabs 语音能力
+
+## 技能概览
+
+ElevenLabs Skill 提供文本转语音、语音转文本和声音克隆能力，适用于配音、播客和多媒体内容生产。
+
+## 核心能力
+
+- 高自然度 TTS 文本配音
+- STT 语音转文字
+- 声线克隆与风格控制
+- 多语言语音内容生成
+
+## 典型场景
+
+- 短视频解说与旁白
+- 教学内容配音
+- 品牌化音色内容输出
+
+## 使用建议
+
+先确定目标语气与语速，再批量生成并做抽样听感校验。

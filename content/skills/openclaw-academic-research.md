@@ -51,3 +51,28 @@ By analyzing the number of papers published in a specific field over time, citat
 ## Data Source Description
 
 OpenAlex is an open academic metadata database containing index information for over 200 million academic works. It integrates data from multiple authoritative sources including Crossref, PubMed, ORCID, and covers a wide range of disciplines across natural sciences, social sciences, and humanities.
+
+# 中文版
+
+# 学术研究
+
+## 技能概览
+
+Academic Research 通过 OpenAlex API 进行论文检索、引文关系分析和综述生成，适合科研、教学和深度研究任务。
+
+## 核心能力
+
+- 多维检索论文（关键词、作者、期刊、年份、领域）
+- 构建引用/被引网络，定位关键文献与研究团队
+- 自动归纳研究现状、主要结论与争议点
+- 生成可读的文献综述框架
+
+## 典型场景
+
+- 开题前文献摸底
+- 课程/论文相关参考资料整理
+- 快速了解某研究方向发展脉络
+
+## 使用建议
+
+先确定检索范围与时间窗口，再逐步扩展引用网络，避免信息过载。

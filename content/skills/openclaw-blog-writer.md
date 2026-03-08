@@ -54,3 +54,28 @@ Different publishing platforms have different content format requirements. Blog 
 ## Writing Quality Assurance
 
 Blog Writer includes multiple quality check mechanisms including factual consistency validation, logical coherence checking, and readability scoring. The Agent automatically flags factual statements requiring human confirmation before submitting the final manuscript to avoid publishing inaccurate content.
+
+# 中文版
+
+# 博客写作助手
+
+## 技能概览
+
+Blog Writer 覆盖从选题、提纲、写作到发布优化的全流程，帮助你稳定产出结构化、高可读内容。
+
+## 核心能力
+
+- 选题挖掘与关键词方向建议
+- 文章结构与段落提纲生成
+- 多风格正文创作与改写
+- SEO 友好标题、摘要与元描述建议
+
+## 典型场景
+
+- 品牌内容营销
+- 产品教育文章输出
+- 个人知识型账号长期更新
+
+## 使用建议
+
+先确定目标读者与单篇目标（转化/教育/获客），再决定写作结构。

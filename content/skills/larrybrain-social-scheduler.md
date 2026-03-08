@@ -75,3 +75,29 @@ Replace paid scheduling tools like Buffer, Hootsuite, and Later with free access
 - Individual creators planning weekly or monthly content schedules
 - Agency teams managing multiple clients' social accounts simultaneously
 - International teams covering audiences across different time zones
+
+# 中文版
+
+# Social Scheduler - 跨平台社媒排期
+
+## 技能概览
+
+Social Scheduler 用于统一管理 Instagram、X、TikTok、LinkedIn、Facebook 等平台发布计划，避免在多个后台来回切换。
+
+## 核心能力
+
+- 可视化内容日历（天/周/月）
+- 多平台格式自动适配与定时发布
+- 推荐最佳发布时间并避免频率冲突
+- 素材库管理与复用
+- 聚合各平台发布效果数据
+
+## 典型场景
+
+- 多平台日常运营
+- 团队协作排期与审批
+- 多时区受众覆盖发布
+
+## 使用建议
+
+按周提前排产内容，发布后统一复盘各平台差异，优化下一周期节奏。

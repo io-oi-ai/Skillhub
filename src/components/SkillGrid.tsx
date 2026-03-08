@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import type { Skill, Role, Scene } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries/en";
+import { getLocalizedSkillCopy } from "@/lib/skill-localization";
 import SkillCard from "./SkillCard";
 import MetaSkillCard from "./MetaSkillCard";
 import SearchBar from "./SearchBar";
@@ -43,9 +44,10 @@ export default function SkillGrid({ skills, locale, dict, authorMap = {} }: Skil
         }
         if (search) {
           const q = search.toLowerCase();
+          const localized = getLocalizedSkillCopy(skill, locale);
           return (
-            skill.name.toLowerCase().includes(q) ||
-            skill.description.toLowerCase().includes(q) ||
+            localized.name.toLowerCase().includes(q) ||
+            localized.description.toLowerCase().includes(q) ||
             skill.tags.some((tag) => tag.toLowerCase().includes(q))
           );
         }
@@ -61,7 +63,7 @@ export default function SkillGrid({ skills, locale, dict, authorMap = {} }: Skil
     // "latest" is the default server sort order, no need to re-sort
 
     return result;
-  }, [skills, search, selectedRole, selectedScene, selectedCollection, sortOption]);
+  }, [skills, search, selectedRole, selectedScene, selectedCollection, sortOption, locale]);
 
   const roleLabels = dict.roles as Record<string, string>;
   const sceneLabels = dict.scenes as Record<string, string>;

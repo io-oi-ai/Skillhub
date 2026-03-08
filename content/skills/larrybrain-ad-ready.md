@@ -65,3 +65,29 @@ Say goodbye to expensive designer outsourcing and complex Photoshop operations. 
 - Small marketing teams without in-house design resources
 - Ad managers who need to quickly test different asset combinations
 - Dropshipping entrepreneurs looking for low-cost ways to launch ad campaigns
+
+# 中文版
+
+# Ad Ready - AI 广告图片生成器
+
+## 技能概览
+
+Ad Ready 用于把商品链接快速转成可投放的广告素材。输入商品页 URL 后，系统会自动提取标题、卖点、价格与图片，并生成符合主流广告平台尺寸规范的设计稿。
+
+## 核心能力
+
+- 自动解析商品页素材（文案、图片、卖点）
+- 一键生成 Facebook / Instagram / Google / TikTok / Pinterest 等多平台尺寸
+- 内置高转化模板与自动配色
+- 支持同一商品多版本生成，便于 A/B 测试
+- 支持批量处理多个商品链接
+
+## 典型场景
+
+- 电商团队快速批量制作广告图
+- 没有专职设计师的小团队投放准备
+- 独立卖家快速测试不同素材方向
+
+## 使用建议
+
+先批量生成多个版本，再结合投放数据筛选高表现素材持续迭代。

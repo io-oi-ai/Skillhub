@@ -90,3 +90,31 @@ https://clawhub.ai/halthelobster/proactive-agent
 3. **Summarize** — useful from day one for research
 4. **Self-Improving Agent** — let the agent optimize itself over time
 5. **Proactive Agent** — once comfortable, enable autonomous scheduling
+
+# 中文版
+
+# Agent 生产力工具箱
+
+## 技能概览
+
+该工具箱提供 5 类能力：自我改进、长期记忆、长文总结、自动更新、主动提醒，帮助 Agent 从被动问答升级为主动协作助手。
+
+## 核心能力
+
+- Self-Improving Agent：会后自我复盘与流程优化
+- Memory Setup：跨会话长期记忆
+- Summarize：长文/网页快速摘要
+- Auto-Updater：技能自动升级
+- Proactive Agent：主动日程提醒与跟进
+
+## 推荐启用顺序
+
+1. 先启用 Memory，保证上下文可持续
+2. 开启 Auto-Updater，保持技能常新
+3. 引入 Summarize，提升信息处理效率
+4. 配置 Self-Improving，持续优化工作流
+5. 最后启用 Proactive，进入主动协作模式
+
+## 使用建议
+
+先从“提醒 + 总结”两个低风险场景开始，再逐步放开自动化权限。

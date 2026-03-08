@@ -92,3 +92,28 @@ https://r.jina.ai/<target-url>
 | Perplexity | Deep research with citations | Limited |
 | Multi-Search | Broad coverage across engines | Yes |
 | Playwright | JavaScript-heavy pages | Yes |
+
+# 中文版
+
+# 多引擎搜索
+
+## 技能概览
+
+该技能集合聚合 Tavily、Perplexity、多引擎检索与 Playwright 抓取能力，适合需要广覆盖与深研究的检索任务。
+
+## 核心能力
+
+- Tavily：结构化、对 Agent 友好的搜索
+- Perplexity：实时联网研究与引用线索
+- Multi-Search-Engine：一次并行查询多搜索引擎
+- Playwright Scraper：处理 JS 渲染页面抓取
+
+## 何时使用
+
+- 需要快速广泛收集信息：优先 Multi-Search
+- 需要结构化研究与引用：优先 Perplexity/Tavily
+- 页面依赖前端渲染：使用 Playwright 抓取
+
+## 使用建议
+
+先广搜建立候选信息池，再用深搜工具做二次验证与交叉比对。

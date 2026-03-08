@@ -63,3 +63,29 @@ Notion Integration skill enables complete operational capabilities on your Notio
 - You must add the Integration to the target page or database connections to gain access
 - Notion API has rate limits; bulk operations automatically throttle request speed
 - It's recommended to verify operations on test pages first to avoid accidental changes to production content
+
+# 中文版
+
+# Notion 集成
+
+## 技能概览
+
+Notion Integration 支持 Notion 页面与数据库的增删改查，帮助你自动化知识管理、任务管理和项目协作流程。
+
+## 核心能力
+
+- 页面与数据库的创建、查询、更新
+- 支持多字段类型（文本、日期、选择、多选、关联等）
+- 批量写入和批量更新数据库记录
+- 将会议纪要、任务、摘要自动入库
+
+## 典型场景
+
+- 团队知识库维护
+- 会议纪要自动归档并生成待办
+- 产品需求数据库管理
+- 个人笔记系统化整理
+
+## 使用建议
+
+先配置 Integration 权限与测试库，再在生产空间执行批量操作。

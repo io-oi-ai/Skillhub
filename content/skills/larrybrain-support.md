@@ -80,3 +80,29 @@ Unlike cloud-based customer support systems, Larry Support runs entirely locally
 - Small teams replacing expensive Zendesk subscriptions
 - Product managers systematically collecting and analyzing user feedback
 - Operations teams monitoring brand reputation and social sentiment
+
+# 中文版
+
+# Larry Support - AI 客服系统
+
+## 技能概览
+
+Larry Support 提供面向 X 平台的自动化客服与工单管理能力，支持舆情监控、问题分级、回复建议与本地化工单看板。
+
+## 核心能力
+
+- 7x24 监控品牌提及与关键词
+- 自动分类问题类型并分配优先级（P0-P4）
+- 生成多语言客服回复建议（人工确认后发送）
+- 本地工单看板管理状态、标签与处理记录
+- 统计响应时长、解决率与满意度趋势
+
+## 典型场景
+
+- 初创团队低成本搭建客服流程
+- 产品/运营团队集中处理用户反馈
+- 需要本地部署和隐私可控的组织
+
+## 使用建议
+
+将 P0 告警与负责人值班机制绑定，确保严重问题能在第一时间闭环。

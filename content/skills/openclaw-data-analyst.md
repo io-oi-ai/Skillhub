@@ -51,3 +51,28 @@ Automatically consolidate data analysis results into structured report documents
 ## Suitable Users
 
 This skill is particularly suitable for positions that lack deep technical backgrounds but frequently use data, such as product managers, operations personnel, and business analysts. It lowers the technical barriers to data analysis, enabling more people to directly extract insights from data.
+
+# 中文版
+
+# 数据分析助手（Data Analyst）
+
+## 技能概览
+
+Data Analyst 用于 SQL 查询、数据探索、可视化与报告输出，帮助你把业务问题转成可执行的数据结论。
+
+## 核心能力
+
+- 根据问题生成/优化 SQL 查询
+- 进行指标拆解与异常诊断
+- 输出图表与分析摘要
+- 形成可复用的数据分析报告模板
+
+## 典型场景
+
+- 产品功能效果评估
+- 渠道投放效果对比
+- 经营指标异常排查
+
+## 使用建议
+
+先明确分析口径（时间窗、分组维度、核心指标），再执行查询与可视化。

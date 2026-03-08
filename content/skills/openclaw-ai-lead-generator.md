@@ -57,3 +57,28 @@ AI Lead Generator is an intelligent lead prospecting skill for B2B marketing and
 - Lead scoring is AI-assisted judgment; final business decisions still require human confirmation.
 - Recommend regularly updating target customer profiles to ensure lead prospecting aligns with business strategy.
 - Works best when integrated with CRM systems to avoid lead information being scattered across multiple places.
+
+# 中文版
+
+# AI 线索生成器
+
+## 技能概览
+
+AI Lead Generator 用于自动发现、筛选和评分 B2B 潜在客户，帮助销售和增长团队更快定位高价值线索。
+
+## 核心能力
+
+- 多源抓取潜在线索信息
+- 按行业、规模、职位、地区等维度筛选
+- 线索评分与优先级排序
+- 生成触达建议与跟进列表
+
+## 典型场景
+
+- 新市场拓展
+- 销售团队线索池建设
+- 增长团队外呼名单优化
+
+## 使用建议
+
+先定义理想客户画像（ICP），再做自动筛选和评分，效果更稳定。

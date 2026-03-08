@@ -51,3 +51,28 @@ When you need to adapt the same content to different channels, Brand Voice autom
 ## Synergy with Other Skills
 
 Brand Voice seamlessly integrates with content generation skills like Blog Writer and AgenticMail. When these skills generate content, they automatically read the Brand Voice configuration, guaranteeing output style consistency at the source without requiring post-production manual corrections.
+
+# 中文版
+
+# 品牌语气（Brand Voice）
+
+## 技能概览
+
+Brand Voice 用于定义并统一品牌表达风格，确保跨渠道内容在语气、措辞与价值观上保持一致。
+
+## 核心能力
+
+- 构建品牌语气指南（该说/不该说）
+- 输出不同场景的文案模板
+- 对既有内容做语气一致性校准
+- 支持多语言风格统一
+
+## 典型场景
+
+- 品牌升级后的内容统一
+- 多人协作写作风格对齐
+- 客服/营销/社媒跨团队口径一致
+
+## 使用建议
+
+先沉淀 3-5 条硬性语气规则，再批量应用到多渠道内容中。

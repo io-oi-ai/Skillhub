@@ -4,7 +4,7 @@ Open-source platform for discovering, sharing, and managing AI Agent Skills — 
 
 Think of it as **npm for AI workflows**: a curated registry of reusable, versioned, community-driven skill documents.
 
-**Live:** [skillhub.dev](https://skillhub.dev)
+**Live:** [skillhubs.cc](https://skillhubs.cc)
 
 ## Features
 
@@ -18,7 +18,7 @@ Think of it as **npm for AI workflows**: a curated registry of reusable, version
 
 ## Writing Guide
 
-SkillHub includes a research-backed [Writing Guide](https://skillhub.dev/guide) based on the SkillsBench study (arXiv:2602.12670). Key findings:
+SkillHub includes a research-backed [Writing Guide](https://skillhubs.cc/guide) based on the SkillsBench study (arXiv:2602.12670). Key findings:
 
 - **2–3 modules** is the sweet spot (+18.6pp); 4+ modules see diminishing returns
 - **Detailed & compact** style works best (+18.8pp); verbose docs hurt (-2.9pp)

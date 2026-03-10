@@ -1,7 +1,7 @@
 ---
 name: "Product Landing Page Copy"
 description: "Generate high-converting Landing Page copy for indie products, including Hero section, feature descriptions, pricing, and SEO optimization"
-author: "SkillHub"
+author: "SkillHubs"
 roles: ["developer", "product-manager", "marketer"]
 scenes: ["writing", "creative-design"]
 version: "1.0.0"

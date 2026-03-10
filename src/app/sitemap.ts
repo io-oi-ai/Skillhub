@@ -3,7 +3,7 @@ import { getAllSkills } from "@/lib/skills";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const { skills } = await getAllSkills();
-  const baseUrl = "https://skillhub.dev";
+  const baseUrl = "https://skillhubs.cc";
 
   const skillPages = skills.flatMap((skill) => [
     {

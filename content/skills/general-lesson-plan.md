@@ -1,7 +1,7 @@
 ---
 name: "Course Lesson Plan Design"
 description: "Design interactive course lesson plans and assessment schemes based on learning objectives and student level"
-author: "SkillHub"
+author: "SkillHubs"
 roles: ["educator"]
 scenes: ["creative-design", "learning"]
 version: "1.0.0"

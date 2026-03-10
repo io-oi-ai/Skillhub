@@ -1,7 +1,7 @@
 ---
 name: "Product Hunt Launch Preparation"
 description: "Generate complete Product Hunt launch materials, including Tagline, description, Maker Comment, and launch strategy"
-author: "SkillHub"
+author: "SkillHubs"
 roles: ["developer", "product-manager", "marketer"]
 scenes: ["writing", "communication"]
 version: "1.0.0"

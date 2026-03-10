@@ -1,7 +1,7 @@
 ---
 name: "Meeting Minutes Organization"
 description: "Organize meeting recordings or notes into structured meeting minutes, including resolutions and action items"
-author: "SkillHub"
+author: "SkillHubs"
 roles: ["everyone"]
 scenes: ["communication", "workflow"]
 version: "1.0.0"

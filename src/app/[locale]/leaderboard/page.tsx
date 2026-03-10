@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   if (!isValidLocale(locale)) return {};
   const dict = await getDictionary(locale);
-  return { title: `${dict.points.leaderboard} | SkillHub` };
+  return { title: `${dict.points.leaderboard} | SkillHubs` };
 }
 
 export default async function LeaderboardPage({ params }: Props) {

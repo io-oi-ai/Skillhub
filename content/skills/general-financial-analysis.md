@@ -1,7 +1,7 @@
 ---
 name: "Financial Statement Analysis"
 description: "Interpret financial statement data, generate key financial metrics analysis and operational recommendations"
-author: "SkillHub"
+author: "SkillHubs"
 roles: ["finance"]
 scenes: ["data-analysis", "decision-making"]
 version: "1.0.0"

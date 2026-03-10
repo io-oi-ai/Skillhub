@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!isValidLocale(locale)) return {};
   const dict = await getDictionary(locale);
 
-  const baseUrl = "https://skillhub.dev";
+  const baseUrl = "https://skillhubs.cc";
 
   return {
     title: dict.metadata.submit.title,

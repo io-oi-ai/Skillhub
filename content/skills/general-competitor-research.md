@@ -1,7 +1,7 @@
 ---
 name: "Competitive Analysis Report"
 description: "Systematic competitive research framework that generates analysis reports from product, market, and technology dimensions"
-author: "SkillHub"
+author: "SkillHubs"
 roles: ["product-manager", "marketer"]
 scenes: ["research", "decision-making"]
 version: "1.0.0"

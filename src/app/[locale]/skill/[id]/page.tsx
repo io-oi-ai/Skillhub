@@ -50,7 +50,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const chineseTitle = chineseSection ? getFirstMarkdownHeading(chineseSection) : "";
   const localizedTitle = locale.startsWith("zh") && chineseTitle ? chineseTitle : skill.name;
 
-  const baseUrl = "https://skillhub.dev";
+  const baseUrl = "https://skillhubs.cc";
   const enPath = `/skill/${id}`;
   const zhPath = `/zh/skill/${id}`;
 
@@ -58,7 +58,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: localizedTitle,
     description: skill.description,
     openGraph: {
-      title: `${localizedTitle} | SkillHub`,
+      title: `${localizedTitle} | SkillHubs`,
       description: skill.description,
     },
     alternates: {

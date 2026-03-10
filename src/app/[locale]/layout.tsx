@@ -17,17 +17,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   if (!isValidLocale(locale)) return {};
   const dict = await getDictionary(locale);
-  const baseUrl = "https://skillhub.dev";
+  const baseUrl = "https://skillhubs.cc";
 
   return {
     title: {
       default: dict.metadata.home.title,
-      template: "%s | SkillHub",
+      template: "%s | SkillHubs",
     },
     description: dict.metadata.home.description,
     keywords: dict.metadata.home.keywords as unknown as string[],
     icons: {
-      icon: "/icon.svg",
+      icon: { url: "/favicon.svg", type: "image/svg+xml" },
       apple: "/apple-icon.png",
     },
     openGraph: {
@@ -35,13 +35,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: dict.metadata.home.ogDescription,
       type: "website",
       locale: locale === "zh" ? "zh_CN" : "en_US",
-      siteName: "SkillHub",
+      siteName: "SkillHubs",
       images: [
         {
           url: `${baseUrl}/og-image.png`,
           width: 1200,
           height: 630,
-          alt: "SkillHub — Discover the Best AI Agent Skills",
+          alt: "SkillHubs — Discover the Best AI Agent Skills",
         },
       ],
     },

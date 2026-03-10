@@ -8,7 +8,11 @@
     "build:cli": "tsc -p tsconfig.cli.json",
     "cli": "node dist/cli/index.js",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "video:preview": "npx remotion studio --config remotion/remotion.config.ts",
+    "video:render": "npx tsx remotion/render.ts",
+    "video:render:gif": "npx tsx remotion/render.ts promo-gif-en",
+    "video:render:mp4": "npx tsx remotion/render.ts promo-mp4-en"
   },
   "bin": {
     "skillhub": "dist/cli/index.js"
@@ -26,6 +30,10 @@
     "rehype-highlight": "^7.0.2"
   },
   "devDependencies": {
+    "@remotion/bundler": "^4.0.434",
+    "@remotion/cli": "^4.0.434",
+    "@remotion/google-fonts": "^4.0.434",
+    "@remotion/renderer": "^4.0.434",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
@@ -33,6 +41,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
     "postgres": "^3.4.8",
+    "remotion": "^4.0.434",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

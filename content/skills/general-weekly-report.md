@@ -1,7 +1,7 @@
 ---
 name: "Weekly Report Auto-Generation"
 description: "Automatically generate structured weekly reports based on work records and meeting minutes from the week"
-author: "SkillHub"
+author: "SkillHubs"
 roles: ["everyone"]
 scenes: ["writing", "workflow"]
 version: "1.0.0"

@@ -1,7 +1,7 @@
 ---
 name: "Chrome Extension Listing Copy"
 description: "Generate complete Chrome Web Store listing copy for Chrome extensions, including descriptions, privacy policy, and review preparation"
-author: "SkillHub"
+author: "SkillHubs"
 roles: ["developer", "product-manager"]
 scenes: ["writing", "workflow"]
 version: "1.0.0"

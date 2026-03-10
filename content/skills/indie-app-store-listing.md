@@ -1,7 +1,7 @@
 ---
 name: "App Store Listing Copy"
 description: "Generate complete ASO-optimized listing copy for mobile apps on App Store and Google Play"
-author: "SkillHub"
+author: "SkillHubs"
 roles: ["developer", "product-manager"]
 scenes: ["writing", "workflow"]
 version: "1.0.0"

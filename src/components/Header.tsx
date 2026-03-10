@@ -40,7 +40,7 @@ export default function Header({ locale, dict }: HeaderProps) {
         <Link href={`${prefix}/`} className="flex items-center gap-2">
           <LogoIcon className="h-7 w-7 text-text-primary" />
           <span className="font-serif text-2xl font-bold text-text-primary">
-            SkillHub
+            SkillHubs
           </span>
         </Link>
 

@@ -1,7 +1,7 @@
 ---
 name: "Contract Clause Review"
 description: "Assist legal professionals in reviewing critical contract terms, flagging potential risks and unfavorable clauses"
-author: "SkillHub"
+author: "SkillHubs"
 roles: ["legal"]
 scenes: ["research", "decision-making"]
 version: "1.0.0"

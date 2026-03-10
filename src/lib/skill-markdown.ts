@@ -36,14 +36,14 @@ export function buildSkillMarkdown(skill: SkillMarkdownInput): string {
 
   // Platform metadata preserved as HTML comment
   const metadata = [
-    "<!-- SkillHub metadata",
+    "<!-- SkillHubs metadata",
     `author: ${skill.author}`,
     `roles: ${skill.roles.join(", ")}`,
     `scenes: ${skill.scenes.join(", ")}`,
     `version: ${skill.version}`,
     `tags: ${skill.tags.join(", ")}`,
     skill.source ? `source: ${skill.source}` : null,
-    `url: https://skillhub.dev/skill/${skill.id}`,
+    `url: https://skillhubs.cc/skill/${skill.id}`,
     "-->",
   ]
     .filter(Boolean)

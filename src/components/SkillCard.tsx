@@ -69,7 +69,7 @@ export default function SkillCard({
         </div>
 
         <div className="flex items-center justify-between text-xs text-text-muted">
-          <span>SkillHub</span>
+          <span>SkillHubs</span>
           <div className="flex items-center gap-2">
             <DownloadButton skill={skill} label={downloadLabel} size="sm" />
             <LikeButton skillId={skill.id} initialCount={skill.likesCount} size="sm" />

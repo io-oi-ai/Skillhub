@@ -1,7 +1,7 @@
 ---
 name: "Structured Brainstorming"
 description: "Guide AI in divergent-convergent thinking, from vague ideas to executable solutions"
-author: "SkillHub"
+author: "SkillHubs"
 roles: ["everyone"]
 scenes: ["creative-design", "decision-making"]
 version: "1.0.0"

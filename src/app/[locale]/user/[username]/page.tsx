@@ -27,8 +27,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const name = profile?.display_name || profile?.username || username;
   return {
-    title: `${name} | SkillHub`,
-    description: `View ${name}'s profile on SkillHub`,
+    title: `${name} | SkillHubs`,
+    description: `View ${name}'s profile on SkillHubs`,
   };
 }
 

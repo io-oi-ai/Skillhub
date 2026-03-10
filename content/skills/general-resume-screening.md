@@ -1,7 +1,7 @@
 ---
 name: "Resume Screening Assistant"
 description: "Automatically screen and evaluate resumes according to job requirements, generating candidate comparison analysis"
-author: "SkillHub"
+author: "SkillHubs"
 roles: ["hr"]
 scenes: ["workflow", "decision-making"]
 version: "1.0.0"

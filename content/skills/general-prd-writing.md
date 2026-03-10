@@ -1,7 +1,7 @@
 ---
 name: "PRD Requirements Document Writing"
 description: "Assist product managers in writing structured product requirements documents, including user stories and acceptance criteria"
-author: "SkillHub"
+author: "SkillHubs"
 roles: ["product-manager"]
 scenes: ["writing", "project-management"]
 version: "1.0.0"

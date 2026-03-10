@@ -3,7 +3,7 @@ import type { Dictionary } from "./en";
 const zh: Dictionary = {
   metadata: {
     home: {
-      title: "SkillHub — 发现最好的 AI Agent Skills",
+      title: "SkillHubs — 发现最好的 AI Agent Skills",
       description:
         "面向各行业、各职业的 AI 工作流集合站，浏览、搜索和分享高质量的 AI Skills",
       keywords: [
@@ -14,13 +14,13 @@ const zh: Dictionary = {
         "提示词",
         "Agent",
       ],
-      ogTitle: "SkillHub — 发现最好的 AI Agent Skills",
+      ogTitle: "SkillHubs — 发现最好的 AI Agent Skills",
       ogDescription:
         "面向各行业、各职业的 AI 工作流集合站，让 AI 真正融入你的日常工作",
     },
     submit: {
       title: "提交 Skill",
-      description: "创建并分享你的 AI Skill 到 SkillHub 平台",
+      description: "创建并分享你的 AI Skill 到 SkillHubs 平台",
     },
     skillNotFound: "Skill 未找到",
   },
@@ -28,13 +28,13 @@ const zh: Dictionary = {
     heading1: "Introducing",
     heading2: "AI Skills.",
     description:
-      "不只是提示词。经研究验证，精选 AI Skills 可将任务完成率提升 16.2 个百分点（SkillsBench）。SkillHub 为你起草工作流、整理工具，学习你的工作方式。",
+      "不只是提示词。经研究验证，精选 AI Skills 可将任务完成率提升 16.2 个百分点（SkillsBench）。SkillHubs 为你起草工作流、整理工具，学习你的工作方式。",
     cta: "浏览 Skills",
     ctaCli: "下载 CLI",
     badge: "免费 & 开源",
   },
   cli: {
-    title: "面向 Agent 的 SkillHub CLI",
+    title: "面向 Agent 的 SkillHubs CLI",
     description:
       "直接在终端搜索、创建和更新 Skill。为 AI Agent 和命令行用户打造。",
     viewOnGithub: "在 GitHub 上查看",
@@ -161,7 +161,7 @@ const zh: Dictionary = {
     "openclawskill.ai": "OpenClaw",
     "clawhub.ai": "ClawHub",
     "larrybrain.com": "LarryBrain",
-    skillhub: "SkillHub",
+    skillhub: "SkillHubs",
   },
   auth: {
     signIn: "登录",
@@ -170,7 +170,7 @@ const zh: Dictionary = {
     or: "或",
     continueWithGithub: "使用 GitHub 登录",
     continueWithGoogle: "使用 Google 登录",
-    loginTitle: "欢迎来到 SkillHub",
+    loginTitle: "欢迎来到 SkillHubs",
     signInDescription: "输入邮箱即可收到登录链接，无需密码",
     sendMagicLink: "发送登录链接",
     magicLinkSent: "请查收邮箱",
@@ -235,45 +235,95 @@ const zh: Dictionary = {
     "developer-tools": "开发者工具",
   },
   guide: {
-    title: "编写高效 AI Skills",
-    subtitle: "基于 SkillsBench 研究的高质量 AI Agent Skill 编写原则。",
-    researchBadge: "基于 SkillsBench 研究（arXiv:2602.12670）",
-    findings: {
-      structure: {
-        title: "最优结构",
-        stat: "+18.6pp",
-        body: "包含 2–3 个聚焦模块的 Skill 效果最佳。增加到 4 个模块时，提升幅度从 +18.6pp 降至 +5.9pp。保持精简。",
+    title: "SkillHubs 使用指南",
+    subtitle: "从浏览下载到创建分享，从获取积分到等级提升 — 你需要的一切都在这里。",
+    sections: {
+      whatIsSkill: {
+        title: "什么是 Skill？",
+        description: "Skill 是一种结构化的 Markdown 文件，用来教 AI Agent 如何完成特定任务 — 比如撰写 PRD、分析数据、生成周报。与简单提示词不同，Skill 包含上下文、步骤和输出格式，能稳定产出高质量结果。",
       },
-      style: {
-        title: "详细且紧凑",
-        stat: "+18.8pp",
-        body: "详细而简洁的写作风格效果最好（+18.8pp），冗长全面的文档反而有害（-2.9pp）。每一句话都应有其价值。",
+      download: {
+        title: "下载和使用 Skill",
+        badge: "快速开始",
+        steps: [
+          {
+            title: "浏览发现",
+            description: "在首页按角色、场景或精选集浏览，也可以用搜索框按关键词查找。",
+          },
+          {
+            title: "下载 .md 文件",
+            description: "在任意 Skill 卡片上点击「下载 .md」按钮，即可获取 Markdown 文件。",
+          },
+          {
+            title: "在 Claude Code 中使用",
+            description: "将 .md 文件放入项目的 .claude/skills/ 目录，Claude Code 会自动发现并使用。",
+          },
+          {
+            title: "在其他平台使用",
+            description: "复制 Skill 内容，粘贴到 Cursor、ChatGPT 或任何支持自定义指令的 AI 工具中作为系统提示词。",
+          },
+        ],
       },
-      curation: {
-        title: "人工策划至关重要",
-        stat: "+16.2pp",
-        body: "人工策划的 Skill 将任务完成率提升 +16.2pp，而 AI 自生成的 Skill 几乎无效（-1.3pp）。",
+      cli: {
+        title: "使用 CLI 工具",
+        badge: "进阶用户",
+        description: "安装 SkillHubs CLI，直接在终端搜索、下载和管理 Skill。",
+        installCmd: "npm install -g skillhubs",
+        commands: [
+          { cmd: "skillhubs search <关键词>", desc: "搜索 Skill" },
+          { cmd: "skillhubs download <id>", desc: "下载 Skill 到当前目录" },
+          { cmd: "skillhubs list", desc: "列出所有可用 Skill" },
+        ],
       },
-      domain: {
-        title: "领域特化",
-        stat: "关键",
-        body: "针对特定领域和角色量身定制的 Skill 效果最好，而非试图做通用工具。",
+      create: {
+        title: "创建你自己的 Skill",
+        badge: "贡献社区",
+        steps: [
+          {
+            title: "点击提交",
+            description: "从顶部导航栏进入「提交」页面。",
+          },
+          {
+            title: "填写信息",
+            description: "为 Skill 取名、写描述，选择适用角色和场景，然后用 Markdown 编写内容。",
+          },
+          {
+            title: "发布上线",
+            description: "点击「发布到平台」，让社区都能使用你的 Skill。发布即可获得积分奖励！",
+          },
+        ],
+        tips: {
+          title: "写出优秀 Skill 的建议",
+          items: [
+            "专注一个具体任务 — 不要试图面面俱到。",
+            "使用 2–3 个模块：背景、步骤、输出格式。",
+            "具体明确：包含精确的格式、约束和示例。",
+            "保持简洁 — 每句话都应有其价值。",
+            "发布前用真实任务测试。",
+          ],
+        },
       },
-      balance: {
-        title: "均衡效应",
-        stat: "一致",
-        body: "高质量 Skill 对所有任务都有提升，而不仅仅是简单任务。质量提升惠及全局。",
+      points: {
+        title: "赚取积分 & 升级",
+        badge: "激励体系",
+        description: "每一次贡献都能获得积分。登上排行榜，解锁更高等级。",
+        rules: [
+          { action: "注册账号", points: "欢迎奖励" },
+          { action: "创建 Skill", points: "+10 积分" },
+          { action: "首次创建 Skill", points: "+20 积分" },
+          { action: "Skill 被下载", points: "+5 积分 + 点赞数" },
+          { action: "Skill 被点赞", points: "+2 积分" },
+          { action: "提交 PR", points: "+3 积分" },
+          { action: "PR 被合并", points: "+15 积分" },
+        ],
+        levels: [
+          { name: "新手", requirement: "0 积分" },
+          { name: "贡献者", requirement: "50 积分" },
+          { name: "建设者", requirement: "200 积分" },
+          { name: "专家", requirement: "500 积分" },
+          { name: "大师", requirement: "1000 积分" },
+        ],
       },
-    },
-    tips: {
-      title: "实用写作建议",
-      items: [
-        "明确目标：用一句话说清楚这个 Skill 做什么。",
-        "控制模块数量：最多 2–3 个，如「背景」「步骤」「输出格式」。",
-        "具体明确：包含精确的格式、约束和示例。",
-        "删除废话：去掉引言、免责声明和重复解释。",
-        "用真实任务测试：发布前用实际场景验证你的 Skill。",
-      ],
     },
   },
   points: {

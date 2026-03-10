@@ -1,7 +1,7 @@
 const en = {
   metadata: {
     home: {
-      title: "SkillHub — Discover the Best AI Agent Skills",
+      title: "SkillHubs — Discover the Best AI Agent Skills",
       description:
         "A curated collection of AI workflows for every industry and role. Browse, search, and share high-quality AI Skills.",
       keywords: [
@@ -12,13 +12,13 @@ const en = {
         "Prompts",
         "Agent",
       ],
-      ogTitle: "SkillHub — Discover the Best AI Agent Skills",
+      ogTitle: "SkillHubs — Discover the Best AI Agent Skills",
       ogDescription:
         "A curated collection of AI workflows for every industry and role. Let AI truly integrate into your daily work.",
     },
     submit: {
       title: "Submit Skill",
-      description: "Create and share your AI Skill on the SkillHub platform",
+      description: "Create and share your AI Skill on the SkillHubs platform",
     },
     skillNotFound: "Skill Not Found",
   },
@@ -26,13 +26,13 @@ const en = {
     heading1: "Introducing",
     heading2: "AI Skills.",
     description:
-      "Not just prompts. Curated AI Skills improve task completion by +16.2pp (SkillsBench). SkillHub drafts your workflows, organizes your tools, and learns how you work.",
+      "Not just prompts. Curated AI Skills improve task completion by +16.2pp (SkillsBench). SkillHubs drafts your workflows, organizes your tools, and learns how you work.",
     cta: "Browse Skills",
     ctaCli: "Download CLI",
     badge: "Free & Open Source",
   },
   cli: {
-    title: "SkillHub CLI for Agents",
+    title: "SkillHubs CLI for Agents",
     description:
       "Search, create, and update skills directly from your terminal. Designed for AI agents and power users who prefer the command line.",
     viewOnGithub: "View on GitHub",
@@ -159,7 +159,7 @@ const en = {
     "openclawskill.ai": "OpenClaw",
     "clawhub.ai": "ClawHub",
     "larrybrain.com": "LarryBrain",
-    skillhub: "SkillHub",
+    skillhub: "SkillHubs",
   },
   auth: {
     signIn: "Sign In",
@@ -168,7 +168,7 @@ const en = {
     or: "or",
     continueWithGithub: "Continue with GitHub",
     continueWithGoogle: "Continue with Google",
-    loginTitle: "Welcome to SkillHub",
+    loginTitle: "Welcome to SkillHubs",
     signInDescription:
       "Enter your email to receive a magic link — no password needed",
     sendMagicLink: "Send Magic Link",
@@ -235,45 +235,95 @@ const en = {
     "developer-tools": "Developer Tools",
   },
   guide: {
-    title: "Writing Effective AI Skills",
-    subtitle: "Research-backed principles from SkillsBench for creating high-quality AI agent skills.",
-    researchBadge: "Based on SkillsBench (arXiv:2602.12670)",
-    findings: {
-      structure: {
-        title: "Optimal Structure",
-        stat: "+18.6pp",
-        body: "Skills with 2–3 focused modules perform best. Adding a 4th module drops gains to +5.9pp. Keep it lean.",
+    title: "Getting Started with SkillHubs",
+    subtitle: "Everything you need to know — from browsing skills to creating your own and earning points.",
+    sections: {
+      whatIsSkill: {
+        title: "What is a Skill?",
+        description: "A Skill is a structured Markdown file that teaches AI agents how to complete specific tasks — like writing PRDs, analyzing data, or generating weekly reports. Unlike simple prompts, Skills include context, steps, and output formats that consistently produce high-quality results.",
       },
-      style: {
-        title: "Detailed & Compact",
-        stat: "+18.8pp",
-        body: "Detailed yet concise writing outperforms verbose documentation (-2.9pp). Every sentence should earn its place.",
+      download: {
+        title: "Download & Use Skills",
+        badge: "Quick Start",
+        steps: [
+          {
+            title: "Browse & Find",
+            description: "Browse the homepage by role, scene, or collection. Use search to find Skills by keyword.",
+          },
+          {
+            title: "Download .md File",
+            description: 'Click the "Download .md" button on any Skill card to get the Markdown file.',
+          },
+          {
+            title: "Use in Claude Code",
+            description: "Place the .md file in your project's .claude/skills/ directory. Claude Code will automatically discover and use it.",
+          },
+          {
+            title: "Use in Other Platforms",
+            description: "Copy the Skill content and paste it as a system prompt in Cursor, ChatGPT, or any AI tool that supports custom instructions.",
+          },
+        ],
       },
-      curation: {
-        title: "Human Curation Matters",
-        stat: "+16.2pp",
-        body: "Human-curated skills boost task completion by +16.2pp. AI self-generated skills show nearly zero effect (-1.3pp).",
+      cli: {
+        title: "Use the CLI",
+        badge: "For Power Users",
+        description: "Install the SkillHubs CLI to search, download, and manage Skills directly from your terminal.",
+        installCmd: "npm install -g skillhubs",
+        commands: [
+          { cmd: "skillhubs search <keyword>", desc: "Search for Skills" },
+          { cmd: "skillhubs download <id>", desc: "Download a Skill to current directory" },
+          { cmd: "skillhubs list", desc: "List all available Skills" },
+        ],
       },
-      domain: {
-        title: "Domain Specificity",
-        stat: "Key",
-        body: "Skills work best when tailored to a specific domain and role, rather than trying to be general-purpose.",
+      create: {
+        title: "Create Your Own Skill",
+        badge: "Contribute",
+        steps: [
+          {
+            title: "Click Submit",
+            description: 'Navigate to the "Submit" page from the top navigation bar.',
+          },
+          {
+            title: "Fill in Details",
+            description: "Give your Skill a name, description, select applicable roles and scenes, then write the content in Markdown.",
+          },
+          {
+            title: "Publish",
+            description: 'Click "Publish to Platform" to make your Skill available to the community. You\'ll earn points for your contribution!',
+          },
+        ],
+        tips: {
+          title: "Tips for Great Skills",
+          items: [
+            "Focus on one specific task — don't try to do everything.",
+            "Use 2–3 modules: Context, Steps, Output Format.",
+            "Be specific: include exact formats, constraints, and examples.",
+            "Keep it concise — every sentence should earn its place.",
+            "Test with real tasks before publishing.",
+          ],
+        },
       },
-      balance: {
-        title: "Balanced Effect",
-        stat: "Consistent",
-        body: "Well-written skills improve performance across tasks — not just the easy ones. Quality lifts all boats.",
+      points: {
+        title: "Earn Points & Level Up",
+        badge: "Rewards",
+        description: "Every contribution earns you points. Climb the leaderboard and unlock higher levels.",
+        rules: [
+          { action: "Sign up", points: "Welcome bonus" },
+          { action: "Create a Skill", points: "+10 pts" },
+          { action: "First Skill bonus", points: "+20 pts" },
+          { action: "Skill gets downloaded", points: "+5 pts + likes" },
+          { action: "Skill gets liked", points: "+2 pts" },
+          { action: "Submit a PR", points: "+3 pts" },
+          { action: "PR gets merged", points: "+15 pts" },
+        ],
+        levels: [
+          { name: "Newcomer", requirement: "0 pts" },
+          { name: "Contributor", requirement: "50 pts" },
+          { name: "Builder", requirement: "200 pts" },
+          { name: "Expert", requirement: "500 pts" },
+          { name: "Master", requirement: "1000 pts" },
+        ],
       },
-    },
-    tips: {
-      title: "Practical Writing Tips",
-      items: [
-        "Start with a clear goal: state what the skill does in one sentence.",
-        "Use 2–3 modules max: e.g., Context, Steps, Output Format.",
-        "Be specific: include exact formats, constraints, and examples.",
-        "Cut filler: remove introductions, disclaimers, and redundant explanations.",
-        "Test with real tasks: run your skill against actual use cases before publishing.",
-      ],
     },
   },
   points: {

@@ -45,7 +45,11 @@ async function updateSupabaseSession(request: NextRequest, response: NextRespons
       },
     }
   );
-  await supabase.auth.getUser();
+  try {
+    await supabase.auth.getUser();
+  } catch {
+    // Supabase auth fetch failed (network issue) — continue without session refresh
+  }
   return response;
 }
 

@@ -39,7 +39,6 @@ export const CtaScene: React.FC<Props> = ({ locale }) => {
   const font = locale === "zh" ? fontSerifCn : fontSerif;
   const urlStyle = useScaleIn(0);
   const badgeOpacity = useFadeIn(15, 15);
-  const taglineOpacity = useFadeIn(25, 15);
 
   // Pulsing glow behind URL — oscillates between 0.25 and 0.55
   const glowPulse = interpolate(
@@ -192,17 +191,6 @@ export const CtaScene: React.FC<Props> = ({ locale }) => {
       >
         {t.cta.badge}
       </div>
-      <p
-        style={{
-          fontFamily: font,
-          fontSize: 18,
-          color: "#9a9a9a",
-          opacity: taglineOpacity,
-          margin: 0,
-        }}
-      >
-        {t.cta.tagline}
-      </p>
     </AbsoluteFill>
   );
 };

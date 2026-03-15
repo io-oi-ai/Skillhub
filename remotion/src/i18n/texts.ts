@@ -1,14 +1,20 @@
 export type Locale = "en" | "zh";
 
 interface VideoTexts {
+  hook: {
+    text: string;
+  };
   intro: {
     title: string;
     subtitle: string;
   };
-  stat: {
-    number: string;
-    label: string;
-    badge: string;
+  problem: {
+    line1: string;
+    line2: string;
+  };
+  solution: {
+    line1: string;
+    line2: string;
   };
   collections: {
     title: string;
@@ -21,41 +27,47 @@ interface VideoTexts {
     rolesNum: number;
     scenes: string;
     scenesNum: number;
-  };
-  cta: {
-    url: string;
-    badge: string;
-    tagline: string;
-  };
-  guide: {
-    title: string;
-    cards: { stat: string; label: string }[];
+    growing: string;
   };
   cli: {
     title: string;
     command: string;
     output: string;
   };
+  cta: {
+    url: string;
+    badge: string;
+  };
+  outro: {
+    title: string;
+    tagline: string;
+  };
 }
 
 const en: VideoTexts = {
+  hook: {
+    text: "Your AI agent is only as good as its skills.",
+  },
   intro: {
     title: "SkillHubs",
     subtitle: "Discover the Best AI Agent Skills",
   },
-  stat: {
-    number: "+16.2",
-    label: "Task Completion Improvement",
-    badge: "Based on SkillsBench Research",
+  problem: {
+    line1: "Most prompts are one-off, unstructured, and untested.",
+    line2: "Your agent deserves better.",
+  },
+  solution: {
+    line1: "A curated library of production-ready AI skills,",
+    line2: "built for agents that actually ship work.",
   },
   collections: {
     title: "5 Curated Collections",
     items: [
-      "Getting Started",
       "Indie Hacker",
       "Marketing & Growth",
       "Data & Finance",
       "Developer Tools",
+      "Getting Started",
     ],
   },
   coverage: {
@@ -63,49 +75,50 @@ const en: VideoTexts = {
     skillsNum: 41,
     roles: "Roles",
     rolesNum: 11,
-    scenes: "Scenes",
+    scenes: "Scenarios",
     scenesNum: 10,
+    growing: "Growing every week",
+  },
+  cli: {
+    title: "SkillHubs CLI",
+    command: "$ skillhubs install prd-writing",
+    output: `✓ Installed prd-writing (v1.2)
+
+  Role:     product-manager
+  Scene:    feature-planning
+  Tags:     PRD, Product, Planning
+
+  → Skill ready. Start with: skillhubs run prd-writing`,
   },
   cta: {
     url: "skillhubs.cc",
     badge: "Free & Open Source",
-    tagline: "Built for the AI era.",
   },
-  guide: {
-    title: "Research-Backed Writing Guide",
-    cards: [
-      { stat: "+18.6pp", label: "Optimal Structure" },
-      { stat: "+18.8pp", label: "Detailed & Compact" },
-      { stat: "+16.2pp", label: "Human Curation" },
-    ],
-  },
-  cli: {
-    title: "SkillHubs CLI",
-    command: "$ skillhubs skills list",
-    output: `Found 41 skills
-
-  ID                  ROLES
-  brainstorming       everyone
-  prd-writing         product-manager
-  data-analyst        data-analyst
-  landing-page        developer
-  financial-analysis  finance`,
+  outro: {
+    title: "SkillHubs",
+    tagline: "Skills that make agents work.",
   },
 };
 
 const zh: VideoTexts = {
+  hook: {
+    text: "你的 AI Agent，取决于它的 Skills。",
+  },
   intro: {
     title: "SkillHubs",
     subtitle: "发现最好的 AI Agent Skills",
   },
-  stat: {
-    number: "+16.2",
-    label: "任务完成率提升",
-    badge: "基于 SkillsBench 研究",
+  problem: {
+    line1: "大多数提示词是一次性的，缺乏结构，未经验证。",
+    line2: "你的 Agent 值得更好的。",
+  },
+  solution: {
+    line1: "精选的生产级 AI 技能库，",
+    line2: "专为真正能交付工作的 Agent 打造。",
   },
   collections: {
-    title: "5 个精选集合",
-    items: ["快速上手", "独立开发者", "营销增长", "数据与财务", "开发者工具"],
+    title: "5 个精选合集",
+    items: ["独立开发者", "营销增长", "数据与财务", "开发者工具", "快速上手"],
   },
   coverage: {
     skills: "Skills",
@@ -114,31 +127,26 @@ const zh: VideoTexts = {
     rolesNum: 11,
     scenes: "场景",
     scenesNum: 10,
+    growing: "每周持续更新",
+  },
+  cli: {
+    title: "SkillHubs CLI",
+    command: "$ skillhubs install prd-writing",
+    output: `✓ 已安装 prd-writing (v1.2)
+
+  角色:     产品经理
+  场景:     功能规划
+  标签:     PRD, 产品, 规划
+
+  → 技能就绪。运行: skillhubs run prd-writing`,
   },
   cta: {
     url: "skillhubs.cc",
     badge: "免费 & 开源",
-    tagline: "为 AI 时代而生。",
   },
-  guide: {
-    title: "研究支撑的写作指南",
-    cards: [
-      { stat: "+18.6pp", label: "最优结构" },
-      { stat: "+18.8pp", label: "详细且紧凑" },
-      { stat: "+16.2pp", label: "人工策划" },
-    ],
-  },
-  cli: {
-    title: "SkillHubs CLI",
-    command: "$ skillhubs skills list",
-    output: `找到 41 个 Skills
-
-  ID                  角色
-  brainstorming       通用
-  prd-writing         产品经理
-  data-analyst        数据分析师
-  landing-page        开发工程师
-  financial-analysis  财务`,
+  outro: {
+    title: "SkillHubs",
+    tagline: "让 Agent 真正好用的技能。",
   },
 };
 

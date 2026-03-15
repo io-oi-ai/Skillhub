@@ -117,55 +117,68 @@ export const CoverageScene: React.FC<Props> = ({ locale }) => {
       <div
         style={{
           display: "flex",
-          gap: 0,
+          flexDirection: "column",
           alignItems: "center",
+          gap: 28,
           position: "relative",
           zIndex: 1,
         }}
       >
-        {columns.map((col, i) => (
-          <React.Fragment key={col.label}>
-            {i > 0 && (
+        <div style={{ display: "flex", gap: 0, alignItems: "center" }}>
+          {columns.map((col, i) => (
+            <React.Fragment key={col.label}>
+              {i > 0 && (
+                <div
+                  style={{
+                    width: 1,
+                    height: 80,
+                    backgroundColor: "#e5e5e0",
+                    margin: "0 48px",
+                  }}
+                />
+              )}
               <div
                 style={{
-                  width: 1,
-                  height: 80,
-                  backgroundColor: "#e5e5e0",
-                  margin: "0 48px",
-                }}
-              />
-            )}
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                gap: 8,
-              }}
-            >
-              <span
-                style={{
-                  fontFamily: fontMono,
-                  fontSize: 72,
-                  fontWeight: 700,
-                  color: "#1a1a1a",
-                  lineHeight: 1,
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: 8,
                 }}
               >
-                {col.num}
-              </span>
-              <span
-                style={{
-                  fontFamily: font,
-                  fontSize: 20,
-                  color: "#6b6b6b",
-                }}
-              >
-                {col.label}
-              </span>
-            </div>
-          </React.Fragment>
-        ))}
+                <span
+                  style={{
+                    fontFamily: fontMono,
+                    fontSize: 72,
+                    fontWeight: 700,
+                    color: "#1a1a1a",
+                    lineHeight: 1,
+                  }}
+                >
+                  {col.num}
+                </span>
+                <span
+                  style={{
+                    fontFamily: font,
+                    fontSize: 20,
+                    color: "#6b6b6b",
+                  }}
+                >
+                  {col.label}
+                </span>
+              </div>
+            </React.Fragment>
+          ))}
+        </div>
+        <span
+          style={{
+            fontFamily: font,
+            fontSize: 18,
+            color: "#9a9a9a",
+            opacity: useFadeIn(40, 20),
+          }}
+        >
+          {t.coverage.growing}
+        </span>
       </div>
     </AbsoluteFill>
   );

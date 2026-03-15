@@ -34,6 +34,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       },
     },
     {
+      url: `${baseUrl}/guide`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.7,
+      alternates: {
+        languages: {
+          en: `${baseUrl}/guide`,
+          "zh-CN": `${baseUrl}/zh/guide`,
+        },
+      },
+    },
+    {
       url: `${baseUrl}/submit`,
       lastModified: new Date(),
       changeFrequency: "monthly",
@@ -42,6 +54,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         languages: {
           en: `${baseUrl}/submit`,
           "zh-CN": `${baseUrl}/zh/submit`,
+        },
+      },
+    },
+    {
+      url: `${baseUrl}/leaderboard`,
+      lastModified: new Date(),
+      changeFrequency: "daily",
+      priority: 0.6,
+      alternates: {
+        languages: {
+          en: `${baseUrl}/leaderboard`,
+          "zh-CN": `${baseUrl}/zh/leaderboard`,
         },
       },
     },

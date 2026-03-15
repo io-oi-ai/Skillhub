@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { JsonLd } from "@/components/JsonLd";
 import { getSkillById } from "@/lib/skills";
 import { supabase } from "@/lib/supabase";
 import { getLevel } from "@/lib/points";
@@ -108,8 +109,51 @@ export default async function SkillPage({ params }: Props) {
     }
   }
 
+  const baseUrl = "https://skillhubs.cc";
+  const skillSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: skill.name,
+    description: skill.description,
+    url: `${baseUrl}/skill/${skill.id}`,
+    applicationCategory: "DeveloperApplication",
+    operatingSystem: "Cross-platform",
+    softwareVersion: skill.version,
+    dateModified: skill.updatedAt,
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
+    },
+    author: {
+      "@type": "Person",
+      name: skill.author,
+      ...(authorUsername ? { url: `${baseUrl}/user/${authorUsername}` } : {}),
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "SkillHubs",
+      url: baseUrl,
+    },
+    keywords: [...skill.roles, ...skill.scenes, ...skill.tags.filter((t: string) => !t.startsWith("collection:"))],
+    isAccessibleForFree: true,
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: baseUrl },
+      { "@type": "ListItem", position: 2, name: "Skills", item: `${baseUrl}/#skills` },
+      { "@type": "ListItem", position: 3, name: skill.name, item: `${baseUrl}/skill/${skill.id}` },
+    ],
+  };
+
   return (
     <>
+      <JsonLd data={skillSchema} />
+      <JsonLd data={breadcrumbSchema} />
       <Header locale={locale} dict={dict} />
       <main className="flex-1 px-4 py-8 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl">
@@ -165,7 +209,7 @@ export default async function SkillPage({ params }: Props) {
                 )}
               </span>
               <span>v{skill.version}</span>
-              <span>{dict.skillDetail.updatedAt} {skill.updatedAt}</span>
+              <time dateTime={skill.updatedAt}>{dict.skillDetail.updatedAt} {skill.updatedAt}</time>
               {skill.source && (
                 <span className="rounded bg-bg-card px-2 py-0.5 font-mono text-xs">
                   {dict.skillDetail.source} {sourceLabels[skill.source]}

@@ -55,6 +55,8 @@ const en = {
   },
   footer: {
     tagline: "Built for the AI era.",
+    privacy: "Privacy",
+    terms: "Terms",
   },
   search: {
     placeholder: "Search skills by name, description, or tags...",

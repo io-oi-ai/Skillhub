@@ -57,6 +57,8 @@ const zh: Dictionary = {
   },
   footer: {
     tagline: "为 AI 时代而生。",
+    privacy: "隐私政策",
+    terms: "服务条款",
   },
   search: {
     placeholder: "按名称、描述或标签搜索 Skill...",

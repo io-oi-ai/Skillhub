@@ -1,0 +1,31 @@
+# SkillHubs
+
+> A curated collection of AI Skills (structured Markdown files) that teach AI agents how to complete specific tasks. Browse, search, and share high-quality AI workflows for every industry and role.
+
+## Main Pages
+- [Homepage](https://skillhubs.cc): Browse all AI Skills by role, scene, or collection
+- [Getting Started Guide](https://skillhubs.cc/guide): Learn how to download, use, and create Skills
+- [Submit a Skill](https://skillhubs.cc/submit): Contribute your own AI Skill to the platform
+- [Leaderboard](https://skillhubs.cc/leaderboard): Top skill contributors and rankings
+
+## Popular Skills
+- [Impeccable Frontend Design](https://skillhubs.cc/skill/pbakaus-impeccable): 17 commands for production-grade frontend interfaces
+- [PRD Writing](https://skillhubs.cc/skill/general-prd-writing): Product requirements document generation
+- [Data Analyst](https://skillhubs.cc/skill/openclaw-data-analyst): AI-powered data analysis workflows
+- [Memory System](https://skillhubs.cc/skill/openclaw-memory-system): Persistent context storage for AI agents
+- [Brainstorming](https://skillhubs.cc/skill/general-brainstorming): Structured AI-guided brainstorming framework
+- [Weekly Report](https://skillhubs.cc/skill/general-weekly-report): Automated weekly report generation
+
+## CLI Tool
+- Install: npm install -g skillhubs
+- Commands: search, download, list, create, update
+
+## Platform Support
+- Claude Code
+- Cursor
+- ChatGPT
+- OpenClaw
+
+## Optional
+- [Sitemap](https://skillhubs.cc/sitemap.xml): All indexed pages
+- [GitHub](https://github.com/io-oi-ai/Skillhub): Source code (MIT License)

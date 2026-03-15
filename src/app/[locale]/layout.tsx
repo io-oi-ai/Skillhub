@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { i18n, isValidLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { AuthProvider } from "@/components/AuthProvider";
+import { JsonLd } from "@/components/JsonLd";
 
 interface Props {
   children: React.ReactNode;
@@ -62,6 +63,19 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <html lang={locale === "zh" ? "zh-CN" : "en"}>
       <body className="min-h-screen antialiased">
+        <JsonLd data={{
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "SkillHubs",
+          url: "https://skillhubs.cc",
+          logo: "https://skillhubs.cc/og-image.png",
+          description: "A curated marketplace of AI agent skills and workflows for every industry and role.",
+          foundingDate: "2025",
+          sameAs: [
+            "https://github.com/io-oi-ai/Skillhub",
+            "https://linkedin.com/company/helloskillhubs",
+          ],
+        }} />
         <AuthProvider>
           <div className="flex min-h-screen flex-col">{children}</div>
         </AuthProvider>

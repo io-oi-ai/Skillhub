@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { JsonLd } from "@/components/JsonLd";
 import { isValidLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 
@@ -14,7 +15,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   if (!isValidLocale(locale)) return {};
   const dict = await getDictionary(locale);
-  return { title: `${dict.guide.title} | SkillHubs` };
+  const baseUrl = "https://skillhubs.cc";
+  return {
+    title: dict.guide.title,
+    description: "Learn how to discover, download, install, and create AI agent skills on SkillHubs. Step-by-step guide for getting started.",
+    alternates: {
+      canonical: `${baseUrl}/guide`,
+      languages: {
+        en: `${baseUrl}/guide`,
+        "zh-CN": `${baseUrl}/zh/guide`,
+      },
+    },
+  };
 }
 
 export default async function GuidePage({ params }: Props) {
@@ -24,8 +36,32 @@ export default async function GuidePage({ params }: Props) {
   const g = dict.guide;
   const s = g.sections;
 
+  const baseUrl = "https://skillhubs.cc";
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: g.title,
+    description: "Learn how to discover, download, install, and create AI agent skills on SkillHubs.",
+    url: `${baseUrl}/guide`,
+    author: { "@type": "Organization", name: "SkillHubs", url: baseUrl },
+    publisher: { "@type": "Organization", name: "SkillHubs", url: baseUrl, logo: { "@type": "ImageObject", url: `${baseUrl}/og-image.png` } },
+    mainEntityOfPage: `${baseUrl}/guide`,
+    inLanguage: locale === "zh" ? "zh-CN" : "en",
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: baseUrl },
+      { "@type": "ListItem", position: 2, name: g.title, item: `${baseUrl}/guide` },
+    ],
+  };
+
   return (
     <>
+      <JsonLd data={articleSchema} />
+      <JsonLd data={breadcrumbSchema} />
       <Header locale={locale} dict={dict} />
       <main className="flex-1 px-4 py-12 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl">

@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import SkillGrid from "@/components/SkillGrid";
 import RetroComputer from "@/components/RetroComputer";
 import CrtTerminal from "@/components/CrtTerminal";
+import { JsonLd } from "@/components/JsonLd";
 import { getAllSkills } from "@/lib/skills";
 import { supabase } from "@/lib/supabase";
 import { isValidLocale, type Locale } from "@/i18n/config";
@@ -34,8 +35,38 @@ export default async function Home({ params }: Props) {
     }
   }
 
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "SkillHubs",
+    url: "https://skillhubs.cc",
+    description: dict.metadata.home.description,
+    inLanguage: ["en", "zh-CN"],
+    potentialAction: {
+      "@type": "SearchAction",
+      target: "https://skillhubs.cc/?q={search_term_string}",
+      "query-input": "required name=search_term_string",
+    },
+  };
+
+  const itemListSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "AI Agent Skills",
+    description: "Curated collection of AI skills for every industry and role",
+    numberOfItems: skills.length,
+    itemListElement: skills.slice(0, 50).map((skill, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      url: `https://skillhubs.cc/skill/${skill.id}`,
+      name: skill.name,
+    })),
+  };
+
   return (
     <>
+      <JsonLd data={websiteSchema} />
+      <JsonLd data={itemListSchema} />
       <Header locale={locale} dict={dict} />
       <main className="flex-1">
         {/* Hero */}

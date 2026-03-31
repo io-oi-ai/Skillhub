@@ -6,7 +6,7 @@ import { ROLE_COLORS } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 import { getLocalizedSkillCopy } from "@/lib/skill-localization";
 import LikeButton from "./LikeButton";
-import DownloadButton from "./DownloadButton";
+import DownloadGate from "./DownloadGate";
 
 interface SkillCardProps {
   skill: Skill;
@@ -15,6 +15,7 @@ interface SkillCardProps {
   sceneLabels: Record<string, string>;
   featuredLabel: string;
   downloadLabel: string;
+  buyLabel: string;
 }
 
 export default function SkillCard({
@@ -24,6 +25,7 @@ export default function SkillCard({
   sceneLabels,
   featuredLabel,
   downloadLabel,
+  buyLabel,
 }: SkillCardProps) {
   const prefix = locale === "en" ? "" : `/${locale}`;
   const router = useRouter();
@@ -71,7 +73,7 @@ export default function SkillCard({
         <div className="flex items-center justify-between text-xs text-text-muted">
           <span>SkillHubs</span>
           <div className="flex items-center gap-2">
-            <DownloadButton skill={skill} label={downloadLabel} size="sm" />
+            <DownloadGate skill={skill} downloadLabel={downloadLabel} buyLabel={buyLabel} size="sm" />
             <LikeButton skillId={skill.id} initialCount={skill.likesCount} size="sm" />
           </div>
         </div>

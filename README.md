@@ -15,6 +15,7 @@ Think of it as **npm for AI workflows**: a curated registry of reusable, version
 - **Research-Backed** — Curated skills improve task completion by +16.2pp (SkillsBench)
 - **Bilingual** — Full English / Chinese (i18n) support
 - **OAuth & Magic Link** — Supabase Auth with Google, GitHub, email login
+- **Pro Billing** — Waffo Pancake subscriptions and per-download checkout
 
 ## Writing Guide
 
@@ -50,14 +51,20 @@ SkillHub includes a research-backed [Writing Guide](https://skillhubs.cc/guide) 
 npm install
 
 # Configure environment
-cp .env.local.example .env.local
-# Fill in your Supabase credentials:
+# Create .env.local and fill in:
 #   NEXT_PUBLIC_SUPABASE_URL=
 #   NEXT_PUBLIC_SUPABASE_ANON_KEY=
 #   SUPABASE_SERVICE_ROLE_KEY=
+#   WAFFO_MERCHANT_ID=
+#   WAFFO_PRIVATE_KEY=
+#   WAFFO_STORE_ID=
+#   WAFFO_DOWNLOAD_PRODUCT_ID=
+#   WAFFO_PRO_MONTHLY_PRODUCT_ID=
+#   WAFFO_PRO_YEARLY_PRODUCT_ID=
 
 # Run database migrations
-# Execute scripts/setup-auth-schema.sql and scripts/setup-points-schema.sql
+# Execute scripts/setup-auth-schema.sql, scripts/setup-points-schema.sql,
+# and scripts/setup-billing-schema.sql
 # in your Supabase SQL editor
 
 # Start dev server

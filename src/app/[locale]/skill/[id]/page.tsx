@@ -13,7 +13,7 @@ import { getDictionary } from "@/i18n/get-dictionary";
 import Link from "next/link";
 import SkillContent from "./SkillContent";
 import LikeButton from "@/components/LikeButton";
-import DownloadButton from "@/components/DownloadButton";
+import DownloadGate from "@/components/DownloadGate";
 import SkillActions from "@/components/SkillActions";
 
 export const dynamic = "force-dynamic";
@@ -216,7 +216,12 @@ export default async function SkillPage({ params }: Props) {
                 </span>
               )}
               <LikeButton skillId={skill.id} initialCount={skill.likesCount} size="md" />
-              <DownloadButton skill={skill} label={dict.skillCard.download} size="md" />
+              <DownloadGate
+                skill={skill}
+                downloadLabel={dict.skillCard.download}
+                buyLabel={dict.pricing.downloadButton.buy}
+                size="md"
+              />
             </div>
 
             {skill.tags.filter((t: string) => !t.startsWith("collection:")).length > 0 && (

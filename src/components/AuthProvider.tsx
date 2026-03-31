@@ -17,6 +17,12 @@ interface Profile {
   display_name: string | null;
   avatar_url: string | null;
   points: number;
+  billing_email: string | null;
+  is_pro: boolean;
+  subscription_plan: "free" | "pro_monthly" | "pro_yearly";
+  subscription_status: "inactive" | "active" | "canceling" | "canceled" | "past_due";
+  subscription_order_id: string | null;
+  subscription_current_period_ends_at: string | null;
 }
 
 interface AuthContextType {
@@ -46,7 +52,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     async (userId: string) => {
       const { data } = await supabase
         .from("profiles")
-        .select("id, username, display_name, avatar_url, points")
+        .select("id, username, display_name, avatar_url, points, billing_email, is_pro, subscription_plan, subscription_status, subscription_order_id, subscription_current_period_ends_at")
         .eq("id", userId)
         .single();
       setProfile(data);
@@ -55,6 +61,29 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   );
 
   useEffect(() => {
+    let mounted = true;
+
+    const bootstrap = async () => {
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
+
+      if (!mounted) return;
+
+      const currentUser = session?.user ?? null;
+      setUser(currentUser);
+
+      if (currentUser) {
+        await fetchProfile(currentUser.id);
+      } else {
+        setProfile(null);
+      }
+
+      setLoading(false);
+    };
+
+    void bootstrap();
+
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
@@ -71,6 +100,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     });
 
     return () => {
+      mounted = false;
       subscription.unsubscribe();
     };
   }, [supabase, fetchProfile]);

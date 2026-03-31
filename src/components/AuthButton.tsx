@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { useAuth } from "@/hooks/useAuth";
 import { getLevel } from "@/lib/points";
+import { isProProfile } from "@/lib/billing";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries/en";
 
@@ -53,6 +54,7 @@ export default function AuthButton({ locale, dict }: AuthButtonProps) {
     user.user_metadata?.full_name ||
     user.email ||
     "U";
+  const hasPro = isProProfile(profile);
   const initial = displayName.charAt(0).toUpperCase();
 
   return (
@@ -90,7 +92,17 @@ export default function AuthButton({ locale, dict }: AuthButtonProps) {
                 ⚡ {profile.points} {dict.points.toast.pts} · {dict.points.levels[getLevel(profile.points).name.en.toLowerCase() as keyof typeof dict.points.levels]}
               </p>
             )}
+            {hasPro && (
+              <p className="mt-1 text-xs font-medium text-amber-600">PRO</p>
+            )}
           </div>
+          <Link
+            href={`${prefix}/pricing`}
+            onClick={() => setOpen(false)}
+            className="block w-full px-4 py-2.5 text-left text-sm text-text-secondary transition-colors hover:bg-bg-primary hover:text-text-primary"
+          >
+            {dict.pricing.nav}
+          </Link>
           <button
             onClick={async () => {
               setOpen(false);

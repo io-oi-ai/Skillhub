@@ -99,6 +99,10 @@ export interface Profile {
   bio: string | null;
   website: string | null;
   createdAt: string;
+  billingEmail?: string | null;
+  isPro?: boolean;
+  subscriptionPlan?: "free" | "pro_monthly" | "pro_yearly";
+  subscriptionStatus?: "inactive" | "active" | "canceling" | "canceled" | "past_due";
 }
 
 export const ROLE_COLORS: Record<Role, string> = {

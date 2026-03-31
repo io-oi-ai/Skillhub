@@ -52,6 +52,12 @@ export default function Header({ locale, dict }: HeaderProps) {
             {dict.nav.guide}
           </Link>
           <Link
+            href={`${prefix}/pricing`}
+            className="rounded-full border border-border px-4 py-2 text-sm font-medium text-text-secondary transition-colors hover:bg-bg-card hover:text-text-primary"
+          >
+            {dict.pricing.nav}
+          </Link>
+          <Link
             href={`${prefix}/leaderboard`}
             className="rounded-full border border-border px-4 py-2 text-sm font-medium text-text-secondary transition-colors hover:bg-bg-card hover:text-text-primary"
           >

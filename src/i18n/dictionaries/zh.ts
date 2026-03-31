@@ -359,6 +359,10 @@ const zh: Dictionary = {
       description: "还没准备好订阅？可以单独购买你需要的 Skill。",
       unit: "/ 次下载",
     },
+    trial: {
+      toggle: "订阅结算时启用试用期",
+      note: "这个开关用于验证 Pancake 的试用期场景。当前 checkout 会同时携带 withTrial、plan 和 userId metadata。",
+    },
     faq: {
       title: "常见问题",
       items: [

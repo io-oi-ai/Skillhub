@@ -359,6 +359,10 @@ const en = {
       description: "Not ready to subscribe? Purchase individual Skills one at a time.",
       unit: "/ download",
     },
+    trial: {
+      toggle: "Enable trial for subscription checkout",
+      note: "Use this to verify Pancake trial flow. The checkout request now carries withTrial, plan, and userId metadata together.",
+    },
     faq: {
       title: "Frequently Asked Questions",
       items: [

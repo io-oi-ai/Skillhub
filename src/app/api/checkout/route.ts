@@ -10,7 +10,7 @@ import { createSupabaseAdmin } from "@/lib/supabase-admin";
 
 export async function POST(request: NextRequest) {
   const body = await request.json();
-  const { productId, productType, buyerEmail, skillId, plan, locale, successPath } = body;
+  const { productId, productType, buyerEmail, skillId, plan, locale, successPath, withTrial } = body;
 
   let resolvedProductId = productId as string | undefined;
   let resolvedProductType = productType as string | undefined;
@@ -65,16 +65,29 @@ export async function POST(request: NextRequest) {
     productType: resolvedProductType,
     currency: "USD",
     buyerEmail: resolvedBuyerEmail || undefined,
+    withTrial:
+      resolvedProductType === "subscription" ? Boolean(withTrial) : undefined,
     successUrl: `${origin}/api/checkout/success?redirect_to=${encodeURIComponent(redirectTo)}`,
     metadata: {
       ...(skillId ? { skillId } : {}),
       ...(plan ? { plan } : {}),
       ...(userId ? { userId } : {}),
+      ...(resolvedProductType === "subscription"
+        ? { withTrial: String(Boolean(withTrial)) }
+        : {}),
     },
   });
 
   return NextResponse.json({
     checkoutUrl: session.checkoutUrl,
     sessionId: session.sessionId,
+    debug: {
+      productId: resolvedProductId,
+      productType: resolvedProductType,
+      buyerEmail: resolvedBuyerEmail || null,
+      plan: plan ?? null,
+      userId: userId ?? null,
+      withTrial: resolvedProductType === "subscription" ? Boolean(withTrial) : false,
+    },
   });
 }

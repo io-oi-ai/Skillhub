@@ -1,5 +1,5 @@
 import { verifyWebhook } from "@waffo/pancake-ts";
-import { getPlanFromProductId } from "@/lib/billing";
+import { getPlanFromProductId, type BillingPlan } from "@/lib/billing";
 import { createSupabaseAdmin } from "@/lib/supabase-admin";
 
 export async function POST(request: Request) {
@@ -14,15 +14,29 @@ export async function POST(request: Request) {
     const productId =
       typeof parsedBody.data?.productId === "string" ? parsedBody.data.productId : null;
     const plan = productId ? getPlanFromProductId(productId) : null;
+    const metadata =
+      parsedBody.data?.metadata &&
+      typeof parsedBody.data.metadata === "object" &&
+      !Array.isArray(parsedBody.data.metadata)
+        ? (parsedBody.data.metadata as Record<string, unknown>)
+        : {};
+    const metadataUserId =
+      typeof metadata.userId === "string" ? metadata.userId : null;
+    const metadataPlan =
+      typeof metadata.plan === "string" ? (metadata.plan as BillingPlan) : null;
+    const metadataWithTrial =
+      metadata.withTrial === true || metadata.withTrial === "true";
     const currentPeriodEndsAt =
       typeof parsedBody.data?.currentPeriodEndsAt === "string"
         ? parsedBody.data.currentPeriodEndsAt
         : null;
-    const { data: profile } = await supabase
+    const profileQuery = supabase
       .from("profiles")
       .select("id")
-      .eq("billing_email", event.data.buyerEmail)
-      .maybeSingle();
+      .limit(1);
+    const { data: profile } = metadataUserId
+      ? await profileQuery.eq("id", metadataUserId).maybeSingle()
+      : await profileQuery.eq("billing_email", event.data.buyerEmail).maybeSingle();
 
     const normalizedStatus = (() => {
       switch (event.eventType) {
@@ -72,6 +86,9 @@ export async function POST(request: Request) {
       buyerEmail: event.data.buyerEmail,
       amount: event.data.amount,
       mode: event.mode,
+      userId: metadataUserId,
+      plan: metadataPlan ?? plan,
+      withTrial: metadataWithTrial,
     });
 
     switch (event.eventType) {
@@ -86,7 +103,7 @@ export async function POST(request: Request) {
             .from("profiles")
             .update({
               is_pro: true,
-              subscription_plan: plan ?? "pro_monthly",
+              subscription_plan: metadataPlan ?? plan ?? "pro_monthly",
               subscription_status: "active",
               subscription_order_id: event.data.orderId,
               subscription_current_period_ends_at: currentPeriodEndsAt,

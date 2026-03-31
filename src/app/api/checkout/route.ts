@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
   const { productId, productType, buyerEmail, skillId, plan, locale, successPath, withTrial } = body;
 
   let resolvedProductId = productId as string | undefined;
-  let resolvedProductType = productType as string | undefined;
+  let resolvedProductType = productType as "subscription" | "onetime" | undefined;
   let resolvedBuyerEmail = buyerEmail as string | undefined;
   let userId: string | undefined;
 

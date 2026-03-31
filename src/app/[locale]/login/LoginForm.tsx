@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { useSearchParams } from "next/navigation";
 import { createSupabaseBrowser } from "@/lib/supabase-browser";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries/en";
@@ -9,24 +8,24 @@ import type { Dictionary } from "@/i18n/dictionaries/en";
 interface LoginFormProps {
   dict: Dictionary;
   locale: Locale;
+  next?: string;
 }
 
-export default function LoginForm({ dict, locale }: LoginFormProps) {
+export default function LoginForm({ dict, locale, next }: LoginFormProps) {
   const supabase = createSupabaseBrowser();
-  const searchParams = useSearchParams();
 
   const [email, setEmail] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [emailSent, setEmailSent] = useState(false);
-  const next = searchParams.get("next") || (locale === "en" ? "/" : `/${locale}`);
+  const nextPath = next || (locale === "en" ? "/" : `/${locale}`);
 
   async function handleOAuth(provider: "github" | "google") {
     setError(null);
     const { error } = await supabase.auth.signInWithOAuth({
       provider,
       options: {
-        redirectTo: `${window.location.origin}/auth/callback?next=${encodeURIComponent(next)}`,
+        redirectTo: `${window.location.origin}/auth/callback?next=${encodeURIComponent(nextPath)}`,
       },
     });
     if (error) {
@@ -43,7 +42,7 @@ export default function LoginForm({ dict, locale }: LoginFormProps) {
       const { error } = await supabase.auth.signInWithOtp({
         email,
         options: {
-          emailRedirectTo: `${window.location.origin}/auth/callback?next=${encodeURIComponent(next)}`,
+          emailRedirectTo: `${window.location.origin}/auth/callback?next=${encodeURIComponent(nextPath)}`,
         },
       });
       if (error) {

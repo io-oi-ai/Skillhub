@@ -1,6 +1,6 @@
 import { verifyWebhook } from "@waffo/pancake-ts";
 import { getPlanFromProductId, type BillingPlan } from "@/lib/billing";
-import { createSupabaseAdmin } from "@/lib/supabase-admin";
+import { createSupabaseAdmin, type Json } from "@/lib/supabase-admin";
 
 export async function POST(request: Request) {
   // Critical: read as raw text, not JSON — per skill guidance
@@ -11,6 +11,18 @@ export async function POST(request: Request) {
     const parsedBody = JSON.parse(body) as { data?: Record<string, unknown> };
     const event = verifyWebhook(body, sig);
     const supabase = createSupabaseAdmin();
+    const orderId =
+      typeof event.data.orderId === "string" ? event.data.orderId : "";
+    const buyerEmail =
+      typeof event.data.buyerEmail === "string" ? event.data.buyerEmail : "";
+    const productName =
+      typeof event.data.productName === "string" ? event.data.productName : null;
+    const currency =
+      typeof event.data.currency === "string" ? event.data.currency : null;
+    const amount =
+      typeof event.data.amount === "number" ? event.data.amount : null;
+    const taxAmount =
+      typeof event.data.taxAmount === "number" ? event.data.taxAmount : null;
     const productId =
       typeof parsedBody.data?.productId === "string" ? parsedBody.data.productId : null;
     const plan = productId ? getPlanFromProductId(productId) : null;
@@ -20,6 +32,7 @@ export async function POST(request: Request) {
       !Array.isArray(parsedBody.data.metadata)
         ? (parsedBody.data.metadata as Record<string, unknown>)
         : {};
+    const orderMetadata = (parsedBody.data ?? {}) as Json;
     const metadataUserId =
       typeof metadata.userId === "string" ? metadata.userId : null;
     const metadataPlan =
@@ -36,7 +49,7 @@ export async function POST(request: Request) {
       .limit(1);
     const { data: profile } = metadataUserId
       ? await profileQuery.eq("id", metadataUserId).maybeSingle()
-      : await profileQuery.eq("billing_email", event.data.buyerEmail).maybeSingle();
+      : await profileQuery.eq("billing_email", buyerEmail).maybeSingle();
 
     const normalizedStatus = (() => {
       switch (event.eventType) {
@@ -61,30 +74,30 @@ export async function POST(request: Request) {
     const productType = event.eventType.startsWith("subscription.") ? "subscription" : "onetime";
 
     await supabase.from("billing_orders").upsert(
-      {
-        order_id: event.data.orderId,
+      [{
+        order_id: orderId,
         user_id: profile?.id ?? null,
-        buyer_email: event.data.buyerEmail,
+        buyer_email: buyerEmail,
         product_id: productId,
         product_type: productType,
-        product_name: event.data.productName,
-        currency: event.data.currency,
-        amount: event.data.amount,
-        tax_amount: event.data.taxAmount,
+        product_name: productName,
+        currency,
+        amount,
+        tax_amount: taxAmount,
         status: normalizedStatus,
         environment: event.mode,
         event_id: event.eventId,
-        metadata: parsedBody.data ?? {},
+        metadata: orderMetadata,
         paid_at: event.timestamp,
         updated_at: new Date().toISOString(),
-      },
+      }],
       { onConflict: "order_id" }
     );
 
     console.log(`[Pancake Webhook] ${event.eventType}`, {
       orderId: event.data.orderId,
-      buyerEmail: event.data.buyerEmail,
-      amount: event.data.amount,
+      buyerEmail,
+      amount,
       mode: event.mode,
       userId: metadataUserId,
       plan: metadataPlan ?? plan,
@@ -105,7 +118,7 @@ export async function POST(request: Request) {
               is_pro: true,
               subscription_plan: metadataPlan ?? plan ?? "pro_monthly",
               subscription_status: "active",
-              subscription_order_id: event.data.orderId,
+              subscription_order_id: orderId,
               subscription_current_period_ends_at: currentPeriodEndsAt,
               pro_since: event.timestamp,
               updated_at: new Date().toISOString(),
@@ -120,7 +133,7 @@ export async function POST(request: Request) {
             .update({
               is_pro: true,
               subscription_status: "canceling",
-              subscription_order_id: event.data.orderId,
+              subscription_order_id: orderId,
               subscription_current_period_ends_at: currentPeriodEndsAt,
               updated_at: new Date().toISOString(),
             })
@@ -135,7 +148,7 @@ export async function POST(request: Request) {
               is_pro: false,
               subscription_plan: "free",
               subscription_status: "canceled",
-              subscription_order_id: event.data.orderId,
+              subscription_order_id: orderId,
               updated_at: new Date().toISOString(),
             })
             .eq("id", profile.id);
@@ -148,7 +161,7 @@ export async function POST(request: Request) {
             .update({
               is_pro: false,
               subscription_status: "past_due",
-              subscription_order_id: event.data.orderId,
+              subscription_order_id: orderId,
               updated_at: new Date().toISOString(),
             })
             .eq("id", profile.id);

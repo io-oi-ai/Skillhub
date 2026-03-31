@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build --webpack",
     "build:cli": "tsc -p tsconfig.cli.json",
     "cli": "node dist/cli/index.js",
     "start": "next start",

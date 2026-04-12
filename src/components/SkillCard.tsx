@@ -15,7 +15,8 @@ interface SkillCardProps {
   sceneLabels: Record<string, string>;
   featuredLabel: string;
   downloadLabel: string;
-  buyLabel: string;
+  freeLabel?: string;
+  buyLabel?: string;
 }
 
 export default function SkillCard({
@@ -25,6 +26,7 @@ export default function SkillCard({
   sceneLabels,
   featuredLabel,
   downloadLabel,
+  freeLabel,
   buyLabel,
 }: SkillCardProps) {
   const prefix = locale === "en" ? "" : `/${locale}`;
@@ -40,11 +42,22 @@ export default function SkillCard({
           <h3 className="font-serif text-lg font-semibold text-text-primary group-hover:text-accent">
             {localized.name}
           </h3>
-          {skill.featured && (
-            <span className="shrink-0 rounded-md bg-amber-50 px-2 py-0.5 text-xs text-amber-700 border border-amber-200">
-              {featuredLabel}
-            </span>
-          )}
+          <div className="flex shrink-0 items-center gap-1.5">
+            {skill.priceType === "paid" && skill.price > 0 ? (
+              <span className="rounded-md bg-accent/10 px-2 py-0.5 text-xs font-medium text-accent border border-accent/20">
+                ${(skill.price / 100).toFixed(2)}
+              </span>
+            ) : freeLabel ? (
+              <span className="rounded-md bg-green-50 px-2 py-0.5 text-xs text-green-700 border border-green-200">
+                {freeLabel}
+              </span>
+            ) : null}
+            {skill.featured && (
+              <span className="rounded-md bg-amber-50 px-2 py-0.5 text-xs text-amber-700 border border-amber-200">
+                {featuredLabel}
+              </span>
+            )}
+          </div>
         </div>
 
         <p className="mb-4 line-clamp-2 text-sm leading-relaxed text-text-secondary">
@@ -73,7 +86,7 @@ export default function SkillCard({
         <div className="flex items-center justify-between text-xs text-text-muted">
           <span>SkillHubs</span>
           <div className="flex items-center gap-2">
-            <DownloadGate skill={skill} downloadLabel={downloadLabel} buyLabel={buyLabel} size="sm" />
+            <DownloadGate skill={skill} downloadLabel={downloadLabel} buyLabel={buyLabel ?? "Buy"} size="sm" />
             <LikeButton skillId={skill.id} initialCount={skill.likesCount} size="sm" />
           </div>
         </div>

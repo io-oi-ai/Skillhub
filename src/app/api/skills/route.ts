@@ -5,6 +5,7 @@ import { createSupabaseServer } from "@/lib/supabase-server";
 import { requireAuth } from "@/lib/auth";
 import { awardPoints } from "@/lib/points";
 import { validateSkillInput } from "@/lib/validation";
+import { provisionSkillProduct } from "@/lib/provision-skill-product";
 import type { Role, Scene } from "@/lib/types";
 
 export async function GET(request: NextRequest) {
@@ -79,6 +80,13 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Pricing fields
+    const priceType = body.priceType === "paid" ? "paid" : "free";
+    const price =
+      priceType === "paid"
+        ? Math.max(0, Math.min(2000, Math.round(Number(body.price) || 0)))
+        : 0;
+
     const row = {
       id,
       name,
@@ -94,6 +102,8 @@ export async function POST(request: NextRequest) {
       content: content || `# ${name}\n\n${description}`,
       likes_count: 0,
       user_id: user!.id,
+      price_type: priceType,
+      price,
     };
 
     const { data, error } = await authSupabase
@@ -107,6 +117,18 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         { error: "Failed to create skill" },
         { status: 500 }
+      );
+    }
+
+    // Provision payment products for paid skills (non-blocking)
+    if (priceType === "paid" && price > 0) {
+      provisionSkillProduct({
+        id: data.id,
+        name,
+        description,
+        price,
+      }).catch((e) =>
+        console.error("Failed to provision skill product:", e)
       );
     }
 

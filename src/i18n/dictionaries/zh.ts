@@ -54,6 +54,7 @@ const zh: Dictionary = {
     skills: "Skills",
     submit: "提交",
     guide: "指南",
+    pricing: "定价",
   },
   footer: {
     tagline: "为 AI 时代而生。",
@@ -75,6 +76,9 @@ const zh: Dictionary = {
   skillCard: {
     featured: "推荐",
     download: "下载 .md",
+    free: "免费",
+    purchased: "已购买",
+    buy: "购买",
   },
   like: {
     button: "点赞",
@@ -91,6 +95,11 @@ const zh: Dictionary = {
     updatedAt: "更新于",
     source: "来源:",
     noContent: "暂无详细说明",
+    buy: "购买此 Skill",
+    purchased: "已购买",
+    loginToBuy: "登录后购买",
+    useSubscription: "使用订阅下载额度",
+    remainingDownloads: "本月剩余下载次数",
   },
   submitPage: {
     title: "提交 Skill",
@@ -374,6 +383,47 @@ const zh: Dictionary = {
     },
     downloadButton: { buy: "购买" },
     nav: "定价",
+    titleHighlight: "定价",
+    billingToggle: {
+      monthly: "月付",
+      yearly: "年付",
+      savePercent: "省 45%",
+    },
+    freePlan: {
+      name: "免费版",
+      description: "浏览和下载免费 Skill",
+      price: "$0",
+      period: "永久免费",
+      features: ["浏览所有 Skill", "无限下载免费 Skill", "创建最多 3 个 Skill", "社区支持"],
+      cta: "开始使用",
+    },
+    proPlan: {
+      name: "Pro",
+      badge: "最受欢迎",
+      description: "适合需要高级 Skill 的深度用户",
+      price: "$9",
+      period: "/月",
+      yearlyPrice: "$59",
+      yearlyPeriod: "/年",
+      yearlySave: "年付省 45%",
+      monthlyNote: "随时取消",
+      features: ["包含免费版所有功能", "每月 10 次高级 Skill 下载", "年付每月 15 次下载", "无限创建 Skill", "个人主页 Pro 徽章", "优先支持"],
+      cta: "升级到 Pro",
+    },
+    singlePurchase: {
+      title: "或单独购买",
+      description: "不需要订阅？你也可以单独购买感兴趣的高级 Skill。",
+      cta: "浏览高级 Skill",
+    },
+    guarantee: {
+      title: "退款保证",
+      description: "不满意？14 天内无条件全额退款。",
+    },
+    trust: {
+      ssl: "SSL 加密",
+      secure: "安全支付",
+      refund: "14 天退款",
+    },
   },
   points: {
     label: "积分",
@@ -412,6 +462,22 @@ const zh: Dictionary = {
       prSubmit: "提交 PR",
       prMerged: "PR 被合并（双方各得）",
     },
+  },
+  paymentSuccess: {
+    title: "支付成功！",
+    subscriptionDescription:
+      "你的 Pro 订阅已激活。每月享受高级 Skill 下载额度。",
+    purchaseDescription: "你已拥有此 Skill，可随时从你的收藏中下载。",
+    cta: "返回首页",
+    browsePremium: "浏览高级 Skill",
+  },
+  submitFormPricing: {
+    priceTypeLabel: "定价方式",
+    priceTypeFree: "免费",
+    priceTypePaid: "付费",
+    priceLabel: "价格 (USD)",
+    pricePlaceholder: "例如：5.00",
+    priceHelp: "设置 $1 到 $20 之间的价格。平台暂不收取佣金。",
   },
 };
 

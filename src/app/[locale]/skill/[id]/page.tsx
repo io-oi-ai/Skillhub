@@ -122,7 +122,7 @@ export default async function SkillPage({ params }: Props) {
     dateModified: skill.updatedAt,
     offers: {
       "@type": "Offer",
-      price: "0",
+      price: skill.priceType === "paid" ? (skill.price / 100).toFixed(2) : "0",
       priceCurrency: "USD",
       availability: "https://schema.org/InStock",
     },
@@ -137,7 +137,7 @@ export default async function SkillPage({ params }: Props) {
       url: baseUrl,
     },
     keywords: [...skill.roles, ...skill.scenes, ...skill.tags.filter((t: string) => !t.startsWith("collection:"))],
-    isAccessibleForFree: true,
+    isAccessibleForFree: skill.priceType === "free",
   };
 
   const breadcrumbSchema = {
@@ -160,6 +160,11 @@ export default async function SkillPage({ params }: Props) {
           {/* Header */}
           <div className="mb-8">
             <div className="mb-4 flex flex-wrap items-center gap-2">
+              {skill.priceType === "paid" && skill.price > 0 && (
+                <span className="rounded-md border border-accent/20 bg-accent/10 px-2 py-0.5 text-xs font-medium text-accent">
+                  ${(skill.price / 100).toFixed(2)}
+                </span>
+              )}
               {skill.featured && (
                 <span className="rounded-md border border-amber-200 bg-amber-50 px-2 py-0.5 text-xs text-amber-700">
                   {dict.skillDetail.featured}

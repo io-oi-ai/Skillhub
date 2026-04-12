@@ -41,6 +41,10 @@ export interface Skill {
   likesCount: number;
   downloadCount: number;
   userId?: string | null;
+  priceType: "free" | "paid";
+  price: number; // cents (USD)
+  waffoProductId?: string | null;
+  creemProductId?: string | null;
 }
 
 export interface SkillVersion {
@@ -98,6 +102,36 @@ export interface Profile {
   points: number;
   bio: string | null;
   website: string | null;
+  plan: "free" | "pro";
+  subscriptionDownloadsRemaining: number;
+  createdAt: string;
+}
+
+export type PaymentProvider = "creem" | "waffo";
+export type PlanType = "monthly" | "yearly";
+
+export interface Subscription {
+  id: number;
+  userId: string;
+  provider: PaymentProvider;
+  externalSubscriptionId: string;
+  externalCustomerId: string | null;
+  productId: string | null;
+  status: "active" | "canceled" | "expired" | "past_due";
+  currentPeriodEnd: string | null;
+  cancelAtPeriodEnd: boolean;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface SkillPurchase {
+  id: number;
+  userId: string;
+  skillId: string;
+  provider: string;
+  externalOrderId: string | null;
+  price: number;
+  source: "purchase" | "subscription";
   createdAt: string;
   billingEmail?: string | null;
   isPro?: boolean;

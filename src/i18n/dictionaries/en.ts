@@ -52,6 +52,7 @@ const en = {
     skills: "Skills",
     submit: "Submit",
     guide: "Guide",
+    pricing: "Pricing",
   },
   footer: {
     tagline: "Built for the AI era.",
@@ -73,6 +74,9 @@ const en = {
   skillCard: {
     featured: "Featured",
     download: "Download .md",
+    free: "Free",
+    purchased: "Purchased",
+    buy: "Buy",
   },
   like: {
     button: "Like",
@@ -89,6 +93,11 @@ const en = {
     updatedAt: "Updated",
     source: "Source:",
     noContent: "No detailed description available",
+    buy: "Buy This Skill",
+    purchased: "Purchased",
+    loginToBuy: "Sign in to purchase",
+    useSubscription: "Use Subscription Download",
+    remainingDownloads: "downloads remaining this month",
   },
   submitPage: {
     title: "Submit Skill",
@@ -374,6 +383,61 @@ const en = {
     },
     downloadButton: { buy: "Buy" },
     nav: "Pricing",
+    titleHighlight: "Pricing",
+    billingToggle: {
+      monthly: "Monthly",
+      yearly: "Yearly",
+      savePercent: "Save 45%",
+    },
+    freePlan: {
+      name: "Free",
+      description: "Browse and download free skills",
+      price: "$0",
+      period: "forever",
+      features: [
+        "Browse all skills",
+        "Download unlimited free skills",
+        "Create up to 3 skills",
+        "Community support",
+      ],
+      cta: "Get Started",
+    },
+    proPlan: {
+      name: "Pro",
+      badge: "Most Popular",
+      description: "For power users who want premium skills",
+      price: "$9",
+      period: "/month",
+      yearlyPrice: "$59",
+      yearlyPeriod: "/year",
+      yearlySave: "Save 45% with annual billing",
+      monthlyNote: "Cancel anytime",
+      features: [
+        "Everything in Free",
+        "10 premium skill downloads/month",
+        "15 downloads/month on yearly plan",
+        "Unlimited skill creation",
+        "Pro badge on profile",
+        "Priority support",
+      ],
+      cta: "Upgrade to Pro",
+    },
+    singlePurchase: {
+      title: "Or Buy Individually",
+      description:
+        "Don't need a subscription? Purchase premium skills one at a time.",
+      cta: "Browse Premium Skills",
+    },
+    guarantee: {
+      title: "Money-Back Guarantee",
+      description:
+        "Not happy? Get a full refund within 14 days, no questions asked.",
+    },
+    trust: {
+      ssl: "SSL Encrypted",
+      secure: "Secure Payments",
+      refund: "14-Day Refund",
+    },
   },
   points: {
     label: "Points",
@@ -412,6 +476,23 @@ const en = {
       prSubmit: "Submit a PR",
       prMerged: "PR merged (both parties)",
     },
+  },
+  paymentSuccess: {
+    title: "Payment Successful!",
+    subscriptionDescription:
+      "Your Pro subscription is now active. Enjoy premium skill downloads every month.",
+    purchaseDescription:
+      "You now own this skill. Download it anytime from your library.",
+    cta: "Back to Home",
+    browsePremium: "Browse Premium Skills",
+  },
+  submitFormPricing: {
+    priceTypeLabel: "Pricing",
+    priceTypeFree: "Free",
+    priceTypePaid: "Paid",
+    priceLabel: "Price (USD)",
+    pricePlaceholder: "e.g., 5.00",
+    priceHelp: "Set a price between $1 and $20. Platform takes 0% for now.",
   },
 };
 

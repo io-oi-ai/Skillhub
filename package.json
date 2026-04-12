@@ -20,7 +20,7 @@
   "dependencies": {
     "@supabase/ssr": "^0.9.0",
     "@supabase/supabase-js": "^2.98.0",
-    "@waffo/pancake-ts": "^0.1.3",
+    "@waffo/pancake-ts": "^0.3.3",
     "cli-table3": "^0.6.3",
     "commander": "^13.0.0",
     "gray-matter": "^4.0.3",

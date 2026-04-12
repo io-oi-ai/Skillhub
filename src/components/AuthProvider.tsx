@@ -17,6 +17,8 @@ interface Profile {
   display_name: string | null;
   avatar_url: string | null;
   points: number;
+  plan: string;
+  subscription_downloads_remaining: number;
   billing_email: string | null;
   is_pro: boolean;
   subscription_plan: "free" | "pro_monthly" | "pro_yearly";
@@ -52,7 +54,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     async (userId: string) => {
       const { data } = await supabase
         .from("profiles")
-        .select("id, username, display_name, avatar_url, points, billing_email, is_pro, subscription_plan, subscription_status, subscription_order_id, subscription_current_period_ends_at")
+        .select("id, username, display_name, avatar_url, points, plan, subscription_downloads_remaining, billing_email, is_pro, subscription_plan, subscription_status, subscription_order_id, subscription_current_period_ends_at")
         .eq("id", userId)
         .single();
       setProfile(data);

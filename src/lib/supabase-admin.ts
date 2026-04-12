@@ -17,6 +17,9 @@ type Database = {
           id: string;
           billing_email: string | null;
           is_pro: boolean;
+          plan: string;
+          subscription_downloads_remaining: number;
+          subscription_downloads_reset_at: string | null;
           subscription_plan: BillingPlan;
           subscription_status: BillingStatus;
           subscription_order_id: string | null;
@@ -28,6 +31,9 @@ type Database = {
           id: string;
           billing_email?: string | null;
           is_pro?: boolean;
+          plan?: string;
+          subscription_downloads_remaining?: number;
+          subscription_downloads_reset_at?: string | null;
           subscription_plan?: BillingPlan;
           subscription_status?: BillingStatus;
           subscription_order_id?: string | null;
@@ -38,12 +44,88 @@ type Database = {
         Update: {
           billing_email?: string | null;
           is_pro?: boolean;
+          plan?: string;
+          subscription_downloads_remaining?: number;
+          subscription_downloads_reset_at?: string | null;
           subscription_plan?: BillingPlan;
           subscription_status?: BillingStatus;
           subscription_order_id?: string | null;
           subscription_current_period_ends_at?: string | null;
           pro_since?: string | null;
           updated_at?: string;
+        };
+        Relationships: [];
+      };
+      skills: {
+        Row: Record<string, unknown>;
+        Insert: Record<string, unknown>;
+        Update: Record<string, unknown>;
+        Relationships: [];
+      };
+      subscriptions: {
+        Row: {
+          id: number;
+          user_id: string;
+          provider: string;
+          external_subscription_id: string;
+          external_customer_id: string | null;
+          product_id: string | null;
+          status: string;
+          current_period_end: string | null;
+          cancel_at_period_end: boolean;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          user_id: string;
+          provider: string;
+          external_subscription_id: string;
+          external_customer_id?: string | null;
+          product_id?: string | null;
+          status?: string;
+          current_period_end?: string | null;
+          cancel_at_period_end?: boolean;
+          updated_at?: string;
+        };
+        Update: {
+          user_id?: string;
+          provider?: string;
+          external_subscription_id?: string;
+          external_customer_id?: string | null;
+          product_id?: string | null;
+          status?: string;
+          current_period_end?: string | null;
+          cancel_at_period_end?: boolean;
+          updated_at?: string;
+        };
+        Relationships: [];
+      };
+      skill_purchases: {
+        Row: {
+          id: number;
+          user_id: string;
+          skill_id: string;
+          provider: string;
+          external_order_id: string | null;
+          price: number;
+          source: string;
+          created_at: string;
+        };
+        Insert: {
+          user_id: string;
+          skill_id: string;
+          provider: string;
+          external_order_id?: string | null;
+          price?: number;
+          source?: string;
+        };
+        Update: {
+          user_id?: string;
+          skill_id?: string;
+          provider?: string;
+          external_order_id?: string | null;
+          price?: number;
+          source?: string;
         };
         Relationships: [];
       };

@@ -17,6 +17,10 @@ interface SkillRow {
   likes_count: number;
   download_count: number;
   user_id: string | null;
+  price_type: string;
+  price: number;
+  waffo_product_id: string | null;
+  creem_product_id: string | null;
 }
 
 export type SkillSort = "latest" | "popular" | "most_downloaded";
@@ -47,6 +51,10 @@ function rowToSkill(row: SkillRow): Skill {
     likesCount: row.likes_count,
     downloadCount: row.download_count ?? 0,
     userId: row.user_id,
+    priceType: (row.price_type || "free") as Skill["priceType"],
+    price: row.price ?? 0,
+    waffoProductId: row.waffo_product_id,
+    creemProductId: row.creem_product_id,
   };
 }
 

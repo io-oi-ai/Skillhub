@@ -66,6 +66,11 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
+  // Webhook endpoints: skip rate limiting and session refresh (they have their own auth)
+  if (pathname.startsWith("/api/webhook/")) {
+    return addSecurityHeaders(NextResponse.next());
+  }
+
   // For API routes: rate limiting + session refresh + security headers
   if (pathname.startsWith("/api/") || pathname.startsWith("/auth/")) {
     const ip = getClientIP(request);

@@ -22,6 +22,8 @@ export default function SubmitForm({ dict, locale }: SubmitFormProps) {
   const [author, setAuthor] = useState("");
   const [tags, setTags] = useState("");
   const [content, setContent] = useState("");
+  const [priceType, setPriceType] = useState<"free" | "paid">("free");
+  const [price, setPrice] = useState("");
   const [generated, setGenerated] = useState("");
   const [publishing, setPublishing] = useState(false);
   const [publishMsg, setPublishMsg] = useState("");
@@ -106,6 +108,11 @@ ${content || `# ${name}\n\n${description}`}
           scenes,
           tags: tagList,
           content: content || `# ${name}\n\n${description}`,
+          priceType,
+          price:
+            priceType === "paid"
+              ? Math.round(parseFloat(price || "0") * 100)
+              : 0,
         }),
       });
 
@@ -231,6 +238,57 @@ ${content || `# ${name}\n\n${description}`}
           placeholder={t.tagsPlaceholder}
           className="w-full rounded-lg border border-border bg-bg-card px-4 py-2.5 text-text-primary placeholder-text-muted focus:border-accent focus:outline-none"
         />
+      </div>
+
+      {/* Pricing */}
+      <div>
+        <label className="mb-2 block text-sm font-medium text-text-primary">
+          {dict.submitFormPricing.priceTypeLabel}
+        </label>
+        <div className="flex gap-3">
+          <button
+            type="button"
+            onClick={() => setPriceType("free")}
+            className={`rounded-lg border px-4 py-2 text-sm transition-colors ${
+              priceType === "free"
+                ? "border-accent bg-accent/20 text-accent-hover"
+                : "border-border text-text-secondary hover:border-accent/50"
+            }`}
+          >
+            {dict.submitFormPricing.priceTypeFree}
+          </button>
+          <button
+            type="button"
+            onClick={() => setPriceType("paid")}
+            className={`rounded-lg border px-4 py-2 text-sm transition-colors ${
+              priceType === "paid"
+                ? "border-accent bg-accent/20 text-accent-hover"
+                : "border-border text-text-secondary hover:border-accent/50"
+            }`}
+          >
+            {dict.submitFormPricing.priceTypePaid}
+          </button>
+        </div>
+        {priceType === "paid" && (
+          <div className="mt-3">
+            <label className="mb-1 block text-sm font-medium text-text-primary">
+              {dict.submitFormPricing.priceLabel}
+            </label>
+            <input
+              type="number"
+              min="1"
+              max="20"
+              step="0.01"
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
+              placeholder={dict.submitFormPricing.pricePlaceholder}
+              className="w-40 rounded-lg border border-border bg-bg-card px-4 py-2.5 text-text-primary placeholder-text-muted focus:border-accent focus:outline-none"
+            />
+            <p className="mt-1 text-xs text-text-muted">
+              {dict.submitFormPricing.priceHelp}
+            </p>
+          </div>
+        )}
       </div>
 
       {/* Content */}

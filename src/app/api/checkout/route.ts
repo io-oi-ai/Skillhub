@@ -59,12 +59,9 @@ export async function POST(request: NextRequest) {
       ? successPath
       : `${localePrefix}${skillId ? `/skill/${skillId}?paid=1` : "/pricing?checkout=success"}`;
 
-  const session = await client.checkout.createSession({
-    storeId: process.env.WAFFO_STORE_ID,
+  const session = await client.checkout.anonymous.create({
     productId: resolvedProductId,
-    productType: resolvedProductType,
     currency: "USD",
-    buyerEmail: resolvedBuyerEmail || undefined,
     withTrial:
       resolvedProductType === "subscription" ? Boolean(withTrial) : undefined,
     successUrl: `${origin}/api/checkout/success?redirect_to=${encodeURIComponent(redirectTo)}`,

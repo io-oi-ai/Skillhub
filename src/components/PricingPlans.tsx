@@ -17,7 +17,7 @@ export default function PricingPlans({ locale, dict }: PricingPlansProps) {
   const router = useRouter();
   const { user, profile, loading } = useAuth();
   const [pendingPlan, setPendingPlan] = useState<string | null>(null);
-  const [withTrial, setWithTrial] = useState(true);
+  const withTrial = false;
   const prefix = locale === "en" ? "" : `/${locale}`;
   const p = dict.pricing;
   const currentPlan = profile?.subscription_plan ?? "free";
@@ -58,22 +58,6 @@ export default function PricingPlans({ locale, dict }: PricingPlansProps) {
 
   return (
     <>
-      <div className="mt-8 flex items-center justify-center">
-        <label className="inline-flex items-center gap-3 rounded-full border border-border bg-bg-card px-4 py-2 text-sm text-text-secondary">
-          <input
-            type="checkbox"
-            checked={withTrial}
-            onChange={(event) => setWithTrial(event.target.checked)}
-            className="h-4 w-4 accent-accent"
-          />
-          <span>{p.trial.toggle}</span>
-        </label>
-      </div>
-
-      {withTrial && (
-        <p className="mt-3 text-center text-sm text-text-muted">{p.trial.note}</p>
-      )}
-
       <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
         <PricingCard
           name={p.free.name}

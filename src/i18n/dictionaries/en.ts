@@ -367,6 +367,7 @@ const en = {
       title: "Pay Per Download",
       description: "Not ready to subscribe? Purchase individual Skills one at a time.",
       unit: "/ download",
+      cta: "Buy a Download",
     },
     trial: {
       toggle: "Enable trial for subscription checkout",

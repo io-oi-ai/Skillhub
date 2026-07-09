@@ -56,6 +56,33 @@ export default function PricingPlans({ locale, dict }: PricingPlansProps) {
     }
   }
 
+  async function handleSingleSkillCheckout() {
+    try {
+      setPendingPlan("single_skill");
+      const response = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          plan: "single_skill",
+          locale,
+          successPath: `${prefix}/pricing?plan=single_skill&checkout=success`,
+        }),
+      });
+
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to create checkout session");
+      }
+
+      if (data.checkoutUrl) {
+        window.location.href = data.checkoutUrl;
+      }
+    } catch (error) {
+      console.error(error);
+      setPendingPlan(null);
+    }
+  }
+
   return (
     <>
       <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
@@ -101,6 +128,13 @@ export default function PricingPlans({ locale, dict }: PricingPlansProps) {
           {BILLING_PRICES.single_skill}{" "}
           <span className="text-sm font-normal text-text-muted">{p.perDownload.unit}</span>
         </p>
+        <button
+          onClick={() => void handleSingleSkillCheckout()}
+          disabled={pendingPlan !== null}
+          className="mt-4 inline-block rounded-lg border border-accent px-6 py-2 text-sm font-medium text-accent transition-colors hover:bg-accent/5 disabled:opacity-50"
+        >
+          {pendingPlan === "single_skill" ? "..." : p.perDownload.cta}
+        </button>
       </div>
     </>
   );

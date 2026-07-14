@@ -15,13 +15,27 @@ export default function Footer({ locale, dict }: FooterProps) {
         <p className="text-sm text-text-muted">
           &copy; {new Date().getFullYear()} SkillHubs
         </p>
-        <div className="flex items-center gap-4 text-sm text-text-muted">
+        <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-text-muted">
+          <Link href={`${prefix}/pricing`} className="transition-colors hover:text-text-secondary">
+            {dict.footer.pricing}
+          </Link>
           <Link href={`${prefix}/privacy`} className="transition-colors hover:text-text-secondary">
             {dict.footer.privacy}
           </Link>
           <Link href={`${prefix}/terms`} className="transition-colors hover:text-text-secondary">
             {dict.footer.terms}
           </Link>
+          <a href="mailto:support@skillhubs.cc" className="transition-colors hover:text-text-secondary">
+            {dict.footer.contact}
+          </a>
+          <a
+            href="https://github.com/io-oi-ai/Skillhub"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-colors hover:text-text-secondary"
+          >
+            {dict.footer.github}
+          </a>
           <span>{dict.footer.tagline}</span>
         </div>
       </div>

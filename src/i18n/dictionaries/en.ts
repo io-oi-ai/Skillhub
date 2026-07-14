@@ -58,6 +58,9 @@ const en = {
     tagline: "Built for the AI era.",
     privacy: "Privacy",
     terms: "Terms",
+    pricing: "Pricing",
+    contact: "Contact",
+    github: "GitHub",
   },
   search: {
     placeholder: "Search skills by name, description, or tags...",

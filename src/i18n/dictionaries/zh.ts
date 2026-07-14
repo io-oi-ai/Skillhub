@@ -60,6 +60,9 @@ const zh: Dictionary = {
     tagline: "为 AI 时代而生。",
     privacy: "隐私政策",
     terms: "服务条款",
+    pricing: "定价",
+    contact: "联系我们",
+    github: "GitHub",
   },
   search: {
     placeholder: "按名称、描述或标签搜索 Skill...",

@@ -24,6 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       languages: {
         en: `${baseUrl}/guide`,
         "zh-CN": `${baseUrl}/zh/guide`,
+        ja: `${baseUrl}/ja/guide`,
       },
     },
   };
@@ -46,7 +47,7 @@ export default async function GuidePage({ params }: Props) {
     author: { "@type": "Organization", name: "SkillHubs", url: baseUrl },
     publisher: { "@type": "Organization", name: "SkillHubs", url: baseUrl, logo: { "@type": "ImageObject", url: `${baseUrl}/og-image.png` } },
     mainEntityOfPage: `${baseUrl}/guide`,
-    inLanguage: locale === "zh" ? "zh-CN" : "en",
+    inLanguage: locale === "zh" ? "zh-CN" : locale === "ja" ? "ja" : "en",
   };
 
   const breadcrumbSchema = {

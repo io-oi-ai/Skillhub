@@ -141,6 +141,10 @@ export async function middleware(request: NextRequest) {
     acceptLanguage.includes("zh") &&
     !acceptLanguage.match(/en[^;]*;q=\d\.\d.*zh/) &&
     acceptLanguage.indexOf("zh") < acceptLanguage.indexOf("en");
+  const prefersJapanese =
+    acceptLanguage.includes("ja") &&
+    !acceptLanguage.match(/en[^;]*;q=\d\.\d.*ja/) &&
+    acceptLanguage.indexOf("ja") < acceptLanguage.indexOf("en");
 
   // Check if user has a locale cookie preference
   const cookieLocale = request.cookies.get("NEXT_LOCALE")?.value;
@@ -150,6 +154,8 @@ export async function middleware(request: NextRequest) {
     locale = cookieLocale;
   } else if (prefersChinese) {
     locale = "zh";
+  } else if (prefersJapanese) {
+    locale = "ja";
   }
 
   if (locale !== i18n.defaultLocale) {

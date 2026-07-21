@@ -116,7 +116,7 @@ export default async function UserProfilePage({ params }: Props) {
                   <span>
                     {dict.userProfile.joinedOn}{" "}
                     {new Date(profile.created_at).toLocaleDateString(
-                      locale === "zh" ? "zh-CN" : "en-US",
+                      locale === "zh" ? "zh-CN" : locale === "ja" ? "ja-JP" : "en-US",
                       { year: "numeric", month: "short" }
                     )}
                   </span>

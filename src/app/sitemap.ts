@@ -15,6 +15,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         languages: {
           en: `${baseUrl}/skill/${skill.id}`,
           "zh-CN": `${baseUrl}/zh/skill/${skill.id}`,
+          ja: `${baseUrl}/ja/skill/${skill.id}`,
         },
       },
     },
@@ -30,6 +31,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         languages: {
           en: baseUrl,
           "zh-CN": `${baseUrl}/zh`,
+          ja: `${baseUrl}/ja`,
         },
       },
     },
@@ -42,6 +44,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         languages: {
           en: `${baseUrl}/guide`,
           "zh-CN": `${baseUrl}/zh/guide`,
+          ja: `${baseUrl}/ja/guide`,
         },
       },
     },
@@ -54,6 +57,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         languages: {
           en: `${baseUrl}/submit`,
           "zh-CN": `${baseUrl}/zh/submit`,
+          ja: `${baseUrl}/ja/submit`,
         },
       },
     },
@@ -66,6 +70,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         languages: {
           en: `${baseUrl}/leaderboard`,
           "zh-CN": `${baseUrl}/zh/leaderboard`,
+          ja: `${baseUrl}/ja/leaderboard`,
         },
       },
     },

@@ -54,6 +54,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const baseUrl = "https://skillhubs.cc";
   const enPath = `/skill/${id}`;
   const zhPath = `/zh/skill/${id}`;
+  const jaPath = `/ja/skill/${id}`;
 
   return {
     title: localizedTitle,
@@ -67,6 +68,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       languages: {
         en: `${baseUrl}${enPath}`,
         "zh-CN": `${baseUrl}${zhPath}`,
+        ja: `${baseUrl}${jaPath}`,
       },
     },
   };

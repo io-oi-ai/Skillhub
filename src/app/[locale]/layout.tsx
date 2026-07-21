@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: dict.metadata.home.ogTitle,
       description: dict.metadata.home.ogDescription,
       type: "website",
-      locale: locale === "zh" ? "zh_CN" : "en_US",
+      locale: locale === "zh" ? "zh_CN" : locale === "ja" ? "ja_JP" : "en_US",
       siteName: "SkillHubs",
       images: [
         {
@@ -51,6 +51,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       languages: {
         en: baseUrl,
         "zh-CN": `${baseUrl}/zh`,
+        ja: `${baseUrl}/ja`,
       },
     },
   };
@@ -61,7 +62,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   if (!isValidLocale(locale)) notFound();
 
   return (
-    <html lang={locale === "zh" ? "zh-CN" : "en"}>
+    <html lang={locale === "zh" ? "zh-CN" : locale === "ja" ? "ja" : "en"}>
       <body className="min-h-screen antialiased">
         <JsonLd data={{
           "@context": "https://schema.org",

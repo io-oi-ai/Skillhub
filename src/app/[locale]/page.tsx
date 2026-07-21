@@ -41,7 +41,7 @@ export default async function Home({ params }: Props) {
     name: "SkillHubs",
     url: "https://skillhubs.cc",
     description: dict.metadata.home.description,
-    inLanguage: ["en", "zh-CN"],
+    inLanguage: ["en", "zh-CN", "ja"],
     potentialAction: {
       "@type": "SearchAction",
       target: "https://skillhubs.cc/?q={search_term_string}",

@@ -29,6 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       languages: {
         en: `${baseUrl}/submit`,
         "zh-CN": `${baseUrl}/zh/submit`,
+        ja: `${baseUrl}/ja/submit`,
       },
     },
   };

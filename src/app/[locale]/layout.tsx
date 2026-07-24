@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { i18n, isValidLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
+import Script from "next/script";
 import { AuthProvider } from "@/components/AuthProvider";
+import { PostHogProvider } from "@/components/PostHogProvider";
 import { JsonLd } from "@/components/JsonLd";
 
 interface Props {
@@ -60,9 +62,33 @@ export default async function LocaleLayout({ children, params }: Props) {
   const { locale } = await params;
   if (!isValidLocale(locale)) notFound();
 
+  const gaId = process.env.NEXT_PUBLIC_GA_ID; // GA4 Measurement ID (G-XXXX)
+  const gscToken = process.env.NEXT_PUBLIC_GSC_VERIFICATION; // Search Console 验证 token
+
   return (
     <html lang={locale === "zh" ? "zh-CN" : "en"}>
+      <head>
+        {/* Google Search Console 域名/前缀验证(meta 标签法),token 在 GSC 后台获取 */}
+        {gscToken ? (
+          <meta name="google-site-verification" content={gscToken} />
+        ) : null}
+      </head>
       <body className="min-h-screen antialiased">
+        {/* GA4 (gtag.js) —— 有 Measurement ID 才加载 */}
+        {gaId ? (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga4-init" strategy="afterInteractive">
+              {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${gaId}');`}
+            </Script>
+          </>
+        ) : null}
         <JsonLd data={{
           "@context": "https://schema.org",
           "@type": "Organization",
@@ -76,9 +102,11 @@ export default async function LocaleLayout({ children, params }: Props) {
             "https://linkedin.com/company/helloskillhubs",
           ],
         }} />
-        <AuthProvider>
-          <div className="flex min-h-screen flex-col">{children}</div>
-        </AuthProvider>
+        <PostHogProvider>
+          <AuthProvider>
+            <div className="flex min-h-screen flex-col">{children}</div>
+          </AuthProvider>
+        </PostHogProvider>
       </body>
     </html>
   );

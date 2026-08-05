@@ -48,7 +48,7 @@ export default function PricingPlans({ locale, dict }: PricingPlansProps) {
       }
 
       if (data.checkoutUrl) {
-        window.location.href = data.checkoutUrl;
+        window.location.assign(data.checkoutUrl);
       }
     } catch (error) {
       console.error(error);
@@ -75,7 +75,7 @@ export default function PricingPlans({ locale, dict }: PricingPlansProps) {
       }
 
       if (data.checkoutUrl) {
-        window.location.href = data.checkoutUrl;
+        window.location.assign(data.checkoutUrl);
       }
     } catch (error) {
       console.error(error);

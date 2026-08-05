@@ -34,7 +34,7 @@ export default function DownloadGate({ skill, downloadLabel, buyLabel, size = "s
       });
       const { checkoutUrl } = await res.json();
       if (checkoutUrl) {
-        window.location.href = checkoutUrl;
+        window.location.assign(checkoutUrl);
       }
       return;
     }

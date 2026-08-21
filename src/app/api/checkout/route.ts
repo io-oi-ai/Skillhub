@@ -59,9 +59,10 @@ export async function POST(request: NextRequest) {
       ? successPath
       : `${localePrefix}${skillId ? `/skill/${skillId}?paid=1` : "/pricing?checkout=success"}`;
 
-  const session = await client.checkout.anonymous.create({
+  const session = await client.checkout.createSession({
     productId: resolvedProductId,
     currency: "USD",
+    buyerEmail: resolvedBuyerEmail,
     withTrial:
       resolvedProductType === "subscription" ? Boolean(withTrial) : undefined,
     successUrl: `${origin}/api/checkout/success?redirect_to=${encodeURIComponent(redirectTo)}`,

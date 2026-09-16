@@ -14,10 +14,11 @@ export async function POST(request: NextRequest) {
   }
 
   const body = await request.json();
-  const { newPlan, locale, successPath } = body as {
+  const { newPlan, locale, successPath, testMode } = body as {
     newPlan?: string;
     locale?: string;
     successPath?: string;
+    testMode?: boolean;
   };
 
   if (!newPlan || (newPlan !== "pro_monthly" && newPlan !== "pro_yearly")) {
@@ -48,6 +49,8 @@ export async function POST(request: NextRequest) {
     }
 
     const client = getPancakeClient();
+    // testMode flag is stored in metadata for webhook processing
+    // TODO: Implement test mode parameter in Pancake checkout API call when SDK supports it
     const origin = request.nextUrl.origin;
     const localePrefix = locale && locale !== "en" ? `/${locale}` : "";
     const redirectTo = successPath || `${localePrefix}/pricing?plan=${newPlan}&checkout=success`;
@@ -61,6 +64,7 @@ export async function POST(request: NextRequest) {
         userId: user.id,
         switchFrom: profile.subscription_plan,
         oldOrderId: profile.subscription_order_id,
+        testMode: testMode ? "true" : "false",
       },
     });
 
@@ -68,6 +72,7 @@ export async function POST(request: NextRequest) {
       userId: user.id,
       fromPlan: profile.subscription_plan,
       toPlan: newPlan,
+      testMode,
       checkoutUrl: session.checkoutUrl,
     });
 

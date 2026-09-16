@@ -5,6 +5,7 @@ import Link from "next/link";
 import type { Dictionary } from "@/i18n/dictionaries/en";
 import type { Locale } from "@/i18n/config";
 import { useAuth } from "@/components/AuthProvider";
+import { handlePancakeTestModeActivationClick, isPancakeTestModeEnabled } from "@/lib/test-mode";
 
 interface SubscriptionStatus {
   subscribed: boolean;
@@ -25,10 +26,17 @@ export default function PricingContent({ dict, locale }: Props) {
   const [subscriptionStatus, setSubscriptionStatus] = useState<SubscriptionStatus | null>(null);
   const [actionLoading, setActionLoading] = useState<string | null>(null);
   const [message, setMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
+  const [testModeEnabled, setTestModeEnabled] = useState(false);
+  const [clicksRemaining, setClicksRemaining] = useState(0);
   const { user } = useAuth();
 
   const prefix = locale === "en" ? "" : `/${locale}`;
   const t = dict.pricing;
+
+  // 初始化 Pancake Test Mode 状态
+  useEffect(() => {
+    setTestModeEnabled(isPancakeTestModeEnabled());
+  }, []);
 
   useEffect(() => {
     if (!user) return;
@@ -336,11 +344,37 @@ export default function PricingContent({ dict, locale }: Props) {
 
           {/* Pro Plan */}
           <div className="relative flex h-full flex-col overflow-hidden rounded-2xl bg-accent p-8 ring-2 ring-accent">
-            {/* Badge */}
+            {/* Badge - Click to activate Pancake Test Mode */}
             <div className="absolute right-4 top-4">
-              <span className="rounded-full bg-white/20 px-3 py-1 text-xs font-medium text-white">
-                {t.proPlan.badge}
-              </span>
+              <button
+                onClick={() => {
+                  const result = handlePancakeTestModeActivationClick();
+                  setTestModeEnabled(isPancakeTestModeEnabled());
+                  setClicksRemaining(result.clicksRemaining);
+                  if (result.activated) {
+                    setMessage({
+                      type: "success",
+                      text: "🧪 Pancake Test Mode enabled - use test card: 4242 4242 4242 4242"
+                    });
+                  }
+                }}
+                className="rounded-full bg-white/20 px-3 py-1 text-xs font-medium text-white transition-colors hover:bg-white/30 cursor-pointer group relative"
+                title={testModeEnabled ? "✅ Test Mode Active" : `Click ${clicksRemaining || 5} more times to enable Test Mode`}
+              >
+                {testModeEnabled ? (
+                  <>
+                    <span className="inline-block mr-1">🧪</span>
+                    {t.proPlan.badge}
+                  </>
+                ) : (
+                  t.proPlan.badge
+                )}
+                {!testModeEnabled && clicksRemaining > 0 && clicksRemaining < 5 && (
+                  <span className="absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-white/20 px-2 py-1 text-xs text-white opacity-0 group-hover:opacity-100 transition-opacity">
+                    {clicksRemaining} more clicks
+                  </span>
+                )}
+              </button>
             </div>
 
             <div className="mb-6">

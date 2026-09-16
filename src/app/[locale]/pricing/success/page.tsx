@@ -3,6 +3,7 @@ import { isValidLocale, type Locale } from "@/i18n/config";
 import { notFound } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { CheckoutSuccessTracker } from "@/components/CheckoutSuccessTracker";
 import Link from "next/link";
 
 interface Props {
@@ -26,6 +27,7 @@ export default async function PaymentSuccessPage({
 
   return (
     <>
+      <CheckoutSuccessTracker type={type} />
       <Header locale={locale as Locale} dict={dict} />
       <main className="flex flex-1 items-center justify-center bg-bg-primary px-4 py-16">
         <div className="mx-auto max-w-md text-center">

@@ -45,7 +45,7 @@ export async function POST(request: Request) {
         : null;
     const profileQuery = supabase
       .from("profiles")
-      .select("id")
+      .select("id, subscription_order_id, subscription_plan")
       .limit(1);
     const { data: profile } = metadataUserId
       ? await profileQuery.eq("id", metadataUserId).maybeSingle()
@@ -109,8 +109,6 @@ export async function POST(request: Request) {
         break;
       case "subscription.activated":
       case "subscription.payment_succeeded":
-      case "subscription.updated":
-      case "subscription.uncanceled":
         if (profile?.id) {
           await supabase
             .from("profiles")
@@ -124,6 +122,72 @@ export async function POST(request: Request) {
               updated_at: new Date().toISOString(),
             })
             .eq("id", profile.id);
+        }
+        break;
+      case "subscription.updated":
+        // Plan switching: user went from one plan to another
+        if (profile?.id) {
+          const oldOrderId = profile.subscription_order_id;
+          const switchFromPlan = profile.subscription_plan;
+
+          await supabase
+            .from("profiles")
+            .update({
+              is_pro: true,
+              subscription_plan: metadataPlan ?? plan ?? "pro_monthly",
+              subscription_status: "active",
+              subscription_order_id: orderId,
+              subscription_current_period_ends_at: currentPeriodEndsAt,
+              updated_at: new Date().toISOString(),
+            })
+            .eq("id", profile.id);
+
+          // If this is a plan switch (oldOrderId != newOrderId), mark old order as superseded
+          if (oldOrderId && oldOrderId !== orderId) {
+            const switchMetadata = {
+              ...(typeof orderMetadata === 'object' && orderMetadata ? orderMetadata : {}),
+              superseded_by: orderId,
+              switched_from: switchFromPlan,
+              switched_to: metadataPlan ?? plan,
+            };
+
+            await supabase
+              .from("billing_orders")
+              .update({
+                status: "superseded",
+                metadata: switchMetadata as Json,
+                updated_at: new Date().toISOString(),
+              })
+              .eq("order_id", oldOrderId);
+
+            console.log(`[Pancake Webhook] Plan switch detected:`, {
+              userId: profile.id,
+              from: switchFromPlan,
+              to: metadataPlan ?? plan,
+              oldOrderId,
+              newOrderId: orderId,
+            });
+          }
+        }
+        break;
+      case "subscription.uncanceled":
+        // User reactivated a canceling subscription
+        if (profile?.id) {
+          await supabase
+            .from("profiles")
+            .update({
+              is_pro: true,
+              subscription_status: "active",
+              subscription_order_id: orderId,
+              subscription_current_period_ends_at: currentPeriodEndsAt,
+              updated_at: new Date().toISOString(),
+            })
+            .eq("id", profile.id);
+
+          console.log(`[Pancake Webhook] Subscription reactivated:`, {
+            userId: profile.id,
+            orderId,
+          });
         }
         break;
       case "subscription.canceling":

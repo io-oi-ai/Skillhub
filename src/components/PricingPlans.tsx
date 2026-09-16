@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import posthog from "posthog-js";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries/en";
 import { BILLING_PRICES, isProProfile, type BillingPlan } from "@/lib/billing";
@@ -31,6 +32,7 @@ export default function PricingPlans({ locale, dict }: PricingPlansProps) {
 
     try {
       setPendingPlan(plan);
+      posthog.capture("checkout_started", { plan, type: "subscription", locale });
       const response = await fetch("/api/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -59,6 +61,7 @@ export default function PricingPlans({ locale, dict }: PricingPlansProps) {
   async function handleSingleSkillCheckout() {
     try {
       setPendingPlan("single_skill");
+      posthog.capture("checkout_started", { plan: "single_skill", type: "one_time", locale });
       const response = await fetch("/api/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

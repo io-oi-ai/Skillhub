@@ -11,3 +11,16 @@ export function getPancakeClient(): WaffoPancake {
   }
   return client;
 }
+
+export async function issuePancakeSessionToken(buyerEmail: string) {
+  const pancake = getPancakeClient();
+  return pancake.auth.issueSessionToken({
+    storeId: process.env.WAFFO_STORE_ID!,
+    buyerIdentity: buyerEmail,
+  });
+}
+
+export function getPancakeBuyerSession(token: string) {
+  const pancake = getPancakeClient();
+  return pancake.buyer(token);
+}

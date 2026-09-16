@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useAuth } from "@/hooks/useAuth";
 import { getLevel } from "@/lib/points";
 import { isProProfile } from "@/lib/billing";
-import { handleTestModeActivationClick, isPancakeTestModeEnabled } from "@/lib/test-mode";
+import { enablePancakeTestMode, isPancakeTestModeEnabled } from "@/lib/test-mode";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries/en";
 
@@ -14,13 +14,12 @@ interface AuthButtonProps {
   dict: Dictionary;
 }
 
-const TEST_ACTIVATION_CLICKS = 5;
-
 export default function AuthButton({ locale, dict }: AuthButtonProps) {
   const { user, profile, loading, signOut } = useAuth();
   const [open, setOpen] = useState(false);
-  const [testModeClicks, setTestModeClicks] = useState(0);
   const [testModeEnabled, setTestModeEnabled] = useState(false);
+  const avatarClicksRef = useRef<number>(0);
+  const avatarClickTimeRef = useRef<number>(0);
   const menuRef = useRef<HTMLDivElement>(null);
 
   const prefix = locale === "en" ? "" : `/${locale}`;
@@ -66,10 +65,35 @@ export default function AuthButton({ locale, dict }: AuthButtonProps) {
   const hasPro = isProProfile(profile);
   const initial = displayName.charAt(0).toUpperCase();
 
+  const handleAvatarClick = () => {
+    const now = Date.now();
+    const timeSinceLastClick = now - avatarClickTimeRef.current;
+
+    // 重置：如果超过 5 秒没点击，重新计数
+    if (timeSinceLastClick > 5000) {
+      avatarClicksRef.current = 1;
+    } else {
+      avatarClicksRef.current += 1;
+    }
+
+    avatarClickTimeRef.current = now;
+
+    // 5 次点击激活测试模式
+    if (avatarClicksRef.current === 5) {
+      enablePancakeTestMode();
+      setTestModeEnabled(true);
+      avatarClicksRef.current = 0;
+      avatarClickTimeRef.current = 0;
+      console.log('%c🎉 Test Mode Activated via avatar!', 'color: #10b981; font-size: 14px; font-weight: bold');
+    }
+
+    setOpen((prev) => !prev);
+  };
+
   return (
     <div className="relative" ref={menuRef}>
       <button
-        onClick={() => setOpen((prev) => !prev)}
+        onClick={handleAvatarClick}
         className="flex h-8 w-8 items-center justify-center overflow-hidden rounded-full border border-border bg-bg-card transition-colors hover:border-text-muted"
         aria-label="User menu"
       >
@@ -112,27 +136,6 @@ export default function AuthButton({ locale, dict }: AuthButtonProps) {
           >
             {dict.pricing.nav}
           </Link>
-
-          {/* Hidden test mode activation button */}
-          <button
-            onClick={() => {
-              const result = handleTestModeActivationClick();
-              setTestModeClicks(TEST_ACTIVATION_CLICKS - result.clicksRemaining);
-              setTestModeEnabled(isPancakeTestModeEnabled());
-              if (result.activated) {
-                console.log('%c✅ Test Mode Activated!', 'color: #10b981; font-size: 14px; font-weight: bold');
-              }
-            }}
-            className={`w-full px-4 py-2 text-left text-xs transition-colors ${
-              testModeEnabled
-                ? 'bg-amber-50 text-amber-700 hover:bg-amber-100'
-                : 'text-text-muted hover:bg-bg-primary hover:text-text-secondary'
-            }`}
-            title={testModeEnabled ? '🧪 Test Mode Active' : '🧪 Click 5 times to enable Test Mode'}
-          >
-            {testModeEnabled ? '🧪 Test Mode: ACTIVE' : `🧪 Pancake Test Mode (${testModeClicks}/5)`}
-          </button>
-
           <button
             onClick={async () => {
               setOpen(false);

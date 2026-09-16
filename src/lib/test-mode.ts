@@ -2,7 +2,7 @@
  * Pancake Test Mode Toggle
  * Developer mode to test payments without real charges
  *
- * Activation: Click "Pancake Test Mode" button in header 5 times
+ * Activation: Click avatar 5 times within 5 seconds
  * Effect: All payments will use Pancake's test/sandbox mode (no real charges)
  *
  * Test Card Info:
@@ -13,10 +13,6 @@
 
 const PANCAKE_TEST_MODE_KEY = 'skillhub_pancake_test_mode';
 const PANCAKE_TEST_MODE_ENABLED_KEY = 'skillhub_pancake_test_mode_enabled';
-const TEST_ACTIVATION_WINDOW = 5000; // 5 seconds
-const TEST_ACTIVATION_CLICKS = 5; // Click 5 times
-
-let clickTimestamps: number[] = [];
 
 /**
  * Check if Pancake Test Mode is enabled
@@ -93,29 +89,3 @@ export function getPancakeTestModeStatus(): { enabled: boolean; enabledAt?: stri
   }
 }
 
-/**
- * Handle test mode activation click
- * Click 5 times within 5 seconds to activate
- */
-export function handleTestModeActivationClick(): { activated: boolean; clicksRemaining: number } {
-  const now = Date.now();
-
-  // 清理超过时间窗口的点击
-  clickTimestamps = clickTimestamps.filter(ts => now - ts < TEST_ACTIVATION_WINDOW);
-
-  // 添加当前点击
-  clickTimestamps.push(now);
-
-  const clicksRemaining = Math.max(0, TEST_ACTIVATION_CLICKS - clickTimestamps.length);
-
-  console.log(`%c🔘 Test Mode: Click ${clickTimestamps.length}/${TEST_ACTIVATION_CLICKS}`, 'color: #8b5cf6; font-size: 12px');
-
-  // 检查是否达到激活条件
-  if (clickTimestamps.length >= TEST_ACTIVATION_CLICKS) {
-    enablePancakeTestMode();
-    clickTimestamps = []; // 重置
-    return { activated: true, clicksRemaining: 0 };
-  }
-
-  return { activated: false, clicksRemaining };
-}

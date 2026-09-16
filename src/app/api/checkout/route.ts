@@ -10,7 +10,7 @@ import { createSupabaseAdmin } from "@/lib/supabase-admin";
 
 export async function POST(request: NextRequest) {
   const body = await request.json();
-  const { productId, productType, buyerEmail, skillId, plan, locale, successPath, withTrial } = body;
+  const { productId, productType, buyerEmail, skillId, plan, locale, successPath, withTrial, testMode } = body;
 
   let resolvedProductId = productId as string | undefined;
   let resolvedProductType = productType as "subscription" | "onetime" | undefined;
@@ -51,7 +51,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Missing productId or productType" }, { status: 400 });
   }
 
-  const client = getPancakeClient();
+  const client = getPancakeClient(testMode === true);
   const origin = request.nextUrl.origin;
   const localePrefix = locale && locale !== "en" ? `/${locale}` : "";
   const redirectTo =

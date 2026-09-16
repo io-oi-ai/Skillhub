@@ -1,15 +1,28 @@
 import { WaffoPancake } from "@waffo/pancake-ts";
 
-let client: WaffoPancake | null = null;
+let prodClient: WaffoPancake | null = null;
+let testClient: WaffoPancake | null = null;
 
-export function getPancakeClient(): WaffoPancake {
-  if (!client) {
-    client = new WaffoPancake({
+export function getPancakeClient(testMode: boolean = false): WaffoPancake {
+  // When testMode is enabled, use test credentials (if configured)
+  if (testMode && process.env.WAFFO_TEST_MERCHANT_ID && process.env.WAFFO_TEST_PRIVATE_KEY) {
+    if (!testClient) {
+      testClient = new WaffoPancake({
+        merchantId: process.env.WAFFO_TEST_MERCHANT_ID,
+        privateKey: process.env.WAFFO_TEST_PRIVATE_KEY,
+      });
+    }
+    return testClient;
+  }
+
+  // Default to production client
+  if (!prodClient) {
+    prodClient = new WaffoPancake({
       merchantId: process.env.WAFFO_MERCHANT_ID!,
       privateKey: process.env.WAFFO_PRIVATE_KEY!,
     });
   }
-  return client;
+  return prodClient;
 }
 
 export async function issuePancakeSessionToken(buyerEmail: string) {

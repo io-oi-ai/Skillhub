@@ -48,9 +48,8 @@ export async function POST(request: NextRequest) {
       throw new Error(`No product ID found for plan ${newPlan}`);
     }
 
-    const client = getPancakeClient();
-    // testMode flag is stored in metadata for webhook processing
-    // TODO: Implement test mode parameter in Pancake checkout API call when SDK supports it
+    // Get Pancake client with test mode if enabled
+    const client = getPancakeClient(testMode === true);
     const origin = request.nextUrl.origin;
     const localePrefix = locale && locale !== "en" ? `/${locale}` : "";
     const redirectTo = successPath || `${localePrefix}/pricing?plan=${newPlan}&checkout=success`;

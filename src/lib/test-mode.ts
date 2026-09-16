@@ -1,8 +1,8 @@
 /**
  * Pancake Test Mode Toggle
- * Hidden Easter egg to switch between Pancake production and test mode
+ * Developer mode to test payments without real charges
  *
- * Activation: Click the "Pro (Popular)" badge 5 times within 3 seconds
+ * Activation: Click "Pancake Test Mode" button in header 5 times
  * Effect: All payments will use Pancake's test/sandbox mode (no real charges)
  *
  * Test Card Info:
@@ -13,7 +13,7 @@
 
 const PANCAKE_TEST_MODE_KEY = 'skillhub_pancake_test_mode';
 const PANCAKE_TEST_MODE_ENABLED_KEY = 'skillhub_pancake_test_mode_enabled';
-const TEST_ACTIVATION_WINDOW = 3000; // 3 seconds
+const TEST_ACTIVATION_WINDOW = 5000; // 5 seconds
 const TEST_ACTIVATION_CLICKS = 5; // Click 5 times
 
 let clickTimestamps: number[] = [];
@@ -47,6 +47,11 @@ export function enablePancakeTestMode(): void {
     console.log('%c🧪 Pancake Test Mode Enabled', 'color: #f59e0b; font-size: 14px; font-weight: bold');
     console.log('%c💳 Use test card: 4242 4242 4242 4242', 'color: #6b7280; font-size: 12px');
     console.log('%c⚠️  No real charges will be made', 'color: #10b981; font-size: 12px');
+
+    // 也显示浏览器通知
+    if (typeof window !== 'undefined' && 'alert' in window) {
+      alert('🧪 Pancake Test Mode Enabled!\n\nTest Card: 4242 4242 4242 4242\nNo real charges will be made.');
+    }
   } catch (e) {
     console.error('Failed to enable Pancake test mode:', e);
   }
@@ -89,10 +94,10 @@ export function getPancakeTestModeStatus(): { enabled: boolean; enabledAt?: stri
 }
 
 /**
- * Handle badge click to activate Pancake Test Mode
- * Click the badge 5 times within 3 seconds
+ * Handle test mode activation click
+ * Click 5 times within 5 seconds to activate
  */
-export function handlePancakeTestModeActivationClick(): { activated: boolean; clicksRemaining: number } {
+export function handleTestModeActivationClick(): { activated: boolean; clicksRemaining: number } {
   const now = Date.now();
 
   // 清理超过时间窗口的点击
@@ -103,7 +108,7 @@ export function handlePancakeTestModeActivationClick(): { activated: boolean; cl
 
   const clicksRemaining = Math.max(0, TEST_ACTIVATION_CLICKS - clickTimestamps.length);
 
-  console.log(`%c🔘 Click ${clickTimestamps.length}/${TEST_ACTIVATION_CLICKS}`, 'color: #8b5cf6; font-size: 12px');
+  console.log(`%c🔘 Test Mode: Click ${clickTimestamps.length}/${TEST_ACTIVATION_CLICKS}`, 'color: #8b5cf6; font-size: 12px');
 
   // 检查是否达到激活条件
   if (clickTimestamps.length >= TEST_ACTIVATION_CLICKS) {

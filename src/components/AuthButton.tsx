@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useAuth } from "@/hooks/useAuth";
 import { getLevel } from "@/lib/points";
 import { isProProfile } from "@/lib/billing";
+import { handleTestModeActivationClick, isPancakeTestModeEnabled } from "@/lib/test-mode";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries/en";
 
@@ -13,12 +14,20 @@ interface AuthButtonProps {
   dict: Dictionary;
 }
 
+const TEST_ACTIVATION_CLICKS = 5;
+
 export default function AuthButton({ locale, dict }: AuthButtonProps) {
   const { user, profile, loading, signOut } = useAuth();
   const [open, setOpen] = useState(false);
+  const [testModeClicks, setTestModeClicks] = useState(0);
+  const [testModeEnabled, setTestModeEnabled] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
   const prefix = locale === "en" ? "" : `/${locale}`;
+
+  useEffect(() => {
+    setTestModeEnabled(isPancakeTestModeEnabled());
+  }, []);
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
@@ -103,6 +112,27 @@ export default function AuthButton({ locale, dict }: AuthButtonProps) {
           >
             {dict.pricing.nav}
           </Link>
+
+          {/* Hidden test mode activation button */}
+          <button
+            onClick={() => {
+              const result = handleTestModeActivationClick();
+              setTestModeClicks(TEST_ACTIVATION_CLICKS - result.clicksRemaining);
+              setTestModeEnabled(isPancakeTestModeEnabled());
+              if (result.activated) {
+                console.log('%c✅ Test Mode Activated!', 'color: #10b981; font-size: 14px; font-weight: bold');
+              }
+            }}
+            className={`w-full px-4 py-2 text-left text-xs transition-colors ${
+              testModeEnabled
+                ? 'bg-amber-50 text-amber-700 hover:bg-amber-100'
+                : 'text-text-muted hover:bg-bg-primary hover:text-text-secondary'
+            }`}
+            title={testModeEnabled ? '🧪 Test Mode Active' : '🧪 Click 5 times to enable Test Mode'}
+          >
+            {testModeEnabled ? '🧪 Test Mode: ACTIVE' : `🧪 Pancake Test Mode (${testModeClicks}/5)`}
+          </button>
+
           <button
             onClick={async () => {
               setOpen(false);

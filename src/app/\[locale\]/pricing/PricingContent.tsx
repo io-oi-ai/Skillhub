@@ -63,13 +63,17 @@ export default function PricingContent({ dict, locale }: Props) {
     }
     setIsLoading(plan);
     try {
+      const testModeValue = isPancakeTestModeEnabled();
+      console.log('[PricingContent] handleCheckout testMode:', testModeValue);
+      console.log('[PricingContent] localStorage testMode:', localStorage.getItem('skillhub_pancake_test_mode_enabled'));
+
       const res = await fetch("/api/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           type: "subscription",
           plan,
-          testMode: isPancakeTestModeEnabled(),
+          testMode: testModeValue,
         }),
       });
       const data = await res.json();

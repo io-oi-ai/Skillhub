@@ -1,43 +1,30 @@
 import { WaffoPancake } from "@waffo/pancake-ts";
 
 /**
- * Create a custom fetch wrapper that injects X-Environment header
- * Each request gets its own closure to avoid concurrency issues
- */
-function createCustomFetch(testMode: boolean): typeof fetch {
-  return (input: URL | RequestInfo, init?: RequestInit): Promise<Response> => {
-    const headers = new Headers(init?.headers);
-
-    // 注入 X-Environment header 以切换测试环境
-    if (testMode) {
-      headers.set("X-Environment", "test");
-      console.log("[Pancake Fetch] 🧪 Test Mode - Setting X-Environment: test");
-    } else {
-      console.log("[Pancake Fetch] 🏢 Production Mode");
-    }
-
-    console.log("[Pancake Fetch] URL:", String(input).substring(0, 100));
-    console.log("[Pancake Fetch] Headers:", {
-      'X-Environment': headers.get('X-Environment'),
-      'X-Merchant-Id': headers.get('X-Merchant-Id'),
-    });
-
-    return fetch(input, { ...init, headers });
-  };
-}
-
-/**
  * Get Pancake client for production or test environment
- * Each call creates a fresh client to avoid concurrency issues with test mode
+ * Uses different credentials based on testMode flag
+ *
+ * 生产和测试环境有不同的 API Key，所以在初始化时就要选择正确的环境
  */
 export function getPancakeClient(testMode: boolean = false): WaffoPancake {
-  console.log("[getPancakeClient] Creating client with testMode:", testMode);
+  let merchantId: string;
+  let privateKey: string;
+
+  if (testMode) {
+    // 测试环境使用测试 API Key
+    merchantId = process.env.WAFFO_TEST_MERCHANT_ID || process.env.WAFFO_MERCHANT_ID!;
+    privateKey = process.env.WAFFO_TEST_PRIVATE_KEY || process.env.WAFFO_PRIVATE_KEY!;
+    console.log("[getPancakeClient] 🧪 Using TEST environment credentials");
+  } else {
+    // 生产环境使用生产 API Key
+    merchantId = process.env.WAFFO_MERCHANT_ID!;
+    privateKey = process.env.WAFFO_PRIVATE_KEY!;
+    console.log("[getPancakeClient] 🏢 Using PRODUCTION environment credentials");
+  }
 
   return new WaffoPancake({
-    merchantId: process.env.WAFFO_MERCHANT_ID!,
-    privateKey: process.env.WAFFO_PRIVATE_KEY!,
-    // 为每个 client 创建独立的 fetch wrapper，避免全局状态竞态
-    fetch: createCustomFetch(testMode),
+    merchantId,
+    privateKey,
   });
 }
 

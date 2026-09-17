@@ -1,0 +1,2 @@
+[    8046ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://qivmjeeyolhloujhwihi.supabase.co/auth/v1/authorize?provider=github&redirect_to=http%3A%2F%2Flocalhost%3A3000%2Fauth%2Fcallback&code_challenge=KC3Jgds0rH8SAfh072YoTwye5O-FyTAACKcKuD00O5A&code_challenge_method=s256:0
+[    8206ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://qivmjeeyolhloujhwihi.supabase.co/favicon.ico:0

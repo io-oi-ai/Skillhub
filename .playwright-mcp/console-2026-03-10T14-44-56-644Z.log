@@ -1,0 +1,9 @@
+[   86831ms] TypeError: Cannot read properties of undefined (reading 'structure')
+    at fn (http://localhost:3001/_next/static/chunks/c2fc1_next_dist_compiled_react-server-dom-turbopack_ff6606b9._.js:1915:24)
+    at resolveErrorDev (http://localhost:3001/_next/static/chunks/c2fc1_next_dist_compiled_react-server-dom-turbopack_ff6606b9._.js:1894:148)
+    at processFullStringRow (http://localhost:3001/_next/static/chunks/c2fc1_next_dist_compiled_react-server-dom-turbopack_ff6606b9._.js:2402:29)
+    at processFullBinaryRow (http://localhost:3001/_next/static/chunks/c2fc1_next_dist_compiled_react-server-dom-turbopack_ff6606b9._.js:2361:9)
+    at processBinaryChunk (http://localhost:3001/_next/static/chunks/c2fc1_next_dist_compiled_react-server-dom-turbopack_ff6606b9._.js:2470:221)
+    at progress (http://localhost:3001/_next/static/chunks/c2fc1_next_dist_compiled_react-server-dom-turbopack_ff6606b9._.js:2640:13)
+[  119221ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ http://localhost:3001/_next/static/chunks/c2fc1_next_dist_03d21e83._.js:2297
+[  119236ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ http://localhost:3001/_next/static/chunks/c2fc1_next_dist_03d21e83._.js:2297

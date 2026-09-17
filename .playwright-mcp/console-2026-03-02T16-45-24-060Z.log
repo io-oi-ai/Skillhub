@@ -1,0 +1,2 @@
+[   17261ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/skill/general-brainstorming/versions?_rsc=nfmox:0
+[   17548ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/skill/general-brainstorming/versions:0

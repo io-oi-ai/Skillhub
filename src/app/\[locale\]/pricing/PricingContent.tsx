@@ -5,7 +5,7 @@ import Link from "next/link";
 import type { Dictionary } from "@/i18n/dictionaries/en";
 import type { Locale } from "@/i18n/config";
 import { useAuth } from "@/components/AuthProvider";
-import { handlePancakeTestModeActivationClick, isPancakeTestModeEnabled } from "@/lib/test-mode";
+import { isPancakeTestModeEnabled } from "@/lib/test-mode";
 
 interface SubscriptionStatus {
   subscribed: boolean;
@@ -66,7 +66,11 @@ export default function PricingContent({ dict, locale }: Props) {
       const res = await fetch("/api/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ type: "subscription", plan }),
+        body: JSON.stringify({
+          type: "subscription",
+          plan,
+          testMode: isPancakeTestModeEnabled(),
+        }),
       });
       const data = await res.json();
       if (data.url) {

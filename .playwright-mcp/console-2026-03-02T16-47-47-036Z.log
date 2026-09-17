@@ -1,0 +1,3 @@
+[    1936ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/api/skills/general-brainstorming/versions:0
+[  264553ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=QOCpbgTkyYEYPcmH9lRLR' failed:  @ http://localhost:3000/_next/static/chunks/c2fc1_next_dist_client_e8b6fe15._.js:10878
+[  265565ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=QOCpbgTkyYEYPcmH9lRLR' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/c2fc1_next_dist_client_e8b6fe15._.js:10878

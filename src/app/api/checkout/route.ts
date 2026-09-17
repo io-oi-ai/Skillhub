@@ -52,6 +52,9 @@ export async function POST(request: NextRequest) {
   }
 
   const client = getPancakeClient(testMode === true);
+
+  // 日志记录 test mode 状态
+  console.log("[api/checkout] testMode:", testMode, "for plan:", plan);
   const origin = request.nextUrl.origin;
   const localePrefix = locale && locale !== "en" ? `/${locale}` : "";
   const redirectTo =

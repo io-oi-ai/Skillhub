@@ -1,45 +1,45 @@
 import { WaffoPancake } from "@waffo/pancake-ts";
 
-let prodClient: WaffoPancake | null = null;
-let testClient: WaffoPancake | null = null;
+let client: WaffoPancake | null = null;
 
 /**
- * Custom fetch wrapper to inject X-Environment header for test mode
+ * Custom fetch wrapper to inject X-Environment header
+ * This enables test mode by sending the header to Pancake API
  */
-function createFetchWithEnvironment(testMode: boolean): typeof fetch {
+let testModeEnabled = false;
+
+function createCustomFetch(): typeof fetch {
   return (input: URL | RequestInfo, init?: RequestInit): Promise<Response> => {
     const headers = new Headers(init?.headers);
-    if (testMode) {
+
+    // 如果启用了 test mode，注入 header
+    if (testModeEnabled) {
       headers.set("X-Environment", "test");
     }
+
     return fetch(input, { ...init, headers });
   };
 }
 
 export function getPancakeClient(testMode: boolean = false): WaffoPancake {
-  // When testMode is enabled, use test environment
-  if (testMode) {
-    if (!testClient) {
-      testClient = new WaffoPancake({
-        merchantId: process.env.WAFFO_MERCHANT_ID!,
-        privateKey: process.env.WAFFO_PRIVATE_KEY!,
-        // Use custom fetch that injects X-Environment: test header
-        fetch: createFetchWithEnvironment(true),
-      });
-    }
-    return testClient;
+  // 更新全局 test mode 状态
+  if (testMode !== testModeEnabled) {
+    testModeEnabled = testMode;
+    // 重置 client 以使用新的 fetch
+    client = null;
   }
 
-  // Default to production client
-  if (!prodClient) {
-    prodClient = new WaffoPancake({
+  // 创建或重用 client
+  if (!client) {
+    client = new WaffoPancake({
       merchantId: process.env.WAFFO_MERCHANT_ID!,
       privateKey: process.env.WAFFO_PRIVATE_KEY!,
-      // Use custom fetch with no environment header (defaults to prod)
-      fetch: createFetchWithEnvironment(false),
+      // 使用自定义 fetch，它会根据 testModeEnabled 动态注入 header
+      fetch: createCustomFetch(),
     });
   }
-  return prodClient;
+
+  return client;
 }
 
 export async function issuePancakeSessionToken(buyerEmail: string) {

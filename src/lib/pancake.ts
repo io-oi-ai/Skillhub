@@ -11,9 +11,16 @@ function createCustomFetch(testMode: boolean): typeof fetch {
     // 注入 X-Environment header 以切换测试环境
     if (testMode) {
       headers.set("X-Environment", "test");
+      console.log("[Pancake Fetch] 🧪 Test Mode - Setting X-Environment: test");
+    } else {
+      console.log("[Pancake Fetch] 🏢 Production Mode");
     }
 
-    console.log("[Pancake Client] Fetch with X-Environment:", testMode ? "test" : "prod");
+    console.log("[Pancake Fetch] URL:", String(input).substring(0, 100));
+    console.log("[Pancake Fetch] Headers:", {
+      'X-Environment': headers.get('X-Environment'),
+      'X-Merchant-Id': headers.get('X-Merchant-Id'),
+    });
 
     return fetch(input, { ...init, headers });
   };

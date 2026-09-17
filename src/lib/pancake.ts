@@ -1,45 +1,37 @@
 import { WaffoPancake } from "@waffo/pancake-ts";
 
-let client: WaffoPancake | null = null;
-
 /**
- * Custom fetch wrapper to inject X-Environment header
- * This enables test mode by sending the header to Pancake API
+ * Create a custom fetch wrapper that injects X-Environment header
+ * Each request gets its own closure to avoid concurrency issues
  */
-let testModeEnabled = false;
-
-function createCustomFetch(): typeof fetch {
+function createCustomFetch(testMode: boolean): typeof fetch {
   return (input: URL | RequestInfo, init?: RequestInit): Promise<Response> => {
     const headers = new Headers(init?.headers);
 
-    // 如果启用了 test mode，注入 header
-    if (testModeEnabled) {
+    // 注入 X-Environment header 以切换测试环境
+    if (testMode) {
       headers.set("X-Environment", "test");
     }
+
+    console.log("[Pancake Client] Fetch with X-Environment:", testMode ? "test" : "prod");
 
     return fetch(input, { ...init, headers });
   };
 }
 
+/**
+ * Get Pancake client for production or test environment
+ * Each call creates a fresh client to avoid concurrency issues with test mode
+ */
 export function getPancakeClient(testMode: boolean = false): WaffoPancake {
-  // 更新全局 test mode 状态
-  if (testMode !== testModeEnabled) {
-    testModeEnabled = testMode;
-    // 重置 client 以使用新的 fetch
-    client = null;
-  }
+  console.log("[getPancakeClient] Creating client with testMode:", testMode);
 
-  // 创建或重用 client
-  if (!client) {
-    client = new WaffoPancake({
-      merchantId: process.env.WAFFO_MERCHANT_ID!,
-      privateKey: process.env.WAFFO_PRIVATE_KEY!,
-      // 使用自定义 fetch，它会根据 testModeEnabled 动态注入 header
-      fetch: createCustomFetch(),
-    });
-  }
-
-  return client;
+  return new WaffoPancake({
+    merchantId: process.env.WAFFO_MERCHANT_ID!,
+    privateKey: process.env.WAFFO_PRIVATE_KEY!,
+    // 为每个 client 创建独立的 fetch wrapper，避免全局状态竞态
+    fetch: createCustomFetch(testMode),
+  });
 }
 
 export async function issuePancakeSessionToken(buyerEmail: string) {

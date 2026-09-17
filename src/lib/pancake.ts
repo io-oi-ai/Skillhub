@@ -2,29 +2,33 @@ import { WaffoPancake } from "@waffo/pancake-ts";
 
 /**
  * Get Pancake client for production or test environment
- * Uses different credentials based on testMode flag
+ * Injects X-Environment header via custom fetch wrapper
  *
- * 生产和测试环境有不同的 API Key，所以在初始化时就要选择正确的环境
+ * Pancake 用 X-Environment header 来区分测试/生产环境
+ * SDK 默认不注入，所以需要自定义 fetch wrapper
  */
 export function getPancakeClient(testMode: boolean = false): WaffoPancake {
-  let merchantId: string;
-  let privateKey: string;
+  const merchantId = process.env.WAFFO_MERCHANT_ID!;
+  const privateKey = process.env.WAFFO_PRIVATE_KEY!;
 
-  if (testMode) {
-    // 测试环境使用测试 API Key
-    merchantId = process.env.WAFFO_TEST_MERCHANT_ID || process.env.WAFFO_MERCHANT_ID!;
-    privateKey = process.env.WAFFO_TEST_PRIVATE_KEY || process.env.WAFFO_PRIVATE_KEY!;
-    console.log("[getPancakeClient] 🧪 Using TEST environment credentials");
-  } else {
-    // 生产环境使用生产 API Key
-    merchantId = process.env.WAFFO_MERCHANT_ID!;
-    privateKey = process.env.WAFFO_PRIVATE_KEY!;
-    console.log("[getPancakeClient] 🏢 Using PRODUCTION environment credentials");
-  }
+  const environment = testMode ? "test" : "prod";
+  console.log(`[getPancakeClient] Using ${environment.toUpperCase()} environment`);
+
+  // 创建自定义 fetch wrapper，注入 X-Environment header
+  const customFetch: typeof fetch = async (input, init) => {
+    const headers = new Headers(init?.headers || {});
+    headers.set("X-Environment", environment);
+
+    return fetch(input, {
+      ...init,
+      headers,
+    });
+  };
 
   return new WaffoPancake({
     merchantId,
     privateKey,
+    fetch: customFetch as typeof fetch,
   });
 }
 
